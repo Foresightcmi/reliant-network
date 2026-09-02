@@ -1,0 +1,60 @@
+import json
+import os
+import sqlite3
+
+METROS = [
+    {"city": "Atlanta", "state": "GA", "state_full": "Georgia", "slug": "atlanta-ga", "avg_cost": 2800, "min_cost": 1900, "max_cost": 7500, "season": "April - June & Sept - Nov", "venues": "Vineyards, Historic Mansions & Film Sets", "permits": "City of Atlanta Sanitation & Venue Permit"},
+    {"city": "Dallas", "state": "TX", "state_full": "Texas", "slug": "dallas-tx", "avg_cost": 3200, "min_cost": 2100, "max_cost": 8200, "season": "October - May", "venues": "Ranches, Equestrian Centers & Country Clubs", "permits": "DFW Regional Health Dept Clearance"},
+    {"city": "Miami", "state": "FL", "state_full": "Florida", "slug": "miami-fl", "avg_cost": 3900, "min_cost": 2600, "max_cost": 9500, "season": "November - April", "venues": "Beachfront Villas, Art Basel Venues & Yacht Clubs", "permits": "Miami-Dade County Special Event Sanitation"},
+    {"city": "Austin", "state": "TX", "state_full": "Texas", "slug": "austin-tx", "avg_cost": 2950, "min_cost": 1950, "max_cost": 7400, "season": "March - May & Sept - Nov", "venues": "Hill Country Barns, Tech Summits & Music Festivals", "permits": "Travis County Temporary Food & Health Permit"},
+    {"city": "Los Angeles", "state": "CA", "state_full": "California", "slug": "los-angeles-ca", "avg_cost": 4200, "min_cost": 2800, "max_cost": 12000, "season": "Year-Round Peak", "venues": "Hollywood Studios, Malibu Estates & Celebrity Galas", "permits": "LA County Public Health Event Guidelines"},
+    {"city": "Chicago", "state": "IL", "state_full": "Illinois", "slug": "chicago-il", "avg_cost": 3100, "min_cost": 1900, "max_cost": 7200, "season": "May - October", "venues": "Lakefront Pavilions, Rooftops & Historic Warehouses", "permits": "City of Chicago Dept of Public Health"},
+    {"city": "Napa Valley", "state": "CA", "state_full": "California", "slug": "napa-valley-ca", "avg_cost": 4500, "min_cost": 2900, "max_cost": 11500, "season": "May - October (Harvest Season)", "venues": "Wineries, Private Vineyards & Luxury Resorts", "permits": "Napa County Environmental Health"},
+    {"city": "Scottsdale", "state": "AZ", "state_full": "Arizona", "slug": "scottsdale-az", "avg_cost": 3400, "min_cost": 2200, "max_cost": 8500, "season": "October - April", "venues": "Desert Resorts, Golf Galas & Private Ranches", "permits": "Maricopa County Environmental Services"},
+    {"city": "Savannah", "state": "GA", "state_full": "Georgia", "slug": "savannah-ga", "avg_cost": 2700, "min_cost": 1800, "max_cost": 6900, "season": "March - May & Oct - Dec", "venues": "Oak Squares, Antebellum Estates & Riverfront Galas", "permits": "Chatham County Health Dept Permit"},
+    {"city": "Charleston", "state": "SC", "state_full": "South Carolina", "slug": "charleston-sc", "avg_cost": 3300, "min_cost": 2200, "max_cost": 8400, "season": "April - June & Sept - Nov", "venues": "Lowcountry Plantations, Coastal Pavilions & Historic Inns", "permits": "Charleston County Sanitation Guidelines"},
+    {"city": "Nashville", "state": "TN", "state_full": "Tennessee", "slug": "nashville-tn", "avg_cost": 2900, "min_cost": 1900, "max_cost": 7800, "season": "April - October", "venues": "Music City Farms, Celebrity Estates & Amphitheaters", "permits": "Metro Public Health Dept Nashville"},
+    {"city": "Denver", "state": "CO", "state_full": "Colorado", "slug": "denver-co", "avg_cost": 3200, "min_cost": 2100, "max_cost": 8000, "season": "June - September (Mountain Summer)", "venues": "Mountain Lodges, Foothill Ranches & Ski Resorts", "permits": "Denver Dept of Public Health & Environment"},
+    {"city": "Hamptons", "state": "NY", "state_full": "New York", "slug": "hamptons-ny", "avg_cost": 5200, "min_cost": 3500, "max_cost": 15000, "season": "Memorial Day - Labor Day", "venues": "Oceanfront Estates, Polo Clubs & Vineyard Galas", "permits": "Suffolk County Dept of Health Services"},
+    {"city": "Aspen", "state": "CO", "state_full": "Colorado", "slug": "aspen-co", "avg_cost": 5500, "min_cost": 3800, "max_cost": 16500, "season": "June - Aug & Dec - March", "venues": "Mountain Tops, Luxury Chalets & Private Ranches", "permits": "Pitkin County Environmental Health"}
+]
+
+DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "pseo_metros.json")
+SITEMAP_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "apps", "web", "public", "sitemap.xml")
+
+def generate_pseo_data():
+    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
+    with open(DATA_PATH, "w", encoding="utf-8") as f:
+        json.dump(METROS, f, indent=2)
+    print(f"Generated pSEO Data for {len(METROS)} flagship metros at {DATA_PATH}")
+
+def generate_sitemap(base_url="https://reliantverified.com"):
+    urls = [
+        {"loc": f"{base_url}/", "priority": "1.0", "changefreq": "daily"},
+        {"loc": f"{base_url}/#directory", "priority": "0.9", "changefreq": "daily"},
+        {"loc": f"{base_url}/#metros", "priority": "0.9", "changefreq": "weekly"}
+    ]
+
+    for m in METROS:
+        urls.append({"loc": f"{base_url}/metro/{m['slug']}", "priority": "0.8", "changefreq": "weekly"})
+        urls.append({"loc": f"{base_url}/cost/{m['slug']}", "priority": "0.8", "changefreq": "weekly"})
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    ]
+    for u in urls:
+        xml_lines.append(f"  <url>")
+        xml_lines.append(f"    <loc>{u['loc']}</loc>")
+        xml_lines.append(f"    <changefreq>{u['changefreq']}</changefreq>")
+        xml_lines.append(f"    <priority>{u['priority']}</priority>")
+        xml_lines.append(f"  </url>")
+    xml_lines.append('</urlset>')
+
+    with open(SITEMAP_PATH, "w", encoding="utf-8") as f:
+        f.write("\n".join(xml_lines))
+    print(f"Generated XML Sitemap with {len(urls)} URLs at {SITEMAP_PATH}")
+
+if __name__ == "__main__":
+    generate_pseo_data()
+    generate_sitemap()

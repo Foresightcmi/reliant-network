@@ -1,0 +1,97 @@
+{
+  "active_niche": "luxury_restrooms",
+  "niches": {
+    "luxury_restrooms": {
+      "id": "luxury_restrooms",
+      "name": "Luxury Restroom Trailers & VIP Mobile Sanitation",
+      "brand_title": "The Reliant Network Directory",
+      "tagline": "The Premier National Directory for Luxury Restroom Trailers, VIP Sanitation & Event Suites",
+      "avg_ticket_size": "$2,500 - $8,500",
+      "lead_payout_range": "$65 - $150",
+      "monthly_subscription_price": 99,
+      "categories": [
+        "2-Station Luxury Trailers (Up to 150 guests)",
+        "3-5 Station VIP Event Suites (150 - 350 guests)",
+        "8-10 Station Festival & Gala Trailers (400 - 1000+ guests)",
+        "ADA Compliant Luxury Restrooms",
+        "Film & Commercial Honeywagons",
+        "Solar / Off-Grid Luxury Units"
+      ],
+      "amenities": [
+        "Flushing Porcelain Toilets",
+        "Full Climate Control (A/C & Heat)",
+        "Running Hot/Cold Water & Granite Vanities",
+        "LED Vanity Mirrors & Ambient Lighting",
+        "Bluetooth Sound Systems",
+        "Hardwood & Marble Style Flooring",
+        "Self-Contained Water & Generator Power",
+        "On-Site Attendant Service Available"
+      ],
+      "target_metros": [
+        {
+          "city": "Atlanta",
+          "state": "GA",
+          "slug": "atlanta-ga",
+          "avg_cost": "$2,800",
+          "popular_events": "Weddings, Film Shoots, Corporate Retreats",
+          "lat": 33.749,
+          "lng": -84.388
+        },
+        {
+          "city": "Dallas",
+          "state": "TX",
+          "slug": "dallas-tx",
+          "avg_cost": "$3,200",
+          "popular_events": "Ranch Weddings, Equestrian Galas, Sports VIP",
+          "lat": 32.7767,
+          "lng": -96.797
+        },
+        {
+          "city": "Miami",
+          "state": "FL",
+          "slug": "miami-fl",
+          "avg_cost": "$3,900",
+          "popular_events": "Art Basel, Yacht Parties, Beachfront Weddings",
+          "lat": 25.7617,
+          "lng": -80.1918
+        },
+        {
+          "city": "Austin",
+          "state": "TX",
+          "slug": "austin-tx",
+          "avg_cost": "$2,950",
+          "popular_events": "Music Festivals, Vineyard Weddings, Tech Summits",
+          "lat": 30.2672,
+          "lng": -97.7431
+        },
+        {
+          "city": "Los Angeles",
+          "state": "CA",
+          "slug": "los-angeles-ca",
+          "avg_cost": "$4,200",
+          "popular_events": "Hollywood Productions, Celebrity Galas, Vineyard Events",
+          "lat": 34.0522,
+          "lng": -118.2437
+        },
+        {
+          "city": "Chicago",
+          "state": "IL",
+          "slug": "chicago-il",
+          "avg_cost": "$3,100",
+          "popular_events": "Lakefront Galas, Architecture Tours, Corporate Events",
+          "lat": 41.8781,
+          "lng": -87.6298
+        }
+      ]
+    },
+    "commercial_cold_storage": {
+      "id": "commercial_cold_storage",
+      "name": "Commercial Mobile Cold Storage & Reefer Trailers",
+      "brand_title": "FreezeFlow Pro",
+      "tagline": "The B2B Directory for Mobile Walk-In Freezers, Emergency Cold Storage & Refrigerated Trailers",
+      "avg_ticket_size": "$3,500 - $18,000",
+      "lead_payout_range": "$100 - $250",
+      "monthly_subscription_price": 149
+    }
+  }
+}

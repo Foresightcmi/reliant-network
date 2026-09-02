@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Reliant Network | Multi-Vertical High-Ticket B2B Rental Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+    .gold-text { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-slate-950 px-4 py-2 text-xs font-bold tracking-wide text-center flex items-center justify-center gap-2">
+    <i data-lucide="shield-check" class="w-4 h-4"></i>
+    <span>Autonomous Multi-Vertical B2B Portfolio: Restrooms &bull; Cold Storage &bull; Heavy Cranes &bull; Senior Care</span>
+    <span class="hidden md:inline bg-slate-950 text-amber-400 px-2 py-0.5 rounded-full text-[10px] ml-2">Edge Pre-Rendered (0ms)</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="layers" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-bold font-serif-title tracking-tight text-white flex items-center gap-1.5">
+            Privy<span class="text-amber-400 font-sans font-extrabold">Luxe</span>
+          </span>
+          <span class="text-[10px] text-slate-400 tracking-wider block font-semibold uppercase">High-Ticket B2B Directory Network</span>
+        </div>
+      </div>
+
+      <!-- NICHE SELECTOR PILLS IN NAVBAR -->
+      <div class="hidden lg:flex items-center gap-1 bg-slate-900 border border-slate-800 p-1.5 rounded-2xl">
+        <button onclick="switchNiche('luxury_restrooms')" id="niche-btn-restrooms" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md">
+          VIP Restrooms ($85/lead)
+        </button>
+        <button onclick="switchNiche('commercial_cold_storage')" id="niche-btn-cold" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+          Cold Storage ($125/lead)
+        </button>
+        <button onclick="switchNiche('heavy_crane_rigging')" id="niche-btn-crane" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+          Heavy Cranes ($175/lead)
+        </button>
+        <button onclick="switchNiche('senior_care_placement')" id="niche-btn-senior" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+          65+ Senior Care ($250/lead)
+        </button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-semibold bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/30 text-xs">
+          <i data-lucide="line-chart" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Cash Flow Command</span>
+        </button>
+        <button onclick="openQuoteModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          <span>Instant Quote</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-16 pb-20 overflow-hidden border-b border-slate-800">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-slate-950/0 to-slate-950"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div id="hero-badge" class="inline-flex items-center gap-2 bg-slate-900/80 border border-slate-700/60 px-4 py-1.5 rounded-full text-xs font-semibold text-amber-400 mb-6 shadow-inner">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        <span>Verified High-Ticket Commercial &amp; VIP Fleets</span>
+      </div>
+
+      <h1 id="hero-title" class="text-4xl sm:text-6xl font-serif-title font-bold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings, VIP Galas &amp; Productions</span>
+      </h1>
+      
+      <p id="hero-desc" class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+        Browse top-rated luxury restroom trailers with flushing porcelain toilets, climate control, running hot water, and granite vanities. Get instant quotes matched to verified operators.
+      </p>
+
+      <!-- SEARCH & FILTER BAR -->
+      <div class="mt-10 max-w-4xl mx-auto bg-slate-900/90 border border-slate-700/80 p-4 rounded-2xl shadow-2xl backdrop-blur-xl grid grid-cols-1 sm:grid-cols-4 gap-3 text-left">
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Target Metro</label>
+          <select id="filter-city" onchange="loadVendors()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+            <option value="All">All Major Metros</option>
+            <option value="Atlanta">Atlanta, GA</option>
+            <option value="Dallas">Dallas, TX</option>
+            <option value="Miami">Miami, FL</option>
+            <option value="Austin">Austin, TX</option>
+            <option value="Los Angeles">Los Angeles, CA</option>
+            <option value="Chicago">Chicago, IL</option>
+            <option value="Napa Valley">Napa Valley, CA</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Feature / Spec</label>
+          <select id="filter-amenity" onchange="loadVendors()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+            <option value="">All Features</option>
+            <option value="ADA Compliant">ADA Compliant</option>
+            <option value="Climate Controlled A/C">Climate Controlled A/C</option>
+            <option value="-20F to 50F Temp Range">-20F Deep Freeze</option>
+            <option value="NCCCO Certified">NCCCO Certified Crane</option>
+            <option value="Granite Countertops">Granite Countertops</option>
+          </select>
+        </div>
+
+        <div class="sm:col-span-2 flex items-end gap-2">
+          <div class="flex-1">
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Search Fleet / Equipment</label>
+            <input type="text" id="search-input" onkeyup="loadVendors()" placeholder="e.g. trailer, reefer container, all-terrain crane..." class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+          </div>
+          <button onclick="loadVendors()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 transition-colors">
+            <i data-lucide="search" class="w-4 h-4"></i>
+            <span>Search</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DIRECTORY SECTION -->
+  <section id="directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <span id="directory-sub" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Verified Fleet Directory</span>
+        <h2 id="directory-heading" class="text-3xl font-serif-title font-bold text-white">Verified B2B Operators</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <span id="vendor-count-badge" class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 font-semibold">21 Listings</span>
+        <button onclick="openQuoteModal()" class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-amber-500/20 transition-colors flex items-center gap-1.5">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Broadcast Quote Request</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- VENDORS GRID -->
+    <div id="vendors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected via JS -->
+    </div>
+  </section>
+
+  <!-- POPULAR METROS -->
+  <section id="metros" class="py-16 bg-slate-900/50 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Programmatic SEO Coverage</span>
+        <h2 class="text-3xl font-serif-title font-bold text-white">Top Destination Metros &amp; Suburbs</h2>
+        <p class="text-slate-400 text-sm mt-2">Edge pre-rendered landing pages with verified local fleet specifications.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <div onclick="selectMetro('Atlanta')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Atlanta, GA</span>
+          <span class="text-[11px] text-slate-400 block mt-1">Buckhead &bull; Alpharetta</span>
+        </div>
+        <div onclick="selectMetro('Dallas')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Dallas, TX</span>
+          <span class="text-[11px] text-slate-400 block mt-1">Highland Park &bull; Plano</span>
+        </div>
+        <div onclick="selectMetro('Miami')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Miami, FL</span>
+          <span class="text-[11px] text-slate-400 block mt-1">Coral Gables &bull; Palm Beach</span>
+        </div>
+        <div onclick="selectMetro('Austin')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Austin, TX</span>
+          <span class="text-[11px] text-slate-400 block mt-1">Hill Country &bull; Westlake</span>
+        </div>
+        <div onclick="selectMetro('Los Angeles')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Los Angeles, CA</span>
+          <span class="text-[11px] text-slate-400 block mt-1">Malibu &bull; Beverly Hills</span>
+        </div>
+        <div onclick="selectMetro('Napa Valley')" class="cursor-pointer bg-slate-900 border border-slate-800 hover:border-amber-500/60 p-4 rounded-xl text-center transition-all hover:scale-105">
+          <span class="text-amber-400 font-bold text-sm block">Napa Valley, CA</span>
+          <span class="text-[11px] text-slate-400 block mt-1">St. Helena &bull; Yountville</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- INSTANT QUOTE MODAL -->
+  <div id="quote-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="calculator" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif-title font-bold text-white">Direct Quote &amp; Availability Check</h3>
+          <p class="text-xs text-slate-400">Instant pricing estimate &amp; broadcast to verified local fleet operators</p>
+        </div>
+      </div>
+
+      <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Full Name</label>
+            <input type="text" id="q-name" required placeholder="Jessica Sterling" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+            <input type="email" id="q-email" required placeholder="jessica@events.com" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Phone Number</label>
+            <input type="tel" id="q-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Metro Area</label>
+            <select id="q-city" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+              <option value="Atlanta">Atlanta, GA</option>
+              <option value="Dallas">Dallas, TX</option>
+              <option value="Miami">Miami, FL</option>
+              <option value="Austin">Austin, TX</option>
+              <option value="Los Angeles">Los Angeles, CA</option>
+              <option value="Chicago">Chicago, IL</option>
+              <option value="Napa Valley">Napa Valley, CA</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Target Date</label>
+            <input type="date" id="q-date" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Equipment Category</label>
+            <select id="q-niche" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+              <option value="luxury_restrooms">Luxury Restroom Trailers</option>
+              <option value="commercial_cold_storage">Mobile Cold Storage &amp; Freezers</option>
+              <option value="heavy_crane_rigging">Heavy Crane &amp; Rigging</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Project / Event Type</label>
+            <input type="text" id="q-type" placeholder="e.g. Wedding, Facility Outage, HVAC Lift" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Project Scope &amp; Special Requirements</label>
+          <textarea id="q-notes" rows="2" placeholder="e.g. Need 40ft sub-zero freezer trailer, or 50-ton crane for roof unit drop..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <button type="submit" id="quote-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          <span>Calculate Estimate &amp; Match Operators</span>
+        </button>
+      </form>
+
+      <!-- SUCCESS DISPATCH VIEW -->
+      <div id="quote-success-view" class="hidden text-center py-6">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/40">
+          <i data-lucide="check" class="w-8 h-8"></i>
+        </div>
+        <h4 class="text-xl font-bold text-white">Quote Request Broadcasted!</h4>
+        <p id="quote-success-msg" class="text-sm text-slate-300 mt-2 max-w-md mx-auto"></p>
+        <div id="quote-dispatch-details" class="mt-4 bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-left space-y-1 text-slate-300"></div>
+        <button onclick="closeQuoteModal()" class="mt-6 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-700">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBED TRUST BADGE MODAL -->
+  <div id="badge-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button onclick="closeBadgeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="badge-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-serif-title font-bold text-white">The Reliant Network Verified 2026 Partner Badge</h3>
+          <p class="text-xs text-slate-400">Embed on your website for instant client trust and domain authority.</p>
+        </div>
+      </div>
+      <div id="badge-preview-container" class="bg-slate-950 border border-slate-800 p-4 rounded-xl text-center my-4"></div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">HTML Embed Code:</label>
+        <textarea id="badge-embed-code" readonly rows="4" class="w-full bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300 p-3 rounded-xl focus:outline-none"></textarea>
+      </div>
+      <button onclick="copyBadgeCode()" class="mt-4 w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2">
+        <i data-lucide="copy" class="w-4 h-4"></i>
+        <span id="copy-btn-text">Copy HTML Embed Code</span>
+      </button>
+    </div>
+  </div>
+  <!-- ADMIN CASH FLOW COMMAND CENTER -->
+  <div id="admin-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeAdminModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+            <i data-lucide="wallet" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-serif-title font-bold text-white">Passive Cash Flow Command Center</h3>
+            <p class="text-xs text-slate-400">Multi-Vertical Portfolio &bull; 3 Micro-Monopolies Active</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="runAutonomousCron()" id="cron-trigger-btn" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl flex items-center gap-1.5 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5"></i>
+            <span>Trigger 24h Cadence Cycle</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- METRIC CARDS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-slate-950 border border-slate-800/80 p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block">Total Banked Revenue</span>
+          <span id="metric-revenue" class="text-2xl sm:text-3xl font-extrabold text-emerald-400 mt-1 block">$1,607.00</span>
+          <span class="text-[10px] text-emerald-500/80 mt-1 block flex items-center gap-1"><i data-lucide="arrow-up-right" class="w-3 h-3"></i> 100% Passive</span>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800/80 p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block">Portfolio MRR</span>
+          <span id="metric-mrr" class="text-2xl sm:text-3xl font-extrabold text-amber-400 mt-1 block">$1,089.00/mo</span>
+          <span class="text-[10px] text-amber-500/80 mt-1 block">11 Subscribed Operators</span>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800/80 p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block">Brokered Quotes</span>
+          <span id="metric-leads" class="text-2xl sm:text-3xl font-extrabold text-white mt-1 block">6</span>
+          <span class="text-[10px] text-slate-500 mt-1 block">Pay-per-lead transactions</span>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800/80 p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block">Edge &amp; Cache Speed</span>
+          <span id="metric-cache-hit" class="text-2xl sm:text-3xl font-extrabold text-cyan-400 mt-1 block">100%</span>
+          <span class="text-[10px] text-cyan-500/80 mt-1 block">&lt; 0.07ms server latency</span>
+        </div>
+      </div>
+
+      <!-- DELIVERABILITY SHIELD GAUGE -->
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield" class="w-4 h-4 text-emerald-400"></i>
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Outbound Deliverability Shield</span>
+            <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">alerts-reliantverified.com</span>
+          </div>
+          <span id="deliv-quota-text" class="text-xs text-slate-400 font-mono">4 / 15 Daily Quota Used</span>
+        </div>
+        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div id="deliv-progress-bar" class="bg-emerald-500 h-full rounded-full transition-all" style="width: 26%;"></div>
+        </div>
+      </div>
+
+      <!-- ANOMALY REVIEW QUEUE -->
+      <div class="mb-6">
+        <h4 class="text-sm font-bold text-white mb-3 flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400"></i>
+            <span>Data Anomaly Review Queue (Circuit Breaker)</span>
+          </span>
+          <span id="anomaly-badge" class="bg-rose-500/20 text-rose-400 border border-rose-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full">0 Pending</span>
+        </h4>
+        <div id="anomaly-container" class="space-y-2"></div>
+      </div>
+
+      <!-- ACTIVITY LOGS -->
+      <div>
+        <h4 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+          <i data-lucide="activity" class="w-4 h-4 text-amber-400"></i>
+          <span>Live Multi-Vertical Activity Logs</span>
+        </h4>
+        <div id="admin-logs-container" class="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs text-slate-300 space-y-2 max-h-48 overflow-y-auto"></div>
+      </div>
+    </div>
+  </div>
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    let activeNiche = 'luxury_restrooms';
+    let currentVendors = [];
+
+    const NICHE_METADATA = {
+      luxury_restrooms: {
+        badge: 'Verified VIP Luxury Sanitation Fleets',
+        title: 'Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings &amp; VIP Galas</span>',
+        desc: 'Don\\'t risk your event\\'s reputation. Browse our exclusive network of rigorously vetted luxury restroom operators guaranteeing pristine hygiene, climate control, and flawless execution.',
+        heading: 'Trusted Sanitation Partners',
+        sub: 'Verified VIP Network'
+      },
+      commercial_cold_storage: {
+        badge: 'Emergency Mobile Cold Storage Network',
+        title: 'Rent Commercial Mobile Freezers &amp; <span class="gold-text italic">Refrigeration Pods</span>',
+        desc: 'When inventory is on the line, seconds matter. Connect instantly with verified emergency cold storage operators providing rapid deployment of deep-freeze (-20°F) reefers.',
+        heading: 'Reliable Cold Storage Operators',
+        sub: 'Verified 24/7 Deployment Network'
+      },
+      heavy_crane_rigging: {
+        badge: 'Certified Mobile Crane &amp; Industrial Rigging Fleet',
+        title: 'Hire Heavy Mobile Cranes &amp; <span class="gold-text italic">Certified Rigging Crews</span>',
+        desc: 'Safety and compliance are non-negotiable. Access our elite network of NCCCO-certified crane operators delivering absolute precision for critical HVAC and structural lifts.',
+        heading: 'Vetted Hoisting Contractors',
+        sub: 'Verified Industrial Safety Network'
+      },
+      senior_care_placement: {
+        badge: 'Verified Assisted Living &amp; Memory Care Advisors',
+        title: 'Find Premium 65+ Care Facilities &amp; <span class="gold-text italic">Placement Services</span>',
+        desc: 'Making care decisions for a loved one is overwhelming. Let our compassionate, heavily-vetted local advisors guide you to the safest, highest-rated communities with total transparency.',
+        heading: 'Trusted Senior Care Advisors',
+        sub: 'Verified 65+ Compassion Network'
+      }
+    };
+
+    function switchNiche(nicheId) {
+      activeNiche = nicheId;
+      ['restrooms', 'cold', 'crane', 'senior'].forEach(k => {
+        const btn = document.getElementById(`niche-btn-${k}`);
+        if (btn) {
+          btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white';
+        }
+      });
+
+      const activeBtnId = nicheId === 'luxury_restrooms' ? 'niche-btn-restrooms' : (nicheId === 'commercial_cold_storage' ? 'niche-btn-cold' : (nicheId === 'heavy_crane_rigging' ? 'niche-btn-crane' : 'niche-btn-senior'));
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md';
+      }
+
+      const meta = NICHE_METADATA[nicheId];
+      if (meta) {
+        document.getElementById('hero-title').innerHTML = meta.title;
+        document.getElementById('hero-desc').textContent = meta.desc;
+        document.getElementById('directory-heading').textContent = meta.heading;
+        document.getElementById('directory-sub').textContent = meta.sub;
+        document.getElementById('q-niche').value = nicheId;
+      }
+
+      loadVendors();
+    }
+
+    async function loadVendors() {
+      const city = document.getElementById('filter-city').value;
+      const amenity = document.getElementById('filter-amenity').value;
+      const search = document.getElementById('search-input')?.value || '';
+
+      const grid = document.getElementById('vendors-grid');
+      grid.innerHTML = '<div class="col-span-full py-16 text-center text-slate-500"><i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-amber-500 mb-2"></i><span>Loading verified operators...</span></div>';
+      lucide.createIcons();
+
+      try {
+        let url = `/api/vendors?niche_id=${activeNiche}&city=${encodeURIComponent(city)}&amenity=${encodeURIComponent(amenity)}&search=${encodeURIComponent(search)}`;
+        const res = await fetch(url);
+        const vendors = await res.json();
+        currentVendors = vendors;
+
+        document.getElementById('vendor-count-badge').textContent = `${vendors.length} Listings`;
+
+        if (!vendors.length) {
+          grid.innerHTML = '<div class="col-span-full py-16 text-center text-slate-400">No operators found matching your criteria. Try switching the metro filter.</div>';
+          return;
+        }
+
+        grid.innerHTML = vendors.map(v => `
+          <div class="bg-slate-900 border ${v.subscription_active ? 'border-amber-500/60 shadow-xl shadow-amber-500/5' : 'border-slate-800'} rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/80 transition-all duration-300">
+            <div>
+              <div class="relative h-48 overflow-hidden">
+                <img src="${v.image_url}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+                  ${v.subscription_active ? '<span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md"><i data-lucide="star" class="w-3 h-3 fill-slate-950"></i> Featured Partner</span>' : ''}
+                  <span class="bg-slate-950/80 backdrop-blur text-amber-400 border border-amber-500/30 font-bold text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <i data-lucide="check-circle-2" class="w-3 h-3"></i> Verified
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3 bg-slate-950/90 text-white font-bold text-xs px-2.5 py-1 rounded-lg border border-slate-800">
+                  $${v.min_price.toLocaleString()} - $${v.max_price.toLocaleString()}
+                </div>
+              </div>
+
+              <div class="p-5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">${v.city}, ${v.state}</span>
+                  <div class="flex items-center gap-1 text-xs font-bold text-amber-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                    <span>${v.rating} (${v.review_count})</span>
+                  </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-white mt-1 leading-snug">${v.name}</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-2">${v.description}</p>
+
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  ${v.amenities.slice(0, 3).map(a => `<span class="bg-slate-800/80 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700/60">${a}</span>`).join('')}
+                  ${v.amenities.length > 3 ? `<span class="text-[10px] text-slate-400 font-semibold px-1 py-0.5">+${v.amenities.length - 3} more</span>` : ''}
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between gap-2">
+              <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition-colors">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Quote</span>
+              </button>
+
+              <button onclick="openBadgeModal('${v.id}')" class="bg-slate-800 hover:bg-slate-700 text-amber-400 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-700" title="Get Embeddable Verified Badge">
+                <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+
+        lucide.createIcons();
+      } catch (err) {
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-rose-400">Error loading directory: ${err.message}</div>`;
+      }
+    }
+
+    function selectMetro(city) {
+      document.getElementById('filter-city').value = city;
+      loadVendors();
+      document.getElementById('directory').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openQuoteModal(city) {
+      if (city) document.getElementById('q-city').value = city;
+      document.getElementById('q-niche').value = activeNiche;
+      document.getElementById('quote-modal').classList.remove('hidden');
+      document.getElementById('quote-form').classList.remove('hidden');
+      document.getElementById('quote-success-view').classList.add('hidden');
+      lucide.createIcons();
+    }
+    function closeQuoteModal() {
+      document.getElementById('quote-modal').classList.add('hidden');
+    }
+
+    async function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('quote-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Matching Operators...</span>';
+      lucide.createIcons();
+
+      const payload = {
+        niche_id: document.getElementById('q-niche').value,
+        customer_name: document.getElementById('q-name').value,
+        customer_email: document.getElementById('q-email').value,
+        customer_phone: document.getElementById('q-phone').value,
+        city: document.getElementById('q-city').value,
+        state: 'GA',
+        event_date: document.getElementById('q-date').value,
+        guest_count: 150,
+        event_type: document.getElementById('q-type').value || 'Commercial Project',
+        notes: document.getElementById('q-notes').value
+      };
+
+      try {
+        const res = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        document.getElementById('quote-form').classList.add('hidden');
+        document.getElementById('quote-success-view').classList.remove('hidden');
+        document.getElementById('quote-success-msg').textContent = `Matched with top ${data.dispatch.matched_vendors_count} verified operators in ${payload.city} for ${data.qualification.niche_name}. Estimated Quote: $${data.qualification.estimated_quote.toLocaleString()}.`;
+
+        document.getElementById('quote-dispatch-details').innerHTML = `
+          <div>&gt; Lead Reference Code: <span class="text-white font-bold">${data.lead_code}</span></div>
+          <div>&gt; AI Intent Quality Score: <span class="text-emerald-400 font-bold">${data.qualification.intent_score}/100</span></div>
+          <div>&gt; Pay-Per-Lead Value: <span class="text-emerald-400 font-bold">$${data.qualification.lead_price}</span></div>
+          <div>&gt; Booking Deposit (15%): <span class="text-cyan-400 font-bold">$${data.qualification.deposit_fee.toLocaleString()}</span></div>
+        `;
+        lucide.createIcons();
+      } catch (err) {
+        alert('Error submitting quote: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="zap" class="w-4 h-4"></i><span>Calculate Estimate &amp; Match Operators</span>';
+        lucide.createIcons();
+      }
+    }
+
+    async function openBadgeModal(vendorId) {
+      try {
+        const res = await fetch(`/api/growth/badge-embed/${vendorId}`);
+        const data = await res.json();
+        document.getElementById('badge-embed-code').value = data.badge_html;
+        document.getElementById('badge-preview-container').innerHTML = data.badge_html;
+        document.getElementById('badge-modal').classList.remove('hidden');
+        lucide.createIcons();
+      } catch (err) {
+        alert('Error fetching badge: ' + err.message);
+      }
+    }
+    function closeBadgeModal() {
+      document.getElementById('badge-modal').classList.add('hidden');
+    }
+
+    function copyBadgeCode() {
+      const code = document.getElementById('badge-embed-code').value;
+      navigator.clipboard.writeText(code);
+      document.getElementById('copy-btn-text').textContent = 'Copied to Clipboard!';
+      setTimeout(() => {
+        document.getElementById('copy-btn-text').textContent = 'Copy HTML Embed Code';
+      }, 2000);
+    }
+
+    async function openAdminModal() {
+      document.getElementById('admin-modal').classList.remove('hidden');
+      lucide.createIcons();
+      await fetchAdminMetrics();
+      await fetchAnomalies();
+      await fetchDeliverabilityStats();
+    }
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+    }
+
+    async function fetchAdminMetrics() {
+      try {
+        const res = await fetch('/api/admin/metrics');
+        const data = await res.json();
+
+        document.getElementById('metric-revenue').textContent = `$${data.total_revenue_banked.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+        document.getElementById('metric-mrr').textContent = `$${data.active_mrr.toLocaleString('en-US', { minimumFractionDigits: 2 })}/mo`;
+        document.getElementById('metric-leads').textContent = data.total_leads;
+        if (data.cache_telemetry) {
+          document.getElementById('metric-cache-hit').textContent = data.cache_telemetry.hitRate || '100%';
+        }
+
+        const logsContainer = document.getElementById('admin-logs-container');
+        if (data.recent_logs && data.recent_logs.length) {
+          logsContainer.innerHTML = data.recent_logs.map(l => `
+            <div class="border-b border-slate-800/60 pb-1.5 mb-1.5 flex items-start justify-between">
+              <div>
+                <span class="text-amber-400 font-bold">[${l.event_type}]</span>
+                <span class="text-slate-200 ml-1.5">${l.message}</span>
+              </div>
+              <span class="text-slate-500 text-[10px] whitespace-nowrap ml-4">${l.created_at}</span>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.error('Error fetching admin metrics:', err);
+      }
+    }
+
+    async function fetchDeliverabilityStats() {
+      try {
+        const res = await fetch('/api/admin/deliverability-stats');
+        const data = await res.json();
+        const usage = data.usage;
+        document.getElementById('deliv-quota-text').textContent = `${usage.sent_today} / ${usage.daily_limit} Daily Quota Used (${usage.remaining} Remaining)`;
+        const pct = Math.min(100, Math.round((usage.sent_today / usage.daily_limit) * 100));
+        document.getElementById('deliv-progress-bar').style.width = pct + '%';
+      } catch (err) {
+        console.error('Error fetching deliverability stats:', err);
+      }
+    }
+
+    async function fetchAnomalies() {
+      try {
+        const res = await fetch('/api/admin/anomalies');
+        const anomalies = await res.json();
+        const container = document.getElementById('anomaly-container');
+        const pending = anomalies.filter(a => a.status === 'PENDING_REVIEW');
+        document.getElementById('anomaly-badge').textContent = `${pending.length} Pending`;
+
+        if (!anomalies.length) {
+          container.innerHTML = '<div class="text-xs text-slate-500 bg-slate-950 p-3 rounded-xl border border-slate-800">No anomalies detected. Circuit breaker healthy.</div>';
+          return;
+        }
+
+        container.innerHTML = anomalies.map(a => `
+          <div class="bg-slate-950 border ${a.status === 'PENDING_REVIEW' ? 'border-rose-500/40 bg-rose-500/5' : 'border-slate-800'} p-3 rounded-xl flex items-center justify-between text-xs">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-white">${a.vendor_name}</span>
+                <span class="bg-rose-500/20 text-rose-400 px-1.5 py-0.5 rounded text-[10px] font-bold font-mono">+${a.percentage_delta.toFixed(1)}% Spike</span>
+                <span class="text-slate-400 text-[10px] font-mono">($${a.previous_value.toLocaleString()} -> $${a.incoming_value.toLocaleString()})</span>
+              </div>
+              <div class="text-[10px] text-slate-500 mt-1">Status: ${a.status} &bull; ${a.detected_at}</div>
+            </div>
+
+            ${a.status === 'PENDING_REVIEW' ? `
+              <div class="flex items-center gap-2">
+                <button onclick="resolveAnomaly('${a.id}', 'APPROVED')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-2.5 py-1 rounded-lg text-[10px]">Approve</button>
+                <button onclick="resolveAnomaly('${a.id}', 'REJECTED')" class="bg-slate-800 hover:bg-slate-700 text-rose-400 font-bold px-2.5 py-1 rounded-lg text-[10px] border border-slate-700">Reject</button>
+              </div>
+            ` : `
+              <span class="text-[10px] font-mono text-slate-400">${a.resolution_action || a.status}</span>
+            `}
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Error fetching anomalies:', err);
+      }
+    }
+
+    async function resolveAnomaly(anomalyId, action) {
+      try {
+        const res = await fetch('/api/admin/resolve-anomaly', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ anomaly_id: anomalyId, action })
+        });
+        await fetchAnomalies();
+        await fetchAdminMetrics();
+      } catch (err) {
+        alert('Resolution failed: ' + err.message);
+      }
+    }
+
+    async function runAutonomousCron() {
+      const btn = document.getElementById('cron-trigger-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Executing Cycle...</span>';
+      lucide.createIcons();
+
+      try {
+        const res = await fetch('/api/admin/run-cron', { method: 'POST' });
+        const data = await res.json();
+        await fetchAdminMetrics();
+        await fetchAnomalies();
+        await fetchDeliverabilityStats();
+        alert(`Autonomous Broker Cycle Executed!\nBanked Revenue: $${data.telemetry.total_revenue_banked.toLocaleString()}\nMRR: $${data.telemetry.active_mrr}/mo`);
+      } catch (err) {
+        alert('Cron execution failed: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="play" class="w-4 h-4"></i><span>Trigger 24h Cadence Cycle</span>';
+        lucide.createIcons();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadVendors();
+      lucide.createIcons();
+    });
+  </script>
+
+  <!-- LEGAL FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-8 mt-12 text-center text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-2">
+      <p>&copy; 2026 Apex Lead Solutions LLC. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-amber-500 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-amber-500 transition-colors">Privacy Policy</a>
+      </div>
+      <p class="mt-2 text-[10px] text-slate-600 max-w-2xl text-center">
+        Disclaimer: This platform acts solely as a lead matching technology and brokerage service. We do not own, operate, or maintain any equipment, including but not limited to heavy cranes, cold storage units, or restroom trailers. We are not liable for any damages, injuries, or losses incurred by the independent operators or the end-customers.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,474 @@
+[
+  {
+    "city": "Atlanta",
+    "state": "GA",
+    "state_full": "Georgia",
+    "slug": "atlanta-ga",
+    "avg_cost": 2800,
+    "min_cost": 1900,
+    "max_cost": 7500,
+    "season": "April - June & Sept - Nov",
+    "venues": "Vineyards, Historic Mansions & Film Sets",
+    "permits": "City of Atlanta Sanitation & Venue Permit"
+  },
+  {
+    "city": "Dallas",
+    "state": "TX",
+    "state_full": "Texas",
+    "slug": "dallas-tx",
+    "avg_cost": 3200,
+    "min_cost": 2100,
+    "max_cost": 8200,
+    "season": "October - May",
+    "venues": "Ranches, Equestrian Centers & Country Clubs",
+    "permits": "DFW Regional Health Dept Clearance"
+  },
+  {
+    "city": "Miami",
+    "state": "FL",
+    "state_full": "Florida",
+    "slug": "miami-fl",
+    "avg_cost": 3900,
+    "min_cost": 2600,
+    "max_cost": 9500,
+    "season": "November - April",
+    "venues": "Beachfront Villas, Art Basel Venues & Yacht Clubs",
+    "permits": "Miami-Dade County Special Event Sanitation"
+  },
+  {
+    "city": "Austin",
+    "state": "TX",
+    "state_full": "Texas",
+    "slug": "austin-tx",
+    "avg_cost": 2950,
+    "min_cost": 1950,
+    "max_cost": 7400,
+    "season": "March - May & Sept - Nov",
+    "venues": "Hill Country Barns, Tech Summits & Music Festivals",
+    "permits": "Travis County Temporary Food & Health Permit"
+  },
+  {
+    "city": "Los Angeles",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "los-angeles-ca",
+    "avg_cost": 4200,
+    "min_cost": 2800,
+    "max_cost": 12000,
+    "season": "Year-Round Peak",
+    "venues": "Hollywood Studios, Malibu Estates & Celebrity Galas",
+    "permits": "LA County Public Health Event Guidelines"
+  },
+  {
+    "city": "Chicago",
+    "state": "IL",
+    "state_full": "Illinois",
+    "slug": "chicago-il",
+    "avg_cost": 3100,
+    "min_cost": 1900,
+    "max_cost": 7200,
+    "season": "May - October",
+    "venues": "Lakefront Pavilions, Rooftops & Historic Warehouses",
+    "permits": "City of Chicago Dept of Public Health"
+  },
+  {
+    "city": "Napa Valley",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "napa-valley-ca",
+    "avg_cost": 4500,
+    "min_cost": 2900,
+    "max_cost": 11500,
+    "season": "May - October (Harvest Season)",
+    "venues": "Wineries, Private Vineyards & Luxury Resorts",
+    "permits": "Napa County Environmental Health"
+  },
+  {
+    "city": "Scottsdale",
+    "state": "AZ",
+    "state_full": "Arizona",
+    "slug": "scottsdale-az",
+    "avg_cost": 3400,
+    "min_cost": 2200,
+    "max_cost": 8500,
+    "season": "October - April",
+    "venues": "Desert Resorts, Golf Galas & Private Ranches",
+    "permits": "Maricopa County Environmental Services"
+  },
+  {
+    "city": "Savannah",
+    "state": "GA",
+    "state_full": "Georgia",
+    "slug": "savannah-ga",
+    "avg_cost": 2700,
+    "min_cost": 1800,
+    "max_cost": 6900,
+    "season": "March - May & Oct - Dec",
+    "venues": "Oak Squares, Antebellum Estates & Riverfront Galas",
+    "permits": "Chatham County Health Dept Permit"
+  },
+  {
+    "city": "Charleston",
+    "state": "SC",
+    "state_full": "South Carolina",
+    "slug": "charleston-sc",
+    "avg_cost": 3300,
+    "min_cost": 2200,
+    "max_cost": 8400,
+    "season": "April - June & Sept - Nov",
+    "venues": "Lowcountry Plantations, Coastal Pavilions & Historic Inns",
+    "permits": "Charleston County Sanitation Guidelines"
+  },
+  {
+    "city": "Nashville",
+    "state": "TN",
+    "state_full": "Tennessee",
+    "slug": "nashville-tn",
+    "avg_cost": 2900,
+    "min_cost": 1900,
+    "max_cost": 7800,
+    "season": "April - October",
+    "venues": "Music City Farms, Celebrity Estates & Amphitheaters",
+    "permits": "Metro Public Health Dept Nashville"
+  },
+  {
+    "city": "Denver",
+    "state": "CO",
+    "state_full": "Colorado",
+    "slug": "denver-co",
+    "avg_cost": 3200,
+    "min_cost": 2100,
+    "max_cost": 8000,
+    "season": "June - September (Mountain Summer)",
+    "venues": "Mountain Lodges, Foothill Ranches & Ski Resorts",
+    "permits": "Denver Dept of Public Health & Environment"
+  },
+  {
+    "city": "Hamptons",
+    "state": "NY",
+    "state_full": "New York",
+    "slug": "hamptons-ny",
+    "avg_cost": 5200,
+    "min_cost": 3500,
+    "max_cost": 15000,
+    "season": "Memorial Day - Labor Day",
+    "venues": "Oceanfront Estates, Polo Clubs & Vineyard Galas",
+    "permits": "Suffolk County Dept of Health Services"
+  },
+  {
+    "city": "Aspen",
+    "state": "CO",
+    "state_full": "Colorado",
+    "slug": "aspen-co",
+    "avg_cost": 5500,
+    "min_cost": 3800,
+    "max_cost": 16500,
+    "season": "June - Aug & Dec - March",
+    "venues": "Mountain Tops, Luxury Chalets & Private Ranches",
+    "permits": "Pitkin County Environmental Health"
+  },
+  {
+    "city": "Sandy Springs",
+    "state": "GA",
+    "state_full": "Georgia",
+    "slug": "sandy-springs-ga",
+    "avg_cost": 2850,
+    "min_cost": 1900,
+    "max_cost": 7200,
+    "season": "Spring & Autumn",
+    "venues": "Riverfront Pavilions & Private Country Clubs",
+    "permits": "Fulton County Environmental Health"
+  },
+  {
+    "city": "Plano",
+    "state": "TX",
+    "state_full": "Texas",
+    "slug": "plano-tx",
+    "avg_cost": 3100,
+    "min_cost": 2100,
+    "max_cost": 7800,
+    "season": "Year-Round Events",
+    "venues": "Legacy West VIP Suites & Corporate Parks",
+    "permits": "Collin County Health Services"
+  },
+  {
+    "city": "Frisco",
+    "state": "TX",
+    "state_full": "Texas",
+    "slug": "frisco-tx",
+    "avg_cost": 3250,
+    "min_cost": 2200,
+    "max_cost": 8200,
+    "season": "Fall & Spring",
+    "venues": "Sports VIP Galas, Ranches & PGA Resort Events",
+    "permits": "Denton/Collin County Health"
+  },
+  {
+    "city": "Palm Beach",
+    "state": "FL",
+    "state_full": "Florida",
+    "slug": "palm-beach-fl",
+    "avg_cost": 5400,
+    "min_cost": 3500,
+    "max_cost": 16000,
+    "season": "November - May (Social Season)",
+    "venues": "Oceanfront Mansions, Polo Grounds & Private Clubs",
+    "permits": "Palm Beach County Health Dept"
+  },
+  {
+    "city": "Beverly Hills",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "beverly-hills-ca",
+    "avg_cost": 5100,
+    "min_cost": 3500,
+    "max_cost": 15000,
+    "season": "Year-Round Peak",
+    "venues": "Private Estate Lawns, Rooftop Galas & Film Shoots",
+    "permits": "LA County Environmental Health"
+  },
+  {
+    "city": "St. Helena",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "st-helena-ca",
+    "avg_cost": 4700,
+    "min_cost": 3100,
+    "max_cost": 12500,
+    "season": "May - October",
+    "venues": "Historic Wineries, Vineyard Rows & Private Estates",
+    "permits": "Napa County Health Dept"
+  },
+  {
+    "city": "Buckhead",
+    "state": "GA",
+    "state_full": "Georgia",
+    "slug": "buckhead-ga",
+    "avg_cost": 3100,
+    "min_cost": 2200,
+    "max_cost": 8900,
+    "season": "Spring & Fall Galas (March - May, Sept - Nov)",
+    "venues": "Chastain Park Mansions, Atlanta History Center & Tuxedo Park Private Estates",
+    "permits": "Fulton County Health Code 511-3-1 & City of Atlanta Special Event Sanitation Guidelines (14-day notice required)",
+    "technical_protocols": {
+      "site_ingress_protocol": "Pre-delivery high-resolution drone imaging required to evaluate 14ft overhead tree branch clearance and tight estate driveway radiuses.",
+      "leveling_standard": "Laser-guided hydraulic leveling deployed to guarantee exact +/- 0.5 degree grade tolerance on rolling lawn terrain.",
+      "acoustic_noise_curfew": "Equipped with dual whisper-pack acoustic sound baffles operating below 52 dBA at 20 feet for strict residential noise curfew compliance.",
+      "ada_compliance_spec": "Modular ADA ramp systems engineered to exact 1:12 slope ratio with 36-inch continuous aluminum grab bars and zero-threshold entry doors.",
+      "odor_barrier_spec": "Dual-stage active carbon siphon seals and 15,000 BTU marine-grade dehumidification to eliminate moisture and odors."
+    },
+    "neighborhood_landmarks": [
+      "Chastain Park Amphitheater",
+      "Atlanta History Center Swan House",
+      "Peachtree Golf Club",
+      "Tuxedo Park Lawns"
+    ],
+    "power_water_infrastructure": "Dual dedicated 20A 110V circuits or silent onboard inverter power; standard 3/4-inch municipal water connection (30-50 PSI).",
+    "localized_cost_histogram": {
+      "p25": 2400,
+      "median": 3100,
+      "p75": 4800,
+      "p95": 8900
+    },
+    "localized_faqs": [
+      {
+        "q": "What site ingress evaluation protocol is used for tight Buckhead estate driveways?",
+        "a": "Operators deploy high-resolution drone aerial surveys prior to delivery to verify overhead branch clearance (minimum 14ft) and turn radiuses, ensuring zero damage to paved motor courts."
+      },
+      {
+        "q": "How do luxury restroom trailers comply with Buckhead residential noise curfews after 10 PM?",
+        "a": "All units feature whisper-pack sound insulation and inverter-powered climate pumps that operate below 52 dBA, well within Fulton County residential evening sound limits."
+      },
+      {
+        "q": "What ADA ramp slope standards are maintained for private gala events in Buckhead?",
+        "a": "ADA units adhere strictly to the 1:12 slope ratio standard, featuring 60-inch turning radius interior suites, continuous handrails, and low-angle illuminated approach ramps."
+      }
+    ]
+  },
+  {
+    "city": "Alpharetta",
+    "state": "GA",
+    "state_full": "Georgia",
+    "slug": "alpharetta-ga",
+    "avg_cost": 2900,
+    "min_cost": 1950,
+    "max_cost": 7500,
+    "season": "April - June & September - November",
+    "venues": "Avalon VIP Suites, Wills Park Equestrian Grounds & North Fulton Farmhouses",
+    "permits": "Fulton County Environmental Health Division Temporary Sanitation Permit",
+    "technical_protocols": {
+      "site_ingress_protocol": "4x4 Heavy-duty hauler transport with wide-track tires to navigate unpaved equestrian farm roads without rutting.",
+      "leveling_standard": "Heavy-duty outrigger pads distributing up to 4,000 lbs PSI on turf and compacted gravel.",
+      "acoustic_noise_curfew": "Decibel-muffled quiet generators operating under 54 dBA to prevent startling horses and livestock.",
+      "ada_compliance_spec": "Full ADA Title III compliant suites with ground-level hydraulic drop-chassis deployment.",
+      "odor_barrier_spec": "Continuous ozone micro-scrubbers and high-volume air exchange for dusty outdoor agricultural venues."
+    },
+    "neighborhood_landmarks": [
+      "The Hotel at Avalon",
+      "Ameris Bank Amphitheatre VIP Lawn",
+      "Wills Park Equestrian Center"
+    ],
+    "power_water_infrastructure": "Self-contained 350-gallon onboard freshwater reservoir and onboard inverter battery pack for 100% off-grid horse farm venues.",
+    "localized_cost_histogram": {
+      "p25": 2100,
+      "median": 2900,
+      "p75": 4200,
+      "p95": 7500
+    },
+    "localized_faqs": [
+      {
+        "q": "How is off-grid power and water managed for Alpharetta equestrian weddings?",
+        "a": "Trailers are equipped with 350-gallon onboard pressurized water tanks and zero-emission lithium battery power banks providing 12 hours of silent operation."
+      }
+    ]
+  },
+  {
+    "city": "Highland Park",
+    "state": "TX",
+    "state_full": "Texas",
+    "slug": "highland-park-tx",
+    "avg_cost": 3600,
+    "min_cost": 2400,
+    "max_cost": 9500,
+    "season": "October - May (Mild Texas Winter & Spring)",
+    "venues": "Dallas Country Club Perimeter Estates, Armstrong Parkway Lawns & Lakeside Drives",
+    "permits": "Town of Highland Park Municipal Special Event Code Section 11.04",
+    "technical_protocols": {
+      "site_ingress_protocol": "Protective composite ground-track matting deployed on custom travertine and limestone driveways to prevent surface scuffing.",
+      "leveling_standard": "Electronic micro-leveling with non-marking polyurethane jack pads.",
+      "acoustic_noise_curfew": "Silent shore-power integration running direct to 50A venue panel with zero generator engine exhaust.",
+      "ada_compliance_spec": "Full ADA compliance with ADAAG compliant grab rails and low-profile tactile thresholds.",
+      "odor_barrier_spec": "Commercial-grade thermal heat-pump A/C capable of chilling from 105 degrees F down to 68 degrees F with negative pressure ventilation."
+    },
+    "neighborhood_landmarks": [
+      "Dallas Country Club",
+      "Highland Park Village Lawn",
+      "Flippen Park Gazebo"
+    ],
+    "power_water_infrastructure": "Direct electrical hookup via NEMA L5-30 or dual 20A shore power; municipal backflow prevention valve installed on water intake.",
+    "localized_cost_histogram": {
+      "p25": 2800,
+      "median": 3600,
+      "p75": 5600,
+      "p95": 9500
+    },
+    "localized_faqs": [
+      {
+        "q": "What paver protection protocols are used on luxury Highland Park driveways?",
+        "a": "High-density polyurethane ground mats and non-marking jack pads are placed under every tire and stabilizer, guaranteeing zero weight-point damage to high-end masonry."
+      }
+    ]
+  },
+  {
+    "city": "Coral Gables",
+    "state": "FL",
+    "state_full": "Florida",
+    "slug": "coral-gables-fl",
+    "avg_cost": 4100,
+    "min_cost": 2800,
+    "max_cost": 10500,
+    "season": "November - April (Art Basel & Winter Galas)",
+    "venues": "The Biltmore Golf Lawns, Coral Gables Country Club & Venetian Pool Estates",
+    "permits": "City of Coral Gables Historic District Event Permit & Miami-Dade DERM Regulations",
+    "technical_protocols": {
+      "site_ingress_protocol": "Low-profile trailer design with precision backing clearance under historic banyan and oak tree canopies.",
+      "leveling_standard": "Dual-axis electronic hydraulic levelers for soft coastal soils.",
+      "acoustic_noise_curfew": "Marine-grade silent power converters operating under 50 dBA.",
+      "ada_compliance_spec": "ADAAG compliant wide-door entry suites with ADA-certified ramp systems.",
+      "odor_barrier_spec": "Marine 316 stainless steel hardware with anti-microbial surfaces and active marine dehumidification."
+    },
+    "neighborhood_landmarks": [
+      "The Biltmore Hotel",
+      "Venetian Pool Lawns",
+      "Coral Gables Merrick House"
+    ],
+    "power_water_infrastructure": "GFCI commercial connections; integrated 450-gallon waste capacity engineered for 8-hour tropical events.",
+    "localized_cost_histogram": {
+      "p25": 3200,
+      "median": 4100,
+      "p75": 6200,
+      "p95": 10500
+    },
+    "localized_faqs": [
+      {
+        "q": "How do trailers handle the coastal humidity and heat of Coral Gables?",
+        "a": "Units feature marine-grade 316 stainless fittings and high-capacity marine HVAC systems maintaining 68 degrees F and 40% humidity in tropical conditions."
+      }
+    ]
+  },
+  {
+    "city": "Malibu",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "malibu-ca",
+    "avg_cost": 4800,
+    "min_cost": 3200,
+    "max_cost": 14000,
+    "season": "Year-Round Coastal (May - October Sun, Awards Season Winter)",
+    "venues": "Carbon Beach Estates, Point Dume Cliffside Lawns & Malibu Canyon Vineyards",
+    "permits": "City of Malibu Planning & Environmental Health Coastal Zone Permit",
+    "technical_protocols": {
+      "site_ingress_protocol": "Pre-delivery route analysis for canyon curves; articulated haulers equipped with hill-hold braking for steep coastal driveways.",
+      "leveling_standard": "Heavy-duty hillside leveling stabilizers engineered for steep terrain grades up to 15 degrees.",
+      "acoustic_noise_curfew": "Zero-emission solar-battery quiet power banks running at 0 dBA for cliffside celebrity residences.",
+      "ada_compliance_spec": "Ground-level hydraulic lowering chassis eliminating long ramp footprint requirements on tight coastal properties.",
+      "odor_barrier_spec": "HEPA air scrubbers and ocean-mist corrosion-resistant composite exterior."
+    },
+    "neighborhood_landmarks": [
+      "Point Dume Nature Preserve",
+      "Calamigos Ranch",
+      "Saddlerock Ranch Vineyards",
+      "Carbon Beach"
+    ],
+    "power_water_infrastructure": "Self-contained onboard solar battery storage plus 300-gallon freshwater capacity for off-grid canyon estates.",
+    "localized_cost_histogram": {
+      "p25": 3800,
+      "median": 4800,
+      "p75": 7500,
+      "p95": 14000
+    },
+    "localized_faqs": [
+      {
+        "q": "What hillside leveling protocols are used on sloping Malibu properties?",
+        "a": "Trailers use commercial multi-stage hydraulic outriggers capable of leveling on grades up to 15 degrees with laser verification before opening for guest use."
+      }
+    ]
+  },
+  {
+    "city": "Yountville",
+    "state": "CA",
+    "state_full": "California",
+    "slug": "yountville-ca",
+    "avg_cost": 4900,
+    "min_cost": 3200,
+    "max_cost": 13000,
+    "season": "Harvest Season (August - October) & Spring Bud Break (April - June)",
+    "venues": "Michelin Star Winery Lawns, Private Vineyard Patios & Luxury Wine Country Resorts",
+    "permits": "Napa County Environmental Health Special Event Sanitation Certification",
+    "technical_protocols": {
+      "site_ingress_protocol": "Tire sanitization and soil-protection mats to prevent agricultural contamination across premium grape rootstocks.",
+      "leveling_standard": "Laser-calibrated stabilization pads placed along vineyard row access points.",
+      "acoustic_noise_curfew": "100% silent lithium battery inverter system with 0 dBA engine noise during outdoor wedding ceremonies.",
+      "ada_compliance_spec": "ADA-certified continuous slope entry with tactile ground-transition plates.",
+      "odor_barrier_spec": "Wine-country climate control with ambient air filtration to avoid interfering with fine wine aromatic tastings."
+    },
+    "neighborhood_landmarks": [
+      "The French Laundry Garden Perimeter",
+      "Domaine Chandon Grounds",
+      "Veterans Memorial Park"
+    ],
+    "power_water_infrastructure": "Zero-emission solar battery packs; low-pressure quiet water pumps.",
+    "localized_cost_histogram": {
+      "p25": 3600,
+      "median": 4900,
+      "p75": 7800,
+      "p95": 13000
+    },
+    "localized_faqs": [
+      {
+        "q": "How is wine-tasting aromatic integrity protected during vineyard events?",
+        "a": "Units feature sealed vacuum-siphon plumbing and multi-stage carbon filtration ensuring zero ambient aroma escapes into open-air wine tasting environments."
+      }
+    ]
+  }
+]
