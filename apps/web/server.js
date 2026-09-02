@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -469,6 +469,9 @@ print(json.dumps(res))
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 The Reliant Network Multi-Vertical Autonomous Directory Engine running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 The Reliant Network Multi-Vertical Autonomous Directory Engine running on http://localhost:${PORT}`);
+  });
+}
+module.exports = app;
