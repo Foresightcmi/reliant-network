@@ -455,7 +455,7 @@
 
       const grid = document.getElementById('vendors-grid');
       grid.innerHTML = '<div class="col-span-full py-16 text-center text-slate-500"><i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-amber-500 mb-2"></i><span>Loading verified operators...</span></div>';
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
 
       try {
         let url = `/api/vendors?niche_id=${activeNiche}&city=${encodeURIComponent(city)}&amenity=${encodeURIComponent(amenity)}&search=${encodeURIComponent(search)}`;
@@ -518,7 +518,7 @@
           </div>
         `).join('');
 
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e){}
       } catch (err) {
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-rose-400">Error loading directory: ${err.message}</div>`;
       }
@@ -536,7 +536,7 @@
       document.getElementById('quote-modal').classList.remove('hidden');
       document.getElementById('quote-form').classList.remove('hidden');
       document.getElementById('quote-success-view').classList.add('hidden');
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
     }
     function closeQuoteModal() {
       document.getElementById('quote-modal').classList.add('hidden');
@@ -547,7 +547,7 @@
       const btn = document.getElementById('quote-submit-btn');
       btn.disabled = true;
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Matching Operators...</span>';
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
 
       const payload = {
         niche_id: document.getElementById('q-niche').value,
@@ -580,13 +580,13 @@
           <div>&gt; Pay-Per-Lead Value: <span class="text-emerald-400 font-bold">$${data.qualification.lead_price}</span></div>
           <div>&gt; Booking Deposit (15%): <span class="text-cyan-400 font-bold">$${data.qualification.deposit_fee.toLocaleString()}</span></div>
         `;
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e){}
       } catch (err) {
         alert('Error submitting quote: ' + err.message);
       } finally {
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="zap" class="w-4 h-4"></i><span>Calculate Estimate &amp; Match Operators</span>';
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e){}
       }
     }
 
@@ -597,7 +597,7 @@
         document.getElementById('badge-embed-code').value = data.badge_html;
         document.getElementById('badge-preview-container').innerHTML = data.badge_html;
         document.getElementById('badge-modal').classList.remove('hidden');
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e){}
       } catch (err) {
         alert('Error fetching badge: ' + err.message);
       }
@@ -617,7 +617,7 @@
 
     async function openAdminModal() {
       document.getElementById('admin-modal').classList.remove('hidden');
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
       await fetchAdminMetrics();
       await fetchAnomalies();
       await fetchDeliverabilityStats();
@@ -725,7 +725,7 @@
       const btn = document.getElementById('cron-trigger-btn');
       btn.disabled = true;
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Executing Cycle...</span>';
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
 
       try {
         const res = await fetch('/api/admin/run-cron', { method: 'POST' });
@@ -739,13 +739,13 @@
       } finally {
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="play" class="w-4 h-4"></i><span>Trigger 24h Cadence Cycle</span>';
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e){}
       }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       loadVendors();
-      lucide.createIcons();
+      try { lucide.createIcons(); } catch(e){}
     });
   </script>
 
