@@ -108,9 +108,9 @@ Warm regards,
 The The Reliant Network Concierge Team
 concierge@{self.outbound_domain}
 
-Opt-out preference: If you no longer serve this market or prefer not to receive event leads, simply reply 'STOP' or visit {claim_url}?optout=1 to be removed right away.
-
-123 Apex Lead Solutions LLC, Suite 100, Business City, ST 12345"""
+Opt-out preference: If you no longer serve this market or prefer not to receive event leads, simply reply 'STOP' or visit {claim_url}?optout=1Thank you,
+The Reliant Network Outreach Team
+123 Reliant Network, Suite 100, Business City, ST 12345"""
 
             entry = {
                 "vendor_name": v["name"],
