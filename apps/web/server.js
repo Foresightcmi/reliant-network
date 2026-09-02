@@ -70,16 +70,18 @@ function queryDb(sql, params = []) {
       if (fs.existsSync(vendorsFile)) {
         let allVendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
         
-        // Very basic mock filtering for the Vercel edge
-        if (sql.includes('city = ?')) {
-           allVendors = allVendors.filter(v => v.city === params[0]);
-        }
+        let pIndex = 0;
         if (sql.includes('niche_id = ?')) {
-           allVendors = allVendors.filter(v => v.niche_id === params[0]);
+           const n = params[pIndex++];
+           allVendors = allVendors.filter(v => v.niche_id === n);
+        }
+        if (sql.includes('city = ?')) {
+           const c = params[pIndex++];
+           allVendors = allVendors.filter(v => v.city === c);
         }
         if (sql.includes('amenities LIKE ?')) {
-           const term = params[0].replace(/%/g, '');
-           allVendors = allVendors.filter(v => v.amenities.includes(term));
+           const term = params[pIndex++].replace(/%/g, '');
+           allVendors = allVendors.filter(v => v.amenities && v.amenities.includes(term));
         }
         
         return allVendors;
