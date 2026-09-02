@@ -63,19 +63,21 @@ class PseoMemoryCache {
 
 const pseoCache = new PseoMemoryCache();
 
+const Database = require('better-sqlite3');
+const dbPath = path.join(__dirname, '..', '..', 'services', 'data', 'directory.db');
+const db = new Database(dbPath, { readonly: false });
+
 function queryDb(sql, params = []) {
-  const payload = JSON.stringify({ sql, params });
-  const result = spawnSync('python', [BRIDGE_PATH], {
-    input: payload,
-    encoding: 'utf-8'
-  });
-  if (result.error) throw result.error;
-  if (!result.stdout.trim()) {
-    throw new Error('Empty response from db bridge: ' + (result.stderr || ''));
+  try {
+    if (sql.trim().toUpperCase().startsWith('SELECT')) {
+      return db.prepare(sql).all(...params);
+    } else {
+      const info = db.prepare(sql).run(...params);
+      return { lastInsertRowid: info.lastInsertRowid, changes: info.changes };
+    }
+  } catch (err) {
+    throw new Error('SQLite error: ' + err.message);
   }
-  const data = JSON.parse(result.stdout.trim());
-  if (data && data.error) throw new Error(data.error);
-  return data;
 }
 
 // 1. Robots.txt
