@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import sqlite3
 import json
 import os
@@ -10,6 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "..", "scraper"))
 
 from ad_library_ingest import FortifiedAdSpendIngest
 from auto_suburb_expander import AutoSuburbExpander
+from google_indexer import GoogleIndexingEngine
 
 DB_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'directory.db')
 
@@ -28,6 +29,10 @@ def run_hourly_broker_cycle():
     # 2. Run Anti-Thin-Content Suburb Expander
     suburb_agent = AutoSuburbExpander()
     suburb_res = suburb_agent.expand_winning_suburbs()
+
+    # 3. Trigger Google Indexing Engine (Fast-Crawl Submission)
+    indexer = GoogleIndexingEngine()
+    index_res = indexer.submit_urls_for_indexing()
 
     # 3. Calculate Live Banked Telemetry
     conn = sqlite3.connect(DB_PATH)

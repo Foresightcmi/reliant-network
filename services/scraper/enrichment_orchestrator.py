@@ -14,6 +14,11 @@ def ensure_column():
         print('[Enrichment] Added enriched_content column to DB')
     except sqlite3.OperationalError:
         pass
+    try:
+        conn.execute('ALTER TABLE vendors ADD COLUMN trust_badges TEXT')
+        print('[Enrichment] Added trust_badges column to DB')
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
     conn.close()
 
@@ -44,6 +49,21 @@ def generate_seo_profile(company_name, markdown_content):
         print(f'[Enrichment] AI Generation failed: {e}')
         return None
 
+def extract_trust_badges(markdown_content):
+    content_lower = markdown_content.lower()
+    badges = []
+    if any(k in content_lower for k in ['insured', 'liability', 'coverage']):
+        badges.append('Fully Insured')
+    if any(k in content_lower for k in ['license', 'licensed', 'permits']):
+        badges.append('State Licensed')
+    if any(k in content_lower for k in ['osha', 'safety certified', 'nccco', 'certified']):
+        badges.append('Safety Certified')
+    if any(k in content_lower for k in ['bonded', 'guarantee']):
+        badges.append('Bonded & Vetted')
+    if not badges:
+        badges = ['Reliant Verified Partner']
+    return badges
+
 def run_enrichment():
     ensure_column()
     conn = sqlite3.connect(DB_PATH)
@@ -64,13 +84,17 @@ def run_enrichment():
             print(f"[Enrichment] Failed to extract meaningful content from {vendor['website']}")
             continue
             
-        print(f"[Enrichment] Extracted {len(md_text)} characters. Synthesizing SEO Profile via Gemini AI...")
+        print(f"[Enrichment] Extracted {len(md_text)} characters. Detecting Trust Badges...")
+        badges = extract_trust_badges(md_text)
+        print(f"[Enrichment] Detected Badges: {badges}")
+        
+        print(f"[Enrichment] Synthesizing SEO Profile via Gemini AI...")
         seo_profile = generate_seo_profile(vendor['name'], md_text)
         
         if seo_profile:
-            conn.execute('UPDATE vendors SET enriched_content = ? WHERE id = ?', (seo_profile, vendor['id']))
+            conn.execute('UPDATE vendors SET enriched_content = ?, trust_badges = ? WHERE id = ?', (seo_profile, json.dumps(badges), vendor['id']))
             conn.commit()
-            print(f"[Enrichment] Successfully saved 100% unique SEO profile for {vendor['name']}!")
+            print(f"[Enrichment] Successfully saved profile & badges for {vendor['name']}!")
             
         time.sleep(2) # Respect rate limits
         

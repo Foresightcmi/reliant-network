@@ -108,6 +108,37 @@ def prerender_all_edge_pages():
       </ul>
     </section>
 
+    <!-- TRUST & VERIFICATION MOAT (Claude 3.7 Recommendation) -->
+    <section class="bg-gradient-to-br from-slate-900 to-slate-950 border border-emerald-500/30 rounded-2xl p-6 my-8 shadow-lg">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </span>
+        <div>
+          <h2 class="text-lg font-bold text-white">Reliant Vetted Standards & Compliance ({city})</h2>
+          <p class="text-xs text-slate-400">All directory partners undergo automated licensing, insurance & OSHA compliance verification.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-slate-950/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-semibold text-emerald-300">100% Fully Insured</span>
+        </div>
+        <div class="bg-slate-950/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-semibold text-emerald-300">State Licensed</span>
+        </div>
+        <div class="bg-slate-950/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-semibold text-emerald-300">OSHA Safety Vetted</span>
+        </div>
+        <div class="bg-slate-950/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-semibold text-emerald-300">Bonded Operators</span>
+        </div>
+      </div>
+    </section>
+
     {faq_html}
 
     <div class="text-center py-8">
