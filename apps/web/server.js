@@ -500,14 +500,10 @@ app.post('/api/leads/fomo-blast', async (req, res) => {
   if (!process.env.RESEND_API_KEY) return res.status(500).json({error: 'Resend API key not configured'});
 
   try {
-    // In production, we query SQLite for all unverified vendors in the target city
-    // For now, we simulate the Resend API request
     const mockUnverifiedEmails = ['competitor1@example.com', 'competitor2@example.com'];
-    
-    // Simulate sending email via Resend
-    console.log(\[FOMO] Sending missed lead alert to \ unverified operators in \...\);
-    console.log(\[FOMO] SUBJECT: Missed Lead in \ - \);
-    console.log(\[FOMO] BODY: A contractor just booked a \ in \. Our Verified Member secured the job because your profile is unverified. Upgrade for /mo to get the next one: reliantverified.com/upgrade\);
+    console.log(`[FOMO] Sending missed lead alert to ${mockUnverifiedEmails.length} unverified operators in ${city}...`);
+    console.log(`[FOMO] SUBJECT: Missed Lead in ${city} - ${serviceRequested}`);
+    console.log(`[FOMO] BODY: A contractor just booked a ${serviceRequested} in ${city}. Upgrade for $99/mo: reliantverified.com/upgrade`);
 
     res.json({ success: true, targetsAlerted: mockUnverifiedEmails.length });
   } catch (err) {
