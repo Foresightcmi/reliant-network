@@ -492,4 +492,27 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`🚀 The Reliant Network Multi-Vertical Autonomous Directory Engine running on http://localhost:${PORT}`);
   });
 }
+
+// --- FOMO DRIP CAMPAIGN (GLM 5.3 Recommendation) ---
+// When a lead comes in, blast this email to UNVERIFIED operators in that city
+app.post('/api/leads/fomo-blast', async (req, res) => {
+  const { city, serviceRequested } = req.body;
+  if (!process.env.RESEND_API_KEY) return res.status(500).json({error: 'Resend API key not configured'});
+
+  try {
+    // In production, we query SQLite for all unverified vendors in the target city
+    // For now, we simulate the Resend API request
+    const mockUnverifiedEmails = ['competitor1@example.com', 'competitor2@example.com'];
+    
+    // Simulate sending email via Resend
+    console.log(\[FOMO] Sending missed lead alert to \ unverified operators in \...\);
+    console.log(\[FOMO] SUBJECT: Missed Lead in \ - \);
+    console.log(\[FOMO] BODY: A contractor just booked a \ in \. Our Verified Member secured the job because your profile is unverified. Upgrade for /mo to get the next one: reliantverified.com/upgrade\);
+
+    res.json({ success: true, targetsAlerted: mockUnverifiedEmails.length });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = app;

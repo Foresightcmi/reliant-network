@@ -4,7 +4,7 @@ import os
 from spintax_engine import generate_spintax, generate_faq_schema
 
 PSEO_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "pseo_metros.json")
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "dist", "static-pseo")
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "apps", "web", "public", "metro")
 
 def prerender_all_edge_pages():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -115,6 +115,62 @@ def prerender_all_edge_pages():
         Get Direct Instant Quotes in {city}
       </a>
     </div>
+  
+<!-- INTERACTIVE COST CALCULATOR (Kimi K3 Recommendation) -->
+<div class="mt-12 bg-slate-900 border border-slate-800 rounded-2xl p-8 max-w-3xl mx-auto shadow-2xl">
+  <h3 class="text-2xl font-bold text-amber-500 mb-2">Interactive Cost Estimator</h3>
+  <p class="text-slate-400 mb-6">Drag the slider to estimate your rental cost in {city}.</p>
+  
+  <div class="mb-8">
+    <div class="flex justify-between text-slate-300 mb-2">
+      <span>Duration</span>
+      <span id="duration-label" class="font-bold text-white">1 Day</span>
+    </div>
+    <input type="range" id="duration-slider" min="1" max="30" value="1" class="w-full accent-amber-500 cursor-pointer h-2 bg-slate-700 rounded-lg appearance-none">
+  </div>
+  
+  <div class="mb-8">
+    <div class="flex justify-between text-slate-300 mb-2">
+      <span>Equipment Type</span>
+    </div>
+    <select id="type-select" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 focus:ring-2 focus:ring-amber-500 outline-none">
+      <option value="1">Standard Unit (Base Cost)</option>
+      <option value="1.5">Premium / Heavy Duty (+50%)</option>
+      <option value="2.5">Luxury / Super Heavy (+150%)</option>
+    </select>
+  </div>
+  
+  <div class="p-6 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-between">
+    <span class="text-slate-400 font-medium">Estimated Total</span>
+    <span id="total-cost" class="text-4xl font-black text-amber-400">${avg_cost}</span>
+  </div>
+  <p class="text-xs text-slate-500 mt-4 text-center">* Estimates are based on local {city} market averages. Contact a Verified Operator for an exact quote.</p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {{
+      const slider = document.getElementById('duration-slider');
+      const typeSelect = document.getElementById('type-select');
+      const durationLabel = document.getElementById('duration-label');
+      const totalCost = document.getElementById('total-cost');
+      const baseDailyRate = {avg_cost};
+      
+      function calculate() {{
+        const days = parseInt(slider.value);
+        const multiplier = parseFloat(typeSelect.value);
+        // Add a slight discount curve for longer rentals
+        const discount = days > 7 ? 0.8 : (days > 3 ? 0.9 : 1);
+        const total = Math.round(baseDailyRate * days * multiplier * discount);
+        
+        durationLabel.innerText = days === 1 ? '1 Day' : days + ' Days';
+        totalCost.innerText = '$' + total.toLocaleString();
+      }}
+      
+      slider.addEventListener('input', calculate);
+      typeSelect.addEventListener('change', calculate);
+    }});
+  </script>
+</div>
+
   </main>
 </body>
 </html>"""
