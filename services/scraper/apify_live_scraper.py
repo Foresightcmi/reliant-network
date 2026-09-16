@@ -41,7 +41,7 @@ class ApifyLiveScraper:
             "language": "en"
         }
         
-        url = f"https://api.apify.com/v2/acts/apify~google-maps-scraper/runs?token={self.api_token}"
+        url = f"https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token={self.api_token}"
         try:
             res = requests.post(url, json=actor_input)
             if res.status_code != 201:

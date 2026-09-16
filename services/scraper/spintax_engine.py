@@ -51,20 +51,28 @@ def generate_spintax(data):
 def generate_faq_schema(city, state, service, avg_cost):
     """
     Generates highly localized FAQPage JSON-LD schema for rich snippets in Google Search,
-    while injecting LSI keywords to bolster semantic relevance.
+    while injecting Frey Chu's high-intent capacity, utility, and logistical search queries.
     """
     faqs = [
         {
+            "question": f"How many luxury restroom trailer stalls do I need for my event in {city}?",
+            "answer": f"For weddings and private events in {city}, industry standards recommend 1 restroom station per 50-75 guests for events lasting 4 to 6 hours. If alcohol is served, factor in a 20-25% increase in usage. A 2-station trailer comfortably supports up to 150 guests, a 4-station trailer accommodates up to 300 guests, and an 8-station or 10-station master unit handles 500 to 1,500+ attendees."
+        },
+        {
+            "question": f"Do luxury restroom trailers require on-site water and electrical hookups in {city}?",
+            "answer": f"Most luxury restroom trailers in {city} require 1 to 3 dedicated 20-amp 110V electrical circuits and a standard 3/4-inch garden hose connection providing 40-50 PSI. For remote venues, ranches, or parks without power or water, verified {city} operators provide onboard whisper-quiet generators and multi-hundred-gallon freshwater holding tanks."
+        },
+        {
             "question": f"How much does {service} typically cost in {city}, {state}?",
-            "answer": f"On average, clients in {city} can expect to pay around ${avg_cost:,} for premium {service}. However, prices can fluctuate depending on availability, specific requirements, and the season. Our verified local network ensures you receive transparent, competitive quotes without hidden fees."
+            "answer": f"On average, luxury restroom trailer rentals in {city} range between $1,400 to $4,500 per day depending on trailer size (2-station to 8-station suites) and amenities. Multi-day corporate rentals, film productions, and multi-week fairs receive volume discounts. Our verified {city} network provides instant, transparent quotes with zero hidden fees."
         },
         {
-            "question": f"How do you verify the {service} providers in {city}?",
-            "answer": f"We rigorously vet every {service} contractor in {city} for proper licensing, up-to-date insurance, and a proven track record of reliable execution. We prioritize operators who specialize in high-end, compliant services so you don't have to risk your project or peace of mind."
+            "question": f"What is the difference between a luxury restroom trailer and a standard portable toilet?",
+            "answer": f"Unlike chemical porta-potties, luxury restroom trailers provide private, individual locking suites featuring flushing porcelain toilets, running hot and cold water sinks, marble or granite countertops, LED vanity lighting, climate-controlled A/C and heating, and Bluetooth sound systems—delivering a 5-star hotel restroom experience."
         },
         {
-            "question": f"Can I get a same-day or emergency {service} quote in {city}?",
-            "answer": f"Yes. We understand that emergencies happen. Our network connects you directly to responsive {service} professionals in the {city} area who can provide rapid deployment, 24/7 support, and immediate estimates."
+            "question": f"What is the delivery radius and setup protocol for {city} operators?",
+            "answer": f"Verified operators typically service a 50 to 100-mile radius around {city}. Setup includes precision laser hydraulic leveling, water line pressurization, electrical testing, and complete stocking with luxury hand soaps, plush paper towels, and mints prior to guest arrival."
         }
     ]
     
@@ -74,7 +82,7 @@ def generate_faq_schema(city, state, service, avg_cost):
         "mainEntity": []
     }
     
-    html_out = '<div class="mt-10 mb-6"><h2 class="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2><div class="space-y-4">'
+    html_out = '<div class="mt-12 mb-8"><h2 class="text-2xl font-serif-title font-bold text-slate-900 mb-6">Frequently Asked Questions &amp; Event Logistics</h2><div class="space-y-4">'
     
     for faq in faqs:
         schema["mainEntity"].append({
@@ -85,7 +93,7 @@ def generate_faq_schema(city, state, service, avg_cost):
                 "text": faq["answer"]
             }
         })
-        html_out += f'<div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl"><h3 class="text-lg font-bold text-amber-400">{faq["question"]}</h3><p class="text-slate-300 text-sm mt-2 leading-relaxed">{faq["answer"]}</p></div>'
+        html_out += f'<div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-xs"><h3 class="text-base font-bold text-slate-900">{faq["question"]}</h3><p class="text-slate-600 text-sm mt-2 leading-relaxed">{faq["answer"]}</p></div>'
         
     html_out += '</div></div>'
     

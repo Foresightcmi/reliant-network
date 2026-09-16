@@ -53,8 +53,12 @@
         </button>
       </div>
 
-      <div class="flex items-center gap-3">
-        <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-amber-800 hover:text-amber-900 font-semibold bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-lg border border-amber-300 text-xs transition-colors">
+      <div class="flex items-center gap-2.5">
+        <button onclick="openSubmitModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="plus-circle" class="w-4 h-4 text-amber-600"></i>
+          <span>List Your Fleet</span>
+        </button>
+        <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-amber-800 hover:text-amber-900 font-semibold bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-300 text-xs transition-colors">
           <i data-lucide="line-chart" class="w-4 h-4 text-amber-600"></i>
           <span class="hidden sm:inline">Cash Flow Command</span>
         </button>
@@ -122,7 +126,186 @@
         </div>
       </div>
     </div>
+  <!-- FREY CHU EVENT RESTROOM STATION & CAPACITY PLANNER -->
+  <section id="capacity-planner" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-amber-50/60 via-white to-slate-50 border border-amber-200/80 rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-2xs">
+              <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span>Live Equipment Sizing Protocol</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
+              Event Restroom Station &amp; Capacity Planner
+            </h2>
+            <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+              Eliminate guesswork and prevent guest wait lines. Calculate exact trailer dimensions, stall count, and utility requirements based on event scale, duration, and beverage service.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              <span>Zero-Wait Logistics Formula</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- PLANNER CONTROLS (7 COLS) -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- GUEST COUNT SLIDER -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                  <i data-lucide="users" class="w-4 h-4 text-amber-600"></i>
+                  <span>Expected Guest Attendance</span>
+                </label>
+                <span id="planner-guest-display" class="text-xl font-extrabold text-amber-600">175 Guests</span>
+              </div>
+              <input type="range" id="planner-guests" min="25" max="1500" step="25" value="175" oninput="updateCapacityPlanner()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-2 font-medium">
+                <span>25 (Intimate)</span>
+                <span>250 (Mid Gala)</span>
+                <span>500 (Large Event)</span>
+                <span>1,500+ (Festival/Fair)</span>
+              </div>
+            </div>
+
+            <!-- DURATION SLIDER -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                  <i data-lucide="clock" class="w-4 h-4 text-amber-600"></i>
+                  <span>Event Duration</span>
+                </label>
+                <span id="planner-duration-display" class="text-xl font-extrabold text-amber-600">5 Hours</span>
+              </div>
+              <input type="range" id="planner-duration" min="2" max="12" step="1" value="5" oninput="updateCapacityPlanner()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-2 font-medium">
+                <span>2 Hours</span>
+                <span>5 Hours (Typical Wedding)</span>
+                <span>8 Hours</span>
+                <span>12+ Hours</span>
+              </div>
+            </div>
+
+            <!-- LOGISTICS & UTILITY TOGGLES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- ALCOHOL TOGGLE -->
+              <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs flex items-center justify-between cursor-pointer" onclick="toggleAlcohol()">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                    <i data-lucide="wine" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-900 block">Alcohol Served</span>
+                    <span class="text-[11px] text-slate-500 block">+25% restroom usage factor</span>
+                  </div>
+                </div>
+                <input type="checkbox" id="planner-alcohol" checked onchange="updateCapacityPlanner()" class="w-4 h-4 text-amber-600 rounded border-slate-300 focus:ring-amber-500 cursor-pointer">
+              </div>
+
+              <!-- OFF-GRID UTILITIES TOGGLE -->
+              <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs flex items-center justify-between cursor-pointer" onclick="toggleOffGrid()">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                    <i data-lucide="zap-off" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-900 block">Off-Grid Remote Venue</span>
+                    <span class="text-[11px] text-slate-500 block">Generator &amp; water delivery</span>
+                  </div>
+                </div>
+                <input type="checkbox" id="planner-offgrid" onchange="updateCapacityPlanner()" class="w-4 h-4 text-amber-600 rounded border-slate-300 focus:ring-amber-500 cursor-pointer">
+              </div>
+            </div>
+          </div>
+
+          <!-- RECOMMENDED CONFIGURATION OUTPUT CARD (5 COLS) -->
+          <div class="lg:col-span-5 bg-white border-2 border-amber-400 rounded-3xl p-6 sm:p-7 shadow-xl shadow-amber-500/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-bold tracking-wider text-amber-800 uppercase bg-amber-50 border border-amber-300 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+                  <span>Matched Configuration</span>
+                </span>
+                <span id="planner-stall-badge" class="bg-slate-900 text-amber-300 font-mono text-xs font-bold px-2.5 py-1 rounded-lg">
+                  4 Private Stalls
+                </span>
+              </div>
+
+              <h3 id="planner-rec-title" class="text-2xl font-serif-title font-bold text-slate-900 leading-tight">
+                4-Station Luxury Elegance Trailer
+              </h3>
+              <p id="planner-rec-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Engineered for events up to 300 guests. Includes 2 private women's suites, 2 private men's suites, flushing porcelain toilets, dual vanity sinks, climate A/C, and integrated stereo audio.
+              </p>
+
+              <!-- SPECIFICATION CHIPS -->
+              <div class="mt-5 space-y-2.5 border-t border-slate-100 pt-4 text-xs">
+                <div class="flex items-start gap-2.5">
+                  <i data-lucide="power" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-slate-800">Electrical:</span>
+                    <span id="planner-rec-power" class="text-slate-600 ml-1">2x Dedicated 20-Amp 110V household circuits</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i data-lucide="droplet" class="w-4 h-4 text-cyan-600 shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-slate-800">Water Supply:</span>
+                    <span id="planner-rec-water" class="text-slate-600 ml-1">Standard 3/4" garden hose (40-50 PSI) or 300-gal onboard freshwater tank</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i data-lucide="truck" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-slate-800">Site Footprint:</span>
+                    <span id="planner-rec-footprint" class="text-slate-600 ml-1">20ft L x 8.5ft W (requires 12ft vertical clearance)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PRICING SUMMARY -->
+              <div class="mt-6 bg-amber-50/60 border border-amber-200/90 rounded-2xl p-4 flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] font-semibold text-amber-900 uppercase block">Estimated Daily Rate</span>
+                  <span id="planner-rec-price" class="text-2xl font-black text-amber-700 font-sans">$1,650 – $2,400</span>
+                </div>
+                <span class="text-[10px] text-slate-500 text-right max-w-[120px] leading-tight block">
+                  Includes delivery, laser setup, toiletries &amp; post-event pump-out
+                </span>
+              </div>
+            </div>
+
+            <button onclick="applyPlannerToQuote()" class="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3.5 rounded-xl shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all">
+              <i data-lucide="calendar-check" class="w-4 h-4"></i>
+              <span>Lock In Available Dates &amp; Match Operators</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- JOHN RUSH SPONSORSHIP CALLOUT BANNER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-8 mt-6">
+    <div class="bg-gradient-to-r from-amber-50 via-white to-amber-50 border border-amber-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-extrabold text-xs">
+          <i data-lucide="crown" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-slate-900 block">Fleet Operators: Feature Your Equipment at the Top of Your Metro</span>
+          <span class="text-[11px] text-slate-600 block">Lock in exclusive category placement and receive direct client broadcast quote leads.</span>
+        </div>
+      </div>
+      <button onclick="openSubmitModal()" class="bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition-colors whitespace-nowrap self-start sm:self-auto shadow-xs">
+        Claim Featured Placement ($99/mo)
+      </button>
+    </div>
+  </div>
 
   <!-- DIRECTORY SECTION -->
   <section id="directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -245,13 +428,43 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-slate-700 mb-1">Project / Event Type</label>
-            <input type="text" id="q-type" placeholder="e.g. Wedding, Facility Outage, HVAC Lift" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+            <input type="text" id="q-type" placeholder="e.g. Wedding, State Fair, Film Production, HVAC Lift" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Guest Attendance / Project Scale</label>
+            <input type="number" id="q-guests" value="150" min="10" max="50000" placeholder="e.g. 150 guests" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Rental Term / Event Duration</label>
+            <select id="q-duration" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+              <option value="Single Day (4-8 hrs)">Single Day Event (4-8 hrs)</option>
+              <option value="Weekend (2-3 Days)">Weekend / Multi-Day (2-3 Days)</option>
+              <option value="Weekly Production (4-7 Days)">Weekly Film / Corporate Production (4-7 Days)</option>
+              <option value="Multi-Week Fair / Festival (10+ Days)">Multi-Week Fair / Festival (10+ Days - Enterprise)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">On-Site Utility Availability</label>
+            <select id="q-utilities" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+              <option value="Standard On-Site Utilities Available">Standard Hookups Available (110V + Hose)</option>
+              <option value="Off-Grid Remote (Generator & Freshwater Needed)">Off-Grid Remote (Generator &amp; Tanks Needed)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Delivery Zip Code / County</label>
+            <input type="text" id="q-zip" placeholder="e.g. 30309 or Fulton County" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Project Scope &amp; Special Requirements</label>
-          <textarea id="q-notes" rows="2" placeholder="e.g. Need 40ft sub-zero freezer trailer, or 50-ton crane for roof unit drop..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
+          <textarea id="q-notes" rows="2" placeholder="e.g. Need 4-station luxury trailer with generator, or 40ft sub-zero freezer trailer..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
         </div>
 
         <button type="submit" id="quote-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-md shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
@@ -295,6 +508,206 @@
         <i data-lucide="copy" class="w-4 h-4"></i>
         <span id="copy-btn-text">Copy HTML Embed Code</span>
       </button>
+    </div>
+  </div>
+
+  <!-- CLAIM LISTING MODAL (John Rush Blueprint) -->
+  <div id="claim-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeClaimModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif-title font-bold text-slate-900">Claim Your Business Listing</h3>
+          <p class="text-xs text-slate-500">Verify profile ownership &amp; unlock direct customer quote broadcasts</p>
+        </div>
+      </div>
+
+      <div class="bg-amber-50/70 border border-amber-200 p-3 rounded-xl mb-5 text-xs text-amber-900">
+        Claiming: <span id="claim-vendor-name" class="font-bold text-slate-900">Operator Profile</span>
+      </div>
+
+      <form id="claim-form" onsubmit="handleClaimSubmit(event)" class="space-y-4">
+        <input type="hidden" id="claim-vendor-id">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name / Title</label>
+          <input type="text" id="claim-owner-name" required placeholder="Marcus Vance, Managing Operator" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Official Company Email</label>
+            <input type="email" id="claim-owner-email" required placeholder="marcus@vancefleets.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Direct Phone / Mobile</label>
+            <input type="tel" id="claim-owner-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Select Verification Tier</label>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 p-3 bg-amber-50/50 border border-amber-300 rounded-xl cursor-pointer hover:bg-amber-50 transition-colors">
+              <input type="radio" name="claim-tier" value="featured" checked class="mt-1 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="text-xs font-bold text-slate-900 block flex items-center gap-1.5">
+                  <span>Featured Partner Placement ($99/mo)</span>
+                  <span class="bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.2 rounded-full">Recommended</span>
+                </span>
+                <span class="text-[11px] text-slate-600 block mt-0.5">Top-of-metro placement, Verified Gold badge, instant quote broadcast routing, direct do-follow backlink.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+              <input type="radio" name="claim-tier" value="standard" class="mt-1 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="text-xs font-bold text-slate-900 block">Standard Verified Listing (Free)</span>
+                <span class="text-[11px] text-slate-600 block mt-0.5">Basic directory profile verified within 24-48 hours via public business registry check.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" id="claim-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-md shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>Verify &amp; Confirm Ownership</span>
+        </button>
+      </form>
+
+      <!-- SUCCESS VIEW -->
+      <div id="claim-success-view" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 border border-emerald-300">
+          <i data-lucide="check" class="w-7 h-7"></i>
+        </div>
+        <h4 class="text-lg font-bold text-slate-900">Ownership Claim Submitted!</h4>
+        <p id="claim-success-msg" class="text-xs text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed"></p>
+        <div id="claim-checkout-cta" class="mt-5 hidden">
+          <a id="claim-stripe-link" href="#" target="_blank" class="w-full inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs py-2.5 rounded-xl shadow-xs transition-colors">
+            Complete $99/mo Partner Subscription &rarr;
+          </a>
+        </div>
+        <button onclick="closeClaimModal()" class="mt-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-5 py-2 rounded-xl border border-slate-300 transition-colors">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT FLEET MODAL (John Rush Blueprint) -->
+  <div id="submit-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeSubmitModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
+          <i data-lucide="plus-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif-title font-bold text-slate-900">List Your Equipment Fleet</h3>
+          <p class="text-xs text-slate-500">Publish your verified inventory to high-ticket B2B planners &amp; clients</p>
+        </div>
+      </div>
+
+      <form id="submit-form" onsubmit="handleSubmitListing(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Company / Fleet Name</label>
+            <input type="text" id="sub-name" required placeholder="Summit Luxury Sanitation LLC" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Equipment Vertical</label>
+            <select id="sub-niche" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+              <option value="luxury_restrooms">Luxury Restroom Trailers</option>
+              <option value="commercial_cold_storage">Mobile Cold Storage &amp; Freezers</option>
+              <option value="heavy_crane_rigging">Heavy Crane &amp; Rigging</option>
+              <option value="senior_care_placement">Senior Care Facility / Advisors</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Metro Area</label>
+            <input type="text" id="sub-city" required placeholder="Atlanta" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">State</label>
+            <input type="text" id="sub-state" required placeholder="GA" maxlength="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Dispatch Phone</label>
+            <input type="tel" id="sub-phone" required placeholder="(404) 555-0188" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Quote Inquiries Email</label>
+            <input type="email" id="sub-email" required placeholder="quotes@summitfleet.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Website URL</label>
+            <input type="url" id="sub-website" placeholder="https://summitfleet.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Fleet Inventory / Station Configurations</label>
+          <input type="text" id="sub-fleet" placeholder="e.g. 2-Station Presidential, 4-Station Elegance, 8-Station Gala, ADA Suite" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          <span class="text-[10px] text-slate-400 mt-1 block">Separate fleet types or equipment specifications with commas.</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Amenities &amp; Technical Capabilities</label>
+          <input type="text" id="sub-amenities" placeholder="e.g. Flushing Porcelain, Climate Control, Granite Vanities, Onboard Generator" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Placement Tier</label>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 p-3 bg-amber-50/50 border border-amber-300 rounded-xl cursor-pointer hover:bg-amber-50 transition-colors">
+              <input type="radio" name="sub-tier" value="featured" checked class="mt-1 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="text-xs font-bold text-slate-900 block flex items-center gap-1.5">
+                  <span>Featured Partner Membership ($99/mo)</span>
+                  <span class="bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.2 rounded-full">Top Visibility</span>
+                </span>
+                <span class="text-[11px] text-slate-600 block mt-0.5">Guaranteed #1 priority placement in your metro, verified trust badge, and direct high-ticket lead broadcasts.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+              <input type="radio" name="sub-tier" value="standard" class="mt-1 text-amber-600 focus:ring-amber-500">
+              <div>
+                <span class="text-xs font-bold text-slate-900 block">Free Standard Directory Listing</span>
+                <span class="text-[11px] text-slate-600 block mt-0.5">Listed in directory after automated verification and background check (5-7 business days).</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" id="sub-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-md shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+          <span>Submit &amp; Publish Listing</span>
+        </button>
+      </form>
+
+      <!-- SUCCESS VIEW -->
+      <div id="sub-success-view" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 border border-emerald-300">
+          <i data-lucide="check" class="w-7 h-7"></i>
+        </div>
+        <h4 class="text-lg font-bold text-slate-900">Equipment Fleet Submitted!</h4>
+        <p id="sub-success-msg" class="text-xs text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed"></p>
+        <div id="sub-checkout-cta" class="mt-5 hidden">
+          <a id="sub-stripe-link" href="#" target="_blank" class="w-full inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs py-2.5 rounded-xl shadow-xs transition-colors">
+            Activate Featured Partner ($99/mo) &rarr;
+          </a>
+        </div>
+        <button onclick="closeSubmitModal()" class="mt-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-5 py-2 rounded-xl border border-slate-300 transition-colors">Done</button>
+      </div>
     </div>
   </div>
 
@@ -500,9 +913,26 @@
                 <h3 class="text-lg font-bold text-slate-900 mt-1 leading-snug">${v.name}</h3>
                 <p class="text-xs text-slate-600 mt-2 line-clamp-2">${v.description}</p>
 
-                <div class="mt-4 flex flex-wrap gap-1.5">
+                ${(v.fleet_types && v.fleet_types.length) ? `
+                  <div class="mt-3 flex flex-wrap gap-1">
+                    ${v.fleet_types.slice(0, 2).map(f => `<span class="bg-amber-50 text-amber-900 border border-amber-200 text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1"><i data-lucide="truck" class="w-2.5 h-2.5"></i>${f.split('(')[0].trim()}</span>`).join('')}
+                    ${v.fleet_types.length > 2 ? `<span class="text-[10px] text-amber-700 font-bold px-1 py-0.5">+${v.fleet_types.length - 2} models</span>` : ''}
+                  </div>
+                ` : ''}
+
+                <div class="mt-3 flex flex-wrap gap-1.5">
                   ${v.amenities.slice(0, 3).map(a => `<span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded-md border border-slate-200">${a}</span>`).join('')}
                   ${v.amenities.length > 3 ? `<span class="text-[10px] text-slate-500 font-semibold px-1 py-0.5">+${v.amenities.length - 3} more</span>` : ''}
+                </div>
+
+                <div class="mt-3 flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
+                  <span class="flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+                    ${v.service_radius_miles ? `${v.service_radius_miles}-Mile Radius` : 'Local & Regional'}
+                  </span>
+                  <span class="text-emerald-700 font-semibold flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3 h-3"></i> Verified Fleet
+                  </span>
                 </div>
               </div>
             </div>
@@ -511,6 +941,10 @@
               <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-xs">
                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                 <span>Quote</span>
+              </button>
+
+              <button onclick="openClaimModal('${v.id}', '${v.name.replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
+                <span class="flex items-center gap-1"><i data-lucide="key" class="w-3 h-3 text-amber-600"></i> Claim</span>
               </button>
 
               <button onclick="openBadgeModal('${v.id}')" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
@@ -559,7 +993,10 @@
         city: document.getElementById('q-city').value,
         state: 'GA',
         event_date: document.getElementById('q-date').value,
-        guest_count: 150,
+        guest_count: parseInt(document.getElementById('q-guests')?.value) || 150,
+        duration: document.getElementById('q-duration')?.value || 'Single Day (4-8 hrs)',
+        utilities: document.getElementById('q-utilities')?.value || 'Standard On-Site Utilities Available',
+        delivery_zip: document.getElementById('q-zip')?.value || '',
         event_type: document.getElementById('q-type').value || 'Commercial Project',
         notes: document.getElementById('q-notes').value
       };
@@ -745,8 +1182,264 @@
       }
     }
 
+    // --- CAPACITY PLANNER LOGIC (Frey Chu Blueprint) ---
+    function toggleAlcohol() {
+      const chk = document.getElementById('planner-alcohol');
+      if (chk) {
+        chk.checked = !chk.checked;
+        updateCapacityPlanner();
+      }
+    }
+
+    function toggleOffGrid() {
+      const chk = document.getElementById('planner-offgrid');
+      if (chk) {
+        chk.checked = !chk.checked;
+        updateCapacityPlanner();
+      }
+    }
+
+    function updateCapacityPlanner() {
+      const guestsEl = document.getElementById('planner-guests');
+      const durationEl = document.getElementById('planner-duration');
+      if (!guestsEl || !durationEl) return;
+
+      const guests = parseInt(guestsEl.value);
+      const duration = parseInt(durationEl.value);
+      const alcohol = document.getElementById('planner-alcohol')?.checked || false;
+      const offgrid = document.getElementById('planner-offgrid')?.checked || false;
+
+      document.getElementById('planner-guest-display').textContent = `${guests.toLocaleString()} Guests`;
+      document.getElementById('planner-duration-display').textContent = `${duration} Hours`;
+
+      const factor = (alcohol ? 1.25 : 1.0) * (duration / 5.0);
+      const effectiveGuests = Math.round(guests * factor);
+
+      let rec = {};
+      if (effectiveGuests <= 100) {
+        rec = {
+          stallsBadge: '2 Private Stalls',
+          title: '2-Station Presidential VIP Suite',
+          desc: 'Ideal for intimate gatherings, boutique vineyard weddings, and VIP hospitality suites up to 100 guests. Features 1 private women\'s stall and 1 private men\'s stall.',
+          power: offgrid ? 'Quiet Onboard Inverter Generator Included' : '1x Dedicated 20-Amp 110V Circuit',
+          water: offgrid ? '150-gal Onboard Freshwater Tank Included' : 'Standard 3/4" garden hose hookup',
+          footprint: '16ft L x 8ft W (11ft clearance)',
+          price: offgrid ? '$1,650 – $2,100' : '$1,150 – $1,600'
+        };
+      } else if (effectiveGuests <= 220) {
+        rec = {
+          stallsBadge: '3 Private Stalls',
+          title: '3-Station Elegance Restroom Suite',
+          desc: 'Optimal balance for upscale gatherings up to 220 guests. Features 2 women\'s private suites, 1 men\'s private suite, porcelain pedal-flush toilets, and Bluetooth audio.',
+          power: offgrid ? 'Quiet Commercial Generator Package Included' : '2x Dedicated 20-Amp 110V Circuits',
+          water: offgrid ? '250-gal Onboard Freshwater Tank Included' : 'Standard 3/4" garden hose hookup',
+          footprint: '18ft L x 8.5ft W (12ft clearance)',
+          price: offgrid ? '$2,100 – $2,650' : '$1,450 – $1,950'
+        };
+      } else if (effectiveGuests <= 450) {
+        rec = {
+          stallsBadge: '4 Private Stalls',
+          title: '4-Station Luxury Elegance Trailer',
+          desc: 'Engineered for events up to 450 guests. Includes 2 private women\'s suites, 2 private men\'s suites, flushing porcelain toilets, dual vanity sinks, climate A/C, and integrated stereo audio.',
+          power: offgrid ? 'Dual Onboard Whisper Generators (+$950)' : '2x Dedicated 20-Amp 110V Circuits',
+          water: offgrid ? '300-gal Onboard Freshwater Tank Delivery' : 'Standard 3/4" garden hose hookup',
+          footprint: '22ft L x 8.5ft W (12ft clearance)',
+          price: offgrid ? '$2,600 – $3,350' : '$1,650 – $2,400'
+        };
+      } else if (effectiveGuests <= 800) {
+        rec = {
+          stallsBadge: '8 Private Stalls',
+          title: '8-Station Black-Tie Gala Master Suite',
+          desc: 'High-throughput luxury solution for large galas, corporate summits, and multi-tent weddings. Features 4 women\'s private stalls, 4 men\'s private stalls, dual vanity banks, and rapid circulation.',
+          power: offgrid ? 'Commercial Mobile Diesel Generator Package' : '3x Dedicated 20-Amp 110V Circuits or 50A Shore Power',
+          water: offgrid ? '500-gal Continuous Freshwater Delivery Tank' : 'Pressurized dual garden hose connections (50 PSI)',
+          footprint: '28ft L x 8.5ft W (12.5ft clearance)',
+          price: offgrid ? '$3,750 – $4,850' : '$2,800 – $3,900'
+        };
+      } else {
+        rec = {
+          stallsBadge: '10+ Station Festival Fleet',
+          title: '10-Station Festival & State Fair Master Fleet',
+          desc: 'Enterprise high-capacity sanitation for state fairs, multi-day music festivals, and major public exhibitions. Includes ADA hydraulic lowering suite, dedicated VIP attendant lounge, and 800-gallon waste capacity.',
+          power: 'Commercial 50-Amp Shore Power or 15kW Super-Quiet Industrial Generator',
+          water: 'High-volume municipal connection or continuous auxiliary freshwater tanker delivery',
+          footprint: '34ft L x 8.5ft W + Auxiliary Fleet Staging',
+          price: offgrid ? '$6,500 – $12,500+' : '$4,500 – $8,500+'
+        };
+      }
+
+      const stallBadge = document.getElementById('planner-stall-badge');
+      const recTitle = document.getElementById('planner-rec-title');
+      const recDesc = document.getElementById('planner-rec-desc');
+      const recPower = document.getElementById('planner-rec-power');
+      const recWater = document.getElementById('planner-rec-water');
+      const recFootprint = document.getElementById('planner-rec-footprint');
+      const recPrice = document.getElementById('planner-rec-price');
+
+      if (stallBadge) stallBadge.textContent = rec.stallsBadge;
+      if (recTitle) recTitle.textContent = rec.title;
+      if (recDesc) recDesc.textContent = rec.desc;
+      if (recPower) recPower.textContent = rec.power;
+      if (recWater) recWater.textContent = rec.water;
+      if (recFootprint) recFootprint.textContent = rec.footprint;
+      if (recPrice) recPrice.textContent = rec.price;
+      try { lucide.createIcons(); } catch(e){}
+    }
+
+    function applyPlannerToQuote() {
+      const guests = document.getElementById('planner-guests')?.value || 175;
+      const durationHrs = document.getElementById('planner-duration')?.value || 5;
+      const isAlcohol = document.getElementById('planner-alcohol')?.checked || false;
+      const isOffGrid = document.getElementById('planner-offgrid')?.checked || false;
+      const recTitle = document.getElementById('planner-rec-title')?.textContent?.trim() || 'Luxury Restroom Trailer';
+
+      openQuoteModal();
+      document.getElementById('q-niche').value = 'luxury_restrooms';
+      if (document.getElementById('q-guests')) document.getElementById('q-guests').value = guests;
+      if (document.getElementById('q-utilities')) {
+        document.getElementById('q-utilities').value = isOffGrid ? 'Off-Grid Remote (Generator & Freshwater Needed)' : 'Standard On-Site Utilities Available';
+      }
+      if (document.getElementById('q-type')) {
+        document.getElementById('q-type').value = isAlcohol ? 'VIP Gala / Wedding (Alcohol Served)' : 'Private / Corporate Event';
+      }
+      if (document.getElementById('q-notes')) {
+        document.getElementById('q-notes').value = `Capacity Planner Matched: ${recTitle} for ${guests} guests (${durationHrs} hrs). Utility: ${isOffGrid ? 'Off-Grid Generator & Tanks Required' : 'Standard 110V & Hose Available'}.`;
+      }
+    }
+
+    // --- CLAIM PROFILE LOGIC (John Rush Blueprint) ---
+    function openClaimModal(vendorId, vendorName) {
+      document.getElementById('claim-vendor-id').value = vendorId;
+      document.getElementById('claim-vendor-name').textContent = vendorName;
+      document.getElementById('claim-modal').classList.remove('hidden');
+      document.getElementById('claim-form').classList.remove('hidden');
+      document.getElementById('claim-success-view').classList.add('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+    function closeClaimModal() {
+      document.getElementById('claim-modal').classList.add('hidden');
+    }
+
+    async function handleClaimSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('claim-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Verifying Profile...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const vendorId = document.getElementById('claim-vendor-id').value;
+      const ownerName = document.getElementById('claim-owner-name').value;
+      const ownerEmail = document.getElementById('claim-owner-email').value;
+      const ownerPhone = document.getElementById('claim-owner-phone').value;
+      const tier = document.querySelector('input[name="claim-tier"]:checked')?.value || 'featured';
+
+      try {
+        const res = await fetch('/api/vendors/claim', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            vendor_id: vendorId,
+            owner_name: ownerName,
+            owner_email: ownerEmail,
+            owner_phone: ownerPhone,
+            plan_tier: tier
+          })
+        });
+        const data = await res.json();
+
+        document.getElementById('claim-form').classList.add('hidden');
+        document.getElementById('claim-success-view').classList.remove('hidden');
+        document.getElementById('claim-success-msg').textContent = data.message;
+
+        const cta = document.getElementById('claim-checkout-cta');
+        if (data.checkout_url) {
+          cta.classList.remove('hidden');
+          document.getElementById('claim-stripe-link').href = data.checkout_url;
+        } else {
+          cta.classList.add('hidden');
+        }
+        loadVendors();
+      } catch (err) {
+        alert('Claim error: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="check-circle" class="w-4 h-4"></i><span>Verify &amp; Confirm Ownership</span>';
+        try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
+    // --- SUBMIT LISTING LOGIC (John Rush Blueprint) ---
+    function openSubmitModal() {
+      document.getElementById('submit-modal').classList.remove('hidden');
+      document.getElementById('submit-form').classList.remove('hidden');
+      document.getElementById('sub-success-view').classList.add('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+    function closeSubmitModal() {
+      document.getElementById('submit-modal').classList.add('hidden');
+    }
+
+    async function handleSubmitListing(e) {
+      e.preventDefault();
+      const btn = document.getElementById('sub-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Publishing Fleet...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const name = document.getElementById('sub-name').value;
+      const niche = document.getElementById('sub-niche').value;
+      const city = document.getElementById('sub-city').value;
+      const state = document.getElementById('sub-state').value;
+      const phone = document.getElementById('sub-phone').value;
+      const email = document.getElementById('sub-email').value;
+      const website = document.getElementById('sub-website').value;
+      const fleet = document.getElementById('sub-fleet').value.split(',').map(s => s.trim()).filter(Boolean);
+      const amenities = document.getElementById('sub-amenities').value.split(',').map(s => s.trim()).filter(Boolean);
+      const tier = document.querySelector('input[name="sub-tier"]:checked')?.value || 'featured';
+
+      try {
+        const res = await fetch('/api/vendors/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            niche_id: niche,
+            city,
+            state,
+            phone,
+            email,
+            website,
+            fleet_types: fleet,
+            amenities,
+            plan_tier: tier
+          })
+        });
+        const data = await res.json();
+
+        document.getElementById('submit-form').classList.add('hidden');
+        document.getElementById('sub-success-view').classList.remove('hidden');
+        document.getElementById('sub-success-msg').textContent = data.message;
+
+        const cta = document.getElementById('sub-checkout-cta');
+        if (data.checkout_url) {
+          cta.classList.remove('hidden');
+          document.getElementById('sub-stripe-link').href = data.checkout_url;
+        } else {
+          cta.classList.add('hidden');
+        }
+        loadVendors();
+      } catch (err) {
+        alert('Submission error: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="upload-cloud" class="w-4 h-4"></i><span>Submit &amp; Publish Listing</span>';
+        try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadVendors();
+      updateCapacityPlanner();
       try { lucide.createIcons(); } catch(e){}
     });
   </script>

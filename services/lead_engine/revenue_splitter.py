@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import json
 import os
 import sqlite3
@@ -35,10 +35,11 @@ class MultiNicheRevenueSplitter:
         base_lead_fee = config["base_lead_price"]
         
         # Scale lead fee dynamically if contract value is high-ticket
-        if estimated_contract_value > 10000:
+        # Scale lead fee dynamically if contract value is high-ticket (Frey Chu $20k state fair / enterprise scale)
+        if estimated_contract_value >= 20000:
+            final_lead_fee = int(base_lead_fee * 2.0)
+        elif estimated_contract_value >= 10000:
             final_lead_fee = int(base_lead_fee * 1.4)
-        elif estimated_contract_value > 20000:
-            final_lead_fee = int(base_lead_fee * 1.8)
         else:
             final_lead_fee = base_lead_fee
 

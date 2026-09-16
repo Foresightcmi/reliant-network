@@ -239,8 +239,9 @@ app.get('/api/vendors', (req, res) => {
     
     const parsed = vendors.map(v => ({
       ...v,
-      fleet_types: JSON.parse(v.fleet_types || '[]'),
-      amenities: JSON.parse(v.amenities || '[]')
+      fleet_types: typeof v.fleet_types === 'string' ? JSON.parse(v.fleet_types || '[]') : (v.fleet_types || []),
+      amenities: typeof v.amenities === 'string' ? JSON.parse(v.amenities || '[]') : (v.amenities || []),
+      station_specs: typeof v.station_specs === 'string' ? JSON.parse(v.station_specs || '[]') : (v.station_specs || [])
     }));
 
     res.json(parsed);
@@ -482,6 +483,100 @@ print(json.dumps(res))
     const cronResult = JSON.parse(cProc.stdout.trim());
     pseoCache.invalidate();
     res.json({ success: true, telemetry: cronResult });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 14. Claim Listing (John Rush Blueprint)
+app.post('/api/vendors/claim', (req, res) => {
+  try {
+    const { vendor_id, owner_name, owner_email, owner_phone, plan_tier } = req.body;
+    const isFeatured = plan_tier === 'featured';
+    
+    // Update local vendors.json if present
+    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
+    if (fs.existsSync(vendorsFile)) {
+      let vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
+      const idx = vendors.findIndex(v => v.id === vendor_id);
+      if (idx !== -1) {
+        vendors[idx].claimed = 1;
+        if (isFeatured) {
+          vendors[idx].subscription_active = 1;
+        }
+        fs.writeFileSync(vendorsFile, JSON.stringify(vendors, null, 2), 'utf8');
+      }
+    }
+
+    const checkoutUrl = isFeatured 
+      ? `https://buy.stripe.com/test_featured_partner_${vendor_id}`
+      : null;
+
+    res.json({
+      success: true,
+      claimed: true,
+      tier: plan_tier,
+      checkout_url: checkoutUrl,
+      message: isFeatured 
+        ? 'Verification initiated! Complete partner subscription to activate instant #1 priority placement and badge.'
+        : 'Claim request submitted. Your profile ownership is being verified within 24-48 business hours.'
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 15. Self-Serve Business / Fleet Submission (John Rush Blueprint)
+app.post('/api/vendors/submit', (req, res) => {
+  try {
+    const { name, niche_id, city, state, phone, email, website, description, fleet_types, amenities, plan_tier } = req.body;
+    const isFeatured = plan_tier === 'featured';
+    const newId = Math.random().toString(36).substring(2, 10);
+    const slug = (name + '-' + city + '-' + state).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+    const newVendor = {
+      id: newId,
+      slug: slug,
+      niche_id: niche_id || 'luxury_restrooms',
+      name: name,
+      city: city || 'Atlanta',
+      state: state || 'GA',
+      address: `${city}, ${state}`,
+      phone: phone || '',
+      email: email || '',
+      website: website || '',
+      rating: 5.0,
+      review_count: 1,
+      min_price: 1500,
+      max_price: 6500,
+      fleet_types: Array.isArray(fleet_types) ? JSON.stringify(fleet_types) : JSON.stringify([fleet_types || '2-Station Presidential Suite']),
+      amenities: Array.isArray(amenities) ? JSON.stringify(amenities) : JSON.stringify(['Flushing Porcelain Toilets', 'Climate Controlled A/C']),
+      description: description || `${name} provides premium commercial fleet services in ${city}, ${state}.`,
+      image_url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+      service_radius_miles: 75,
+      verified: isFeatured ? 1 : 0,
+      claimed: 1,
+      subscription_active: isFeatured ? 1 : 0,
+      created_at: new Date().toISOString()
+    };
+
+    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
+    if (fs.existsSync(vendorsFile)) {
+      let vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
+      vendors.unshift(newVendor);
+      fs.writeFileSync(vendorsFile, JSON.stringify(vendors, null, 2), 'utf8');
+    }
+
+    const checkoutUrl = isFeatured ? `https://buy.stripe.com/test_featured_partner_${newId}` : null;
+
+    res.json({
+      success: true,
+      vendor: newVendor,
+      checkout_url: checkoutUrl,
+      message: isFeatured 
+        ? 'Fleet submitted successfully! Proceed to activate your Featured Partner placement.'
+        : 'Fleet listed successfully! Our directory team will verify your public registration and insurance within 48 hours.'
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
