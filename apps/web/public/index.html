@@ -53,7 +53,11 @@
         </button>
       </div>
 
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
+        <button onclick="openPricingModal()" class="hidden lg:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
+          <span>Plans &amp; Pricing</span>
+        </button>
         <button onclick="openSubmitModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
           <i data-lucide="plus-circle" class="w-4 h-4 text-amber-600"></i>
           <span>List Your Fleet</span>
@@ -126,6 +130,8 @@
         </div>
       </div>
     </div>
+  </section>
+
   <!-- FREY CHU EVENT RESTROOM STATION & CAPACITY PLANNER -->
   <section id="capacity-planner" class="py-12 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -314,11 +320,20 @@
         <span id="directory-sub" class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Verified Fleet Directory</span>
         <h2 id="directory-heading" class="text-3xl font-serif-title font-bold text-slate-900">Verified B2B Operators</h2>
       </div>
-      <div class="flex items-center gap-3">
-        <span id="vendor-count-badge" class="bg-white text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-semibold shadow-xs">21 Listings</span>
-        <button onclick="openQuoteModal()" class="bg-amber-50 text-amber-800 border border-amber-300 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-amber-100 transition-colors flex items-center gap-1.5">
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2.5 py-1 rounded-xl shadow-xs">
+          <i data-lucide="arrow-down-up" class="w-3.5 h-3.5 text-slate-400"></i>
+          <select id="sort-select" onchange="loadVendors()" class="bg-transparent text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer">
+            <option value="featured">Featured Partners First</option>
+            <option value="rating">Highest Rated (5.0★)</option>
+            <option value="price_asc">Lowest Starting Rate ($)</option>
+            <option value="price_desc">Highest Capacity Fleet</option>
+          </select>
+        </div>
+        <span id="vendor-count-badge" class="bg-white text-slate-700 text-xs px-3 py-1.5 rounded-xl border border-slate-200 font-semibold shadow-xs">21 Listings</span>
+        <button onclick="openQuoteModal()" class="bg-amber-50 text-amber-800 border border-amber-300 text-xs font-bold px-3.5 py-1.5 rounded-xl hover:bg-amber-100 transition-colors flex items-center gap-1.5">
           <i data-lucide="send" class="w-3.5 h-3.5 text-amber-600"></i>
-          <span>Broadcast Quote Request</span>
+          <span>Broadcast Quote</span>
         </button>
       </div>
     </div>
@@ -511,6 +526,229 @@
     </div>
   </div>
 
+  <!-- OPERATOR MEMBERSHIP & PRICING MODAL (Mr. Web Blueprint) -->
+  <div id="pricing-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closePricingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-2xs">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-amber-700"></i>
+          <span>Commercial Operator Partner Network</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
+          Scale Your Equipment Rental Pipeline
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 mt-2">
+          Join verified operators receiving high-budget wedding, festival, corporate, and emergency quote inquiries daily.
+        </p>
+      </div>
+
+      <!-- PRICING TIERS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- TIER 1: FREE -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">Standard</span>
+            <div class="mt-2 flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-slate-900">$0</span>
+              <span class="text-xs text-slate-500">/forever</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-2">Basic public business directory profile verified via public record search.</p>
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-700 border-t border-slate-200 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Standard organic directory listing</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Basic equipment category listing</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Public verification check (5-7 days)</li>
+              <li class="flex items-center gap-2 text-slate-400"><i data-lucide="minus" class="w-4 h-4 shrink-0"></i> No priority search ranking</li>
+              <li class="flex items-center gap-2 text-slate-400"><i data-lucide="minus" class="w-4 h-4 shrink-0"></i> No direct client inquiry routing</li>
+            </ul>
+          </div>
+          <button onclick="closePricingModal(); openSubmitModal();" class="mt-6 w-full bg-white hover:bg-slate-100 text-slate-800 font-bold py-2.5 rounded-xl border border-slate-300 text-xs transition-colors">
+            Submit Free Listing
+          </button>
+        </div>
+
+        <!-- TIER 2: FEATURED PARTNER ($99/mo) -->
+        <div class="bg-white border-2 border-amber-500 rounded-2xl p-6 shadow-xl shadow-amber-500/10 flex flex-col justify-between relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            Most Popular &bull; High ROI
+          </div>
+          <div>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider block">Featured Partner</span>
+            <div class="mt-2 flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-slate-900">$99</span>
+              <span class="text-xs text-slate-500">/month</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-2">Guaranteed #1-3 ranking in your metro with instant direct quote routing.</p>
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-800 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> <strong>Guaranteed #1-3 Metro Ranking</strong></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> <strong>Verified Gold Trust Partner Badge</strong></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Direct client quote broadcast routing</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> 0% referral commissions (keep 100%)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> High-authority do-follow backlink</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Dedicated fleet showcase &amp; specs</li>
+            </ul>
+          </div>
+          <a href="https://buy.stripe.com/test_featured_partner_99" target="_blank" class="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold py-2.5 rounded-xl text-xs text-center shadow-md shadow-amber-500/20 transition-all">
+            Join Featured Partner ($99/mo)
+          </a>
+        </div>
+
+        <!-- TIER 3: MARKET MONOPOLY ($299/mo) -->
+        <div class="bg-slate-900 border border-slate-800 text-white rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Market Monopoly Sponsor</span>
+            <div class="mt-2 flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-amber-400">$299</span>
+              <span class="text-xs text-slate-400">/month</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-2">Exclusive category lock with top-of-page sticky banner across your entire target state.</p>
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-200 border-t border-slate-800 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-amber-400 shrink-0"></i> <strong>Exclusive Category Monopoly Lock</strong></li>
+              <li class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-amber-400 shrink-0"></i> Top-of-page header sponsorship banner</li>
+              <li class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-amber-400 shrink-0"></i> Dedicated SMS instant dispatch hotline</li>
+              <li class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-amber-400 shrink-0"></i> Priority broadcast on all multi-day RFQs</li>
+              <li class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-amber-400 shrink-0"></i> Custom programmatic landing page spotlight</li>
+            </ul>
+          </div>
+          <a href="https://buy.stripe.com/test_monopoly_sponsor_299" target="_blank" class="mt-6 w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold py-2.5 rounded-xl text-xs text-center transition-colors">
+            Claim Metro Monopoly ($299/mo)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIRECT OPERATOR INQUIRY MODAL (Mr. Web Blueprint) -->
+  <div id="message-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeMessageModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
+          <i data-lucide="message-square" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif-title font-bold text-slate-900">Direct Operator Inquiry</h3>
+          <p class="text-xs text-slate-500">Send an immediate message directly to <span id="msg-vendor-name" class="font-bold text-slate-900">Operator</span></p>
+        </div>
+      </div>
+
+      <form id="message-form" onsubmit="handleMessageSubmit(event)" class="space-y-4">
+        <input type="hidden" id="msg-vendor-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+            <input type="text" id="msg-name" required placeholder="Elena Rostova" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Email</label>
+            <input type="email" id="msg-email" required placeholder="elena@production.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+            <input type="tel" id="msg-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Target Date</label>
+            <input type="date" id="msg-date" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Message / Equipment Details</label>
+          <textarea id="msg-text" rows="3" required placeholder="e.g. Inquiring about availability for your 4-station trailer for an outdoor wedding on Oct 24th..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
+        </div>
+
+        <button type="submit" id="msg-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-md shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Send Direct Inquiry</span>
+        </button>
+      </form>
+
+      <!-- SUCCESS VIEW -->
+      <div id="msg-success-view" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 border border-emerald-300">
+          <i data-lucide="check" class="w-7 h-7"></i>
+        </div>
+        <h4 class="text-lg font-bold text-slate-900">Message Dispatched!</h4>
+        <p id="msg-success-text" class="text-xs text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed"></p>
+        <button onclick="closeMessageModal()" class="mt-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-300 transition-colors">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT VERIFIED REVIEW MODAL (Mr. Web Blueprint) -->
+  <div id="review-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeReviewModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
+          <i data-lucide="star" class="w-5 h-5 fill-amber-500 text-amber-500"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif-title font-bold text-slate-900">Submit Verified Review</h3>
+          <p class="text-xs text-slate-500">Share your experience with <span id="rev-vendor-name" class="font-bold text-slate-900">Operator</span></p>
+        </div>
+      </div>
+
+      <form id="review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+        <input type="hidden" id="rev-vendor-id">
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name / Event Role</label>
+          <input type="text" id="rev-name" required placeholder="Claire Danvers, Wedding Planner" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Overall Rating</label>
+            <select id="rev-rating" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+              <option value="5">⭐⭐⭐⭐⭐ (5.0 Excellent)</option>
+              <option value="4">⭐⭐⭐⭐ (4.0 Very Good)</option>
+              <option value="3">⭐⭐⭐ (3.0 Average)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Event Type</label>
+            <select id="rev-type" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+              <option value="Wedding / Reception">Wedding / Reception</option>
+              <option value="Corporate Gala">Corporate Gala</option>
+              <option value="Film Production">Film Production</option>
+              <option value="Festival / Fair">Festival / Fair</option>
+              <option value="Private Estate Party">Private Estate Party</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Review &amp; Equipment Feedback</label>
+          <textarea id="rev-comment" rows="3" required placeholder="e.g. Arrived on time with spotless trailers, porcelain toilets smelled clean all night, delivery crew was professional..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
+        </div>
+
+        <button type="submit" id="rev-submit-btn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-md shadow-amber-500/20 flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>Post Verified Review</span>
+        </button>
+      </form>
+
+      <!-- SUCCESS VIEW -->
+      <div id="rev-success-view" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 border border-emerald-300">
+          <i data-lucide="check" class="w-7 h-7"></i>
+        </div>
+        <h4 class="text-lg font-bold text-slate-900">Review Published!</h4>
+        <p id="rev-success-text" class="text-xs text-slate-600 mt-2 max-w-xs mx-auto leading-relaxed"></p>
+        <button onclick="closeReviewModal()" class="mt-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-300 transition-colors">Done</button>
+      </div>
+    </div>
+  </div>
+
   <!-- CLAIM LISTING MODAL (John Rush Blueprint) -->
   <div id="claim-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
@@ -662,6 +900,17 @@
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Amenities &amp; Technical Capabilities</label>
           <input type="text" id="sub-amenities" placeholder="e.g. Flushing Porcelain, Climate Control, Granite Vanities, Onboard Generator" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-semibold text-slate-700">Company Bio &amp; Fleet Overview</label>
+            <button type="button" onclick="enhanceListingWithAI()" id="ai-enhance-btn" class="text-[11px] font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-lg flex items-center gap-1 transition-colors shadow-2xs">
+              <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i>
+              <span>✨ Enhance with AI</span>
+            </button>
+          </div>
+          <textarea id="sub-description" rows="3" placeholder="Describe your operational experience, service radius, and unique VIP features..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
         </div>
 
         <div>
@@ -885,6 +1134,17 @@
           return;
         }
 
+        const sortMode = document.getElementById('sort-select')?.value || 'featured';
+        if (sortMode === 'rating') {
+          vendors.sort((a, b) => b.rating - a.rating);
+        } else if (sortMode === 'price_asc') {
+          vendors.sort((a, b) => a.min_price - b.min_price);
+        } else if (sortMode === 'price_desc') {
+          vendors.sort((a, b) => b.max_price - a.max_price);
+        } else {
+          vendors.sort((a, b) => (b.subscription_active || 0) - (a.subscription_active || 0));
+        }
+
         grid.innerHTML = vendors.map(v => `
           <div class="bg-white border ${v.subscription_active ? 'border-amber-400 shadow-lg shadow-amber-500/10' : 'border-slate-200'} rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500 hover:shadow-xl transition-all duration-300">
             <div>
@@ -904,9 +1164,9 @@
               <div class="p-5">
                 <div class="flex items-center justify-between">
                   <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">${v.city}, ${v.state}</span>
-                  <div class="flex items-center gap-1 text-xs font-bold text-amber-600">
+                  <div onclick="openReviewModal('${v.id}', '${v.name.replace(/'/g, "\\'")}')" class="flex items-center gap-1 text-xs font-bold text-amber-600 cursor-pointer hover:underline" title="Click to Read & Leave Verified Review">
                     <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 text-amber-500"></i>
-                    <span class="text-slate-800">${v.rating} (${v.review_count})</span>
+                    <span class="text-slate-800">${v.rating} (${v.review_count} reviews)</span>
                   </div>
                 </div>
 
@@ -937,17 +1197,22 @@
               </div>
             </div>
 
-            <div class="p-5 pt-0 border-t border-slate-100 bg-slate-50/40 mt-4 flex items-center justify-between gap-2">
-              <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-xs">
-                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <div class="p-5 pt-0 border-t border-slate-100 bg-slate-50/40 mt-4 flex items-center justify-between gap-1.5 flex-wrap sm:flex-nowrap">
+              <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1 transition-colors shadow-xs">
+                <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
                 <span>Quote</span>
               </button>
 
-              <button onclick="openClaimModal('${v.id}', '${v.name.replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
-                <span class="flex items-center gap-1"><i data-lucide="key" class="w-3 h-3 text-amber-600"></i> Claim</span>
+              <button onclick="openMessageModal('${v.id}', '${v.name.replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-800 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors flex items-center gap-1" title="Direct Message Operator">
+                <i data-lucide="message-square" class="w-3 h-3 text-amber-600"></i>
+                <span>Message</span>
               </button>
 
-              <button onclick="openBadgeModal('${v.id}')" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
+              <button onclick="openClaimModal('${v.id}', '${v.name.replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
+                <i data-lucide="key" class="w-3.5 h-3.5 text-amber-600"></i>
+              </button>
+
+              <button onclick="openBadgeModal('${v.id}')" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
                 <i data-lucide="badge-check" class="w-3.5 h-3.5 text-amber-600"></i>
               </button>
             </div>
@@ -1433,6 +1698,147 @@
       } finally {
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="upload-cloud" class="w-4 h-4"></i><span>Submit &amp; Publish Listing</span>';
+        try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
+    // --- PRICING & MEMBERSHIP MODAL LOGIC (Mr. Web Blueprint) ---
+    function openPricingModal() {
+      document.getElementById('pricing-modal').classList.remove('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+    function closePricingModal() {
+      document.getElementById('pricing-modal').classList.add('hidden');
+    }
+
+    // --- DIRECT OPERATOR MESSAGING LOGIC (Mr. Web Blueprint) ---
+    function openMessageModal(vendorId, vendorName) {
+      document.getElementById('msg-vendor-id').value = vendorId;
+      document.getElementById('msg-vendor-name').textContent = vendorName;
+      document.getElementById('message-modal').classList.remove('hidden');
+      document.getElementById('message-form').classList.remove('hidden');
+      document.getElementById('msg-success-view').classList.add('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+    function closeMessageModal() {
+      document.getElementById('message-modal').classList.add('hidden');
+    }
+
+    async function handleMessageSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('msg-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Transmitting Inquiry...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const vendorId = document.getElementById('msg-vendor-id').value;
+      const payload = {
+        sender_name: document.getElementById('msg-name').value,
+        sender_email: document.getElementById('msg-email').value,
+        sender_phone: document.getElementById('msg-phone').value,
+        event_date: document.getElementById('msg-date').value,
+        message: document.getElementById('msg-text').value
+      };
+
+      try {
+        const res = await fetch(`/api/vendors/${vendorId}/message`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        document.getElementById('message-form').classList.add('hidden');
+        document.getElementById('msg-success-view').classList.remove('hidden');
+        document.getElementById('msg-success-text').textContent = data.message || `Inquiry reference ${data.lead_code} sent to ${data.vendor_name}.`;
+        try { lucide.createIcons(); } catch(e){}
+      } catch (err) {
+        alert('Error sending message: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i><span>Send Direct Inquiry</span>';
+        try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
+    // --- VERIFIED REVIEW SUBMISSION LOGIC (Mr. Web Blueprint) ---
+    function openReviewModal(vendorId, vendorName) {
+      document.getElementById('rev-vendor-id').value = vendorId;
+      document.getElementById('rev-vendor-name').textContent = vendorName;
+      document.getElementById('review-modal').classList.remove('hidden');
+      document.getElementById('review-form').classList.remove('hidden');
+      document.getElementById('rev-success-view').classList.add('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+    function closeReviewModal() {
+      document.getElementById('review-modal').classList.add('hidden');
+    }
+
+    async function handleReviewSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('rev-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Verifying &amp; Publishing...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const vendorId = document.getElementById('rev-vendor-id').value;
+      const payload = {
+        vendor_id: vendorId,
+        reviewer_name: document.getElementById('rev-name').value,
+        rating: document.getElementById('rev-rating').value,
+        event_type: document.getElementById('rev-type').value,
+        comment: document.getElementById('rev-comment').value
+      };
+
+      try {
+        const res = await fetch('/api/vendors/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        document.getElementById('review-form').classList.add('hidden');
+        document.getElementById('rev-success-view').classList.remove('hidden');
+        document.getElementById('rev-success-text').textContent = data.message || `Your verified review for ${data.vendor_name} has been published with a rating of ${data.new_rating}★!`;
+        try { lucide.createIcons(); } catch(e){}
+        loadVendors();
+      } catch (err) {
+        alert('Error submitting review: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="check-circle" class="w-4 h-4"></i><span>Post Verified Review</span>';
+        try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
+    // --- AI LISTING CONTENT GENERATOR (Mr. Web Blueprint - Zero Marginal Cost) ---
+    async function enhanceListingWithAI() {
+      const btn = document.getElementById('ai-enhance-btn');
+      const originalHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i><span>Generating...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const name = document.getElementById('sub-name').value || 'Executive Restrooms & Sanitation';
+      const niche = document.getElementById('sub-niche').value;
+      const city = document.getElementById('sub-city').value || 'Atlanta';
+      const state = document.getElementById('sub-state').value || 'GA';
+      const fleet = document.getElementById('sub-fleet').value;
+
+      try {
+        const res = await fetch('/api/ai/generate-description', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, niche_id: niche, city, state, fleet_types: fleet })
+        });
+        const data = await res.json();
+        if (data.description) {
+          document.getElementById('sub-description').value = data.description;
+        }
+      } catch (err) {
+        alert('Error generating description: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalHtml;
         try { lucide.createIcons(); } catch(e){}
       }
     }
