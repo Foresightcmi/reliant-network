@@ -11,6 +11,12 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-serif-title { font-family: 'Playfair Display', serif; }
     .gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    @media print {
+      body * { visibility: hidden; }
+      #rfp-blueprint-print-area, #rfp-blueprint-print-area * { visibility: visible; }
+      #rfp-blueprint-print-area { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
+      .no-print { display: none !important; }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen selection:bg-amber-500 selection:text-slate-950 antialiased">
@@ -58,6 +64,10 @@
           <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
           <span>Plans &amp; Pricing</span>
         </button>
+        <a href="/badge-generator.html" class="hidden xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+          <span>Partner Badges</span>
+        </a>
         <button onclick="openSubmitModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
           <i data-lucide="plus-circle" class="w-4 h-4 text-amber-600"></i>
           <span>List Your Fleet</span>
@@ -288,6 +298,11 @@
             <button onclick="applyPlannerToQuote()" class="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-sm py-3.5 rounded-xl shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all">
               <i data-lucide="calendar-check" class="w-4 h-4"></i>
               <span>Lock In Available Dates &amp; Match Operators</span>
+            </button>
+
+            <button onclick="openRfpBlueprintModal()" class="mt-2.5 w-full bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-700 font-bold text-xs py-3 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all">
+              <i data-lucide="file-text" class="w-4 h-4 text-amber-400"></i>
+              <span>Generate Official RFP &amp; Site Feasibility Blueprint (PDF / Print)</span>
             </button>
           </div>
         </div>
@@ -524,6 +539,135 @@
         <p id="quote-success-msg" class="text-sm text-slate-600 mt-2 max-w-md mx-auto"></p>
         <div id="quote-dispatch-details" class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs font-mono text-left space-y-1 text-slate-700"></div>
         <button onclick="closeQuoteModal()" class="mt-6 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-300 transition-colors">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TURNKEY RFP & SITE FEASIBILITY BLUEPRINT MODAL (Data-as-a-Product Blueprint) -->
+  <div id="rfp-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 max-h-[92vh] overflow-y-auto">
+      <button onclick="closeRfpModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 no-print">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      
+      <div id="rfp-blueprint-print-area">
+        <!-- RFP HEADER -->
+        <div class="flex items-center justify-between border-b border-slate-200 pb-5 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wider">Official Engineering Dossier</span>
+              <span class="text-xs text-slate-500 font-mono" id="rfp-doc-id">DOC #REL-2026-RFP</span>
+            </div>
+            <h2 class="text-2xl font-serif-title font-bold text-slate-900 mt-1">Reliant Vetted RFP &amp; Site Feasibility Blueprint</h2>
+            <p class="text-xs text-slate-500">Commercial Event Sanitation Specifications &amp; Municipal Compliance Standard</p>
+          </div>
+          <div class="text-right hidden sm:block">
+            <span class="text-xs font-bold text-slate-800 block">The Reliant Network</span>
+            <span class="text-[10px] text-slate-500 block">B2B Directory &amp; Fleet Registry</span>
+            <span class="text-[10px] text-amber-700 font-semibold" id="rfp-generated-date">Date: March 2026</span>
+          </div>
+        </div>
+
+        <!-- PROJECT PARAMETERS GRID -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div>
+            <span class="text-[10px] text-slate-500 uppercase font-bold block">Guest Attendance</span>
+            <span class="font-bold text-slate-900 text-sm" id="rfp-p-guests">175 Guests</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-500 uppercase font-bold block">Event Duration</span>
+            <span class="font-bold text-slate-900 text-sm" id="rfp-p-duration">5 Hours</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-500 uppercase font-bold block">Hospitality Factor</span>
+            <span class="font-bold text-slate-900 text-sm" id="rfp-p-alcohol">Alcohol Served (+25%)</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-500 uppercase font-bold block">Utility Environment</span>
+            <span class="font-bold text-slate-900 text-sm" id="rfp-p-utility">Standard Utilities</span>
+          </div>
+        </div>
+
+        <!-- RECOMMENDED FLEET SPECIFICATION -->
+        <div class="border border-amber-300 bg-amber-50/40 rounded-2xl p-5 mb-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-800">Recommended Fleet Class</span>
+            <span class="bg-slate-900 text-amber-300 font-mono text-xs font-bold px-2.5 py-0.5 rounded-lg" id="rfp-spec-badge">4 Private Stalls</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 font-serif-title" id="rfp-spec-title">4-Station Luxury Elegance Trailer</h3>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed" id="rfp-spec-desc">Engineered for events up to 450 guests...</p>
+
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-white border border-amber-200 p-3 rounded-xl">
+              <span class="font-bold text-slate-800 block text-[11px] mb-1"><i data-lucide="zap" class="w-3.5 h-3.5 inline text-amber-600 mr-1"></i>Electrical Load</span>
+              <span class="text-slate-600 block text-[11px]" id="rfp-spec-power">2x 20A Dedicated 110V</span>
+            </div>
+            <div class="bg-white border border-amber-200 p-3 rounded-xl">
+              <span class="font-bold text-slate-800 block text-[11px] mb-1"><i data-lucide="droplet" class="w-3.5 h-3.5 inline text-cyan-600 mr-1"></i>Water Source</span>
+              <span class="text-slate-600 block text-[11px]" id="rfp-spec-water">Standard 3/4" Hose (40 PSI)</span>
+            </div>
+            <div class="bg-white border border-amber-200 p-3 rounded-xl">
+              <span class="font-bold text-slate-800 block text-[11px] mb-1"><i data-lucide="truck" class="w-3.5 h-3.5 inline text-emerald-600 mr-1"></i>Clearance &amp; Footprint</span>
+              <span class="text-slate-600 block text-[11px]" id="rfp-spec-footprint">22ft L x 8.5ft W (12ft clearance)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPLIANCE & OSHA / ADA VERIFICATION CHECKLIST -->
+        <div class="mb-6">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+            <span>OSHA 1926.51 &amp; Municipal ADA Feasibility Audit</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="flex items-start gap-2 bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+              <span class="text-slate-700 font-medium">OSHA 1926.51(f) Handwashing facilities with potable running water &amp; soap.</span>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+              <span class="text-slate-700 font-medium">ADA Title III ground-level access ramp / hydraulic lowering suspension compatibility.</span>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+              <span class="text-slate-700 font-medium">Hermetically sealed blackwater holding tank with zero sewer vapor leakage.</span>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+              <span class="text-slate-700 font-medium">Dual thermostatic climate control (heating &amp; AC) with positive pressure venting.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ESTIMATED BUDGET & VENDOR DISPATCH INSTRUCTIONS -->
+        <div class="bg-slate-900 text-white rounded-2xl p-5 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 block">Benchmark Rate Estimate</span>
+            <span class="text-2xl font-bold font-serif-title text-white" id="rfp-spec-price">$1,650 – $2,400</span>
+            <span class="text-[11px] text-slate-300 block mt-0.5">Includes professional delivery, leveling setup, luxury supplies &amp; post-event pump-out</span>
+          </div>
+          <div class="text-right sm:text-right w-full sm:w-auto">
+            <span class="text-[10px] text-slate-400 block font-mono">BROKERAGE ROUTING:</span>
+            <span class="text-xs font-semibold text-emerald-400">Auto-Dispatched to Top 3 Verified Metro Fleets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL ACTIONS (NO PRINT) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200 no-print">
+        <div class="text-[11px] text-slate-500">
+          Certified engineering blueprint for general contractors, event producers &amp; wedding planners.
+        </div>
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button onclick="window.print()" class="flex-1 sm:flex-initial bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 border border-slate-300 transition-colors">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button onclick="closeRfpModal(); applyPlannerToQuote();" class="flex-1 sm:flex-initial bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20 transition-all">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Submit RFP to Operators</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1629,6 +1773,43 @@
       }
     }
 
+    function openRfpBlueprintModal() {
+      const guests = parseInt(document.getElementById('planner-guests')?.value || 175);
+      const duration = parseInt(document.getElementById('planner-duration')?.value || 5);
+      const isAlcohol = document.getElementById('planner-alcohol')?.checked || false;
+      const isOffGrid = document.getElementById('planner-offgrid')?.checked || false;
+
+      const docCode = 'REL-2026-RFP-' + Math.floor(100000 + Math.random() * 900000);
+      const docIdEl = document.getElementById('rfp-doc-id');
+      if (docIdEl) docIdEl.textContent = `DOC #${docCode}`;
+
+      const dateEl = document.getElementById('rfp-generated-date');
+      if (dateEl) {
+        const d = new Date();
+        dateEl.textContent = `Date: ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+      }
+
+      document.getElementById('rfp-p-guests').textContent = `${guests.toLocaleString()} Guests`;
+      document.getElementById('rfp-p-duration').textContent = `${duration} Hours`;
+      document.getElementById('rfp-p-alcohol').textContent = isAlcohol ? 'Alcohol Served (+25% Factor)' : 'No Alcohol (Standard Factor)';
+      document.getElementById('rfp-p-utility').textContent = isOffGrid ? 'Off-Grid (Generator & Tanks)' : 'Standard Utilities Hookup';
+
+      document.getElementById('rfp-spec-badge').textContent = document.getElementById('planner-stall-badge')?.textContent || '4 Private Stalls';
+      document.getElementById('rfp-spec-title').textContent = document.getElementById('planner-rec-title')?.textContent || 'Luxury Restroom Suite';
+      document.getElementById('rfp-spec-desc').textContent = document.getElementById('planner-rec-desc')?.textContent || '';
+      document.getElementById('rfp-spec-power').textContent = document.getElementById('planner-rec-power')?.textContent || '2x 20A Dedicated 110V';
+      document.getElementById('rfp-spec-water').textContent = document.getElementById('planner-rec-water')?.textContent || 'Standard 3/4" Hose';
+      document.getElementById('rfp-spec-footprint').textContent = document.getElementById('planner-rec-footprint')?.textContent || '22ft L x 8.5ft W';
+      document.getElementById('rfp-spec-price').textContent = document.getElementById('planner-rec-price')?.textContent || '$1,650 – $2,400';
+
+      document.getElementById('rfp-modal').classList.remove('hidden');
+      try { lucide.createIcons(); } catch(e){}
+    }
+
+    function closeRfpModal() {
+      document.getElementById('rfp-modal').classList.add('hidden');
+    }
+
     // --- CLAIM PROFILE LOGIC (John Rush Blueprint) ---
     function openClaimModal(vendorId, vendorName) {
       document.getElementById('claim-vendor-id').value = vendorId;
@@ -1966,7 +2147,10 @@
   <footer class="bg-white border-t border-slate-200 py-10 mt-12 text-center text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p>&copy; 2026 The Reliant Network. All rights reserved.</p>
-      <div class="flex gap-4 font-medium">
+      <div class="flex gap-4 font-medium flex-wrap justify-center">
+        <a href="/badge-generator.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 inline"></i> Partner Badges</a>
+        <a href="/cost/atlanta.html" class="hover:text-amber-600 transition-colors">Cost &amp; Pricing Guides</a>
+        <a href="/sitemap.xml" class="hover:text-amber-600 transition-colors">XML Sitemap</a>
         <a href="#" class="hover:text-amber-600 transition-colors">Terms of Service</a>
         <a href="#" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
       </div>

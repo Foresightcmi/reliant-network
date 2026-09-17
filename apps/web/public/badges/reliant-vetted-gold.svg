@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80" fill="none">
+  <rect x="1" y="1" width="258" height="78" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="4" y="4" width="252" height="72" rx="11" fill="none" stroke="#d97706" stroke-width="0.75" stroke-dasharray="3 3"/>
+  <g transform="translate(14, 16)">
+    <circle cx="24" cy="24" r="22" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <path d="M24 9L28 18.5L38.5 20L31 27L33 37.5L24 32.5L15 37.5L17 27L9.5 20L20 18.5L24 9Z" fill="#f59e0b"/>
+  </g>
+  <text x="72" y="27" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" letter-spacing="1.2">VERIFIED PARTNER 2026</text>
+  <text x="72" y="47" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800">The Reliant Network</text>
+  <text x="72" y="63" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500">Commercial &amp; Luxury Fleet Certified</text>
+</svg>

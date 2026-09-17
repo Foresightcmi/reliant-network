@@ -520,4 +520,64 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://reliantverified.com/badge-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/atlanta.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/dallas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/miami.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/austin.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/los-angeles.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/chicago.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/napa-valley.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/scottsdale.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/savannah.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/charleston.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/nashville.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/denver.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/hamptons.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n  <url>
+    <loc>https://reliantverified.com/cost/aspen.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>\n</urlset>

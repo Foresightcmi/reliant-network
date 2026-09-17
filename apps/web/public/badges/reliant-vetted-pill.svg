@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" width="210" height="44" fill="none">
+  <rect x="1" y="1" width="208" height="42" rx="21" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2"/>
+  <g transform="translate(10, 10)">
+    <circle cx="12" cy="12" r="11" fill="#f59e0b"/>
+    <path d="M8 12L11 15L16 9" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="40" y="22" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">The Reliant Network</text>
+  <text x="40" y="34" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" letter-spacing="0.5">2026 VERIFIED FLEET</text>
+</svg>

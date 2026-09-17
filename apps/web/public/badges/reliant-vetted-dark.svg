@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80" fill="none">
+  <rect x="1" y="1" width="258" height="78" rx="14" fill="#18181b" stroke="#3f3f46" stroke-width="1.5"/>
+  <g transform="translate(16, 18)">
+    <rect width="44" height="44" rx="10" fill="#27272a"/>
+    <path d="M22 13L24.5 19.5L31.5 20.5L26.5 25.5L28 32.5L22 29L16 32.5L17.5 25.5L12.5 20.5L19.5 19.5L22 13Z" fill="#e4e4e7"/>
+  </g>
+  <text x="72" y="28" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" letter-spacing="1">TOP RATED FLEET</text>
+  <text x="72" y="48" fill="#fafafa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800">The Reliant Network</text>
+  <text x="72" y="63" fill="#71717a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="500">Inspected &amp; OSHA 1926.51 Vetted</text>
+</svg>
