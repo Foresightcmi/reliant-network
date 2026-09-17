@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Command Portal & Lead Marketplace | The Reliant Network</title>
+  <meta name="description" content="Manage your verified fleet profile, view incoming high-ticket RFQ quote requests, unlock qualified leads with your balance wallet, and manage exclusive metro monopolies.">
+  <link rel="canonical" href="https://reliant-network.vercel.app/operator-portal.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+    .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-slate-900 text-white px-4 py-2 text-xs font-semibold flex items-center justify-between border-b border-slate-800">
+    <div class="flex items-center gap-2 max-w-7xl mx-auto w-full justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-slate-950 uppercase tracking-wide">Operator B2B Desk</span>
+        <span class="hidden sm:inline text-slate-300">Live Territory Routing &bull; Instant RFQ Unlocks &bull; Zero Platform Take-Rate on Direct Bookings</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <a href="/financing.html" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Fleet Financing & Tax Savings</span>
+        </a>
+        <a href="/badge-generator.html" class="text-slate-300 hover:text-white flex items-center gap-1">
+          <i data-lucide="award" class="w-3.5 h-3.5"></i>
+          <span>Trust Badges</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-amber-400 font-serif-title font-bold text-lg shadow-sm">
+            R
+          </div>
+          <div>
+            <span class="font-serif-title font-bold text-lg text-slate-900 block leading-tight">The Reliant Network</span>
+            <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">Operator Command Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Live Wallet Balance & Profile Indicator -->
+      <div class="flex items-center gap-3">
+        <div class="bg-amber-50 border border-amber-200 rounded-xl px-3 py-1.5 flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-700 flex items-center justify-center">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase font-bold text-amber-800 tracking-wider">Lead Wallet Balance</div>
+            <div class="text-sm font-extrabold text-slate-900" id="header-wallet-balance">$425.00</div>
+          </div>
+          <button onclick="openTopupModal()" class="ml-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2.5 py-1 rounded-lg text-xs transition-colors shadow-xs">
+            + Reload
+          </button>
+        </div>
+
+        <div class="hidden md:flex items-center gap-2 pl-2 border-l border-slate-200 text-xs">
+          <div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-700 font-bold">
+            RR
+          </div>
+          <div>
+            <span class="font-bold text-slate-900 block" id="header-operator-name">Royal Restrooms Atlanta</span>
+            <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Verified Active
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white py-8 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live RFQ Dispatch Network
+          </span>
+          <span class="text-xs text-slate-400">Territory: <strong class="text-slate-200" id="hero-territory">Atlanta Metro, GA (50-Mile Radius)</strong></span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-serif-title font-bold text-white tracking-tight">
+          Operator Lead Marketplace &amp; Growth Hub
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 max-w-2xl">
+          Unlock incoming high-intent event RFQs with 1-click wallet balance deductions. Zero commissions on closed bookings.
+        </p>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="grid grid-cols-3 gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-xs text-center">
+        <div class="px-3 py-1">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">Territory Leads</span>
+          <span class="text-lg font-extrabold text-white" id="stat-leads-count">14</span>
+        </div>
+        <div class="px-3 py-1 border-x border-white/10">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">Avg Contract</span>
+          <span class="text-lg font-extrabold text-amber-400">$2,950</span>
+        </div>
+        <div class="px-3 py-1">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">Partner Rank</span>
+          <span class="text-lg font-extrabold text-emerald-400">#1 Top Rated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Portal Body -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+
+    <!-- Navigation Tabs -->
+    <div class="flex border-b border-slate-200 gap-6 text-xs font-bold uppercase tracking-wider">
+      <button onclick="switchTab('tab-leads')" id="btn-tab-leads" class="pb-3 border-b-2 border-amber-600 text-amber-700 flex items-center gap-2">
+        <i data-lucide="inbox" class="w-4 h-4"></i>
+        <span>Live RFQ Feed (3 Unclaimed)</span>
+      </button>
+      <button onclick="switchTab('tab-wallet')" id="btn-tab-wallet" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2">
+        <i data-lucide="wallet" class="w-4 h-4"></i>
+        <span>Prepaid Wallet &amp; Refills</span>
+      </button>
+      <button onclick="switchTab('tab-monopoly')" id="btn-tab-monopoly" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2">
+        <i data-lucide="crown" class="w-4 h-4"></i>
+        <span>Metro Monopoly &amp; Upgrades</span>
+      </button>
+      <a href="/financing.html" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2">
+        <i data-lucide="calculator" class="w-4 h-4"></i>
+        <span>Equipment Financing (Section 179)</span>
+      </a>
+    </div>
+
+    <!-- TAB 1: LIVE RFQ LEADS FEED -->
+    <section id="tab-leads" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 font-serif-title">Incoming Customer Quote Inquiries</h2>
+          <p class="text-xs text-slate-500 mt-0.5">High-ticket clients requesting luxury restroom trailers and mobile sanitation.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-600 font-semibold">Automatic Dispatch:</span>
+          <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-lg flex items-center gap-1">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i> SMS Alerts Enabled
+          </span>
+        </div>
+      </div>
+
+      <!-- Leads Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="leads-container">
+        <!-- Dynamic Cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- TAB 2: PREPAID WALLET & REFILLS -->
+    <section id="tab-wallet" class="hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-100 pb-6">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-amber-600 font-bold">Account Balance</span>
+            <div class="text-4xl font-extrabold text-slate-900 mt-1" id="tab-wallet-balance">$425.00</div>
+            <p class="text-xs text-slate-500 mt-1">Sufficient for <strong>5 qualified lead unlocks</strong> ($85 each). No monthly commitment required.</p>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="quickTopup(250)" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-2.5 rounded-xl text-xs transition-colors">
+              + $250 Refill
+            </button>
+            <button onclick="quickTopup(500)" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs shadow-xs transition-colors">
+              + $500 Refill (+10% Bonus)
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-800 mb-4">Choose Prepaid Balance Package</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="border border-slate-200 rounded-2xl p-5 hover:border-amber-400 transition-all cursor-pointer bg-slate-50/50" onclick="quickTopup(250)">
+              <span class="text-[10px] font-bold text-slate-500 uppercase">Starter Pack</span>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">$250</div>
+              <p class="text-xs text-slate-600 mt-1">Approx. 3 Qualified Leads</p>
+              <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500">Standard lead dispatch priority</div>
+            </div>
+
+            <div class="border-2 border-amber-500 rounded-2xl p-5 bg-amber-50/40 relative shadow-sm cursor-pointer" onclick="quickTopup(500)">
+              <span class="absolute -top-2.5 right-4 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Most Popular</span>
+              <span class="text-[10px] font-bold text-amber-800 uppercase">Growth Pack</span>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">$500 <span class="text-xs text-emerald-700 font-bold">+$50 Bonus</span></div>
+              <p class="text-xs text-slate-600 mt-1">Total $550 Credits (Approx. 6.5 Leads)</p>
+              <div class="mt-4 pt-3 border-t border-amber-200 text-[11px] text-amber-900 font-semibold">Includes 1st-hour priority lead alert</div>
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl p-5 hover:border-amber-400 transition-all cursor-pointer bg-slate-50/50" onclick="quickTopup(1000)">
+              <span class="text-[10px] font-bold text-slate-500 uppercase">Enterprise Pack</span>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">$1,000 <span class="text-xs text-emerald-700 font-bold">+$150 Bonus</span></div>
+              <p class="text-xs text-slate-600 mt-1">Total $1,150 Credits (Approx. 14 Leads)</p>
+              <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500">Includes dedicated account manager</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ledger History -->
+        <div class="mt-8 pt-6 border-t border-slate-100">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-800 mb-3">Recent Wallet Transactions</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="text-[10px] uppercase text-slate-400 border-b border-slate-200">
+                <tr>
+                  <th class="py-2.5">Date</th>
+                  <th class="py-2.5">Type</th>
+                  <th class="py-2.5">Description</th>
+                  <th class="py-2.5 text-right">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="wallet-tx-table" class="divide-y divide-slate-100 font-medium text-slate-700">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: METRO MONOPOLY & UPGRADES -->
+    <section id="tab-monopoly" class="hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Tier 1: Featured Partner -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-500">Tier 1 Upgrade</span>
+              <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">Standard Growth</span>
+            </div>
+            <h3 class="text-xl font-bold font-serif-title text-slate-900">Featured Partner Listing</h3>
+            <div class="mt-3 flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-slate-900">$99</span>
+              <span class="text-xs text-slate-500">/month</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-slate-600">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span><strong>Top 3 Placement</strong> on City &amp; Metro directory hubs</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span>Direct <strong>click-to-call phone display</strong> and website backlinks</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span>Gold Verified Partner trust seal &amp; review showcase</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="subscribeTier('featured_partner')" class="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs transition-colors">
+            Activate Featured Listing ($99/mo)
+          </button>
+        </div>
+
+        <!-- Tier 2: Exclusive Metro Monopoly -->
+        <div class="bg-gradient-to-b from-amber-50/80 to-white border-2 border-amber-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-lg shadow-amber-500/5 relative">
+          <span class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+            100% Exclusive (1 Fleet Per Metro)
+          </span>
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-amber-800">Tier 2 Monopoly</span>
+              <span class="bg-amber-200 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded">Territory Lock</span>
+            </div>
+            <h3 class="text-xl font-bold font-serif-title text-slate-900">Exclusive Metro Monopoly</h3>
+            <div class="mt-3 flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-slate-900">$299</span>
+              <span class="text-xs text-slate-500">/month</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i>
+                <span><strong>Exclusive #1 Top Banner Takeover</strong> on all pages in your city</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i>
+                <span><strong>Instant First-Look Routing</strong> for every customer RFQ before other operators</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+                <span>Competitor lock: No rival fleet can advertise on your city hub</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="subscribeTier('metro_monopoly')" class="mt-8 w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors shadow-md">
+            Lock Exclusive Metro Monopoly ($299/mo)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Reload Modal -->
+  <div id="topup-modal" class="fixed inset-0 bg-slate-950/60 z-50 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold text-slate-900 font-serif-title">Reload Operator Wallet</h3>
+        <button onclick="closeTopupModal()" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 mb-6">Select credit amount. Funds never expire and are only deducted when you choose to unlock a lead.</p>
+      
+      <div class="space-y-3 mb-6">
+        <button onclick="executeReload(250)" class="w-full text-left p-3.5 border border-slate-200 hover:border-amber-500 rounded-xl flex items-center justify-between">
+          <div>
+            <div class="font-bold text-xs text-slate-900">$250 Reload</div>
+            <div class="text-[11px] text-slate-500">Approx. 3 Qualified Leads</div>
+          </div>
+          <span class="text-xs font-bold text-slate-700">Select &rarr;</span>
+        </button>
+
+        <button onclick="executeReload(500)" class="w-full text-left p-3.5 border-2 border-amber-500 bg-amber-50/50 rounded-xl flex items-center justify-between">
+          <div>
+            <div class="font-bold text-xs text-slate-900">$500 Reload <span class="text-emerald-700 font-extrabold">(+$50 Bonus)</span></div>
+            <div class="text-[11px] text-amber-900">$550 Total Balance</div>
+          </div>
+          <span class="text-xs font-bold text-amber-700">Select &rarr;</span>
+        </button>
+
+        <button onclick="executeReload(1000)" class="w-full text-left p-3.5 border border-slate-200 hover:border-amber-500 rounded-xl flex items-center justify-between">
+          <div>
+            <div class="font-bold text-xs text-slate-900">$1,000 Reload <span class="text-emerald-700 font-extrabold">(+$150 Bonus)</span></div>
+            <div class="text-[11px] text-slate-500">$1,150 Total Balance</div>
+          </div>
+          <span class="text-xs font-bold text-slate-700">Select &rarr;</span>
+        </button>
+      </div>
+
+      <p class="text-[10px] text-slate-400 text-center">Secured via Stripe 256-bit encrypted checkout. Instant account crediting.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 The Reliant Network. B2B Operator Exchange &amp; Lead Management.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-amber-600">Directory Home</a>
+        <a href="/financing.html" class="hover:text-amber-600">Fleet Financing</a>
+        <a href="/badge-generator.html" class="hover:text-amber-600">Partner Badges</a>
+        <a href="/cost/atlanta.html" class="hover:text-amber-600">Cost Guides</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let activeOperatorId = 'vend_atl_01';
+    let currentWalletData = null;
+
+    async function loadWalletData() {
+      try {
+        const res = await fetch('/api/operator/wallet?operator_id=' + activeOperatorId);
+        const data = await res.json();
+        if (data.success) {
+          currentWalletData = data;
+          renderUI(data);
+        }
+      } catch (err) {
+        console.error('Wallet load error:', err);
+      }
+    }
+
+    function renderUI(data) {
+      const wallet = data.wallet;
+      document.getElementById('header-wallet-balance').textContent = '$' + wallet.balance.toFixed(2);
+      document.getElementById('tab-wallet-balance').textContent = '$' + wallet.balance.toFixed(2);
+      document.getElementById('header-operator-name').textContent = wallet.company_name;
+      document.getElementById('hero-territory').textContent = wallet.city + ' Metro, ' + wallet.state + ' (50-Mile Radius)';
+
+      // Render Leads Feed
+      const container = document.getElementById('leads-container');
+      container.innerHTML = '';
+
+      if (data.feed && data.feed.length > 0) {
+        document.getElementById('stat-leads-count').textContent = data.feed.length;
+
+        data.feed.forEach(lead => {
+          const card = document.createElement('div');
+          card.className = 'bg-white border ' + (lead.is_unlocked ? 'border-emerald-300 bg-emerald-50/20' : 'border-slate-200') + ' rounded-3xl p-5 shadow-xs flex flex-col justify-between';
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">${lead.lead_code}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${lead.ai_intent_score >= 95 ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-slate-100 text-slate-700'}">
+                  ★ Intent: ${lead.ai_intent_score}/100
+                </span>
+              </div>
+
+              <h4 class="font-bold text-sm text-slate-900">${lead.event_type}</h4>
+              <div class="mt-2 space-y-1 text-xs text-slate-600">
+                <p><span class="font-semibold text-slate-700">Location:</span> ${lead.city}, ${lead.state}</p>
+                <p><span class="font-semibold text-slate-700">Guests:</span> ${lead.guest_count} Attendees</p>
+                <p><span class="font-semibold text-slate-700">Est. Booking Value:</span> <strong class="text-emerald-700 font-bold">$${lead.estimated_quote.toLocaleString()}</strong></p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100">
+                ${lead.is_unlocked ? `
+                  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs space-y-1">
+                    <div class="font-bold text-emerald-950 flex items-center gap-1.5">
+                      <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Client Unlocked
+                    </div>
+                    <div><strong>Name:</strong> ${lead.customer_name}</div>
+                    <div><strong>Phone:</strong> <a href="tel:${lead.customer_phone}" class="text-blue-600 font-semibold underline">${lead.customer_phone}</a></div>
+                    <div><strong>Email:</strong> <a href="mailto:${lead.customer_email}" class="text-blue-600 font-semibold underline">${lead.customer_email}</a></div>
+                  </div>
+                ` : `
+                  <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-500">
+                    <div><strong>Name:</strong> ${lead.customer_name}</div>
+                    <div><strong>Phone:</strong> ${lead.customer_phone}</div>
+                    <div><strong>Email:</strong> ${lead.customer_email}</div>
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <div class="mt-5">
+              ${lead.is_unlocked ? `
+                <button disabled class="w-full bg-emerald-100 text-emerald-800 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 cursor-default">
+                  <i data-lucide="check" class="w-4 h-4"></i> Complete Lead Contact Unlocked
+                </button>
+              ` : `
+                <button onclick="unlockLead('${lead.id}')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors">
+                  <i data-lucide="unlock" class="w-4 h-4"></i> Unlock Client Contact ($85)
+                </button>
+              `}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      // Render Transactions
+      const txContainer = document.getElementById('wallet-tx-table');
+      txContainer.innerHTML = '';
+      (wallet.transactions || []).forEach(tx => {
+        const tr = document.createElement('tr');
+        const isPositive = tx.amount > 0;
+        tr.innerHTML = `
+          <td class="py-2.5 text-slate-500">${new Date(tx.date).toLocaleDateString()}</td>
+          <td class="py-2.5 font-bold ${isPositive ? 'text-emerald-600' : 'text-slate-800'}">${tx.type}</td>
+          <td class="py-2.5 text-slate-600">${tx.description}</td>
+          <td class="py-2.5 text-right font-extrabold ${isPositive ? 'text-emerald-600' : 'text-slate-900'}">${isPositive ? '+' : ''}$${Math.abs(tx.amount).toFixed(2)}</td>
+        `;
+        txContainer.appendChild(tr);
+      });
+
+      try { lucide.createIcons(); } catch(e){}
+    }
+
+    async function unlockLead(leadId) {
+      if (!confirm('Unlock full customer contact information for $85? This will be deducted from your wallet balance.')) return;
+      try {
+        const res = await fetch('/api/operator/leads/unlock', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ operator_id: activeOperatorId, lead_id: leadId })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert('Lead unlocked! Contact details revealed.');
+          loadWalletData();
+        } else {
+          alert(data.message || data.error);
+          if (data.error === 'Insufficient wallet balance') {
+            openTopupModal();
+          }
+        }
+      } catch (err) {
+        alert('Error unlocking lead: ' + err.message);
+      }
+    }
+
+    function openTopupModal() {
+      document.getElementById('topup-modal').classList.remove('hidden');
+    }
+
+    function closeTopupModal() {
+      document.getElementById('topup-modal').classList.add('hidden');
+    }
+
+    async function quickTopup(amount) {
+      executeReload(amount);
+    }
+
+    async function executeReload(amount) {
+      try {
+        const res = await fetch('/api/operator/wallet/topup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ operator_id: activeOperatorId, amount })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert(data.message);
+          closeTopupModal();
+          loadWalletData();
+        }
+      } catch (err) {
+        alert('Top-up error: ' + err.message);
+      }
+    }
+
+    async function subscribeTier(tier) {
+      const tierName = tier === 'metro_monopoly' ? 'Exclusive Metro Monopoly ($299/mo)' : 'Featured Partner ($99/mo)';
+      if (!confirm(`Confirm subscription to ${tierName}?`)) return;
+      try {
+        const res = await fetch('/api/operator/monopoly/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ operator_id: activeOperatorId, tier, metro_slug: 'atlanta-ga' })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert(data.message);
+          loadWalletData();
+        }
+      } catch (err) {
+        alert('Subscription error: ' + err.message);
+      }
+    }
+
+    function switchTab(tabId) {
+      ['tab-leads', 'tab-wallet', 'tab-monopoly'].forEach(t => {
+        document.getElementById(t).classList.add('hidden');
+        const btn = document.getElementById('btn-' + t);
+        if (btn) {
+          btn.className = 'pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2';
+        }
+      });
+      document.getElementById(tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.className = 'pb-3 border-b-2 border-amber-600 text-amber-700 flex items-center gap-2 font-bold';
+      }
+      try { lucide.createIcons(); } catch(e){}
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadWalletData();
+    });
+  </script>
+</body>
+</html>

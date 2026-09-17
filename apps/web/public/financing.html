@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Fleet Equipment Financing &amp; Section 179 Calculator | The Reliant Network</title>
+  <meta name="description" content="Calculate monthly lease payments and Section 179 tax savings for commercial luxury restroom trailers, mobile refrigeration units, and heavy industrial fleets.">
+  <link rel="canonical" href="https://reliant-network.vercel.app/financing.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold text-center flex items-center justify-center gap-2 shadow-xs">
+    <i data-lucide="trending-up" class="w-4 h-4"></i>
+    <span>IRS Section 179 Active: Deduct Up to 100% of Qualifying Commercial Fleet Equipment in Year 1</span>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-amber-400 font-serif-title font-bold text-lg shadow-sm">
+            R
+          </div>
+          <div>
+            <span class="font-serif-title font-bold text-lg text-slate-900 block leading-tight">The Reliant Network</span>
+            <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">Commercial Capital &amp; Fleet Financing</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3 text-xs">
+        <a href="/operator-portal.html" class="hidden sm:flex items-center gap-1.5 text-slate-600 hover:text-slate-900 font-semibold">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+          <span>Operator Portal</span>
+        </a>
+        <a href="#calculator" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition-colors shadow-xs">
+          Calculate Payments
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+        <i data-lucide="badge-percent" class="w-3.5 h-3.5"></i>
+        <span>Competitive Commercial Rates &bull; 24 to 84 Month Terms &bull; $0 Down Options</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-white tracking-tight">
+        Commercial Fleet Financing &amp; Section 179 Tax Calculator
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Scale your equipment rental fleet with flexible, low-rate capital. Leverage IRS Section 179 depreciation rules to deduct up to 100% of equipment acquisition costs on this year’s tax return.
+      </p>
+    </div>
+  </div>
+
+  <!-- Calculator & Pre-Qualification Section -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full space-y-12" id="calculator">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Calculator Inputs -->
+      <div class="lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 space-y-6">
+        <div>
+          <h2 class="text-lg font-bold font-serif-title text-slate-900 flex items-center gap-2">
+            <i data-lucide="calculator" class="w-5 h-5 text-amber-600"></i>
+            <span>Fleet Capital &amp; Payment Estimator</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">Adjust equipment price and financing terms to calculate your monthly debt service.</p>
+        </div>
+
+        <!-- 1. Equipment Cost Slider -->
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Equipment Purchase Cost</label>
+            <span class="text-base font-extrabold text-amber-600 font-mono" id="val-cost-display">$75,000</span>
+          </div>
+          <input type="range" id="input-cost" min="20000" max="300000" step="5000" value="75000" oninput="calculateFinancing()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500">
+          <div class="flex justify-between text-[10px] text-slate-400 font-semibold mt-1">
+            <span>$20,000 (2-Stall Unit)</span>
+            <span>$75,000 (4-Stall Luxury)</span>
+            <span>$300,000+ (Fleet Package)</span>
+          </div>
+        </div>
+
+        <!-- 2. Financing Term -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Loan / Lease Term (Months)</label>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <button onclick="setTerm(24)" id="term-24" class="p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center">24 Mo</button>
+            <button onclick="setTerm(36)" id="term-36" class="p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center">36 Mo</button>
+            <button onclick="setTerm(48)" id="term-48" class="p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center">48 Mo</button>
+            <button onclick="setTerm(60)" id="term-60" class="p-2 border-2 border-amber-500 bg-amber-50 rounded-xl text-xs font-bold text-slate-900 text-center">60 Mo</button>
+            <button onclick="setTerm(72)" id="term-72" class="p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center">72 Mo</button>
+            <button onclick="setTerm(84)" id="term-84" class="p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center">84 Mo</button>
+          </div>
+        </div>
+
+        <!-- 3. Credit Profile -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Credit Tier &amp; Business Longevity</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button onclick="setTier('tier_1_prime')" id="tier-1" class="p-3 border-2 border-amber-500 bg-amber-50 rounded-xl text-left">
+              <span class="text-[10px] uppercase font-bold text-amber-800 block">Tier 1 Prime</span>
+              <span class="text-xs font-extrabold text-slate-900">7.99% APR</span>
+              <span class="text-[9px] text-slate-500 block mt-0.5">2+ Yrs in Business</span>
+            </button>
+            <button onclick="setTier('tier_2_standard')" id="tier-2" class="p-3 border border-slate-200 rounded-xl text-left hover:border-slate-400">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Tier 2 Standard</span>
+              <span class="text-xs font-extrabold text-slate-900">9.99% APR</span>
+              <span class="text-[9px] text-slate-500 block mt-0.5">1-2 Yrs in Business</span>
+            </button>
+            <button onclick="setTier('tier_3_startup')" id="tier-3" class="p-3 border border-slate-200 rounded-xl text-left hover:border-slate-400">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Tier 3 Startup</span>
+              <span class="text-xs font-extrabold text-slate-900">13.99% APR</span>
+              <span class="text-[9px] text-slate-500 block mt-0.5">&lt;1 Year / New Fleet</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Estimated Results Summary Card -->
+        <div class="bg-slate-900 text-white rounded-2xl p-5 space-y-4">
+          <div class="flex justify-between items-baseline border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-wider text-amber-400 block">Estimated Monthly Debt Service</span>
+              <span class="text-3xl font-serif-title font-extrabold text-white" id="res-monthly">$1,520</span>
+              <span class="text-xs text-slate-400">/month</span>
+            </div>
+            <span class="text-[11px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded border border-emerald-500/30">Instant Pre-Approval Available</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs pt-1">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase">Section 179 Deduction</span>
+              <span class="font-bold text-white text-sm" id="res-179-deduction">$75,000</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase">Est. Tax Savings (25% Rate)</span>
+              <span class="font-bold text-emerald-400 text-sm" id="res-tax-savings">-$18,750</span>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs">
+            <span class="text-slate-300 font-semibold">Net Equipment Cost After Tax Savings:</span>
+            <span class="text-sm font-extrabold text-amber-400" id="res-net-cost">$56,250</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-Qualification Application Form -->
+      <div class="lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-amber-600 font-bold">Fast-Track Capital Desk</span>
+              <h3 class="text-lg font-bold font-serif-title text-slate-900">Apply for Pre-Qualified Fleet Financing</h3>
+            </div>
+            <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full flex items-center gap-1">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> No Hard Credit Pull
+            </span>
+          </div>
+          <p class="text-xs text-slate-600 mb-6">Complete the pre-qualification form below. A dedicated commercial lending partner will return customized lease structures within 2 business hours.</p>
+
+          <form id="finance-form" onsubmit="submitFinancing(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Company / Fleet Name</label>
+                <input type="text" id="f-biz" required placeholder="e.g. Royal Restrooms LLC" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:bg-white focus:outline-none focus:border-amber-500">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Contact Principal Name</label>
+                <input type="text" id="f-name" required placeholder="John Smith" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:bg-white focus:outline-none focus:border-amber-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Business Email</label>
+                <input type="email" id="f-email" required placeholder="finance@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:bg-white focus:outline-none focus:border-amber-500">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Direct Phone</label>
+                <input type="tel" id="f-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:bg-white focus:outline-none focus:border-amber-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Industry Vertical</label>
+                <select id="f-niche" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold focus:bg-white focus:outline-none focus:border-amber-500">
+                  <option value="luxury_restrooms">Luxury Restroom Trailers</option>
+                  <option value="commercial_cold_storage">Mobile Cold Storage & Freezers</option>
+                  <option value="heavy_crane_rigging">Heavy Crane & Rigging Equipment</option>
+                  <option value="senior_placement">Senior Facility Vehicles & Shuttles</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Estimated Down Payment</label>
+                <select id="f-down" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold focus:bg-white focus:outline-none focus:border-amber-500">
+                  <option value="0">$0 Down (100% Financing)</option>
+                  <option value="10">10% Down Payment</option>
+                  <option value="20">20% Down Payment</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Equipment Description / Make / Model (Optional)</label>
+              <input type="text" id="f-equip" placeholder="e.g. 2026 Jag 4-Station Luxury Restroom Trailer" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:bg-white focus:outline-none focus:border-amber-500">
+            </div>
+
+            <button type="submit" id="f-btn" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition-all">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Submit Pre-Qualification Inquiry</span>
+            </button>
+          </form>
+
+          <div id="f-success" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-950 space-y-2">
+            <div class="font-bold flex items-center gap-2 text-sm">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Pre-Qualification Submitted Successfully!
+            </div>
+            <p id="f-success-msg">Your financing request has been pre-screened. Application Reference ID: <strong id="f-app-id">FIN-839201</strong>.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+          <span>Encrypted 256-Bit SSL Underwriting</span>
+          <span>Broker License #REL-FIN-2026</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section 179 Deep Breakdown -->
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+      <h3 class="text-xl font-bold font-serif-title text-slate-900">Understanding IRS Section 179 for Commercial Fleets</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600 leading-relaxed">
+        <div class="space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold">1</div>
+          <h4 class="font-bold text-slate-900 text-sm">100% First-Year Write-Off</h4>
+          <p>Unlike standard depreciation that spreads deductions over 5–7 years, Section 179 allows qualifying businesses to expense up to $1,220,000 of equipment purchased or leased in the 2026 tax year immediately.</p>
+        </div>
+        <div class="space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold">2</div>
+          <h4 class="font-bold text-slate-900 text-sm">Qualifying Fleet Equipment</h4>
+          <p>Commercial mobile restroom trailers, refrigerated container units, cranes, and heavy specialty vehicles put into active commercial service qualify for full write-off privileges.</p>
+        </div>
+        <div class="space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold">3</div>
+          <h4 class="font-bold text-slate-900 text-sm">Financed Equipment Eligible</h4>
+          <p>You can write off the entire purchase amount even if you finance or lease the equipment with $0 out-of-pocket cash today, creating an immediate net-positive cashflow benefit.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 The Reliant Network. B2B Commercial Capital &amp; Equipment Solutions.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-amber-600">Home</a>
+        <a href="/operator-portal.html" class="hover:text-amber-600">Operator Portal</a>
+        <a href="/badge-generator.html" class="hover:text-amber-600">Trust Badges</a>
+        <a href="/cost/atlanta.html" class="hover:text-amber-600">Cost Guides</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentTerm = 60;
+    let currentTier = 'tier_1_prime';
+    const aprMap = {
+      'tier_1_prime': 0.0799,
+      'tier_2_standard': 0.0999,
+      'tier_3_startup': 0.1399
+    };
+
+    function setTerm(term) {
+      currentTerm = term;
+      [24, 36, 48, 60, 72, 84].forEach(t => {
+        const btn = document.getElementById('term-' + t);
+        if (btn) {
+          if (t === term) {
+            btn.className = 'p-2 border-2 border-amber-500 bg-amber-50 rounded-xl text-xs font-bold text-slate-900 text-center';
+          } else {
+            btn.className = 'p-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 hover:border-slate-400 text-center';
+          }
+        }
+      });
+      calculateFinancing();
+    }
+
+    function setTier(tier) {
+      currentTier = tier;
+      ['tier_1_prime', 'tier_2_standard', 'tier_3_startup'].forEach((t, i) => {
+        const btn = document.getElementById('tier-' + (i + 1));
+        if (btn) {
+          if (t === tier) {
+            btn.className = 'p-3 border-2 border-amber-500 bg-amber-50 rounded-xl text-left';
+          } else {
+            btn.className = 'p-3 border border-slate-200 rounded-xl text-left hover:border-slate-400';
+          }
+        }
+      });
+      calculateFinancing();
+    }
+
+    function calculateFinancing() {
+      const amount = parseFloat(document.getElementById('input-cost').value);
+      document.getElementById('val-cost-display').textContent = '$' + amount.toLocaleString();
+
+      const apr = aprMap[currentTier] || 0.0799;
+      const monthlyRate = apr / 12;
+      const monthlyPayment = Math.round((monthlyRate * amount) / (1 - Math.pow(1 + monthlyRate, -currentTerm)));
+
+      const deduction = amount;
+      const taxSavings = Math.round(amount * 0.25);
+      const netCost = amount - taxSavings;
+
+      document.getElementById('res-monthly').textContent = '$' + monthlyPayment.toLocaleString();
+      document.getElementById('res-179-deduction').textContent = '$' + deduction.toLocaleString();
+      document.getElementById('res-tax-savings').textContent = '-$' + taxSavings.toLocaleString();
+      document.getElementById('res-net-cost').textContent = '$' + netCost.toLocaleString();
+    }
+
+    async function submitFinancing(e) {
+      e.preventDefault();
+      const btn = document.getElementById('f-btn');
+      btn.disabled = true;
+      btn.innerHTML = 'Submitting Pre-Qualification...';
+
+      const payload = {
+        business_name: document.getElementById('f-biz').value,
+        contact_name: document.getElementById('f-name').value,
+        email: document.getElementById('f-email').value,
+        phone: document.getElementById('f-phone').value,
+        niche_id: document.getElementById('f-niche').value,
+        down_payment_pct: document.getElementById('f-down').value,
+        equipment_type: document.getElementById('f-equip').value || 'Luxury Restroom Trailer',
+        purchase_amount: document.getElementById('input-cost').value,
+        term_months: currentTerm,
+        credit_tier: currentTier
+      };
+
+      try {
+        const res = await fetch('/api/financing/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('finance-form').classList.add('hidden');
+          const succ = document.getElementById('f-success');
+          succ.classList.remove('hidden');
+          document.getElementById('f-app-id').textContent = data.application_id;
+          document.getElementById('f-success-msg').textContent = data.message;
+        } else {
+          alert('Submission error: ' + data.error);
+          btn.disabled = false;
+          btn.innerHTML = 'Submit Pre-Qualification Inquiry';
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Submit Pre-Qualification Inquiry';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateFinancing();
+      try { lucide.createIcons(); } catch(e){}
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "vend_atl_01": {
+    "operator_id": "vend_atl_01",
+    "balance": 890,
+    "currency": "USD",
+    "company_name": "Royal Restrooms of Atlanta",
+    "city": "Atlanta",
+    "state": "GA",
+    "subscription_active": true,
+    "monopoly_active": true,
+    "unlocked_leads": [
+      "lead-1"
+    ],
+    "transactions": [
+      {
+        "id": "tx_1789610114628",
+        "date": "2026-09-17T01:55:14.628Z",
+        "type": "LEAD_PURCHASE",
+        "amount": -85,
+        "description": "Unlocked Qualified RFQ Lead lead-1"
+      },
+      {
+        "id": "tx_1789610114623",
+        "date": "2026-09-17T01:55:14.623Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_init",
+        "date": "2026-09-17T01:55:14.615Z",
+        "type": "INITIAL_CREDIT",
+        "amount": 425,
+        "description": "Welcome fleet promotional balance"
+      }
+    ],
+    "monopoly_metro": "atlanta-ga"
+  }
+}

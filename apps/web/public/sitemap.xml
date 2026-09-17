@@ -1,583 +1,788 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://reliantverified.com/</loc>
+    <loc>https://reliant-network.vercel.app/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/#directory</loc>
+    <loc>https://reliant-network.vercel.app/#directory</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/#metros</loc>
+    <loc>https://reliant-network.vercel.app/#metros</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/georgia</loc>
+    <loc>https://reliant-network.vercel.app/state/georgia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/texas</loc>
+    <loc>https://reliant-network.vercel.app/state/texas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/florida</loc>
+    <loc>https://reliant-network.vercel.app/state/florida</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/california</loc>
+    <loc>https://reliant-network.vercel.app/state/california</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/illinois</loc>
+    <loc>https://reliant-network.vercel.app/state/illinois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/arizona</loc>
+    <loc>https://reliant-network.vercel.app/state/arizona</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/colorado</loc>
+    <loc>https://reliant-network.vercel.app/state/colorado</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/south-carolina</loc>
+    <loc>https://reliant-network.vercel.app/state/south-carolina</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/tennessee</loc>
+    <loc>https://reliant-network.vercel.app/state/tennessee</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/state/new-york</loc>
+    <loc>https://reliant-network.vercel.app/state/new-york</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/metro/atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/cost/atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/metro/dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/cost/dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/metro/miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/cost/miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/metro/austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/cost/austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/los-angeles-ca</loc>
+    <loc>https://reliant-network.vercel.app/metro/los-angeles-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/los-angeles-ca</loc>
+    <loc>https://reliant-network.vercel.app/cost/los-angeles-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/chicago-il</loc>
+    <loc>https://reliant-network.vercel.app/metro/chicago-il</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/chicago-il</loc>
+    <loc>https://reliant-network.vercel.app/cost/chicago-il</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/napa-valley-ca</loc>
+    <loc>https://reliant-network.vercel.app/metro/napa-valley-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/napa-valley-ca</loc>
+    <loc>https://reliant-network.vercel.app/cost/napa-valley-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/scottsdale-az</loc>
+    <loc>https://reliant-network.vercel.app/metro/scottsdale-az</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/scottsdale-az</loc>
+    <loc>https://reliant-network.vercel.app/cost/scottsdale-az</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/savannah-ga</loc>
+    <loc>https://reliant-network.vercel.app/metro/savannah-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/savannah-ga</loc>
+    <loc>https://reliant-network.vercel.app/cost/savannah-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/charleston-sc</loc>
+    <loc>https://reliant-network.vercel.app/metro/charleston-sc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/charleston-sc</loc>
+    <loc>https://reliant-network.vercel.app/cost/charleston-sc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/nashville-tn</loc>
+    <loc>https://reliant-network.vercel.app/metro/nashville-tn</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/nashville-tn</loc>
+    <loc>https://reliant-network.vercel.app/cost/nashville-tn</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/denver-co</loc>
+    <loc>https://reliant-network.vercel.app/metro/denver-co</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/denver-co</loc>
+    <loc>https://reliant-network.vercel.app/cost/denver-co</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/hamptons-ny</loc>
+    <loc>https://reliant-network.vercel.app/metro/hamptons-ny</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/hamptons-ny</loc>
+    <loc>https://reliant-network.vercel.app/cost/hamptons-ny</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/metro/aspen-co</loc>
+    <loc>https://reliant-network.vercel.app/metro/aspen-co</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/cost/aspen-co</loc>
+    <loc>https://reliant-network.vercel.app/cost/aspen-co</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/blue-ridge-luxury-sanitation-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/blue-ridge-luxury-sanitation-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/peachtree-luxury-restrooms-and-suites-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/peachtree-luxury-restrooms-and-suites-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/lone-star-luxury-restroom-trailers-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/lone-star-luxury-restroom-trailers-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/south-beach-luxury-restroom-suites-miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/listing/south-beach-luxury-restroom-suites-miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/hill-country-luxury-restroom-rentals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/hill-country-luxury-restroom-rentals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/beverly-hills-luxury-restrooms-and-honeywagons-losangeles-ca</loc>
+    <loc>https://reliant-network.vercel.app/listing/beverly-hills-luxury-restrooms-and-honeywagons-losangeles-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/titan-heavy-crane-rigging-services-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/titan-heavy-crane-rigging-services-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/buckhead-black-tie-sanitation-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/buckhead-black-tie-sanitation-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/windy-city-luxury-restroom-suites-chicago-il</loc>
+    <loc>https://reliant-network.vercel.app/listing/windy-city-luxury-restroom-suites-chicago-il</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/arcticshield-mobile-reefer-cold-storage-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/arcticshield-mobile-reefer-cold-storage-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/lone-star-industrial-rigging-crane-hire-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/lone-star-industrial-rigging-crane-hire-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/oasis-senior-advisors-atlanta-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/oasis-senior-advisors-atlanta-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/lone-star-industrial-portable-freezers-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/lone-star-industrial-portable-freezers-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dallas-eldercare-consultants-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dallas-eldercare-consultants-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/royal-throne-mobile-vip-suites-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/royal-throne-mobile-vip-suites-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dallas-vip-mobile-restrooms-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dallas-vip-mobile-restrooms-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/biscayne-vip-portable-restrooms-miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/listing/biscayne-vip-portable-restrooms-miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/austin-vip-event-sanitation-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/austin-vip-event-sanitation-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/sunset-vip-trailer-rentals-la-losangeles-ca</loc>
+    <loc>https://reliant-network.vercel.app/listing/sunset-vip-trailer-rentals-la-losangeles-ca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/biscayne-bay-mobile-refrigeration-solutions-miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/listing/biscayne-bay-mobile-refrigeration-solutions-miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/southern-elegance-restroom-trailers-atlanta-ga</loc>
+    <loc>https://reliant-network.vercel.app/listing/southern-elegance-restroom-trailers-atlanta-ga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prestige-event-restrooms-dfw-dallas-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prestige-event-restrooms-dfw-dallas-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/miami-gala-restroom-trailers-miami-fl</loc>
+    <loc>https://reliant-network.vercel.app/listing/miami-gala-restroom-trailers-miami-fl</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/michigan-avenue-event-sanitation-chicago-il</loc>
+    <loc>https://reliant-network.vercel.app/listing/michigan-avenue-event-sanitation-chicago-il</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/prime-heavy-crane-rental-services-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/prime-heavy-crane-rental-services-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/dynamic-heavy-crane-rental-co-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
+    <loc>https://reliant-network.vercel.app/listing/elite-heavy-crane-rental-professionals-austin-tx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://reliantverified.com/badge-generator.html</loc>
+    <loc>https://reliant-network.vercel.app/badge-generator.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/atlanta.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/atlanta.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/dallas.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/dallas.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/miami.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/miami.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/austin.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/austin.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/los-angeles.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/los-angeles.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/chicago.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/chicago.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/napa-valley.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/napa-valley.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/scottsdale.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/scottsdale.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/savannah.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/savannah.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/charleston.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/charleston.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/nashville.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/nashville.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/denver.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/denver.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/hamptons.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/hamptons.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n  <url>
-    <loc>https://reliantverified.com/cost/aspen.html</loc>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/aspen.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>\n</urlset>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/new-york.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/houston.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/phoenix.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/philadelphia.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/san-antonio.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/san-diego.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/san-jose.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/fort-worth.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/jacksonville.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/columbus.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/charlotte.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/indianapolis.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/san-francisco.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/seattle.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/washington.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/boston.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/las-vegas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/portland.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/detroit.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/louisville.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/baltimore.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/milwaukee.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/albuquerque.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/tucson.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/sacramento.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/kansas-city.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/omaha.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/colorado-springs.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/raleigh.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/virginia-beach.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/tampa.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/orlando.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/minneapolis.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/new-orleans.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/cleveland.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/cost/salt-lake-city.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/operator-portal.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://reliant-network.vercel.app/financing.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+</urlset>

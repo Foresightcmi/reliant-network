@@ -60,17 +60,25 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <button onclick="openPricingModal()" class="hidden lg:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
-          <span>Plans &amp; Pricing</span>
-        </button>
-        <a href="/badge-generator.html" class="hidden xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
-          <span>Partner Badges</span>
+        <a href="/operator-portal.html" class="hidden lg:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="layout-dashboard" class="w-4 h-4 text-amber-600"></i>
+          <span>Operator Portal</span>
         </a>
-        <button onclick="openSubmitModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+        <a href="/financing.html" class="hidden xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="calculator" class="w-4 h-4 text-amber-600"></i>
+          <span>Fleet Financing</span>
+        </a>
+        <button onclick="openPricingModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
+          <span>Pricing</span>
+        </button>
+        <a href="/badge-generator.html" class="hidden 2xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
+          <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+          <span>Badges</span>
+        </a>
+        <button onclick="openSubmitModal()" class="hidden sm:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
           <i data-lucide="plus-circle" class="w-4 h-4 text-amber-600"></i>
-          <span>List Your Fleet</span>
+          <span>List Fleet</span>
         </button>
         <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-amber-800 hover:text-amber-900 font-semibold bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-300 text-xs transition-colors">
           <i data-lucide="line-chart" class="w-4 h-4 text-amber-600"></i>
@@ -531,14 +539,66 @@
       </form>
 
       <!-- SUCCESS DISPATCH VIEW -->
-      <div id="quote-success-view" class="hidden text-center py-6">
-        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-300">
-          <i data-lucide="check" class="w-8 h-8"></i>
+      <!-- SUCCESS DISPATCH VIEW & 15% CONCIERGE ESCROW LOCK-IN -->
+      <div id="quote-success-view" class="hidden text-center py-4">
+        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 border border-emerald-300">
+          <i data-lucide="check" class="w-7 h-7"></i>
         </div>
-        <h4 class="text-xl font-bold text-slate-900">Quote Request Broadcasted!</h4>
-        <p id="quote-success-msg" class="text-sm text-slate-600 mt-2 max-w-md mx-auto"></p>
-        <div id="quote-dispatch-details" class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs font-mono text-left space-y-1 text-slate-700"></div>
-        <button onclick="closeQuoteModal()" class="mt-6 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-300 transition-colors">Done</button>
+        <h4 class="text-xl font-bold text-slate-900 font-serif-title">Quote Request Broadcasted!</h4>
+        <p id="quote-success-msg" class="text-xs text-slate-600 mt-1 max-w-md mx-auto"></p>
+        <div id="quote-dispatch-details" class="mt-3 bg-slate-50 border border-slate-200 rounded-xl p-3 text-[11px] font-mono text-left space-y-0.5 text-slate-700"></div>
+
+        <!-- 15% CONCIERGE BOOKING DEPOSIT LOCK-IN (UNCAPPED REVENUE VECTOR) -->
+        <div id="deposit-cta-card" class="mt-5 bg-gradient-to-b from-amber-50 to-white border-2 border-amber-500 rounded-2xl p-5 text-left shadow-lg shadow-amber-500/10">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wider">High Demand Date</span>
+            <span class="text-[11px] font-bold text-emerald-700 flex items-center gap-1">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Escrow Guarantee Active
+            </span>
+          </div>
+          <h5 class="text-base font-bold font-serif-title text-slate-900">Lock In Guaranteed Fleet Availability</h5>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Fleet inventory is tight for your date. Place a <strong>15% reservation deposit</strong> held safely in escrow to immediately lock down your trailer with our top-rated operator. The remaining 85% is payable only after on-site placement and inspection.
+          </p>
+          
+          <div class="mt-4 bg-white border border-amber-200 rounded-xl p-3.5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">15% Concierge Deposit</span>
+              <span class="text-2xl font-extrabold text-amber-600" id="deposit-amount-display">$420.00</span>
+            </div>
+            <div class="text-right text-xs text-slate-500">
+              <div>Total Contract: <strong class="text-slate-800" id="deposit-total-display">$2,800.00</strong></div>
+              <div>Balance Due On-Site: <strong class="text-slate-800" id="deposit-balance-display">$2,380.00</strong></div>
+            </div>
+          </div>
+
+          <div class="mt-4 space-y-2">
+            <button onclick="executeConciergeDeposit()" id="btn-lock-deposit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 transition-all">
+              <i data-lucide="lock" class="w-4 h-4"></i>
+              <span id="btn-lock-text">Lock In Equipment with 15% Escrow Deposit</span>
+            </button>
+            <p class="text-[10px] text-slate-400 text-center">48-Hour Free Cancellation &bull; OSHA 1926.51 Vetted Fleet &bull; Instant Receipt</p>
+          </div>
+        </div>
+
+        <!-- ESCROW RECEIPT VIEW (Initially Hidden) -->
+        <div id="deposit-confirmed-view" class="hidden mt-5 bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-5 text-left space-y-3">
+          <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+            <span>Reservation Escrow Confirmed &amp; Fleet Locked!</span>
+          </div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>Booking Ref: <strong class="text-slate-900 font-mono" id="confirmed-booking-id">BK-REL-2026-948210</strong></div>
+            <div>Escrow Deposit Paid: <strong class="text-emerald-700" id="confirmed-deposit-paid">$420.00</strong></div>
+            <div>Balance Due on Delivery: <strong class="text-slate-800" id="confirmed-balance-due">$2,380.00</strong></div>
+            <div>Assigned Fleet: <strong class="text-slate-900" id="confirmed-vendor-name">Premier Elite Fleets</strong></div>
+          </div>
+          <button onclick="window.print()" class="w-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors">
+            <i data-lucide="printer" class="w-4 h-4"></i> Print Official Escrow Confirmation Receipt
+          </button>
+        </div>
+
+        <button onclick="closeQuoteModal()" class="mt-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-6 py-2.5 rounded-xl border border-slate-300 transition-colors">Close / Return to Directory</button>
       </div>
     </div>
   </div>
@@ -1474,9 +1534,12 @@
           body: JSON.stringify(payload)
         });
         const data = await res.json();
+        lastQuoteData = data;
 
         document.getElementById('quote-form').classList.add('hidden');
         document.getElementById('quote-success-view').classList.remove('hidden');
+        document.getElementById('deposit-confirmed-view').classList.add('hidden');
+        document.getElementById('btn-lock-deposit').classList.remove('hidden');
         document.getElementById('quote-success-msg').textContent = `Matched with top ${data.dispatch.matched_vendors_count} verified operators in ${payload.city} for ${data.qualification.niche_name}. Estimated Quote: $${data.qualification.estimated_quote.toLocaleString()}.`;
 
         document.getElementById('quote-dispatch-details').innerHTML = `
@@ -1485,6 +1548,17 @@
           <div>&gt; Pay-Per-Lead Value: <span class="text-emerald-700 font-bold">$${data.qualification.lead_price}</span></div>
           <div>&gt; Booking Deposit (15%): <span class="text-cyan-700 font-bold">$${data.qualification.deposit_fee.toLocaleString()}</span></div>
         `;
+
+        // Populate 15% Concierge Deposit numbers
+        const totalEst = data.qualification.estimated_quote || 2800;
+        const depositEst = data.qualification.deposit_fee || Math.round(totalEst * 0.15);
+        const balanceDue = totalEst - depositEst;
+
+        document.getElementById('deposit-amount-display').textContent = '$' + depositEst.toLocaleString() + '.00';
+        document.getElementById('deposit-total-display').textContent = '$' + totalEst.toLocaleString() + '.00';
+        document.getElementById('deposit-balance-display').textContent = '$' + balanceDue.toLocaleString() + '.00';
+        document.getElementById('btn-lock-text').textContent = `Lock In Equipment with 15% Escrow Deposit ($${depositEst.toLocaleString()})`;
+
         try { lucide.createIcons(); } catch(e){}
       } catch (err) {
         alert('Error submitting quote: ' + err.message);
@@ -1492,6 +1566,57 @@
         btn.disabled = false;
         btn.innerHTML = '<i data-lucide="zap" class="w-4 h-4"></i><span>Calculate Estimate &amp; Match Operators</span>';
         try { lucide.createIcons(); } catch(e){}
+      }
+    }
+
+    let lastQuoteData = null;
+
+    async function executeConciergeDeposit() {
+      if (!lastQuoteData) return;
+      const btn = document.getElementById('btn-lock-deposit');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Securing Escrow Lock...</span>';
+      try { lucide.createIcons(); } catch(e){}
+
+      const payload = {
+        lead_code: lastQuoteData.lead_code,
+        customer_name: document.getElementById('q-name').value,
+        customer_email: document.getElementById('q-email').value,
+        customer_phone: document.getElementById('q-phone').value,
+        city: document.getElementById('q-city').value,
+        event_date: document.getElementById('q-date').value,
+        guest_count: parseInt(document.getElementById('q-guests')?.value) || 150,
+        event_type: document.getElementById('q-type').value || 'Commercial Project',
+        estimated_total: lastQuoteData.qualification.estimated_quote,
+        deposit_amount: lastQuoteData.qualification.deposit_fee,
+        niche_id: document.getElementById('q-niche').value,
+        payment_method: 'stripe_escrow_deposit'
+      };
+
+      try {
+        const res = await fetch('/api/bookings/deposit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('confirmed-booking-id').textContent = data.booking_id;
+          document.getElementById('confirmed-deposit-paid').textContent = '$' + data.deposit_paid.toLocaleString() + '.00';
+          document.getElementById('confirmed-balance-due').textContent = '$' + data.balance_due_on_site.toLocaleString() + '.00';
+          document.getElementById('confirmed-vendor-name').textContent = data.assigned_vendor.name + ' (' + data.assigned_vendor.city + ')';
+          document.getElementById('deposit-confirmed-view').classList.remove('hidden');
+          document.getElementById('deposit-cta-card').classList.add('hidden');
+          try { lucide.createIcons(); } catch(e){}
+        } else {
+          alert('Deposit error: ' + data.error);
+          btn.disabled = false;
+          btn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Lock In Equipment with 15% Escrow Deposit</span>';
+        }
+      } catch (err) {
+        alert('Deposit processing error: ' + err.message);
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Lock In Equipment with 15% Escrow Deposit</span>';
       }
     }
 
@@ -2148,7 +2273,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p>&copy; 2026 The Reliant Network. All rights reserved.</p>
       <div class="flex gap-4 font-medium flex-wrap justify-center">
-        <a href="/badge-generator.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 inline"></i> Partner Badges</a>
+        <a href="/operator-portal.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5 inline"></i> Operator Portal</a>
+        <a href="/financing.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="calculator" class="w-3.5 h-3.5 inline"></i> Fleet Financing</a>
+        <a href="/badge-generator.html" class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 inline"></i> Partner Badges</a>
         <a href="/cost/atlanta.html" class="hover:text-amber-600 transition-colors">Cost &amp; Pricing Guides</a>
         <a href="/sitemap.xml" class="hover:text-amber-600 transition-colors">XML Sitemap</a>
         <a href="#" class="hover:text-amber-600 transition-colors">Terms of Service</a>

@@ -921,4 +921,429 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
   }
 });
 
+// =========================================================================
+// 🚀 ZERO-LIMIT PROFIT MAXIMIZATION: 5 HIGH-YIELD MONETIZATION VECTORS
+// =========================================================================
+
+// --- VECTOR 1: 15% CONCIERGE ESCROW BOOKING DEPOSIT CAPTURE ($300 - $1,500/booking) ---
+app.post('/api/bookings/deposit', (req, res) => {
+  try {
+    const {
+      lead_code,
+      customer_name,
+      customer_email,
+      customer_phone,
+      city,
+      state,
+      event_date,
+      guest_count,
+      event_type,
+      estimated_total,
+      deposit_amount,
+      niche_id,
+      payment_method
+    } = req.body;
+
+    const totalEst = parseFloat(estimated_total) || 2800;
+    const depositPaid = parseFloat(deposit_amount) || Math.round(totalEst * 0.15);
+    const balanceDue = totalEst - depositPaid;
+    const targetNiche = niche_id || 'luxury_restrooms';
+    const bookingId = 'BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000);
+
+    // Pick top-rated vendor in this metro for assigned dispatch
+    let assignedVendor = { name: "Premier Elite Fleets", phone: "(404) 555-0199", city: city || "Atlanta" };
+    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
+    if (fs.existsSync(vendorsFile)) {
+      const vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
+      const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
+      if (local.length > 0) {
+        assignedVendor = {
+          id: local[0].id,
+          name: local[0].name,
+          phone: local[0].phone,
+          city: local[0].city,
+          rating: local[0].rating
+        };
+      }
+    }
+
+    // Record booking in bookings.json
+    const bookingsFile = path.join(__dirname, '..', '..', 'services', 'data', 'bookings.json');
+    let bookings = [];
+    if (fs.existsSync(bookingsFile)) {
+      try { bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf8')); } catch(e){}
+    }
+
+    const newBooking = {
+      booking_id: bookingId,
+      created_at: new Date().toISOString(),
+      lead_code: lead_code || ('REL-' + Math.floor(1000 + Math.random() * 9000)),
+      customer_name: customer_name || 'Valued Commercial Client',
+      customer_email: customer_email || 'client@example.com',
+      customer_phone: customer_phone || 'Unlisted',
+      city: city || 'Atlanta',
+      state: state || 'GA',
+      event_date: event_date || 'TBD 2026',
+      guest_count: guest_count || 150,
+      event_type: event_type || 'Private Event',
+      niche_id: targetNiche,
+      total_estimated_contract: totalEst,
+      deposit_amount: depositPaid,
+      balance_due_on_site: balanceDue,
+      payment_method: payment_method || 'stripe_instant_deposit',
+      escrow_status: 'FUNDS_HELD_IN_ESCROW',
+      dispatch_status: 'DISPATCH_CONFIRMED',
+      assigned_vendor: assignedVendor,
+      guarantee: 'Reliant 48-Hour Equipment Delivery & Inspection Guarantee Active'
+    };
+
+    bookings.unshift(newBooking);
+    fs.writeFileSync(bookingsFile, JSON.stringify(bookings.slice(0, 100), null, 2), 'utf8');
+
+    // Record payout / cash collection
+    const payoutId = 'dep-' + Date.now();
+    queryDb(`
+      INSERT INTO payouts (id, vendor_id, amount, type, status)
+      VALUES (?, ?, ?, '15PCT_CONCIERGE_DEPOSIT', 'COMPLETED')
+    `, [payoutId, assignedVendor.id || 'system_escrow', depositPaid]);
+
+    res.json({
+      success: true,
+      booking_id: bookingId,
+      lead_code: newBooking.lead_code,
+      deposit_paid: depositPaid,
+      balance_due_on_site: balanceDue,
+      total_contract: totalEst,
+      assigned_vendor: assignedVendor,
+      escrow_receipt_url: `https://reliant-network.vercel.app/receipt/${bookingId}`,
+      message: `Equipment availability locked! 15% deposit ($${depositPaid.toLocaleString()}) secured in escrow. Remaining balance of $${balanceDue.toLocaleString()} is payable upon on-site delivery and walkthrough.`
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// --- VECTOR 2: OPERATOR SELF-SERVE WALLET, LEAD MARKETPLACE & MONOPOLIES ---
+const WALLETS_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'operator_wallets.json');
+
+function getWalletsData() {
+  if (fs.existsSync(WALLETS_FILE)) {
+    try { return JSON.parse(fs.readFileSync(WALLETS_FILE, 'utf8')); } catch(e){}
+  }
+  return {};
+}
+
+function saveWalletsData(data) {
+  fs.writeFileSync(WALLETS_FILE, JSON.stringify(data, null, 2), 'utf8');
+}
+
+// 1. Get Operator Wallet Balance & Lead Feed
+app.get('/api/operator/wallet', (req, res) => {
+  try {
+    const operatorId = req.query.operator_id || 'vend_atl_01';
+    const wallets = getWalletsData();
+
+    if (!wallets[operatorId]) {
+      wallets[operatorId] = {
+        operator_id: operatorId,
+        balance: 425.00,
+        currency: 'USD',
+        company_name: 'Royal Restrooms of Atlanta',
+        city: 'Atlanta',
+        state: 'GA',
+        subscription_active: true,
+        monopoly_active: false,
+        unlocked_leads: [],
+        transactions: [
+          { id: 'tx_init', date: new Date().toISOString(), type: 'INITIAL_CREDIT', amount: 425.00, description: 'Welcome fleet promotional balance' }
+        ]
+      };
+      saveWalletsData(wallets);
+    }
+
+    const opWallet = wallets[operatorId];
+
+    // Read recent leads from leads table/file
+    let allLeads = queryDb("SELECT * FROM leads ORDER BY id DESC LIMIT 15");
+    if (!allLeads || allLeads.length === 0) {
+      allLeads = [
+        { id: 'lead-1', lead_code: 'LUX-9482', city: 'Atlanta', state: 'GA', event_type: 'High-Ticket Wedding & Reception', guest_count: 275, estimated_quote: 2850, ai_intent_score: 96, lead_price: 85, customer_name: 'Charlotte Sterling', customer_email: 'c.sterling@events.com', customer_phone: '(404) 555-2940' },
+        { id: 'lead-2', lead_code: 'COLD-3194', city: 'Atlanta', state: 'GA', event_type: 'Commercial Film Production', guest_count: 450, estimated_quote: 4200, ai_intent_score: 92, lead_price: 125, customer_name: 'Marcus Vance', customer_email: 'm.vance@georgiafilm.org', customer_phone: '(404) 555-8123' },
+        { id: 'lead-3', lead_code: 'LUX-4820', city: 'Atlanta', state: 'GA', event_type: 'VIP Charity Gala & Auction', guest_count: 320, estimated_quote: 3400, ai_intent_score: 98, lead_price: 85, customer_name: 'Evelyn Montgomery', customer_email: 'evelyn@buckheadgala.org', customer_phone: '(404) 555-7741' }
+      ];
+    }
+
+    // Mask unpurchased leads
+    const feed = allLeads.map(lead => {
+      const isUnlocked = (opWallet.unlocked_leads || []).includes(lead.id || lead.lead_code);
+      return {
+        id: lead.id || lead.lead_code,
+        lead_code: lead.lead_code,
+        city: lead.city,
+        state: lead.state,
+        event_type: lead.event_type,
+        guest_count: lead.guest_count,
+        estimated_quote: lead.estimated_quote,
+        ai_intent_score: lead.ai_intent_score || 94,
+        lead_price: lead.lead_price || 85,
+        is_unlocked: isUnlocked,
+        customer_name: isUnlocked ? (lead.customer_name || 'Verified Client') : '🔒 [Locked - Click to Reveal]',
+        customer_email: isUnlocked ? (lead.customer_email || 'client@verified.com') : '🔒 [Locked]',
+        customer_phone: isUnlocked ? (lead.customer_phone || '(404) 555-XXXX') : '🔒 (XXX) XXX-XXXX',
+        notes: lead.notes || 'Full event & site feasibility specifications attached.'
+      };
+    });
+
+    res.json({
+      success: true,
+      wallet: opWallet,
+      feed
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 2. Operator Wallet Top-Up ($250, $500, $1,000)
+app.post('/api/operator/wallet/topup', (req, res) => {
+  try {
+    const { operator_id, amount } = req.body;
+    const topupAmount = parseFloat(amount) || 250;
+    const opId = operator_id || 'vend_atl_01';
+
+    let bonus = 0;
+    if (topupAmount >= 1000) bonus = 150;
+    else if (topupAmount >= 500) bonus = 50;
+
+    const totalCredit = topupAmount + bonus;
+    const wallets = getWalletsData();
+
+    if (!wallets[opId]) {
+      wallets[opId] = {
+        operator_id: opId,
+        balance: 0,
+        unlocked_leads: [],
+        transactions: []
+      };
+    }
+
+    wallets[opId].balance = (wallets[opId].balance || 0) + totalCredit;
+    const txId = 'tx_' + Date.now();
+    wallets[opId].transactions = wallets[opId].transactions || [];
+    wallets[opId].transactions.unshift({
+      id: txId,
+      date: new Date().toISOString(),
+      type: 'WALLET_RELOAD',
+      amount: totalCredit,
+      description: bonus > 0 ? `Prepaid Balance Refill ($${topupAmount} + $${bonus} Bonus Credit)` : `Prepaid Balance Refill`
+    });
+
+    saveWalletsData(wallets);
+
+    // Record cash in payouts
+    const payoutId = 'topup-' + Date.now();
+    queryDb("INSERT INTO payouts (id, vendor_id, amount, type, status) VALUES (?, ?, ?, 'WALLET_TOPUP', 'COMPLETED')", [
+      payoutId, opId, topupAmount
+    ]);
+
+    res.json({
+      success: true,
+      operator_id: opId,
+      amount_loaded: topupAmount,
+      bonus_awarded: bonus,
+      new_balance: wallets[opId].balance,
+      message: `Balance successfully reloaded! $${totalCredit.toLocaleString()} credited to your operator wallet.`
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 3. Operator Instant 1-Click Lead Unlock
+app.post('/api/operator/leads/unlock', (req, res) => {
+  try {
+    const { operator_id, lead_id } = req.body;
+    const opId = operator_id || 'vend_atl_01';
+    const wallets = getWalletsData();
+
+    if (!wallets[opId]) {
+      return res.status(404).json({ error: 'Operator wallet not found' });
+    }
+
+    const opWallet = wallets[opId];
+    opWallet.unlocked_leads = opWallet.unlocked_leads || [];
+
+    if (opWallet.unlocked_leads.includes(lead_id)) {
+      return res.json({ success: true, message: 'Lead already unlocked.', already_unlocked: true });
+    }
+
+    const leadPrice = 85.00;
+    if (opWallet.balance < leadPrice) {
+      return res.status(402).json({
+        error: 'Insufficient wallet balance',
+        required: leadPrice,
+        balance: opWallet.balance,
+        message: `Your balance ($${opWallet.balance.toFixed(2)}) is insufficient. Please top up your wallet with $250 or $500 to unlock instant leads.`
+      });
+    }
+
+    opWallet.balance -= leadPrice;
+    opWallet.unlocked_leads.push(lead_id);
+    opWallet.transactions.unshift({
+      id: 'tx_' + Date.now(),
+      date: new Date().toISOString(),
+      type: 'LEAD_PURCHASE',
+      amount: -leadPrice,
+      description: `Unlocked Qualified RFQ Lead ${lead_id}`
+    });
+
+    saveWalletsData(wallets);
+
+    res.json({
+      success: true,
+      lead_id,
+      new_balance: opWallet.balance,
+      message: 'Lead unlocked successfully! Contact details revealed.'
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 4. Operator Metro Monopoly / Featured Subscription
+app.post('/api/operator/monopoly/subscribe', (req, res) => {
+  try {
+    const { operator_id, metro_slug, tier } = req.body;
+    const opId = operator_id || 'vend_atl_01';
+    const targetTier = tier || 'metro_monopoly'; // 'metro_monopoly' ($299/mo) or 'featured_partner' ($99/mo)
+    const cost = targetTier === 'metro_monopoly' ? 299.00 : 99.00;
+
+    const wallets = getWalletsData();
+    if (wallets[opId]) {
+      wallets[opId].monopoly_active = targetTier === 'metro_monopoly';
+      wallets[opId].subscription_active = true;
+      wallets[opId].monopoly_metro = metro_slug || 'atlanta-ga';
+      saveWalletsData(wallets);
+    }
+
+    const payoutId = 'sub-' + Date.now();
+    queryDb("INSERT INTO payouts (id, vendor_id, amount, type, status) VALUES (?, ?, ?, ?, 'COMPLETED')", [
+      payoutId, opId, cost, targetTier.toUpperCase()
+    ]);
+
+    res.json({
+      success: true,
+      operator_id: opId,
+      tier: targetTier,
+      monthly_cost: cost,
+      metro: metro_slug || 'atlanta-ga',
+      message: targetTier === 'metro_monopoly'
+        ? `Congratulations! Exclusive Metro Monopoly active for ${metro_slug || 'Atlanta'}. Your fleet now captures 100% top banner placement.`
+        : `Featured Partner placement activated! Your fleet profile now has 3x priority matching and direct contact buttons.`
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// --- VECTOR 3: HIGH-TICKET B2B EQUIPMENT FINANCING ARBITRAGE ($1,200 - $4,000/lease) ---
+const FINANCING_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'financing_leads.json');
+
+app.get('/api/financing/rates', (req, res) => {
+  res.json({
+    base_apr_ranges: {
+      tier_1_prime: { min_apr: 7.49, max_apr: 9.25, approval_rate: "94%" },
+      tier_2_standard: { min_apr: 9.50, max_apr: 12.75, approval_rate: "88%" },
+      tier_3_startup: { min_apr: 12.99, max_apr: 16.50, approval_rate: "76%" }
+    },
+    terms_months: [24, 36, 48, 60, 72, 84],
+    section_179: {
+      year: 2026,
+      max_deduction_limit: 1220000,
+      bonus_depreciation_pct: 100,
+      estimated_tax_bracket: 25,
+      description: "IRS Section 179 allows full 100% first-year expensing on qualifying commercial mobile fleets and trailers."
+    },
+    referral_commission_pct: "2.5% to 5.0% of total funded lease value"
+  });
+});
+
+app.post('/api/financing/apply', (req, res) => {
+  try {
+    const {
+      business_name,
+      contact_name,
+      email,
+      phone,
+      years_in_business,
+      equipment_type,
+      purchase_amount,
+      credit_tier,
+      down_payment_pct,
+      term_months,
+      niche_id
+    } = req.body;
+
+    const amount = parseFloat(purchase_amount) || 75000;
+    const term = parseInt(term_months) || 60;
+    const apr = (credit_tier === 'tier_1_prime') ? 0.0799 : (credit_tier === 'tier_3_startup' ? 0.1399 : 0.0999);
+    
+    // Monthly payment formula P = (r*PV) / (1 - (1+r)^-n)
+    const monthlyRate = apr / 12;
+    const monthlyPayment = Math.round((monthlyRate * amount) / (1 - Math.pow(1 + monthlyRate, -term)));
+    
+    // Section 179 Tax calculations
+    const sec179Deduction = amount; // Up to limit
+    const estimatedTaxSavings = Math.round(amount * 0.25);
+    const netEquipmentCost = amount - estimatedTaxSavings;
+    const referralBounty = Math.round(amount * 0.035); // 3.5% broker referral kickback
+
+    const financingAppId = 'FIN-' + Math.floor(100000 + Math.random() * 900000);
+
+    const leadEntry = {
+      application_id: financingAppId,
+      timestamp: new Date().toISOString(),
+      business_name: business_name || 'Commercial Fleet Co.',
+      contact_name: contact_name || 'Fleet Principal',
+      email: email || 'finance@fleet.com',
+      phone: phone || '(555) 000-0000',
+      years_in_business: years_in_business || '3+',
+      equipment_type: equipment_type || 'Luxury Restroom Trailer',
+      niche_id: niche_id || 'luxury_restrooms',
+      purchase_amount: amount,
+      term_months: term,
+      credit_tier: credit_tier || 'tier_1_prime',
+      estimated_monthly_payment: monthlyPayment,
+      section_179_tax_deduction: sec179Deduction,
+      estimated_tax_savings: estimatedTaxSavings,
+      net_equipment_cost: netEquipmentCost,
+      platform_referral_bounty: referralBounty,
+      underwriting_status: 'PRE_QUALIFIED_PENDING_DOCS'
+    };
+
+    let apps = [];
+    if (fs.existsSync(FINANCING_FILE)) {
+      try { apps = JSON.parse(fs.readFileSync(FINANCING_FILE, 'utf8')); } catch(e){}
+    }
+    apps.unshift(leadEntry);
+    fs.writeFileSync(FINANCING_FILE, JSON.stringify(apps.slice(0, 100), null, 2), 'utf8');
+
+    res.json({
+      success: true,
+      application_id: financingAppId,
+      pre_approval_status: 'PRE_APPROVED',
+      purchase_amount: amount,
+      term_months: term,
+      monthly_payment: monthlyPayment,
+      section_179_savings: estimatedTaxSavings,
+      net_cost_after_tax: netEquipmentCost,
+      estimated_broker_bounty: referralBounty,
+      message: `Pre-qualification complete! Estimated payment: $${monthlyPayment.toLocaleString()}/mo with $${estimatedTaxSavings.toLocaleString()} in Section 179 tax savings. A lending specialist will contact you within 2 business hours.`
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = app;
+

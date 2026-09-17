@@ -1,0 +1,30 @@
+[
+  {
+    "booking_id": "BK-REL-2026-128133",
+    "created_at": "2026-09-17T01:55:14.585Z",
+    "lead_code": "REL-2026-TEST",
+    "customer_name": "Eleanor Vance (Gala Director)",
+    "customer_email": "eleanor.vance@society.org",
+    "customer_phone": "(404) 555-7799",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "2026-10-18",
+    "guest_count": 350,
+    "event_type": "VIP Symphony Gala",
+    "niche_id": "luxury_restrooms",
+    "total_estimated_contract": 3200,
+    "deposit_amount": 480,
+    "balance_due_on_site": 2720,
+    "payment_method": "stripe_instant_deposit",
+    "escrow_status": "FUNDS_HELD_IN_ESCROW",
+    "dispatch_status": "DISPATCH_CONFIRMED",
+    "assigned_vendor": {
+      "id": "oi72pno4",
+      "name": "Blue Ridge Luxury Sanitation",
+      "phone": "4045558888",
+      "city": "Atlanta",
+      "rating": 5
+    },
+    "guarantee": "Reliant 48-Hour Equipment Delivery & Inspection Guarantee Active"
+  }
+]
