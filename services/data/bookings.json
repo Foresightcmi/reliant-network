@@ -1,5 +1,33 @@
 [
   {
+    "booking_id": "BK-REL-2026-246156",
+    "created_at": "2026-09-17T04:20:30.617Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 555-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "niche_id": "luxury_restrooms",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "payment_method": "stripe_instant_deposit",
+    "escrow_status": "FUNDS_HELD_IN_ESCROW",
+    "dispatch_status": "DISPATCH_CONFIRMED",
+    "assigned_vendor": {
+      "id": "oi72pno4",
+      "name": "Blue Ridge Luxury Sanitation",
+      "phone": "4045558888",
+      "city": "Atlanta",
+      "rating": 5
+    },
+    "guarantee": "Reliant 48-Hour Equipment Delivery & Inspection Guarantee Active"
+  },
+  {
     "booking_id": "BK-REL-2026-638787",
     "created_at": "2026-09-17T04:05:57.484Z",
     "lead_code": "TEST-LEAD-999",

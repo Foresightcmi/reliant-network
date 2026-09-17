@@ -1,7 +1,7 @@
 {
   "vend_atl_01": {
     "operator_id": "vend_atl_01",
-    "balance": 1440,
+    "balance": 1990,
     "currency": "USD",
     "company_name": "Royal Restrooms of Atlanta",
     "city": "Atlanta",
@@ -12,6 +12,13 @@
       "lead-1"
     ],
     "transactions": [
+      {
+        "id": "tx_1789618830678",
+        "date": "2026-09-17T04:20:30.678Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
       {
         "id": "tx_1789617957545",
         "date": "2026-09-17T04:05:57.545Z",
