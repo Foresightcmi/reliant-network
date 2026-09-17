@@ -88,7 +88,7 @@ class FortifiedGrowthEngine:
         sent_this_run = 0
 
         for v in unclaimed:
-            claim_url = f"http://localhost:3000/#directory"
+            claim_url = "https://reliant-network.vercel.app/operator-portal.html"
             
             # Natural, warm, humanized communication from an event concierge
             humanized_email = f"""From: The Reliant Network Partner Concierge <concierge@{self.outbound_domain}>
@@ -105,12 +105,14 @@ You can claim your verified listing at no cost and review the quote details here
 {claim_url}
 
 Warm regards,
-The The Reliant Network Concierge Team
+The Reliant Network Concierge Team
 concierge@{self.outbound_domain}
 
-Opt-out preference: If you no longer serve this market or prefer not to receive event leads, simply reply 'STOP' or visit {claim_url}?optout=1Thank you,
+Opt-out preference: If you no longer serve this market or prefer not to receive event leads, simply reply 'STOP' or visit {claim_url}?optout=1
+
+Thank you,
 The Reliant Network Outreach Team
-123 Reliant Network, Suite 100, Business City, ST 12345"""
+123 Reliant Network, Suite 100, Atlanta, GA 30309"""
 
             entry = {
                 "vendor_name": v["name"],
