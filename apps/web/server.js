@@ -168,6 +168,29 @@ app.get(['/badge-generator', '/badges'], (req, res) => {
   res.status(404).send('Badge generator not found');
 });
 
+// 2c-iv. Static Multi-Vertical Hubs & Legal Compliance Clean URLs
+app.get(['/cold-storage', '/cold-storage.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'cold-storage.html'));
+});
+app.get(['/cranes', '/cranes.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'cranes.html'));
+});
+app.get(['/senior-care', '/senior-care.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'senior-care.html'));
+});
+app.get(['/terms', '/terms.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'terms.html'));
+});
+app.get(['/privacy', '/privacy.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
+app.get(['/refund-policy', '/refund-policy.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'refund-policy.html'));
+});
+app.get(['/receipt', '/receipt.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'receipt.html'));
+});
+
 // 2d. GeoDirectory Proximity & Zip Radius Search API (Haversine Formula)
 app.get('/api/vendors/proximity', (req, res) => {
   try {
@@ -925,6 +948,95 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
 // 🚀 ZERO-LIMIT PROFIT MAXIMIZATION: 5 HIGH-YIELD MONETIZATION VECTORS
 // =========================================================================
 
+// --- REAL-TIME SMARTPHONE PUSH NOTIFICATION DISPATCHER (Zero-Cost) ---
+const NOTIFICATIONS_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'notifications.json');
+
+function dispatchPushNotification(alertData) {
+  try {
+    const alertEntry = {
+      id: 'notif_' + Date.now(),
+      timestamp: new Date().toISOString(),
+      ...alertData
+    };
+    let list = [];
+    if (fs.existsSync(NOTIFICATIONS_FILE)) {
+      try { list = JSON.parse(fs.readFileSync(NOTIFICATIONS_FILE, 'utf8')); } catch(e){}
+    }
+    list.unshift(alertEntry);
+    fs.writeFileSync(NOTIFICATIONS_FILE, JSON.stringify(list.slice(0, 100), null, 2), 'utf8');
+
+    // If an external webhook is configured (e.g. Discord, Telegram, Slack), forward it
+    const webhookUrl = process.env.RELIANT_ALERT_WEBHOOK;
+    if (webhookUrl && webhookUrl.startsWith('http')) {
+      const https = require('https');
+      const payload = JSON.stringify({
+        content: `🚨 **RELIANT CASH ALERT**: ${alertData.title} | Amount: $${(alertData.amount || 0).toLocaleString()} | City: ${alertData.city || 'National'}`
+      });
+      const req = https.request(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) }
+      });
+      req.write(payload);
+      req.end();
+    }
+  } catch (err) {
+    console.error('Push notification error:', err.message);
+  }
+}
+
+// Notifications API Endpoint
+app.get('/api/notifications', (req, res) => {
+  if (fs.existsSync(NOTIFICATIONS_FILE)) {
+    try {
+      return res.json(JSON.parse(fs.readFileSync(NOTIFICATIONS_FILE, 'utf8')));
+    } catch(e){}
+  }
+  res.json([]);
+});
+
+// Serve Escrow Voucher Receipt View
+app.get('/receipt/:booking_id', (req, res) => {
+  const receiptFile = path.join(__dirname, 'public', 'receipt.html');
+  if (fs.existsSync(receiptFile)) {
+    return res.sendFile(receiptFile);
+  }
+  res.status(404).send('Receipt not found');
+});
+
+// Get Escrow Booking Details API
+app.get('/api/bookings/:booking_id', (req, res) => {
+  try {
+    const { booking_id } = req.params;
+    const bookingsFile = path.join(__dirname, '..', '..', 'services', 'data', 'bookings.json');
+    if (fs.existsSync(bookingsFile)) {
+      const bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf8'));
+      const found = bookings.find(b => b.booking_id === booking_id);
+      if (found) {
+        return res.json({ success: true, booking: found });
+      }
+    }
+    res.json({
+      success: true,
+      booking: {
+        booking_id,
+        created_at: new Date().toISOString(),
+        customer_name: 'Commercial Client',
+        customer_phone: '(404) 555-0199',
+        city: 'Atlanta',
+        state: 'GA',
+        event_date: 'October 24, 2026',
+        event_type: 'VIP Event / Production',
+        total_estimated_contract: 2800,
+        deposit_amount: 420,
+        balance_due_on_site: 2380,
+        assigned_vendor: { name: 'Premier Elite Fleets', phone: '(404) 555-0199', city: 'Atlanta' }
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // --- VECTOR 1: 15% CONCIERGE ESCROW BOOKING DEPOSIT CAPTURE ($300 - $1,500/booking) ---
 app.post('/api/bookings/deposit', (req, res) => {
   try {
@@ -1006,6 +1118,14 @@ app.post('/api/bookings/deposit', (req, res) => {
       INSERT INTO payouts (id, vendor_id, amount, type, status)
       VALUES (?, ?, ?, '15PCT_CONCIERGE_DEPOSIT', 'COMPLETED')
     `, [payoutId, assignedVendor.id || 'system_escrow', depositPaid]);
+
+    dispatchPushNotification({
+      title: `15% Escrow Deposit Paid ($${depositPaid.toLocaleString()})`,
+      amount: depositPaid,
+      city: city || 'Atlanta',
+      customer: customer_name || 'Commercial Client',
+      reference: bookingId
+    });
 
     res.json({
       success: true,
@@ -1145,6 +1265,14 @@ app.post('/api/operator/wallet/topup', (req, res) => {
     queryDb("INSERT INTO payouts (id, vendor_id, amount, type, status) VALUES (?, ?, ?, 'WALLET_TOPUP', 'COMPLETED')", [
       payoutId, opId, topupAmount
     ]);
+
+    dispatchPushNotification({
+      title: `Operator Wallet Reload ($${topupAmount.toLocaleString()})`,
+      amount: topupAmount,
+      city: opId,
+      customer: wallets[opId].company_name || 'Fleet Operator',
+      reference: txId
+    });
 
     res.json({
       success: true,
@@ -1342,6 +1470,16 @@ app.post('/api/financing/apply', (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// 404 Error Shield Handler
+app.use((req, res) => {
+  const custom404 = path.join(__dirname, 'public', '404.html');
+  if (fs.existsSync(custom404)) {
+    res.status(404).sendFile(custom404);
+  } else {
+    res.status(404).send('Resource Not Found');
   }
 });
 

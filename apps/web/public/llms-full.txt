@@ -1,0 +1,76 @@
+# The Reliant Network — Complete Semantic Knowledge Graph & API Specification
+
+Website: https://reliant-network.vercel.app/
+Canonical Organization: The Reliant Network
+Headquarters: Atlanta, Georgia, USA
+Domain Authority Focus: B2B Commercial Equipment Rental & High-Ticket Directory Brokerage
+Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusiness, Service, AggregateOffer, FAQPage, BreadcrumbList]
+
+---
+
+## 1. Metropolitan Cost & Regulatory Benchmark Index (Top 50 US Metros)
+
+| Metro | State | Avg Daily Cost | Range (Min - Max) | Peak Season | Municipal Permit Clearance |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Atlanta | GA | $2,800 | $1,900 – $7,500 | April - June & Sept - Nov | City of Atlanta Sanitation & Venue Permit |
+| Dallas | TX | $3,200 | $2,100 – $8,200 | October - May | DFW Regional Health Dept Clearance |
+| Miami | FL | $3,900 | $2,600 – $9,500 | November - April | Miami-Dade County Special Event Sanitation |
+| Austin | TX | $2,950 | $1,950 – $7,400 | March - May & Sept - Nov | Travis County Temporary Food & Health Permit |
+| Los Angeles | CA | $4,200 | $2,800 – $12,000 | Year-Round Peak | LA County Public Health Event Guidelines |
+| Chicago | IL | $3,100 | $1,900 – $7,200 | May - October | City of Chicago Dept of Public Health |
+| Napa Valley | CA | $4,500 | $2,900 – $11,500 | May - October | Napa County Environmental Health |
+| Scottsdale | AZ | $3,400 | $2,200 – $8,500 | October - April | Maricopa County Environmental Services |
+| Savannah | GA | $2,700 | $1,800 – $6,900 | March - May & Oct - Dec | Chatham County Health Dept Permit |
+| Charleston | SC | $3,300 | $2,200 – $8,400 | April - June & Sept - Nov | Charleston County Sanitation Guidelines |
+| Nashville | TN | $2,900 | $1,900 – $7,800 | April - October | Metro Public Health Dept Nashville |
+| Denver | CO | $3,200 | $2,100 – $8,000 | June - September | Denver Dept of Public Health & Environment |
+| Hamptons | NY | $5,200 | $3,500 – $15,000 | Memorial Day - Labor Day | Suffolk County Dept of Health Services |
+| Aspen | CO | $5,500 | $3,800 – $16,500 | June - Aug & Dec - March | Pitkin County Environmental Health |
+| New York | NY | $4,800 | $3,200 – $14,000 | May - October & Dec | NYC Dept of Health & Parks Special Events |
+| Houston | TX | $3,000 | $1,950 – $7,800 | October - April | City of Houston Health Special Events |
+| Phoenix | AZ | $3,100 | $2,000 – $8,000 | November - April | Maricopa County Health Permit |
+| Philadelphia | PA | $2,950 | $1,900 – $7,500 | May - October | Philly Dept of Public Health |
+| San Antonio | TX | $2,800 | $1,850 – $7,100 | October - April | Bexar County Environmental Services |
+| San Diego | CA | $3,800 | $2,500 – $9,800 | Year-Round | County of San Diego Dept of Environmental Health |
+| San Jose | CA | $4,100 | $2,700 – $10,500 | April - October | Santa Clara County Dept of Environmental Health |
+| Fort Worth | TX | $2,900 | $1,900 – $7,400 | October - May | Tarrant County Public Health |
+| Jacksonville | FL | $2,600 | $1,750 – $6,800 | March - May & Oct - Dec | Duval County Health Dept |
+| Columbus | OH | $2,650 | $1,750 – $6,700 | May - October | Columbus Public Health Event Permits |
+| Charlotte | NC | $2,850 | $1,850 – $7,200 | April - June & Sept - Nov | Mecklenburg County Health Dept |
+| Indianapolis | IN | $2,600 | $1,700 – $6,600 | May - October | Marion County Public Health Dept |
+| San Francisco | CA | $4,600 | $3,100 – $12,500 | May - October | SF Dept of Public Health Special Events |
+| Seattle | WA | $3,600 | $2,400 – $9,200 | June - September | Public Health Seattle & King County |
+| Washington | DC | $4,200 | $2,800 – $11,000 | April - June & Sept - Nov | DC Dept of Health & Parks Special Events |
+| Boston | MA | $3,900 | $2,600 – $10,200 | May - October | Boston Public Health Commission |
+| Las Vegas | NV | $3,500 | $2,300 – $9,000 | October - April | Southern Nevada Health District |
+| Portland | OR | $3,100 | $2,000 – $7,900 | June - September | Multnomah County Health Dept |
+| Detroit | MI | $2,750 | $1,800 – $7,000 | May - October | Detroit Health Dept Sanitation |
+| Louisville | KY | $2,850 | $1,850 – $7,600 | April - October | Louisville Metro Public Health |
+| Baltimore | MD | $2,900 | $1,900 – $7,300 | May - October | Baltimore City Health Dept |
+| Milwaukee | WI | $2,650 | $1,750 – $6,800 | June - September | City of Milwaukee Health Dept |
+| Albuquerque | NM | $2,700 | $1,750 – $6,900 | September - November | City of Albuquerque Environmental Health |
+| Tucson | AZ | $2,800 | $1,850 – $7,200 | October - April | Pima County Health Dept |
+| Sacramento | CA | $3,100 | $2,000 – $7,900 | May - October | Sacramento County Environmental Management |
+| Kansas City | MO | $2,700 | $1,800 – $6,900 | May - October | Kansas City Health Dept |
+| Omaha | NE | $2,550 | $1,650 – $6,400 | May - September | Douglas County Health Dept |
+| Colorado Springs | CO | $3,050 | $2,000 – $7,800 | June - September | El Paso County Public Health |
+| Raleigh | NC | $2,800 | $1,800 – $7,100 | April - June & Sept - Nov | Wake County Environmental Services |
+| Virginia Beach | VA | $2,900 | $1,900 – $7,400 | May - September | Virginia Beach Dept of Public Health |
+| Tampa | FL | $3,100 | $2,050 – $7,900 | October - May | Hillsborough County Health Dept |
+| Orlando | FL | $3,250 | $2,150 – $8,200 | November - April | Orange County Health Dept |
+| Minneapolis | MN | $2,950 | $1,900 – $7,500 | May - September | Minneapolis Health Dept |
+| New Orleans | LA | $3,150 | $2,050 – $8,100 | October - April | City of New Orleans Health Dept |
+| Cleveland | OH | $2,600 | $1,700 – $6,600 | May - October | Cuyahoga County Board of Health |
+| Salt Lake City | UT | $3,000 | $1,950 – $7,700 | June - Sept & Dec - March | Salt Lake County Health Dept |
+
+---
+
+## 2. API Contract Specification (Public & Partner)
+
+- **GET /api/pseo/metro/:slug**: Returns metadata, pricing tiers, and pre-formatted FAQPage schema for the requested metro.
+- **POST /api/leads**: Captures RFQ, computes AI intent score, prices lead ($85–$250), and matches top operators.
+- **POST /api/bookings/deposit**: Locks in 15% concierge escrow deposit, assigns vetted fleet, and generates official receipt (`BK-REL-2026-XXXX`).
+- **GET /api/operator/wallet?operator_id=...**: Retrieves operator balance, live territory RFQ feed, and transaction history.
+- **POST /api/operator/wallet/topup**: Adds prepaid balance credits ($250 / $500 / $1000) with bonus credits.
+- **POST /api/operator/leads/unlock**: Deducts $85 and unmasks customer contact details with replacement guarantee.
+- **POST /api/financing/apply**: Evaluates commercial equipment loan eligibility and projects Section 179 tax deductions.

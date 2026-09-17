@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Escrow Reservation Receipt &amp; Dispatch Voucher | The Reliant Network</title>
+  <meta name="description" content="Official commercial escrow reservation certificate, equipment deposit verification, and dispatch walkthrough voucher.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+    @media print {
+      body * { visibility: hidden; }
+      #printable-receipt, #printable-receipt * { visibility: visible; }
+      #printable-receipt { position: absolute; left: 0; top: 0; width: 100%; border: none !important; box-shadow: none !important; padding: 0 !important; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-amber-400 font-serif-title font-bold text-lg shadow-sm">
+          R
+        </div>
+        <div>
+          <span class="font-serif-title font-bold text-lg text-slate-900 block leading-tight">The Reliant Network</span>
+          <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">Escrow Settlement &amp; Dispatch Voucher</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-xs transition-colors">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>Print Voucher</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Voucher Content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    
+    <div id="printable-receipt" class="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+      <!-- Watermark Badge -->
+      <div class="absolute top-6 right-6 flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+        <span>Escrow Secured</span>
+      </div>
+
+      <!-- Voucher Header -->
+      <div class="border-b border-slate-100 pb-6 mb-6">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-amber-600 font-bold block">Official Escrow Certificate of Reservation</span>
+        <h1 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900 mt-1">Equipment Reservation &amp; Dispatch Voucher</h1>
+        <div class="flex flex-wrap items-center gap-4 mt-2 text-xs text-slate-500">
+          <span>Booking Ref: <strong class="font-mono text-slate-900" id="v-booking-id">BK-REL-2026-PENDING</strong></span>
+          <span>&bull;</span>
+          <span>Date Issued: <strong class="text-slate-800" id="v-date">March 2026</strong></span>
+        </div>
+      </div>
+
+      <!-- Financial Breakdown -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-8 text-center">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500 block">Total Contract Value</span>
+          <span class="text-xl font-extrabold text-slate-900 mt-1 block" id="v-total">$2,800.00</span>
+          <span class="text-[10px] text-slate-400">Estimated Total</span>
+        </div>
+        <div class="border-y sm:border-y-0 sm:border-x border-slate-200 py-2 sm:py-0">
+          <span class="text-[10px] uppercase font-bold text-emerald-700 block">15% Concierge Deposit</span>
+          <span class="text-xl font-extrabold text-emerald-600 mt-1 block" id="v-deposit">$420.00</span>
+          <span class="text-[10px] text-emerald-700 font-semibold">Held in Escrow (Paid)</span>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500 block">Balance Due On Delivery</span>
+          <span class="text-xl font-extrabold text-slate-900 mt-1 block" id="v-balance">$2,380.00</span>
+          <span class="text-[10px] text-slate-400">Payable After Inspection</span>
+        </div>
+      </div>
+
+      <!-- Project & Assigned Fleet Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs mb-8">
+        <div class="space-y-3">
+          <h3 class="font-bold uppercase tracking-wider text-slate-400 text-[10px]">Client &amp; Venue Parameters</h3>
+          <div class="space-y-1.5 text-slate-700">
+            <div><span class="text-slate-500">Client Name:</span> <strong class="text-slate-900" id="v-client">Commercial Client</strong></div>
+            <div><span class="text-slate-500">Contact Phone:</span> <span id="v-phone">(404) 555-0199</span></div>
+            <div><span class="text-slate-500">Target Territory:</span> <strong class="text-slate-900" id="v-city">Atlanta, GA</strong></div>
+            <div><span class="text-slate-500">Event Date:</span> <strong class="text-slate-900" id="v-event-date">October 24, 2026</strong></div>
+            <div><span class="text-slate-500">Project Type:</span> <span id="v-type">VIP Event / Production</span></div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="font-bold uppercase tracking-wider text-slate-400 text-[10px]">Assigned Certified Fleet Operator</h3>
+          <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-xl space-y-1.5 text-slate-800">
+            <div class="font-bold text-slate-900 flex items-center gap-1.5 text-sm">
+              <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+              <span id="v-operator-name">Premier Elite Fleets</span>
+            </div>
+            <div><span class="text-slate-500">Dispatch Phone:</span> <a href="tel:4045550199" class="text-blue-600 font-bold underline" id="v-operator-phone">(404) 555-0199</a></div>
+            <div><span class="text-slate-500">Inspection Standard:</span> <span class="font-semibold text-emerald-800">OSHA 1926.51 &amp; ADA Verified</span></div>
+            <div><span class="text-slate-500">Delivery Walkthrough:</span> Required prior to final balance release</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance & Escrow Terms -->
+      <div class="border-t border-slate-100 pt-6 text-[11px] text-slate-500 space-y-2">
+        <p><strong>Escrow Settlement Instructions:</strong> The 15% concierge reservation deposit is secured in escrow. The assigned fleet operator is contracted to dispatch and deliver equipment meeting all stated specifications. The remaining balance ($<span id="v-terms-balance">2,380.00</span>) must only be paid upon completed physical setup, water/electrical load verification, and operational walkthrough approval.</p>
+        <p><strong>Cancellation &amp; Re-dispatch:</strong> Under our <a href="/refund-policy.html" class="text-amber-700 underline font-semibold">Refund Policy</a>, cancellations made within 48 hours receive an instant 100% refund. For assistance, contact <span class="font-mono text-slate-700">dispatch@reliantnetwork.com</span> with reference <span class="font-mono text-slate-700" id="v-ref-footer">BK-REL-2026</span>.</p>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+        <span>SECURITY HASH: 8f4a2c91b8d73e</span>
+        <span>THE RELIANT NETWORK &bull; BROKER ID #REL-ESC-2026</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Legal Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 no-print">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 The Reliant Network. Official Escrow Settlement Desk.</p>
+      <div class="flex gap-4 font-semibold">
+        <a href="/" class="hover:text-amber-600">Directory</a>
+        <a href="/terms.html" class="hover:text-amber-600">Terms of Service</a>
+        <a href="/refund-policy.html" class="hover:text-amber-600">Refund Policy</a>
+        <a href="/operator-portal.html" class="hover:text-amber-600">Operator Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function loadReceipt() {
+      // Get booking ID from path /receipt/:id or ?id=...
+      const urlParams = new URLSearchParams(window.location.search);
+      let bookingId = urlParams.get('id');
+      if (!bookingId) {
+        const parts = window.location.pathname.split('/');
+        if (parts.length >= 3 && parts[1] === 'receipt') {
+          bookingId = parts[2];
+        }
+      }
+
+      if (!bookingId) {
+        bookingId = 'BK-REL-2026-948210';
+      }
+
+      document.getElementById('v-booking-id').textContent = bookingId;
+      document.getElementById('v-ref-footer').textContent = bookingId;
+
+      try {
+        const res = await fetch('/api/bookings/' + bookingId);
+        const data = await res.json();
+        if (data.success && data.booking) {
+          const b = data.booking;
+          document.getElementById('v-date').textContent = new Date(b.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+          document.getElementById('v-total').textContent = '$' + b.total_estimated_contract.toLocaleString() + '.00';
+          document.getElementById('v-deposit').textContent = '$' + b.deposit_amount.toLocaleString() + '.00';
+          document.getElementById('v-balance').textContent = '$' + b.balance_due_on_site.toLocaleString() + '.00';
+          document.getElementById('v-terms-balance').textContent = b.balance_due_on_site.toLocaleString() + '.00';
+          document.getElementById('v-client').textContent = b.customer_name;
+          document.getElementById('v-phone').textContent = b.customer_phone;
+          document.getElementById('v-city').textContent = b.city + ', ' + b.state;
+          document.getElementById('v-event-date').textContent = b.event_date;
+          document.getElementById('v-type').textContent = b.event_type;
+
+          if (b.assigned_vendor) {
+            document.getElementById('v-operator-name').textContent = b.assigned_vendor.name;
+            document.getElementById('v-operator-phone').textContent = b.assigned_vendor.phone || '(404) 555-0199';
+            document.getElementById('v-operator-phone').href = 'tel:' + (b.assigned_vendor.phone || '4045550199');
+          }
+        }
+      } catch (e) {
+        console.log('Using default voucher mock');
+      }
+
+      try { lucide.createIcons(); } catch(e){}
+    }
+
+    window.addEventListener('DOMContentLoaded', loadReceipt);
+  </script>
+</body>
+</html>
