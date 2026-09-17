@@ -113,6 +113,101 @@ app.get('/sitemap.xml', (req, res) => {
   }
 });
 
+// 2a. GeoDirectory Dedicated Single Listing Permalinks (/listing/:slug)
+app.get('/listing/:slug', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'listing', `${req.params.slug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Listing profile not found');
+});
+
+// 2b. GeoDirectory Statewide Hubs (/state/:slug)
+app.get('/state/:slug', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'state', `${req.params.slug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('State directory hub not found');
+});
+
+// 2c. GeoDirectory Metro Landing Pages (/metro/:slug)
+app.get('/metro/:slug', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'metro', `${req.params.slug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Metro hub not found');
+});
+
+// 2d. GeoDirectory Proximity & Zip Radius Search API (Haversine Formula)
+app.get('/api/vendors/proximity', (req, res) => {
+  try {
+    const { lat, lng, zip, radius, niche_id } = req.query;
+    const maxRadius = parseFloat(radius) || 75;
+
+    const zipMap = {
+      '30301': { lat: 33.7490, lng: -84.3880 },
+      '30303': { lat: 33.7490, lng: -84.3880 },
+      '30305': { lat: 33.8400, lng: -84.3800 },
+      '30009': { lat: 34.0754, lng: -84.2941 },
+      '30060': { lat: 33.9526, lng: -84.5499 },
+      '31401': { lat: 32.0809, lng: -81.0912 },
+      '75201': { lat: 32.7767, lng: -96.7970 },
+      '78701': { lat: 30.2672, lng: -97.7431 },
+      '33101': { lat: 25.7617, lng: -80.1918 },
+      '90012': { lat: 34.0522, lng: -118.2437 },
+      '60601': { lat: 41.8781, lng: -87.6298 },
+      '85251': { lat: 33.4942, lng: -111.9261 },
+      '80202': { lat: 39.7392, lng: -104.9903 },
+      '29401': { lat: 32.7765, lng: -79.9311 },
+      '37201': { lat: 36.1627, lng: -86.7816 }
+    };
+
+    let userLat = parseFloat(lat);
+    let userLng = parseFloat(lng);
+
+    if ((!userLat || !userLng) && zip && zipMap[zip]) {
+      userLat = zipMap[zip].lat;
+      userLng = zipMap[zip].lng;
+    }
+
+    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
+    if (!fs.existsSync(vendorsFile)) return res.json([]);
+    const vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
+
+    function haversineMiles(lat1, lon1, lat2, lon2) {
+      const R = 3958.8; // Earth radius in miles
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return R * c;
+    }
+
+    let results = vendors;
+    if (niche_id && niche_id !== 'All') {
+      results = results.filter(v => v.niche_id === niche_id);
+    }
+
+    if (userLat && userLng) {
+      results = results.map(v => {
+        const vLat = v.latitude || 33.7490;
+        const vLng = v.longitude || -84.3880;
+        const dist = haversineMiles(userLat, userLng, vLat, vLng);
+        return { ...v, distance_miles: Math.round(dist * 10) / 10 };
+      }).filter(v => v.distance_miles <= maxRadius)
+        .sort((a, b) => a.distance_miles - b.distance_miles);
+    }
+
+    res.json(results);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // 3. Programmatic SEO Metros API (Cached)
 app.get('/api/pseo/metros', (req, res) => {
   const cacheKey = 'all_metros';

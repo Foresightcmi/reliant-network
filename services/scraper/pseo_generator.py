@@ -28,6 +28,13 @@ def generate_pseo_data():
         json.dump(METROS, f, indent=2)
     print(f"Generated pSEO Data for {len(METROS)} flagship metros at {DATA_PATH}")
 
+VENDORS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "vendors.json")
+
+STATES = [
+    "georgia", "texas", "florida", "california", "illinois",
+    "arizona", "colorado", "south-carolina", "tennessee", "new-york"
+]
+
 def generate_sitemap(base_url="https://reliantverified.com"):
     urls = [
         {"loc": f"{base_url}/", "priority": "1.0", "changefreq": "daily"},
@@ -35,9 +42,20 @@ def generate_sitemap(base_url="https://reliantverified.com"):
         {"loc": f"{base_url}/#metros", "priority": "0.9", "changefreq": "weekly"}
     ]
 
+    for st in STATES:
+        urls.append({"loc": f"{base_url}/state/{st}", "priority": "0.9", "changefreq": "weekly"})
+
     for m in METROS:
         urls.append({"loc": f"{base_url}/metro/{m['slug']}", "priority": "0.8", "changefreq": "weekly"})
         urls.append({"loc": f"{base_url}/cost/{m['slug']}", "priority": "0.8", "changefreq": "weekly"})
+
+    if os.path.exists(VENDORS_FILE):
+        with open(VENDORS_FILE, "r", encoding="utf-8") as f:
+            vendors = json.load(f)
+        for v in vendors:
+            slug = v.get("slug")
+            if slug:
+                urls.append({"loc": f"{base_url}/listing/{slug}", "priority": "0.7", "changefreq": "weekly"})
 
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',

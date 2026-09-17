@@ -6,6 +6,12 @@ from spintax_engine import generate_spintax, generate_faq_schema
 PSEO_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "pseo_metros.json")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "apps", "web", "public", "metro")
 
+import sys
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
+VENDORS_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "vendors.json")
+
 def prerender_all_edge_pages():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     if not os.path.exists(PSEO_DATA_PATH):
@@ -14,6 +20,11 @@ def prerender_all_edge_pages():
 
     with open(PSEO_DATA_PATH, "r", encoding="utf-8") as f:
         metros = json.load(f)
+
+    all_vendors = []
+    if os.path.exists(VENDORS_DATA_PATH):
+        with open(VENDORS_DATA_PATH, "r", encoding="utf-8") as f:
+            all_vendors = json.load(f)
 
     rendered_count = 0
     for m in metros:
@@ -31,6 +42,39 @@ def prerender_all_edge_pages():
 
         spintax = generate_spintax({"city": city, "state": state, "service": "Luxury Restroom Trailers"})
         faq_schema, faq_html = generate_faq_schema(city, state, "Luxury Restroom Trailers", avg_cost)
+
+        # Local vendors for this metro
+        metro_vendors = [v for v in all_vendors if v.get("city") == city]
+        if not metro_vendors:
+            metro_vendors = [v for v in all_vendors if v.get("state") == state][:4]
+
+        vendors_html = "".join([f"""
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-amber-500 shadow-2xs transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">{v.get('city')}, {v.get('state')}</span>
+                <span class="text-xs font-bold text-amber-600">★ {v.get('rating', 5.0)} ({v.get('review_count', 1)})</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mt-1">{v.get('name')}</h3>
+              <p class="text-xs text-slate-600 mt-1.5 line-clamp-2">{v.get('description')}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-700">${v.get('min_price', 1500):,} – ${v.get('max_price', 6500):,}</span>
+              <a href="/listing/{v.get('slug')}" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors shadow-2xs">
+                View Fleet Specs &rarr;
+              </a>
+            </div>
+          </div>
+        """ for v in metro_vendors[:6]])
+
+        # Nearby metros in same state
+        nearby_metros = [x for x in metros if x.get("state") == state and x.get("slug") != slug][:4]
+        nearby_html = "".join([f"""
+          <a href="/metro/{nb.get('slug')}" class="bg-slate-50 hover:bg-amber-50/40 border border-slate-200 rounded-xl p-3 text-center transition-all block">
+            <span class="text-xs font-bold text-slate-900">{nb.get('city')}, {state}</span>
+            <span class="text-[10px] text-slate-500 block mt-0.5">${nb.get('avg_cost', 2800):,} avg</span>
+          </a>
+        """ for nb in nearby_metros])
         
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -70,6 +114,15 @@ def prerender_all_edge_pages():
     <a href="/" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-xs font-bold transition-colors shadow-xs">Browse All Metros</a>
   </header>
 
+  <!-- BREADCRUMBS -->
+  <nav class="bg-white border-b border-slate-200 py-2.5 px-6">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500">
+      <a href="/" class="hover:text-amber-600">Home</a>
+      <span>&rsaquo;</span>
+      <span class="text-slate-900 font-semibold">{city}, {state} Hub</span>
+    </div>
+  </nav>
+
   <main class="max-w-5xl mx-auto px-6 py-12">
     <div class="inline-block bg-amber-50 border border-amber-300 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-4 shadow-xs">
       {city}, {state_full} VIP Sanitation Hub
@@ -82,6 +135,32 @@ def prerender_all_edge_pages():
     <p class="mt-4 text-slate-600 text-base leading-relaxed">
       {spintax['intro']}
     </p>
+
+    <!-- TOP VETTED OPERATORS (Frey Chu Blueprint) -->
+    <section class="my-8">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900">Vetted Commercial Operators in {city}</h2>
+          <p class="text-xs text-slate-500">Compare verified specs, amenities, and send instant direct inquiries.</p>
+        </div>
+        <span class="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-300">
+          Verified Fleets
+        </span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {vendors_html if vendors_html else '<div class="text-xs text-slate-400">Expanding operator network in this metro.</div>'}
+      </div>
+    </section>
+
+    <!-- NEARBY SERVICE HUBS (Internal Linking Mesh) -->
+    {f'''
+    <section class="my-8 bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
+      <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">Nearby Service Hubs in {state_full}</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {nearby_html}
+      </div>
+    </section>
+    ''' if nearby_html else ''}
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
       <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-xs">
