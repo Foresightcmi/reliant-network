@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const os = require('os');
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 
@@ -13,6 +14,55 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const BRIDGE_PATH = path.join(__dirname, '..', '..', 'services', 'data', 'db_bridge.py');
 const PSEO_DATA_PATH = path.join(__dirname, '..', '..', 'services', 'data', 'pseo_metros.json');
+
+// --- ⚡ SERVERLESS-RESILIENT DATA LAYER ($0 COST, LAMBDA READ-ONLY COMPATIBLE) ---
+const TMP_DATA_DIR = path.join(os.tmpdir(), 'reliant_data');
+try { if (!fs.existsSync(TMP_DATA_DIR)) fs.mkdirSync(TMP_DATA_DIR, { recursive: true }); } catch(e){}
+
+const serverlessMemoryStore = new Map();
+
+function readDataFile(fileName, fallback = []) {
+  if (serverlessMemoryStore.has(fileName)) {
+    return serverlessMemoryStore.get(fileName);
+  }
+  const tmpPath = path.join(TMP_DATA_DIR, fileName);
+  const bundlePath = path.join(__dirname, '..', '..', 'services', 'data', fileName);
+
+  if (fs.existsSync(tmpPath)) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(tmpPath, 'utf8'));
+      serverlessMemoryStore.set(fileName, parsed);
+      return parsed;
+    } catch(e) {}
+  }
+  if (fs.existsSync(bundlePath)) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(bundlePath, 'utf8'));
+      serverlessMemoryStore.set(fileName, parsed);
+      return parsed;
+    } catch(e) {}
+  }
+  return fallback;
+}
+
+function writeDataFile(fileName, data) {
+  serverlessMemoryStore.set(fileName, data);
+  const jsonStr = JSON.stringify(data, null, 2);
+  const bundlePath = path.join(__dirname, '..', '..', 'services', 'data', fileName);
+  const tmpPath = path.join(TMP_DATA_DIR, fileName);
+
+  try {
+    fs.writeFileSync(bundlePath, jsonStr, 'utf8');
+  } catch (err) {
+    // Expected on serverless Lambda read-only file system
+  }
+
+  try {
+    fs.writeFileSync(tmpPath, jsonStr, 'utf8');
+  } catch (err) {
+    // In-memory store continues to serve the warm container
+  }
+}
 
 // --- ⚡ IN-MEMORY CACHE LAYER FOR DATA PIPELINE ---
 class PseoMemoryCache {
@@ -91,27 +141,21 @@ function runPythonOrFallback(script, input, fallbackFn) {
 function queryDb(sql, params = []) {
   try {
     if (sql.trim().toUpperCase().startsWith('SELECT')) {
-      const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-      if (fs.existsSync(vendorsFile)) {
-        let allVendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-        
-        let pIndex = 0;
-        if (sql.includes('niche_id = ?')) {
-           const n = params[pIndex++];
-           allVendors = allVendors.filter(v => v.niche_id === n);
-        }
-        if (sql.includes('city = ?')) {
-           const c = params[pIndex++];
-           allVendors = allVendors.filter(v => v.city === c);
-        }
-        if (sql.includes('amenities LIKE ?')) {
-           const term = params[pIndex++].replace(/%/g, '');
-           allVendors = allVendors.filter(v => v.amenities && v.amenities.includes(term));
-        }
-        
-        return allVendors;
+      let allVendors = readDataFile('vendors.json', []);
+      let pIndex = 0;
+      if (sql.includes('niche_id = ?')) {
+         const n = params[pIndex++];
+         allVendors = allVendors.filter(v => v.niche_id === n);
       }
-      return [];
+      if (sql.includes('city = ?')) {
+         const c = params[pIndex++];
+         allVendors = allVendors.filter(v => v.city === c);
+      }
+      if (sql.includes('amenities LIKE ?')) {
+         const term = params[pIndex++].replace(/%/g, '');
+         allVendors = allVendors.filter(v => v.amenities && v.amenities.includes(term));
+      }
+      return allVendors;
     } else {
       return { lastInsertRowid: 1, changes: 1 };
     }
@@ -239,9 +283,7 @@ app.get('/api/vendors/proximity', (req, res) => {
       userLng = zipMap[zip].lng;
     }
 
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (!fs.existsSync(vendorsFile)) return res.json([]);
-    const vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
+    const vendors = readDataFile('vendors.json', []);
 
     function haversineMiles(lat1, lon1, lat2, lon2) {
       const R = 3958.8; // Earth radius in miles
@@ -685,17 +727,14 @@ app.post('/api/vendors/claim', (req, res) => {
     const isFeatured = plan_tier === 'featured';
     
     // Update local vendors.json if present
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (fs.existsSync(vendorsFile)) {
-      let vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-      const idx = vendors.findIndex(v => v.id === vendor_id);
-      if (idx !== -1) {
-        vendors[idx].claimed = 1;
-        if (isFeatured) {
-          vendors[idx].subscription_active = 1;
-        }
-        fs.writeFileSync(vendorsFile, JSON.stringify(vendors, null, 2), 'utf8');
+    let vendors = readDataFile('vendors.json', []);
+    const idx = vendors.findIndex(v => v.id === vendor_id);
+    if (idx !== -1) {
+      vendors[idx].claimed = 1;
+      if (isFeatured) {
+        vendors[idx].subscription_active = 1;
       }
+      writeDataFile('vendors.json', vendors);
     }
 
     const checkoutUrl = isFeatured 
@@ -750,12 +789,9 @@ app.post('/api/vendors/submit', (req, res) => {
       created_at: new Date().toISOString()
     };
 
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (fs.existsSync(vendorsFile)) {
-      let vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-      vendors.unshift(newVendor);
-      fs.writeFileSync(vendorsFile, JSON.stringify(vendors, null, 2), 'utf8');
-    }
+    let vendors = readDataFile('vendors.json', []);
+    vendors.unshift(newVendor);
+    writeDataFile('vendors.json', vendors);
 
     const checkoutUrl = isFeatured ? `https://buy.stripe.com/test_featured_partner_${newId}` : null;
 
@@ -780,12 +816,9 @@ app.post('/api/vendors/:id/message', (req, res) => {
     
     // Find vendor name
     let vendorName = "Featured Fleet Operator";
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (fs.existsSync(vendorsFile)) {
-      const vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-      const found = vendors.find(v => v.id === id);
-      if (found) vendorName = found.name;
-    }
+    const vendors = readDataFile('vendors.json', []);
+    const found = vendors.find(v => v.id === id);
+    if (found) vendorName = found.name;
 
     // Record lead in database/logs
     const leadCode = 'DIR-' + Math.floor(1000 + Math.random() * 9000);
@@ -819,29 +852,26 @@ app.post('/api/vendors/review', (req, res) => {
     const { vendor_id, reviewer_name, rating, event_type, comment } = req.body;
     const numRating = Math.min(5, Math.max(1, parseFloat(rating) || 5.0));
 
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (fs.existsSync(vendorsFile)) {
-      let vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-      const idx = vendors.findIndex(v => v.id === vendor_id);
-      if (idx !== -1) {
-        const v = vendors[idx];
-        const oldRating = v.rating || 5.0;
-        const oldCount = v.review_count || 1;
-        const newCount = oldCount + 1;
-        const newRating = Math.round(((oldRating * oldCount + numRating) / newCount) * 10) / 10;
+    let vendors = readDataFile('vendors.json', []);
+    const idx = vendors.findIndex(v => v.id === vendor_id);
+    if (idx !== -1) {
+      const v = vendors[idx];
+      const oldRating = v.rating || 5.0;
+      const oldCount = v.review_count || 1;
+      const newCount = oldCount + 1;
+      const newRating = Math.round(((oldRating * oldCount + numRating) / newCount) * 10) / 10;
 
-        v.rating = newRating;
-        v.review_count = newCount;
-        fs.writeFileSync(vendorsFile, JSON.stringify(vendors, null, 2), 'utf8');
+      v.rating = newRating;
+      v.review_count = newCount;
+      writeDataFile('vendors.json', vendors);
 
-        return res.json({
-          success: true,
-          vendor_name: v.name,
-          new_rating: newRating,
-          new_review_count: newCount,
-          message: 'Review verified and published! Thank you for helping keep our directory trustworthy.'
-        });
-      }
+      return res.json({
+        success: true,
+        vendor_name: v.name,
+        new_rating: newRating,
+        new_review_count: newCount,
+        message: 'Review verified and published! Thank you for helping keep our directory trustworthy.'
+      });
     }
     res.json({ success: true, message: 'Review received.' });
   } catch (err) {
@@ -964,13 +994,9 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
       alert_status: 'DISPATCHED_TO_DELIVERABILITY_QUEUE'
     };
 
-    const missedLogPath = path.join(__dirname, '..', '..', 'services', 'data', 'missed_leads.json');
-    let existingLogs = [];
-    if (fs.existsSync(missedLogPath)) {
-      try { existingLogs = JSON.parse(fs.readFileSync(missedLogPath, 'utf-8')); } catch(e) {}
-    }
+    let existingLogs = readDataFile('missed_leads.json', []);
     existingLogs.unshift(missedLeadEntry);
-    fs.writeFileSync(missedLogPath, JSON.stringify(existingLogs.slice(0, 50), null, 2));
+    writeDataFile('missed_leads.json', existingLogs.slice(0, 50));
 
     res.json({
       success: true,
@@ -993,8 +1019,6 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
 // =========================================================================
 
 // --- REAL-TIME SMARTPHONE PUSH NOTIFICATION DISPATCHER (Zero-Cost) ---
-const NOTIFICATIONS_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'notifications.json');
-
 function dispatchPushNotification(alertData) {
   try {
     const alertEntry = {
@@ -1002,12 +1026,9 @@ function dispatchPushNotification(alertData) {
       timestamp: new Date().toISOString(),
       ...alertData
     };
-    let list = [];
-    if (fs.existsSync(NOTIFICATIONS_FILE)) {
-      try { list = JSON.parse(fs.readFileSync(NOTIFICATIONS_FILE, 'utf8')); } catch(e){}
-    }
+    let list = readDataFile('notifications.json', []);
     list.unshift(alertEntry);
-    fs.writeFileSync(NOTIFICATIONS_FILE, JSON.stringify(list.slice(0, 100), null, 2), 'utf8');
+    writeDataFile('notifications.json', list.slice(0, 100));
 
     // If an external webhook is configured (e.g. Discord, Telegram, Slack), forward it
     const webhookUrl = process.env.RELIANT_ALERT_WEBHOOK;
@@ -1030,12 +1051,7 @@ function dispatchPushNotification(alertData) {
 
 // Notifications API Endpoint
 app.get('/api/notifications', (req, res) => {
-  if (fs.existsSync(NOTIFICATIONS_FILE)) {
-    try {
-      return res.json(JSON.parse(fs.readFileSync(NOTIFICATIONS_FILE, 'utf8')));
-    } catch(e){}
-  }
-  res.json([]);
+  res.json(readDataFile('notifications.json', []));
 });
 
 // Serve Escrow Voucher Receipt View
@@ -1051,13 +1067,10 @@ app.get('/receipt/:booking_id', (req, res) => {
 app.get('/api/bookings/:booking_id', (req, res) => {
   try {
     const { booking_id } = req.params;
-    const bookingsFile = path.join(__dirname, '..', '..', 'services', 'data', 'bookings.json');
-    if (fs.existsSync(bookingsFile)) {
-      const bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf8'));
-      const found = bookings.find(b => b.booking_id === booking_id);
-      if (found) {
-        return res.json({ success: true, booking: found });
-      }
+    const bookings = readDataFile('bookings.json', []);
+    const found = bookings.find(b => b.booking_id === booking_id);
+    if (found) {
+      return res.json({ success: true, booking: found });
     }
     res.json({
       success: true,
@@ -1108,27 +1121,20 @@ app.post('/api/bookings/deposit', (req, res) => {
 
     // Pick top-rated vendor in this metro for assigned dispatch
     let assignedVendor = { name: "Premier Elite Fleets", phone: "(404) 555-0199", city: city || "Atlanta" };
-    const vendorsFile = path.join(__dirname, '..', '..', 'services', 'data', 'vendors.json');
-    if (fs.existsSync(vendorsFile)) {
-      const vendors = JSON.parse(fs.readFileSync(vendorsFile, 'utf8'));
-      const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
-      if (local.length > 0) {
-        assignedVendor = {
-          id: local[0].id,
-          name: local[0].name,
-          phone: local[0].phone,
-          city: local[0].city,
-          rating: local[0].rating
-        };
-      }
+    const vendors = readDataFile('vendors.json', []);
+    const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
+    if (local.length > 0) {
+      assignedVendor = {
+        id: local[0].id,
+        name: local[0].name,
+        phone: local[0].phone,
+        city: local[0].city,
+        rating: local[0].rating
+      };
     }
 
     // Record booking in bookings.json
-    const bookingsFile = path.join(__dirname, '..', '..', 'services', 'data', 'bookings.json');
-    let bookings = [];
-    if (fs.existsSync(bookingsFile)) {
-      try { bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf8')); } catch(e){}
-    }
+    let bookings = readDataFile('bookings.json', []);
 
     const newBooking = {
       booking_id: bookingId,
@@ -1154,7 +1160,7 @@ app.post('/api/bookings/deposit', (req, res) => {
     };
 
     bookings.unshift(newBooking);
-    fs.writeFileSync(bookingsFile, JSON.stringify(bookings.slice(0, 100), null, 2), 'utf8');
+    writeDataFile('bookings.json', bookings.slice(0, 100));
 
     // Record payout / cash collection
     const payoutId = 'dep-' + Date.now();
@@ -1188,17 +1194,12 @@ app.post('/api/bookings/deposit', (req, res) => {
 });
 
 // --- VECTOR 2: OPERATOR SELF-SERVE WALLET, LEAD MARKETPLACE & MONOPOLIES ---
-const WALLETS_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'operator_wallets.json');
-
 function getWalletsData() {
-  if (fs.existsSync(WALLETS_FILE)) {
-    try { return JSON.parse(fs.readFileSync(WALLETS_FILE, 'utf8')); } catch(e){}
-  }
-  return {};
+  return readDataFile('operator_wallets.json', {});
 }
 
 function saveWalletsData(data) {
-  fs.writeFileSync(WALLETS_FILE, JSON.stringify(data, null, 2), 'utf8');
+  writeDataFile('operator_wallets.json', data);
 }
 
 // 1. Get Operator Wallet Balance & Lead Feed
@@ -1419,8 +1420,6 @@ app.post('/api/operator/monopoly/subscribe', (req, res) => {
 });
 
 // --- VECTOR 3: HIGH-TICKET B2B EQUIPMENT FINANCING ARBITRAGE ($1,200 - $4,000/lease) ---
-const FINANCING_FILE = path.join(__dirname, '..', '..', 'services', 'data', 'financing_leads.json');
-
 app.get('/api/financing/rates', (req, res) => {
   res.json({
     base_apr_ranges: {
@@ -1493,12 +1492,9 @@ app.post('/api/financing/apply', (req, res) => {
       underwriting_status: 'PRE_QUALIFIED_PENDING_DOCS'
     };
 
-    let apps = [];
-    if (fs.existsSync(FINANCING_FILE)) {
-      try { apps = JSON.parse(fs.readFileSync(FINANCING_FILE, 'utf8')); } catch(e){}
-    }
+    let apps = readDataFile('financing_leads.json', []);
     apps.unshift(leadEntry);
-    fs.writeFileSync(FINANCING_FILE, JSON.stringify(apps.slice(0, 100), null, 2), 'utf8');
+    writeDataFile('financing_leads.json', apps.slice(0, 100));
 
     res.json({
       success: true,
