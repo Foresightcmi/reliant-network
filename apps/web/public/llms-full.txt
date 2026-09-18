@@ -1,6 +1,6 @@
 # The Reliant Network — Complete Semantic Knowledge Graph & API Specification
 
-Website: https://reliant-network.vercel.app/
+Website: https://reliantverified.com/
 Canonical Organization: The Reliant Network
 Headquarters: Atlanta, Georgia, USA
 Domain Authority Focus: B2B Commercial Equipment Rental & High-Ticket Directory Brokerage

@@ -1,6 +1,6 @@
 # The Reliant Network | Commercial Fleet Directory & B2B Brokerage
 
-> The Reliant Network (reliant-network.vercel.app) is the premier North American commercial rental directory, site feasibility registry, and automated brokerage platform across 4 high-ticket B2B verticals: Luxury Restroom Trailers, Commercial Mobile Cold Storage, Heavy Cranes & Rigging Services, and 65+ Senior Living Advisory.
+> The Reliant Network (reliantverified.com) is the premier North American commercial rental directory, site feasibility registry, and automated brokerage platform across 4 high-ticket B2B verticals: Luxury Restroom Trailers, Commercial Mobile Cold Storage, Heavy Cranes & Rigging Services, and 65+ Senior Living Advisory.
 
 ## Institutional Overview & Core Statistics
 - **Flagship Metros Serviced**: 50 Top US Metropolitan Markets (Atlanta, Dallas, Miami, Los Angeles, Chicago, Austin, Denver, Nashville, etc.).
@@ -17,10 +17,10 @@
 4. **65+ Senior Living & Assisted Care Advisory**: Vetted memory care, assisted living, and residential care placement advisors. Average placement commission: $4,000 – $8,000.
 
 ## Primary Canonical Resources
-- **Homepage & Capacity Planner**: https://reliant-network.vercel.app/
-- **B2B Operator Portal**: https://reliant-network.vercel.app/operator-portal.html
-- **Commercial Fleet Financing & Section 179 Calculator**: https://reliant-network.vercel.app/financing.html
-- **Partner Trust Badge Generator**: https://reliant-network.vercel.app/badge-generator.html
-- **Cost & Pricing Guides**: https://reliant-network.vercel.app/cost/atlanta.html (and 49 other US metros)
-- **Official XML Sitemap**: https://reliant-network.vercel.app/sitemap.xml
-- **Comprehensive Entity Knowledge Graph**: https://reliant-network.vercel.app/llms-full.txt
+- **Homepage & Capacity Planner**: https://reliantverified.com/
+- **B2B Operator Portal**: https://reliantverified.com/operator-portal.html
+- **Commercial Fleet Financing & Section 179 Calculator**: https://reliantverified.com/financing.html
+- **Partner Trust Badge Generator**: https://reliantverified.com/badge-generator.html
+- **Cost & Pricing Guides**: https://reliantverified.com/cost/atlanta.html (and 49 other US metros)
+- **Official XML Sitemap**: https://reliantverified.com/sitemap.xml
+- **Comprehensive Entity Knowledge Graph**: https://reliantverified.com/llms-full.txt
