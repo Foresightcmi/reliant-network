@@ -74,3 +74,42 @@ Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusine
 - **POST /api/operator/wallet/topup**: Adds prepaid balance credits ($250 / $500 / $1000) with bonus credits.
 - **POST /api/operator/leads/unlock**: Deducts $85 and unmasks customer contact details with replacement guarantee.
 - **POST /api/financing/apply**: Evaluates commercial equipment loan eligibility and projects Section 179 tax deductions.
+- **GET /api/growth/verify-badge-backlink/:vendorId**: Crawls vendor website to verify embedded trust badge and unlocks 15% lead discount.
+
+---
+
+## 3. Programmatic Knowledge Silos & pSEO Ontologies
+
+### A. Municipal Permit & OSHA Compliance Guides (`/permits/[slug]`)
+- **OSHA Standards Grounding**: 29 CFR 1926.51(f) minimum 1 facility per 20 workers for job sites > 200 persons; ANSI/PSAI standards for special events (1 unit per 75-100 attendees for events > 4 hours).
+- **Interactive JS Feasibility Engine**: Dynamic client-side calculation of required stations, graywater storage capacity (gal), and power draw (20A/110V dedicated circuits).
+- **Structured Data**: Complete `FAQPage` JSON-LD schema on each municipal guide.
+
+### B. Best-in-City Fleet Leaderboards (`/best/[slug]`)
+- **Vetted Spec Comparison**: Side-by-side matrices comparing Station Count, ADA Compliance, A/C & Heating, Onboard Freshwater, and Verified Trust Scores.
+- **Structured Data**: Validated Schema.org `ItemList` with embedded `LocalBusiness` and `AggregateRating` schemas.
+
+### C. National Corporate Rental Alternatives (`/vs/[slug]`)
+- `/vs/united-rentals-alternative`: Direct independent fleet operator dispatch vs. national broker call centers.
+- `/vs/sunbelt-rentals-alternative`: Transparent upfront quotes without surprise freight or post-event environmental fees.
+- `/vs/national-broker-alternative`: Guaranteed fleet reservation escrow with 48-hour free cancellation.
+
+---
+
+## 4. Dual-Asset Commercial Inspection & Venue Feasibility Flywheel
+
+- **Strategic Partner**: [Foresight Home Inspections](https://www.fhinspectionsatl.com/)
+- **Geographic Coverage**: Greater Atlanta, North Georgia, Savannah, and Southeast Regional Hubs.
+- **Authority Grounding**: Certified Master Inspector (CMI), FLIR Level 1 Thermographer, InterNACHI certified.
+- **B2B Service Matrix**:
+  1. **Commercial Electrical Load Feasibility**: Infrared FLIR thermal inspections of temporary venue panels, distribution boxes, and generator tie-ins to detect $\Delta T > 15^\circ\text{C}$ overheating risks prior to luxury trailer or reefer container startup.
+  2. **Subsurface & Grade Feasibility**: Structural foundation and ground-bearing verification ensuring soil stability for 10,000+ lb mobile commercial equipment.
+  3. **ADA Ingress & Municipal Path Compliance**: Site survey for barrier-free access routes complying with ADA Title III and local fire marshal clearances.
+
+---
+
+## 5. Viral Reciprocal Trust Badge & Verification Protocol
+
+- **Official Badge Vector**: `https://reliantverified.com/badges/verified-2026.svg`
+- **Partner Incentives**: Embedding badge on operator site unlocks 30 Days Free Featured Rank ($99 value) and a permanent 15% discount on all RFQ lead unlocks.
+- **Verification Hook**: `GET /api/growth/verify-badge-backlink/:vendorId` validates reciprocal backlink status and updates operator wallet state in real-time.

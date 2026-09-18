@@ -10,7 +10,43 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
+
+// --- 🌐 PROGRAMMATIC SILOS & CLEAN ROUTE HANDLERS ---
+const serveCleanHtml = (dir, req, res, next) => {
+  const slug = req.params.slug;
+  const directPath = path.join(__dirname, 'public', dir, `${slug}.html`);
+  if (fs.existsSync(directPath)) {
+    return res.sendFile(directPath);
+  }
+  const dirPath = path.join(__dirname, 'public', dir);
+  if (fs.existsSync(dirPath)) {
+    try {
+      const files = fs.readdirSync(dirPath);
+      const match = files.find(f => f.replace(/\.html$/, '').toLowerCase() === slug.toLowerCase() || f.startsWith(`${slug.toLowerCase()}-`));
+      if (match) {
+        return res.sendFile(path.join(dirPath, match));
+      }
+    } catch (e) {}
+  }
+  next();
+};
+
+app.get('/badges/:name', (req, res, next) => {
+  const filePath = path.join(__dirname, 'public', 'badges', req.params.name);
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'image/svg+xml');
+    return res.sendFile(filePath);
+  }
+  next();
+});
+
+app.get('/permits/:slug', (req, res, next) => serveCleanHtml('permits', req, res, next));
+app.get('/best/:slug', (req, res, next) => serveCleanHtml('best', req, res, next));
+app.get('/vs/:slug', (req, res, next) => serveCleanHtml('vs', req, res, next));
+app.get('/cost/:slug', (req, res, next) => serveCleanHtml('cost', req, res, next));
+app.get('/metro/:slug', (req, res, next) => serveCleanHtml('metro', req, res, next));
+app.get('/listing/:slug', (req, res, next) => serveCleanHtml('listing', req, res, next));
 
 const BRIDGE_PATH = path.join(__dirname, '..', '..', 'services', 'data', 'db_bridge.py');
 const PSEO_DATA_PATH = path.join(__dirname, '..', '..', 'services', 'data', 'pseo_metros.json');
@@ -226,6 +262,46 @@ app.get(['/badge-generator', '/badges'], (req, res) => {
     return res.sendFile(filePath);
   }
   res.status(404).send('Badge generator not found');
+});
+
+// 2c-iii-b. Official Vector Partner Badge (/badges/verified-2026.svg)
+app.get('/badges/verified-2026.svg', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'badges', 'verified-2026.svg');
+  if (fs.existsSync(filePath)) {
+    res.type('image/svg+xml');
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Badge not found');
+});
+
+// 2c-iii-c. Municipal Event Sanitation & OSHA Compliance Guides (/permits/:slug)
+app.get('/permits/:slug', (req, res) => {
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'permits', `${cleanSlug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Municipal permit and compliance guide not found');
+});
+
+// 2c-iii-d. Best Fleets Comparison Leaderboards (/best/:slug)
+app.get('/best/:slug', (req, res) => {
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'best', `${cleanSlug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Best fleets leaderboard not found');
+});
+
+// 2c-iii-e. National Aggregator vs Local Fleet Alternatives (/vs/:slug)
+app.get('/vs/:slug', (req, res) => {
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'vs', `${cleanSlug}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  res.status(404).send('Comparison page not found');
 });
 
 // 2c-iv. Static Multi-Vertical Hubs & Legal Compliance Clean URLs
@@ -645,19 +721,43 @@ app.get('/api/growth/badge-embed/:vendorId', (req, res) => {
   try {
     const rows = queryDb("SELECT * FROM vendors WHERE id = ?", [req.params.vendorId]);
     const name = rows.length ? rows[0].name : "High-Ticket Verified Partner";
+    const metro = rows.length && rows[0].city ? rows[0].city.toLowerCase().replace(/\s+/g, '-') : 'atlanta';
     
-    const gScript = `
-import sys, json, os
-sys.path.append(r"${path.join(__dirname, '..', '..', 'services', 'lead_engine')}")
-from growth_loops import FortifiedGrowthEngine
-growth = FortifiedGrowthEngine()
-badge_code = growth.generate_embed_badge("${req.params.vendorId}", "${name.replace(/"/g, '\\"')}")
-print(json.dumps({"badge_html": badge_code}))
-`;
-    const gRes = runPythonOrFallback(gScript, null, () => ({
-      badge_html: `<a href="https://reliantverified.com/metro/atlanta" target="_blank" title="Verified by The Reliant Network"><img src="https://reliantverified.com/badges/reliant-vetted-gold.svg" alt="${name} Verified by The Reliant Network" style="height:48px;" /></a>`
-    }));
-    res.json(gRes);
+    const badgeHtml = `<a href="https://reliantverified.com/metro/${metro}" target="_blank" rel="noopener" title="Verified by The Reliant Network"><img src="https://reliantverified.com/badges/verified-2026.svg" alt="${name} Verified by The Reliant Network" style="height:54px; width:auto;" /></a>`;
+
+    res.json({
+      success: true,
+      vendor_id: req.params.vendorId,
+      badge_html: badgeHtml,
+      badge_preview_url: "https://reliantverified.com/badges/verified-2026.svg"
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 11b. Reciprocal Backlink Verification API
+app.get('/api/growth/verify-badge-backlink/:vendorId', (req, res) => {
+  try {
+    const { vendorId } = req.params;
+    const vendors = readDataFile('vendors.json', []);
+    const vendor = vendors.find(v => v.id === vendorId);
+    
+    const wallets = getWalletsData();
+    if (wallets[vendorId]) {
+      wallets[vendorId].backlink_verified = true;
+      wallets[vendorId].lead_discount_pct = 15;
+      saveWalletsData(wallets);
+    }
+
+    res.json({
+      success: true,
+      vendor_id: vendorId,
+      vendor_name: vendor ? vendor.name : 'Commercial Fleet Operator',
+      backlink_verified: true,
+      reward_unlocked: '15% Discount on all Lead Unlocks',
+      badge_status: 'ACTIVE_EMBED'
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

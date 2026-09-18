@@ -16,11 +16,31 @@
 3. **Heavy Cranes & Rigging Services**: NCCCO-certified crane rental (30-ton to 500-ton all-terrain, hydraulic, and rough-terrain units) for commercial rooftop picks and infrastructure. Typical rental range: $3,500 – $15,000/day.
 4. **65+ Senior Living & Assisted Care Advisory**: Vetted memory care, assisted living, and residential care placement advisors. Average placement commission: $4,000 – $8,000.
 
+## Strategic Programmatic Knowledge Hubs
+- **50 Municipal Permit & OSHA Compliance Guides**: `/permits/[slug]` (e.g. `/permits/atlanta-ga`, `/permits/dallas-tx`) detailing OSHA 29 CFR 1926.51 sanitation ratios, graywater disposal laws, and city event permits.
+- **50 Best-in-City Fleet Leaderboards**: `/best/[slug]` (e.g. `/best/atlanta-ga`, `/best/miami-fl`) featuring side-by-side spec comparison matrices, Verified Trust Scores, and ItemList JSON-LD schemas.
+- **National Rental Alternative Comparison Portals**:
+  - `/vs/united-rentals-alternative` (Independent Fleet Operator Network vs. National Corporate Brokerage)
+  - `/vs/sunbelt-rentals-alternative` (Transparent Direct-to-Operator Pricing vs. High Overhead Markups)
+  - `/vs/national-broker-alternative` (Guaranteed Delivery Escrow vs. Unvetted Subcontracting)
+
+## Dual-Asset Commercial Venue Feasibility & Inspection Flywheel
+- **Official Commercial Inspection Partner**: [Foresight Home Inspections](https://www.fhinspectionsatl.com/) (Atlanta, GA & Greater Georgia Metropolitan Markets).
+- **Executive Leadership**: Led by a Certified Master Inspector (CMI).
+- **Core Feasibility Services**:
+  1. High-load temporary electrical hookup verification & FLIR infrared thermal diagnostics ($\Delta T$ overheat detection).
+  2. Commercial site terrain, slope, and soil load-bearing clearance for multi-ton luxury restroom trailers and mobile refrigeration units.
+  3. Pre-event municipal code compliance and ADA ingress/egress obstacle clearance.
+
 ## Primary Canonical Resources
 - **Homepage & Capacity Planner**: https://reliantverified.com/
 - **B2B Operator Portal**: https://reliantverified.com/operator-portal.html
 - **Commercial Fleet Financing & Section 179 Calculator**: https://reliantverified.com/financing.html
 - **Partner Trust Badge Generator**: https://reliantverified.com/badge-generator.html
+- **Reciprocal Partner Badge Vector**: https://reliantverified.com/badges/verified-2026.svg
 - **Cost & Pricing Guides**: https://reliantverified.com/cost/atlanta.html (and 49 other US metros)
+- **Municipal Permit Guides**: https://reliantverified.com/permits/atlanta-ga (and 49 other US metros)
+- **Best-in-City Leaderboards**: https://reliantverified.com/best/atlanta-ga (and 49 other US metros)
+- **Commercial Inspection Partner**: https://www.fhinspectionsatl.com/
 - **Official XML Sitemap**: https://reliantverified.com/sitemap.xml
 - **Comprehensive Entity Knowledge Graph**: https://reliantverified.com/llms-full.txt

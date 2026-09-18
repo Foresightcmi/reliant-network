@@ -229,6 +229,58 @@ async function runTests() {
       if (!data.badge_html || !data.badge_html.includes('The Reliant Network')) throw new Error('Invalid badge HTML');
     });
 
+    // 10. Vector Trust Badge SVG Delivery
+    await assert('GET /badges/verified-2026.svg serves vector badge with correct MIME type', async () => {
+      const res = await request('/badges/verified-2026.svg');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const contentType = res.headers['content-type'] || '';
+      if (!contentType.includes('image/svg+xml')) throw new Error(`Expected image/svg+xml, got ${contentType}`);
+      if (!res.body.includes('<svg') || !res.body.includes('RELIANT NETWORK') || !res.body.includes('VERIFIED 2026')) throw new Error('Invalid SVG content');
+    });
+
+    // 11. Programmatic Municipal Compliance Hubs
+    await assert('GET /permits/atlanta-ga serves municipal compliance guide with calculator', async () => {
+      const res = await request('/permits/atlanta-ga');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('OSHA 29 CFR 1926.51')) throw new Error('Missing OSHA 1926.51 compliance citation');
+      if (!res.body.includes('Atlanta, GA Event Sanitation & Restroom Trailer Permit Guide')) throw new Error('Missing permit title');
+      if (!res.body.includes('updateCompliance')) throw new Error('Missing interactive calculator script');
+    });
+
+    // 12. Programmatic Best-in-City Leaderboards
+    await assert('GET /best/atlanta-ga serves leaderboard with ItemList schema and comparison matrix', async () => {
+      const res = await request('/best/atlanta-ga');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('"@type": "ItemList"')) throw new Error('Missing ItemList JSON-LD schema');
+      if (!res.body.includes('Best Luxury Restroom Trailers in Atlanta, GA')) throw new Error('Missing leaderboard title');
+      if (!res.body.includes('Trust Score')) throw new Error('Missing Trust Score comparison column');
+    });
+
+    // 13. National vs Local Alternative Comparison Hubs
+    await assert('GET /vs/united-rentals-alternative serves direct-to-operator comparison', async () => {
+      const res = await request('/vs/united-rentals-alternative');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('United Rentals Alternative for Luxury Restroom Trailers')) throw new Error('Missing alternative comparison title');
+      if (!res.body.includes('Reliant Verified Local Fleets') || !res.body.includes('United Rentals')) throw new Error('Missing comparison columns');
+    });
+
+    // 14. Reciprocal Backlink Verification Engine
+    await assert('GET /api/growth/verify-badge-backlink/vend_atl_01 unlocks 15% discount', async () => {
+      const res = await request('/api/growth/verify-badge-backlink/vend_atl_01');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.success || !data.backlink_verified) throw new Error('Backlink verification failed');
+      if (!data.reward_unlocked.includes('15% Discount')) throw new Error('Missing discount reward in response');
+    });
+
+    // 15. Dual-Asset Commercial Venue Feasibility Banner
+    await assert('GET / index.html displays Foresight Home Inspections commercial partner banner', async () => {
+      const res = await request('/');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Foresight Home Inspections')) throw new Error('Missing Foresight Home Inspections partner banner');
+      if (!res.body.includes('fhinspectionsatl.com')) throw new Error('Missing link to fhinspectionsatl.com');
+    });
+
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);
     server.close();
     process.exit(failed > 0 ? 1 : 0);

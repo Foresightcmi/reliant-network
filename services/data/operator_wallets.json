@@ -1,7 +1,7 @@
 {
   "vend_atl_01": {
     "operator_id": "vend_atl_01",
-    "balance": 4190,
+    "balance": 5840,
     "currency": "USD",
     "company_name": "Royal Restrooms of Atlanta",
     "city": "Atlanta",
@@ -12,6 +12,27 @@
       "lead-1"
     ],
     "transactions": [
+      {
+        "id": "tx_1789760034907",
+        "date": "2026-09-18T19:33:54.907Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789760022513",
+        "date": "2026-09-18T19:33:42.513Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789760008230",
+        "date": "2026-09-18T19:33:28.230Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
       {
         "id": "tx_1789706616713",
         "date": "2026-09-18T04:43:36.713Z",
@@ -76,6 +97,8 @@
         "description": "Welcome fleet promotional balance"
       }
     ],
-    "monopoly_metro": "atlanta-ga"
+    "monopoly_metro": "atlanta-ga",
+    "backlink_verified": true,
+    "lead_discount_pct": 15
   }
 }
