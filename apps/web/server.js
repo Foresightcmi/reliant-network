@@ -1005,12 +1005,6 @@ app.post('/api/ai/generate-description', (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`🚀 The Reliant Network Multi-Vertical Autonomous Directory Engine running on http://localhost:${PORT}`);
-  });
-}
-
 // --- FOMO DRIP CAMPAIGN & MISSED LEAD ENGINE (Frey Chu Playbook) ---
 // 1. Get recent missed leads and list unverified operators in that territory
 app.get('/api/operators/missed-leads', (req, res) => {
@@ -1622,6 +1616,12 @@ app.use((req, res) => {
     res.status(404).send('Resource Not Found');
   }
 });
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 The Reliant Network Multi-Vertical Autonomous Directory Engine running on http://localhost:${PORT}`);
+  });
+}
 
 module.exports = app;
 

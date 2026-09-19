@@ -880,10 +880,10 @@ for m in metros:
 for p in vs_pages:
     sitemap_urls.append(f"https://reliantverified.com/vs/{p['filename']}")
 
-sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n'
+sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in sitemap_urls:
-    sitemap_xml += f'  <url>\\n    <loc>{u}</loc>\\n    <changefreq>weekly</changefreq>\\n    <priority>0.8</priority>\\n  </url>\\n'
-sitemap_xml += '</urlset>\\n'
+    sitemap_xml += f'  <url>\n    <loc>{u}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n'
+sitemap_xml += '</urlset>\n'
 
 with open("apps/web/public/sitemap.xml", "w", encoding="utf-8") as f_sitemap:
     f_sitemap.write(sitemap_xml)

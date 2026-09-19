@@ -20,6 +20,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run Production Health Audit
+        env:
+          PYTHONIOENCODING: utf-8
         run: |
           python - << 'EOF'
           import urllib.request
@@ -33,6 +35,10 @@ jobs:
               "/financing.html",
               "/badge-generator.html",
               "/cost/atlanta.html",
+              "/permits/atlanta-ga",
+              "/best/atlanta-ga",
+              "/vs/united-rentals-alternative",
+              "/badges/verified-2026.svg",
               "/sitemap.xml"
           ]
 
@@ -41,23 +47,25 @@ jobs:
               url = BASE_URL + ep
               try:
                   req = urllib.request.Request(url, headers={'User-Agent': 'Reliant-Autonomous-Monitor/1.0'})
-                  res = urllib.request.urlopen(req, timeout=15)
+                  res = urllib.request.urlopen(req, timeout=20)
                   code = res.getcode()
-                  print(f"✅ [HTTP {code}] {url}")
+                  print(f"[HTTP {code}] {url} - OK")
                   if code != 200:
                       failed.append((url, code))
               except Exception as e:
-                  print(f"❌ [FAIL] {url} - Error: {e}")
+                  print(f"[FAIL] {url} - Error: {e}")
                   failed.append((url, str(e)))
 
           if failed:
               print(f"\n[ALERT] {len(failed)} endpoints failed verification!")
               sys.exit(1)
           else:
-              print("\n🎉 All production services healthy and operational.")
+              print("\nAll production services healthy and operational.")
           EOF
 
-      - name: Validate Sitemap URL Count
+      - name: Validate Sitemap URL Count & XML Well-Formedness
+        env:
+          PYTHONIOENCODING: utf-8
         run: |
           python - << 'EOF'
           import urllib.request
@@ -65,10 +73,10 @@ jobs:
 
           sitemap_url = "https://reliant-network.vercel.app/sitemap.xml"
           req = urllib.request.Request(sitemap_url, headers={'User-Agent': 'Reliant-Autonomous-Monitor/1.0'})
-          xml_data = urllib.request.urlopen(req, timeout=15).read()
+          xml_data = urllib.request.urlopen(req, timeout=20).read()
           root = ET.fromstring(xml_data)
           urls = root.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url')
           print(f"Indexed Sitemap URLs: {len(urls)}")
-          assert len(urls) >= 100, f"Sitemap URL count unexpectedly low ({len(urls)})"
-          print("✅ Sitemap integrity verified.")
+          assert len(urls) >= 150, f"Sitemap URL count unexpectedly low ({len(urls)})"
+          print("Sitemap integrity and XML structure verified.")
           EOF
