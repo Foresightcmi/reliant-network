@@ -718,6 +718,27 @@ print(json.dumps(res))
       timestamp: new Date().toISOString()
     }));
 
+    // Persist lead to leads.json
+    let leadsList = readDataFile('leads.json', []);
+    leadsList.unshift({
+      id: leadId,
+      lead_code: leadCode,
+      niche_id: activeNiche,
+      customer_name,
+      customer_email,
+      customer_phone,
+      city,
+      state,
+      event_date,
+      guest_count,
+      event_type,
+      budget,
+      notes,
+      qualification: qualResult,
+      created_at: new Date().toISOString()
+    });
+    writeDataFile('leads.json', leadsList);
+
     res.json({
       success: true,
       lead_id: leadId,
@@ -738,6 +759,25 @@ app.post('/api/claim', (req, res) => {
     const { vendor_id, email } = req.body;
     queryDb("UPDATE vendors SET claimed = 1, subscription_active = 1 WHERE id = ?", [vendor_id]);
     
+    // Persist claim record to claims.json
+    let claimsList = readDataFile('claims.json', []);
+    claimsList.unshift({
+      vendor_id,
+      email,
+      amount: 99,
+      claimed_at: new Date().toISOString()
+    });
+    writeDataFile('claims.json', claimsList);
+
+    // Update claimed status in vendors.json
+    let allVendors = readDataFile('vendors.json', []);
+    const vIdx = allVendors.findIndex(v => v.id === vendor_id);
+    if (vIdx !== -1) {
+      allVendors[vIdx].claimed = 1;
+      allVendors[vIdx].subscription_active = 1;
+      writeDataFile('vendors.json', allVendors);
+    }
+
     const payoutId = 'sub-' + Date.now();
     queryDb("INSERT INTO payouts (id, vendor_id, amount, type, status) VALUES (?, ?, 99, 'MONTHLY_SUBSCRIPTION', 'COMPLETED')", [payoutId, vendor_id]);
 
@@ -1285,6 +1325,28 @@ app.get('/api/bookings/:booking_id', (req, res) => {
 // --- VECTOR 1: 15% CONCIERGE ESCROW BOOKING DEPOSIT CAPTURE ($300 - $1,500/booking) ---
 app.post('/api/bookings/deposit', (req, res) => {
   try {
+    const idempotencyKey = req.headers['idempotency-key'] || req.headers['x-idempotency-key'] || req.body.idempotency_key;
+    let bookings = readDataFile('bookings.json', []);
+
+    // Idempotency check: if key already processed, return existing booking
+    if (idempotencyKey) {
+      const existing = bookings.find(b => b.idempotency_key === idempotencyKey);
+      if (existing) {
+        return res.json({
+          success: true,
+          booking_id: existing.booking_id,
+          lead_code: existing.lead_code,
+          deposit_paid: existing.deposit_amount,
+          balance_due_on_site: existing.balance_due_on_site,
+          total_contract: existing.total_estimated_contract,
+          assigned_vendor: existing.assigned_vendor,
+          escrow_receipt_url: `https://www.reliantverified.com/receipt/${existing.booking_id}`,
+          message: `Equipment availability locked! 15% deposit ($${existing.deposit_amount.toLocaleString()}) secured in escrow. (Replayed via Idempotency Key).`,
+          idempotent_replay: true
+        });
+      }
+    }
+
     const {
       lead_code,
       customer_name,
@@ -1321,11 +1383,9 @@ app.post('/api/bookings/deposit', (req, res) => {
       };
     }
 
-    // Record booking in bookings.json
-    let bookings = readDataFile('bookings.json', []);
-
     const newBooking = {
       booking_id: bookingId,
+      idempotency_key: idempotencyKey || null,
       created_at: new Date().toISOString(),
       lead_code: lead_code || ('REL-' + Math.floor(1000 + Math.random() * 9000)),
       customer_name: customer_name || 'Valued Commercial Client',
@@ -1578,12 +1638,26 @@ app.post('/api/operator/monopoly/subscribe', (req, res) => {
     const opId = operator_id || 'vend_atl_01';
     const targetTier = tier || 'metro_monopoly'; // 'metro_monopoly' ($299/mo) or 'featured_partner' ($99/mo)
     const cost = targetTier === 'metro_monopoly' ? 299.00 : 99.00;
+    const targetMetro = metro_slug || 'atlanta-ga';
 
     const wallets = getWalletsData();
+
+    // Scarcity & Exclusivity lockout: check if another operator already holds the monopoly for this metro
+    if (targetTier === 'metro_monopoly') {
+      const activeHolderEntry = Object.entries(wallets).find(([id, w]) => id !== opId && w.monopoly_active && w.monopoly_metro === targetMetro);
+      if (activeHolderEntry) {
+        return res.status(409).json({
+          error: 'METRO_MONOPOLY_LOCKED',
+          message: `Metro monopoly for ${targetMetro} is already locked by another verified operator (${activeHolderEntry[0]}). Only 1 exclusive operator is permitted per metropolitan market.`,
+          waitlist_available: true
+        });
+      }
+    }
+
     if (wallets[opId]) {
       wallets[opId].monopoly_active = targetTier === 'metro_monopoly';
       wallets[opId].subscription_active = true;
-      wallets[opId].monopoly_metro = metro_slug || 'atlanta-ga';
+      wallets[opId].monopoly_metro = targetMetro;
       saveWalletsData(wallets);
     }
 

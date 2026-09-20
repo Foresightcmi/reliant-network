@@ -1,5 +1,41 @@
 [
   {
+    "id": "notif_1789916810368",
+    "timestamp": "2026-09-20T15:06:50.368Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789916810364"
+  },
+  {
+    "id": "notif_1789916809579",
+    "timestamp": "2026-09-20T15:06:49.579Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-540729"
+  },
+  {
+    "id": "notif_1789916764571",
+    "timestamp": "2026-09-20T15:06:04.571Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789916764566"
+  },
+  {
+    "id": "notif_1789916764500",
+    "timestamp": "2026-09-20T15:06:04.500Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-105453"
+  },
+  {
     "id": "notif_1789916385087",
     "timestamp": "2026-09-20T14:59:45.087Z",
     "title": "Operator Wallet Reload ($500)",

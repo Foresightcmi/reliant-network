@@ -123,10 +123,11 @@ async function runTests() {
 
     // 5. Escrow Booking & Receipt Retrieval Flow
     let testBookingId = null;
+    const testIdempKey = 'IDEMP-TEST-INST-' + Date.now();
     await assert('POST /api/bookings/deposit creates escrow booking & receipt URL', async () => {
       const res = await request('/api/bookings/deposit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'idempotency-key': testIdempKey },
         body: JSON.stringify({
           lead_code: 'TEST-LEAD-999',
           customer_name: 'Institutional Test Client',
@@ -148,6 +149,22 @@ async function runTests() {
       if (!data.booking_id) throw new Error('Missing booking_id');
       testBookingId = data.booking_id;
       if (data.deposit_paid !== 525) throw new Error(`Expected 525 deposit, got ${data.deposit_paid}`);
+    });
+
+    await assert('POST /api/bookings/deposit replaying same idempotency-key returns existing booking', async () => {
+      const res = await request('/api/bookings/deposit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'idempotency-key': testIdempKey },
+        body: JSON.stringify({
+          lead_code: 'TEST-LEAD-999-DUPE',
+          customer_name: 'Duplicate Accidental Submit',
+          deposit_amount: 525
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.idempotent_replay) throw new Error('Expected idempotent_replay: true');
+      if (data.booking_id !== testBookingId) throw new Error('Replay booking_id mismatch');
     });
 
     await assert(`GET /api/bookings/${testBookingId} retrieves stored escrow booking`, async () => {
@@ -204,6 +221,17 @@ async function runTests() {
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const data = JSON.parse(res.body);
       if (!data.success || data.monthly_cost !== 299) throw new Error('Monopoly cost mismatch');
+    });
+
+    await assert('POST /api/operator/monopoly/subscribe rejects rival operator for locked metro with 409', async () => {
+      const res = await request('/api/operator/monopoly/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ operator_id: 'vend_bhm_01', metro_slug: 'atlanta-ga', tier: 'metro_monopoly' })
+      });
+      if (res.statusCode !== 409) throw new Error(`Expected 409 Conflict, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (data.error !== 'METRO_MONOPOLY_LOCKED') throw new Error(`Expected METRO_MONOPOLY_LOCKED, got ${data.error}`);
     });
 
     // 8. Section 179 Equipment Financing
