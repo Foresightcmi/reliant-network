@@ -1,0 +1,26 @@
+# Version Control & Environments
+.git/
+.gitignore
+.env*
+*.log
+
+# Offline Python Engines & Scrapers (Local/Cron Execution Only)
+services/scraper/
+services/lead_engine/
+*.py
+**/__pycache__/
+*.pyc
+
+# Local Test Suites & Specs
+tests/
+test*.js
+apps/web/test*.js
+*.test.js
+
+# Build & Scratch Artifacts
+dist/
+scratch/
+payload.*
+test.txt
+*.md
+!README.md
