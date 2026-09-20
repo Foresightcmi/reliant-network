@@ -181,6 +181,21 @@
         console.log('Using fallback confirmation data');
       }
 
+      const sessionId = urlParams.get('session_id');
+      if (sessionId) {
+        try {
+          const verifyRes = await fetch('/api/stripe/verify-session?session_id=' + sessionId);
+          const verifyData = await verifyRes.json();
+          if (verifyData.verified) {
+            const statusBadge = document.querySelector('#printable-receipt .absolute.top-6.right-6');
+            if (statusBadge) {
+              statusBadge.className = 'absolute top-6 right-6 flex items-center gap-1.5 bg-emerald-100 border border-emerald-400 text-emerald-900 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-xs';
+              statusBadge.innerHTML = '<i data-lucide="shield-check" class="w-4 h-4 text-emerald-700"></i><span>Stripe Escrow Verified</span>';
+            }
+          }
+        } catch(e){}
+      }
+
       try { lucide.createIcons(); } catch(e){}
     }
 

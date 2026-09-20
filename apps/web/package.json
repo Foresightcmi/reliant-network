@@ -4,7 +4,9 @@
   "description": "Autonomous AI Directory & High-Ticket Lead Engine",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "stripe:setup": "node ../../scripts/setup-stripe.js",
+    "test": "node test-institutional-suite.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

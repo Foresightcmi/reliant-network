@@ -370,6 +370,22 @@
     let currentWalletData = null;
 
     async function loadWalletData() {
+      // Check for Stripe Checkout return
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = urlParams.get('session_id');
+      if (sessionId) {
+        try {
+          const verifyRes = await fetch('/api/stripe/verify-session?session_id=' + sessionId);
+          const verifyData = await verifyRes.json();
+          if (verifyData.verified) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+            alert('🎉 Stripe Payment Confirmed! Your account balance / subscription has been updated.');
+          }
+        } catch (e) {
+          console.error('Session verify error:', e);
+        }
+      }
+
       try {
         const res = await fetch('/api/operator/wallet?operator_id=' + activeOperatorId);
         const data = await res.json();
@@ -507,6 +523,23 @@
 
     async function executeReload(amount) {
       try {
+        // Attempt Stripe Checkout first
+        const stripeRes = await fetch('/api/stripe/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'wallet_topup',
+            amount: amount,
+            operator_id: activeOperatorId
+          })
+        });
+        const stripeData = await stripeRes.json();
+        if (stripeData.success && stripeData.checkout_url && !stripeData.simulated) {
+          window.location.href = stripeData.checkout_url;
+          return;
+        }
+
+        // Direct fallback / Demo reload
         const res = await fetch('/api/operator/wallet/topup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -527,6 +560,23 @@
       const tierName = tier === 'metro_monopoly' ? 'Exclusive Metro Monopoly ($299/mo)' : 'Featured Partner ($99/mo)';
       if (!confirm(`Confirm subscription to ${tierName}?`)) return;
       try {
+        // Attempt Stripe Checkout first
+        const stripeRes = await fetch('/api/stripe/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: tier,
+            operator_id: activeOperatorId,
+            metro_slug: 'atlanta-ga'
+          })
+        });
+        const stripeData = await stripeRes.json();
+        if (stripeData.success && stripeData.checkout_url && !stripeData.simulated) {
+          window.location.href = stripeData.checkout_url;
+          return;
+        }
+
+        // Direct fallback / Demo subscription
         const res = await fetch('/api/operator/monopoly/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

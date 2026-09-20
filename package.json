@@ -2,12 +2,15 @@
   "name": "autonomous-directory-engine",
   "version": "1.0.0",
   "scripts": {
-    "start": "node apps/web/server.js"
+    "start": "node apps/web/server.js",
+    "stripe:setup": "node scripts/setup-stripe.js",
+    "test": "node apps/web/test-institutional-suite.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-rate-limit": "^8.7.0",
-    "helmet": "^8.3.0"
+    "helmet": "^8.3.0",
+    "stripe": "^22.6.1"
   }
 }

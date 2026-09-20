@@ -3019,6 +3019,12 @@
         });
         const data = await res.json();
         if (data.success) {
+          if (data.checkout_url) {
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Redirecting to Secure Stripe Checkout...</span>';
+            try { lucide.createIcons(); } catch(e){}
+            window.location.href = data.checkout_url;
+            return;
+          }
           document.getElementById('confirmed-booking-id').textContent = data.booking_id;
           document.getElementById('confirmed-deposit-paid').textContent = '$' + data.deposit_paid.toLocaleString() + '.00';
           document.getElementById('confirmed-balance-due').textContent = '$' + data.balance_due_on_site.toLocaleString() + '.00';

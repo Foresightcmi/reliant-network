@@ -34,6 +34,46 @@ const os = require('os');
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 
+// --- 🔑 ZERO-CONFIG ENVIRONMENT & STRIPE INITIALIZATION ---
+function loadEnv() {
+  const candidates = [
+    path.join(__dirname, '..', '..', '.env'),
+    path.join(__dirname, '.env')
+  ];
+  for (const p of candidates) {
+    if (fs.existsSync(p)) {
+      try {
+        const raw = fs.readFileSync(p, 'utf8');
+        raw.split(/\r?\n/).forEach(line => {
+          line = line.trim();
+          if (line && !line.startsWith('#')) {
+            const idx = line.indexOf('=');
+            if (idx > 0) {
+              const k = line.slice(0, idx).trim();
+              const v = line.slice(idx + 1).trim().replace(/^['"]|['"]$/g, '');
+              if (!process.env[k]) {
+                process.env[k] = v;
+              }
+            }
+          }
+        });
+      } catch (e) {}
+    }
+  }
+}
+loadEnv();
+
+let stripe = null;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+if (stripeSecretKey) {
+  try {
+    stripe = require('stripe')(stripeSecretKey);
+    console.log(`💳 [Stripe Engine] Initialized in ${stripeSecretKey.startsWith('sk_live_') ? 'LIVE' : 'TEST'} mode.`);
+  } catch (err) {
+    console.warn('⚠️ [Stripe Engine] Failed to initialize Stripe client:', err.message);
+  }
+}
+
 let helmet;
 try { helmet = require('helmet'); } catch (e) {}
 
@@ -82,7 +122,11 @@ if (rateLimit) {
   app.use('/api/', apiLimiter);
 }
 
-app.use(express.json());
+app.use(express.json({
+  verify: (req, res, buf) => {
+    req.rawBody = buf;
+  }
+}));
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
 const serveCleanHtml = (dir, req, res, next) => {
@@ -1338,8 +1382,327 @@ app.get('/api/bookings/:booking_id', (req, res) => {
   }
 });
 
+// =========================================================================
+// 💳 ZERO-FRICTION STRIPE CHECKOUT ENGINE & REAL-TIME RECONCILIATION
+// =========================================================================
+
+// 1. Stripe Status & Diagnostics Endpoint
+app.get('/api/stripe/status', async (req, res) => {
+  const isConfigured = !!stripe;
+  const key = process.env.STRIPE_SECRET_KEY || '';
+  const pubKey = process.env.STRIPE_PUBLISHABLE_KEY || '';
+  const mode = key.startsWith('sk_live_') ? 'live' : (key.startsWith('sk_test_') ? 'test' : 'unconfigured');
+
+  let accountInfo = null;
+  if (stripe) {
+    try {
+      const acc = await stripe.accounts.retrieve();
+      accountInfo = {
+        id: acc.id,
+        business_profile: acc.business_profile?.name || acc.settings?.dashboard?.display_name || 'Reliant Verified Network',
+        country: acc.country,
+        default_currency: acc.default_currency || 'usd',
+        charges_enabled: acc.charges_enabled
+      };
+    } catch (err) {
+      accountInfo = { error: err.message };
+    }
+  }
+
+  res.json({
+    configured: isConfigured,
+    mode,
+    publishable_key: pubKey ? (pubKey.slice(0, 12) + '...' + pubKey.slice(-4)) : null,
+    account: accountInfo,
+    supported_checkout_types: [
+      { id: 'escrow_deposit', label: '15% Equipment Escrow Deposit', pricing: 'Dynamic (15% of contract total)' },
+      { id: 'wallet_topup', label: 'Operator Wallet Reload', pricing: '$250, $500, or $1,000' },
+      { id: 'featured_partner', label: 'Featured Fleet Partner Profile', pricing: '$99.00 / month' },
+      { id: 'metro_monopoly', label: 'Exclusive Category Metro Monopoly', pricing: '$299.00 / month' }
+    ]
+  });
+});
+
+// 2. Dynamic Stripe Checkout Session Creator (Zero Dashboard Setup Required)
+app.post('/api/stripe/create-checkout-session', async (req, res) => {
+  try {
+    const {
+      type, // 'escrow_deposit', 'wallet_topup', 'featured_partner', 'metro_monopoly'
+      booking_id,
+      lead_code,
+      customer_name,
+      customer_email,
+      customer_phone,
+      city,
+      state,
+      niche_id,
+      amount,
+      total_contract,
+      operator_id,
+      metro_slug
+    } = req.body;
+
+    let reqOrigin = 'https://www.reliantverified.com';
+    try {
+      if (req.headers.origin) reqOrigin = req.headers.origin;
+      else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+    } catch(e){}
+
+    // Graceful Demo Mode fallback if Stripe keys are not yet configured
+    if (!stripe) {
+      const simBookingId = booking_id || ('BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000));
+      return res.json({
+        success: true,
+        simulated: true,
+        mode: 'demo',
+        booking_id: simBookingId,
+        checkout_url: `${reqOrigin}/receipt/${simBookingId}?session_id=demo_simulated_session_9999&simulated=true`,
+        message: 'Stripe is running in Demo/Simulation Mode. Set STRIPE_SECRET_KEY in your environment to process real transactions.'
+      });
+    }
+
+    let sessionConfig = {};
+
+    if (type === 'escrow_deposit') {
+      const depositVal = parseFloat(amount) || 525.00;
+      const bId = booking_id || ('BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000));
+      const nicheTitle = (niche_id || 'Equipment').replace(/_/g, ' ').toUpperCase();
+
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'payment',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: Math.round(depositVal * 100),
+            product_data: {
+              name: `15% Escrow Deposit - ${nicheTitle} Rental (${city || 'Metro'}, ${state || 'US'})`,
+              description: `Reliant Verified Escrow Deposit. Ref: ${bId}. Remaining balance payable upon on-site delivery walkthrough.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'escrow_deposit',
+          booking_id: bId,
+          lead_code: lead_code || 'DIRECT',
+          niche_id: niche_id || 'general',
+          city: city || '',
+          state: state || '',
+          customer_name: customer_name || '',
+          customer_email: customer_email || '',
+          customer_phone: customer_phone || '',
+          total_contract: total_contract || (depositVal / 0.15)
+        },
+        success_url: `${reqOrigin}/receipt/${bId}?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/`
+      };
+    } else if (type === 'wallet_topup') {
+      const topupVal = parseFloat(amount) || 250.00;
+      let bonusVal = 0;
+      if (topupVal >= 1000) bonusVal = 150;
+      else if (topupVal >= 500) bonusVal = 50;
+
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'payment',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: Math.round(topupVal * 100),
+            product_data: {
+              name: `Operator Wallet Reload ($${topupVal} Balance${bonusVal > 0 ? ' + $' + bonusVal + ' Bonus' : ''})`,
+              description: `Prepaid lead credits for operator ID: ${operator_id || 'operator'}`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'wallet_topup',
+          operator_id: operator_id || 'vend_atl_01',
+          topup_amount: topupVal,
+          bonus_amount: bonusVal
+        },
+        success_url: `${reqOrigin}/operator-portal.html?topup_success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/operator-portal.html`
+      };
+    } else if (type === 'featured_partner') {
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'subscription',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            recurring: { interval: 'month' },
+            unit_amount: 9900,
+            product_data: {
+              name: 'Reliant Verified - Featured Fleet Partner ($99/mo)',
+              description: '3x Lead Priority Placement, Verified Trust Shield Badge, Direct Contact Routing.'
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'featured_partner',
+          operator_id: operator_id || 'vend_atl_01'
+        },
+        success_url: `${reqOrigin}/operator-portal.html?claim_success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/operator-portal.html`
+      };
+    } else if (type === 'metro_monopoly') {
+      const metro = metro_slug || 'atlanta-ga';
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'subscription',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            recurring: { interval: 'month' },
+            unit_amount: 29900,
+            product_data: {
+              name: `Reliant Verified - Category Metro Monopoly ($299/mo) [${metro}]`,
+              description: `100% Exclusive Top Banner Takeover & Lead Lockout in ${metro}. Zero rival vendors shown.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'metro_monopoly',
+          operator_id: operator_id || 'vend_atl_01',
+          metro_slug: metro
+        },
+        success_url: `${reqOrigin}/operator-portal.html?monopoly_success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/operator-portal.html`
+      };
+    } else {
+      return res.status(400).json({ error: 'Invalid checkout type. Expected escrow_deposit, wallet_topup, featured_partner, or metro_monopoly' });
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
+
+    res.json({
+      success: true,
+      checkout_url: session.url,
+      session_id: session.id,
+      mode: process.env.STRIPE_SECRET_KEY.startsWith('sk_live_') ? 'live' : 'test'
+    });
+  } catch (err) {
+    console.error('❌ [Stripe Checkout Session Error]:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 3. Instant Session Verification (Handles Redirection from Stripe)
+app.get('/api/stripe/verify-session', async (req, res) => {
+  try {
+    const sessionId = req.query.session_id;
+    if (!sessionId) return res.status(400).json({ error: 'Missing session_id' });
+
+    if (sessionId.startsWith('demo_')) {
+      return res.json({
+        verified: true,
+        simulated: true,
+        payment_status: 'paid',
+        message: 'Demo session verified successfully.'
+      });
+    }
+
+    if (!stripe) {
+      return res.status(500).json({ error: 'Stripe is not configured on this server.' });
+    }
+
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const isPaid = session.payment_status === 'paid' || session.status === 'complete';
+
+    if (isPaid && session.metadata) {
+      const meta = session.metadata;
+      if (meta.type === 'escrow_deposit') {
+        const bookings = readDataFile('bookings.json', []);
+        const b = bookings.find(item => item.booking_id === meta.booking_id);
+        if (b && b.escrow_status !== 'FUNDS_HELD_IN_ESCROW') {
+          b.escrow_status = 'FUNDS_HELD_IN_ESCROW';
+          b.stripe_session_id = sessionId;
+          b.stripe_payment_status = 'paid';
+          writeDataFile('bookings.json', bookings);
+        }
+      } else if (meta.type === 'wallet_topup') {
+        const wallets = getWalletsData();
+        const opId = meta.operator_id || 'vend_atl_01';
+        const topupAmount = parseFloat(meta.topup_amount) || 250;
+        const bonusAmount = parseFloat(meta.bonus_amount) || 0;
+        const totalCred = topupAmount + bonusAmount;
+        if (wallets[opId]) {
+          const alreadyCredited = (wallets[opId].transactions || []).some(t => t.stripe_session_id === sessionId);
+          if (!alreadyCredited) {
+            wallets[opId].balance = (wallets[opId].balance || 0) + totalCred;
+            wallets[opId].transactions.unshift({
+              id: 'tx_' + Date.now(),
+              stripe_session_id: sessionId,
+              date: new Date().toISOString(),
+              type: 'WALLET_RELOAD_STRIPE',
+              amount: totalCred,
+              description: `Stripe Checkout Reload ($${topupAmount} + $${bonusAmount} Bonus)`
+            });
+            saveWalletsData(wallets);
+          }
+        }
+      } else if (meta.type === 'metro_monopoly' || meta.type === 'featured_partner') {
+        const wallets = getWalletsData();
+        const opId = meta.operator_id || 'vend_atl_01';
+        if (wallets[opId]) {
+          wallets[opId].subscription_active = true;
+          if (meta.type === 'metro_monopoly') {
+            wallets[opId].monopoly_active = true;
+            wallets[opId].monopoly_metro = meta.metro_slug || 'atlanta-ga';
+          }
+          saveWalletsData(wallets);
+        }
+      }
+    }
+
+    res.json({
+      verified: isPaid,
+      payment_status: session.payment_status,
+      customer_email: session.customer_details?.email,
+      amount_total: session.amount_total ? (session.amount_total / 100) : null,
+      metadata: session.metadata
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 4. Official Stripe Webhook Handler
+app.post('/api/stripe/webhook', async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  let event;
+  try {
+    if (webhookSecret && sig && stripe) {
+      event = stripe.webhooks.constructEvent(req.rawBody || JSON.stringify(req.body), sig, webhookSecret);
+    } else {
+      event = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    }
+  } catch (err) {
+    console.error('⚠️ [Stripe Webhook Signature Error]:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  if (event && event.type === 'checkout.session.completed') {
+    const session = event.data?.object;
+    console.log(`✅ [Stripe Webhook] Checkout completed for session: ${session?.id}`);
+  }
+
+  res.json({ received: true });
+});
+
 // --- VECTOR 1: 15% CONCIERGE ESCROW BOOKING DEPOSIT CAPTURE ($300 - $1,500/booking) ---
-app.post('/api/bookings/deposit', (req, res) => {
+app.post('/api/bookings/deposit', async (req, res) => {
   try {
     const idempotencyKey = req.headers['idempotency-key'] || req.headers['x-idempotency-key'] || req.body.idempotency_key;
     let bookings = readDataFile('bookings.json', []);
@@ -1441,6 +1804,51 @@ app.post('/api/bookings/deposit', (req, res) => {
       reference: bookingId
     });
 
+    let checkoutUrl = null;
+    if (stripe) {
+      try {
+        let origin = 'https://www.reliantverified.com';
+        if (req.headers.origin) origin = req.headers.origin;
+        else if (req.headers.referer) origin = new URL(req.headers.referer).origin;
+
+        const nicheTitle = (targetNiche || 'Equipment').replace(/_/g, ' ').toUpperCase();
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ['card'],
+          mode: 'payment',
+          customer_email: customer_email || undefined,
+          line_items: [{
+            price_data: {
+              currency: 'usd',
+              unit_amount: Math.round(depositPaid * 100),
+              product_data: {
+                name: `15% Escrow Deposit - ${nicheTitle} (${city || 'Metro'}, ${state || 'US'})`,
+                description: `Ref: ${bookingId}. Locked dispatch with ${assignedVendor.name}. Remaining balance payable upon on-site walkthrough.`
+              }
+            },
+            quantity: 1
+          }],
+          metadata: {
+            type: 'escrow_deposit',
+            booking_id: bookingId,
+            lead_code: newBooking.lead_code,
+            niche_id: targetNiche,
+            customer_name: customer_name || '',
+            customer_email: customer_email || '',
+            customer_phone: customer_phone || '',
+            deposit_amount: depositPaid,
+            total_contract: totalEst
+          },
+          success_url: `${origin}/receipt/${bookingId}?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${origin}/`
+        });
+        checkoutUrl = session.url;
+        newBooking.stripe_session_id = session.id;
+        writeDataFile('bookings.json', bookings.slice(0, 100));
+      } catch (stripeErr) {
+        console.warn('⚠️ [Stripe] Could not generate session for booking:', stripeErr.message);
+      }
+    }
+
     res.json({
       success: true,
       booking_id: bookingId,
@@ -1449,6 +1857,7 @@ app.post('/api/bookings/deposit', (req, res) => {
       balance_due_on_site: balanceDue,
       total_contract: totalEst,
       assigned_vendor: assignedVendor,
+      checkout_url: checkoutUrl,
       escrow_receipt_url: `https://www.reliantverified.com/receipt/${bookingId}`,
       message: `Equipment availability locked! 15% deposit ($${depositPaid.toLocaleString()}) secured in escrow. Remaining balance of $${balanceDue.toLocaleString()} is payable upon on-site delivery and walkthrough.`
     });

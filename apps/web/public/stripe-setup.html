@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe Integration Assistant | Reliant Verified</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Top Navigation -->
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-serif-title font-bold text-lg shadow-sm">
+          R
+        </div>
+        <div>
+          <span class="font-serif-title font-bold text-lg text-white block leading-tight">Reliant Verified</span>
+          <span class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase">Stripe Checkout Engine</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3">
+        <span id="header-status-pill" class="text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5 bg-slate-800 text-slate-400 border border-slate-700">
+          <span class="w-2 h-2 rounded-full bg-slate-500 animate-pulse"></span>
+          <span>Checking Status...</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Assistant Body -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full space-y-8">
+    
+    <!-- Hero / Status Banner -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+      <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div>
+          <span class="text-amber-400 text-xs font-mono font-bold uppercase tracking-widest block mb-1">Zero-Friction Payment Setup</span>
+          <h1 class="text-3xl sm:text-4xl font-serif-title font-bold text-white">Stripe Checkout Integration</h1>
+          <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+            Reliant Verified uses dynamic on-the-fly checkout sessions. You do not need to create products, prices, or SKUs in your Stripe Dashboard.
+          </p>
+        </div>
+        <button onclick="checkStatus()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-700 flex items-center gap-2 transition-all cursor-pointer">
+          <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh Status
+        </button>
+      </div>
+
+      <!-- Live Connection Card -->
+      <div id="status-card" class="mt-8 bg-slate-950/80 border border-slate-800 rounded-2xl p-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Connection Telemetry</span>
+          <span id="telemetry-badge" class="text-xs font-mono font-bold text-amber-400">CONNECTING...</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          <div>
+            <span class="text-slate-500 block">Stripe Engine</span>
+            <span id="conn-engine" class="font-bold text-white text-sm">stripe@22.6.1 Installed</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Operating Mode</span>
+            <span id="conn-mode" class="font-bold text-slate-300 text-sm">Detecting...</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Connected Account</span>
+            <span id="conn-account" class="font-bold text-slate-300 text-sm">Detecting...</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Publishable Key</span>
+            <span id="conn-pubkey" class="font-mono text-slate-400 text-xs">Detecting...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-Step Simple Setup Guide -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Step 1 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 relative">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm mb-4">1</div>
+        <h3 class="font-bold text-white text-base">Get Your Stripe Keys</h3>
+        <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+          Open your Stripe dashboard and copy your secret key (<code class="text-amber-400">sk_test_...</code> or <code class="text-emerald-400">sk_live_...</code>).
+        </p>
+        <div class="mt-4">
+          <a href="https://dashboard.stripe.com/test/apikeys" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 bg-amber-500/10 px-3 py-2 rounded-lg border border-amber-500/20">
+            <span>Stripe Dashboard</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 relative">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm mb-4">2</div>
+        <h3 class="font-bold text-white text-base">Add to .env or Vercel</h3>
+        <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+          Paste the keys into your local <code class="text-slate-200">.env</code> file or into your Vercel Project Settings under Environment Variables.
+        </p>
+        <button onclick="copyEnvTemplate()" class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white bg-slate-800 px-3 py-2 rounded-lg border border-slate-700 cursor-pointer">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span id="copy-btn-label">Copy .env Snippet</span>
+        </button>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 relative">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm mb-4">3</div>
+        <h3 class="font-bold text-white text-base">Test &amp; Go Live</h3>
+        <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+          Test any transaction below or run <code class="text-slate-200">node scripts/setup-stripe.js</code> in your terminal.
+        </p>
+        <div class="mt-4">
+          <button onclick="checkStatus()" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 cursor-pointer">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+            <span>Test Connection</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Test Sandbox -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+        <div>
+          <h2 class="text-xl font-serif-title font-bold text-white">Live Checkout Sandbox</h2>
+          <p class="text-xs text-slate-400 mt-1">Test all 4 revenue streams directly. In Demo Mode, a simulated receipt opens. Once keys are configured, real Stripe Checkout launches.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Test Escrow Deposit -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="text-amber-400 text-[10px] font-mono font-bold uppercase tracking-wider block">Vector 1: Direct Clients</span>
+            <h4 class="font-bold text-white text-sm mt-1">15% Escrow Deposit</h4>
+            <div class="text-2xl font-bold text-white mt-2">$525<span class="text-xs text-slate-500 font-normal"> / booking</span></div>
+            <p class="text-xs text-slate-400 mt-2">Equipment reservation lock for $3,500 rental contract.</p>
+          </div>
+          <button onclick="launchCheckout('escrow_deposit')" class="mt-5 w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer">
+            <i data-lucide="credit-card" class="w-4 h-4"></i> Test Deposit ($525)
+          </button>
+        </div>
+
+        <!-- Test Wallet Top-up -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="text-blue-400 text-[10px] font-mono font-bold uppercase tracking-wider block">Vector 2: Fleet Operators</span>
+            <h4 class="font-bold text-white text-sm mt-1">Operator Wallet Reload</h4>
+            <div class="text-2xl font-bold text-white mt-2">$250<span class="text-xs text-slate-500 font-normal"> / refill</span></div>
+            <p class="text-xs text-slate-400 mt-2">Prepaid balance top-up for unlocking qualified RFQ leads ($85/lead).</p>
+          </div>
+          <button onclick="launchCheckout('wallet_topup')" class="mt-5 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer">
+            <i data-lucide="wallet" class="w-4 h-4"></i> Test Top-Up ($250)
+          </button>
+        </div>
+
+        <!-- Test Featured Partner -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="text-emerald-400 text-[10px] font-mono font-bold uppercase tracking-wider block">Vector 3: Subscriptions</span>
+            <h4 class="font-bold text-white text-sm mt-1">Featured Fleet Profile</h4>
+            <div class="text-2xl font-bold text-white mt-2">$99<span class="text-xs text-slate-500 font-normal"> / month</span></div>
+            <p class="text-xs text-slate-400 mt-2">3x Priority placement, verified trust shield, and direct contact buttons.</p>
+          </div>
+          <button onclick="launchCheckout('featured_partner')" class="mt-5 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer">
+            <i data-lucide="shield-check" class="w-4 h-4"></i> Test Claim ($99/mo)
+          </button>
+        </div>
+
+        <!-- Test Metro Monopoly -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="text-purple-400 text-[10px] font-mono font-bold uppercase tracking-wider block">Vector 4: Monopolies</span>
+            <h4 class="font-bold text-white text-sm mt-1">Exclusive Category Takeover</h4>
+            <div class="text-2xl font-bold text-white mt-2">$299<span class="text-xs text-slate-500 font-normal"> / month</span></div>
+            <p class="text-xs text-slate-400 mt-2">100% Exclusive top banner takeover &amp; rival lockout in target metro.</p>
+          </div>
+          <button onclick="launchCheckout('metro_monopoly')" class="mt-5 w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer">
+            <i data-lucide="crown" class="w-4 h-4"></i> Test Monopoly ($299/mo)
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 text-slate-600 text-xs py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>Reliant Verified Commercial Directory &amp; Escrow Infrastructure</span>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-slate-400">Directory Homepage</a>
+        <a href="/operator-portal.html" class="hover:text-slate-400">Operator Portal</a>
+        <a href="/terms.html" class="hover:text-slate-400">Terms</a>
+        <a href="/refund-policy.html" class="hover:text-slate-400">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function checkStatus() {
+      try {
+        const res = await fetch('/api/stripe/status');
+        const data = await res.json();
+        
+        const pill = document.getElementById('header-status-pill');
+        const badge = document.getElementById('telemetry-badge');
+        const modeEl = document.getElementById('conn-mode');
+        const accEl = document.getElementById('conn-account');
+        const pubEl = document.getElementById('conn-pubkey');
+
+        if (data.configured) {
+          const isLive = data.mode === 'live';
+          pill.className = isLive 
+            ? 'text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+            : 'text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/30';
+          pill.innerHTML = `<span class="w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400' : 'bg-amber-400'} animate-pulse"></span><span>Stripe Connected (${isLive ? 'LIVE' : 'TEST'})</span>`;
+          
+          badge.textContent = isLive ? 'LIVE PRODUCTION READY' : 'TEST SANDBOX ACTIVE';
+          badge.className = isLive ? 'text-xs font-mono font-bold text-emerald-400' : 'text-xs font-mono font-bold text-amber-400';
+          modeEl.textContent = isLive ? 'Live (Real Charges)' : 'Test Mode (Sandbox)';
+          accEl.textContent = (data.account && data.account.business_profile) || data.account?.id || 'Connected';
+          pubEl.textContent = data.publishable_key || 'Available in .env';
+        } else {
+          pill.className = 'text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1.5 bg-amber-500/10 text-amber-300 border border-amber-500/20';
+          pill.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span><span>Demo Mode (Awaiting API Key)</span>';
+          badge.textContent = 'DEMO / SIMULATION MODE';
+          badge.className = 'text-xs font-mono font-bold text-amber-400';
+          modeEl.textContent = 'Simulation Mode';
+          accEl.textContent = 'Add STRIPE_SECRET_KEY';
+          pubEl.textContent = 'Not configured';
+        }
+        try { lucide.createIcons(); } catch(e){}
+      } catch (err) {
+        console.error('Status check error:', err);
+      }
+    }
+
+    async function launchCheckout(type) {
+      try {
+        const payload = {
+          type,
+          amount: type === 'escrow_deposit' ? 525 : (type === 'wallet_topup' ? 250 : undefined),
+          niche_id: 'luxury_restrooms',
+          city: 'Atlanta',
+          state: 'GA',
+          customer_name: 'Test Customer',
+          customer_email: 'test@reliant-network.com',
+          operator_id: 'vend_atl_01',
+          metro_slug: 'atlanta-ga'
+        };
+
+        const res = await fetch('/api/stripe/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.checkout_url) {
+          window.open(data.checkout_url, '_blank');
+        } else {
+          alert('Could not generate checkout session: ' + (data.error || 'Unknown error'));
+        }
+      } catch (err) {
+        alert('Checkout error: ' + err.message);
+      }
+    }
+
+    function copyEnvTemplate() {
+      const snippet = `STRIPE_SECRET_KEY=sk_test_your_secret_key_here\nSTRIPE_PUBLISHABLE_KEY=pk_test_your_publishable_key_here`;
+      navigator.clipboard.writeText(snippet);
+      const btn = document.getElementById('copy-btn-label');
+      btn.textContent = 'Copied to Clipboard!';
+      setTimeout(() => { btn.textContent = 'Copy .env Snippet'; }, 2000);
+    }
+
+    window.addEventListener('DOMContentLoaded', checkStatus);
+  </script>
+</body>
+</html>

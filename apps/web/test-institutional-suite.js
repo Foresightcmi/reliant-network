@@ -417,6 +417,49 @@ async function runTests() {
       if (urlCount < 350) throw new Error(`Expected at least 350 URLs in sitemap, got ${urlCount}`);
     });
 
+    // 20. Stripe Frictionless Checkout & Verification Suite
+    await assert('GET /api/stripe/status returns valid Stripe engine telemetry', async () => {
+      const res = await request('/api/stripe/status');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (typeof data.configured !== 'boolean') throw new Error('Missing configured boolean');
+      if (!Array.isArray(data.supported_checkout_types)) throw new Error('Missing supported_checkout_types');
+      if (data.supported_checkout_types.length !== 4) throw new Error('Expected 4 supported checkout types');
+    });
+
+    await assert('POST /api/stripe/create-checkout-session creates dynamic session or demo fallback', async () => {
+      const res = await request('/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'escrow_deposit',
+          amount: 525,
+          niche_id: 'temporary_power',
+          city: 'Atlanta',
+          state: 'GA',
+          customer_name: 'Stripe Test Corp'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.success) throw new Error('Failed to create session');
+      if (!data.checkout_url) throw new Error('Missing checkout_url');
+    });
+
+    await assert('GET /api/stripe/verify-session validates payment verification flow', async () => {
+      const res = await request('/api/stripe/verify-session?session_id=demo_session_test_999');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.verified) throw new Error('Expected verified: true for demo verification');
+    });
+
+    await assert('GET /stripe-setup serves graphical setup assistant with 200 OK', async () => {
+      const res = await request('/stripe-setup');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Stripe Checkout Integration')) throw new Error('Missing Stripe setup title');
+      if (!res.body.includes('Live Checkout Sandbox')) throw new Error('Missing sandbox title');
+    });
+
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);
     server.close();
     process.exit(failed > 0 ? 1 : 0);
