@@ -162,7 +162,7 @@
       </h1>
       
       <p id="hero-desc" class="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        Connect directly with independently audited specialists across 5 core verticals — from certified 65+ aging-in-place modifications to mobile cold storage and luxury restroom trailers. Zero broker markups, upfront pricing.
+        Connect directly with independently audited specialists across 9 core verticals — from commercial mobile generators and precision millwright rigging to certified 65+ aging-in-place remodeling and wheelchair mobility fleets. Zero broker markups, upfront pricing.
       </p>
 
       <!-- UNIVERSAL SEARCH & FILTER BAR -->
@@ -174,12 +174,20 @@
             <span>Service Specialty</span>
           </label>
           <select id="hero-niche-select" onchange="onHeroNicheChange(this.value)" class="w-full bg-slate-50 border border-slate-200 text-slate-900 font-semibold rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:bg-white focus:border-amber-500 cursor-pointer">
-            <option value="all">All Specialties (Overview)</option>
-            <option value="aging_in_place">🏡 65+ Staying in Place (Home Mods)</option>
-            <option value="luxury_restrooms">🚻 VIP Restroom Trailers (Events)</option>
-            <option value="commercial_cold_storage">❄️ Commercial Cold Storage (Reefers)</option>
-            <option value="heavy_crane_rigging">🏗️ Heavy Cranes &amp; Rigging</option>
-            <option value="senior_care_placement">🏥 Senior Living Placement</option>
+            <option value="all">All 9 Specialties (Overview)</option>
+            <optgroup label="Commercial &amp; Industrial Fleets">
+              <option value="luxury_restrooms">🚻 VIP Restroom Trailers (Events &amp; Weddings)</option>
+              <option value="commercial_cold_storage">❄️ Commercial Cold Storage &amp; Reefers</option>
+              <option value="heavy_crane_rigging">🏗️ Heavy Cranes &amp; Industrial Rigging</option>
+              <option value="temporary_power">⚡ Industrial Temporary Power (250kW–2MW)</option>
+              <option value="machinery_moving">⚙️ Heavy Machinery Moving &amp; Millwright</option>
+            </optgroup>
+            <optgroup label="Senior &amp; Healthcare Infrastructure">
+              <option value="aging_in_place">🏡 65+ Staying in Place (Home Remodeling)</option>
+              <option value="senior_care_placement">🏥 Senior Living &amp; Memory Care Placement</option>
+              <option value="senior_downsizing">📦 Turnkey Senior Estate Downsizing</option>
+              <option value="wheelchair_vans">🚐 Wheelchair Accessible Vans (WAV)</option>
+            </optgroup>
           </select>
         </div>
 
@@ -232,123 +240,249 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Specialty Directory Verticals</span>
-        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Explore Our 5 Rigorously Vetted Industry Sectors</h2>
+        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Explore Our 9 Rigorously Vetted Industry Sectors</h2>
         <p class="text-slate-600 text-sm mt-2">Every provider is independently verified for liability insurance, certifications, and compliance before appearing in our directory.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <!-- 1. 65+ Staying in Place -->
-        <div onclick="selectNicheCard('aging_in_place')" class="group cursor-pointer bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-emerald-100/70 border border-emerald-300 flex items-center justify-center text-emerald-700 mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="home" class="w-6 h-6"></i>
+      <!-- PILLAR 1: COMMERCIAL & INDUSTRIAL FLEETS -->
+      <div class="mb-10">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Division I: Commercial &amp; Industrial Fleets</h3>
+          <span class="text-[11px] text-slate-400 font-medium ml-auto">5 Vetted Industrial Fleets</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <!-- 1. VIP Restroom Trailers -->
+          <div onclick="selectNicheCard('luxury_restrooms')" class="group cursor-pointer bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-100/70 border border-amber-300 flex items-center justify-center text-amber-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-amber-800 uppercase tracking-wider bg-amber-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Weddings &amp; Galas</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-amber-800 transition-colors">VIP Restroom Trailers</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                2–10 stall luxury mobile restrooms featuring flushing porcelain toilets, climate A/C, hot water &amp; granite vanities.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Flushing Porcelain</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Climate A/C</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">ADA Certified</span>
+              </div>
             </div>
-            <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider bg-emerald-100/60 px-2 py-0.5 rounded-md inline-block mb-2">CAPS Certified</span>
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">65+ Staying in Place</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Aging-in-place remodeling: roll-in barrier-free showers, stairlifts, wheelchair ramps &amp; home safety modifications.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1">
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Roll-In Showers</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Stairlifts</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Ramps</span>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-800">
+              <span>Browse Fleets</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
             </div>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-emerald-700 group-hover:text-emerald-800">
-            <span>Browse Specialists</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+
+          <!-- 2. Commercial Cold Storage -->
+          <div onclick="selectNicheCard('commercial_cold_storage')" class="group cursor-pointer bg-slate-50 hover:bg-cyan-50/50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cyan-100/70 border border-cyan-300 flex items-center justify-center text-cyan-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="snowflake" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-cyan-800 uppercase tracking-wider bg-cyan-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Emergency 24/7</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-cyan-800 transition-colors">Cold Storage &amp; Reefers</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Mobile walk-in refrigeration and -20°F deep-freeze trailers for restaurants, distributors &amp; cold chain logistics.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">-20°F Deep Freeze</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Walk-In Coolers</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">FSMA Compliant</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-cyan-700 group-hover:text-cyan-800">
+              <a href="/cold-storage" class="hover:underline flex items-center justify-between w-full">
+                <span>View Cold Storage Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. Heavy Cranes & Rigging -->
+          <div onclick="selectNicheCard('heavy_crane_rigging')" class="group cursor-pointer bg-slate-50 hover:bg-orange-50/50 border border-slate-200 hover:border-orange-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-orange-100/70 border border-orange-300 flex items-center justify-center text-orange-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="truck" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-orange-800 uppercase tracking-wider bg-orange-100/60 px-2 py-0.5 rounded-md inline-block mb-2">NCCCO Certified</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-orange-800 transition-colors">Heavy Cranes &amp; Rigging</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                40–500 ton all-terrain mobile cranes with certified rigging crews for critical industrial, HVAC, and steel erection lifts.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">40-500 Ton</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Rigging Crews</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">HVAC Lifts</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-orange-700 group-hover:text-orange-800">
+              <a href="/cranes" class="hover:underline flex items-center justify-between w-full">
+                <span>View Crane Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 4. Industrial Temporary Power -->
+          <div onclick="selectNicheCard('temporary_power')" class="group cursor-pointer bg-slate-50 hover:bg-yellow-50/50 border border-slate-200 hover:border-yellow-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-yellow-100/70 border border-yellow-300 flex items-center justify-center text-yellow-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-yellow-800 uppercase tracking-wider bg-yellow-100/60 px-2 py-0.5 rounded-md inline-block mb-2">250 kW – 2MW Ready</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-yellow-800 transition-colors">Industrial Temporary Power</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Utility-grade sound-attenuated diesel &amp; gas generators, step-up transformers &amp; switchgear for plant turnarounds &amp; disaster recovery.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">250kW - 2MW</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Tier 4 Final</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Zero Downtime</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-yellow-700 group-hover:text-yellow-800">
+              <a href="/power" class="hover:underline flex items-center justify-between w-full">
+                <span>View Power Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 5. Machinery Moving & Millwright -->
+          <div onclick="selectNicheCard('machinery_moving')" class="group cursor-pointer bg-slate-50 hover:bg-orange-50/50 border border-slate-200 hover:border-orange-500 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-orange-100/70 border border-orange-300 flex items-center justify-center text-orange-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="wrench" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-orange-800 uppercase tracking-wider bg-orange-100/60 px-2 py-0.5 rounded-md inline-block mb-2">SC&amp;RA Certified</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-orange-800 transition-colors">Machinery Moving &amp; Rigging</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Precision millwright relocation for CNC, stamping presses &amp; cleanroom manufacturing using Versa-Lifts &amp; 500-ton hydraulic gantries.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">500T Gantries</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Versa-Lift 60/80</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Laser Alignment</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-orange-700 group-hover:text-orange-800">
+              <a href="/machinery-moving" class="hover:underline flex items-center justify-between w-full">
+                <span>View Rigging Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- 2. VIP Restroom Trailers -->
-        <div onclick="selectNicheCard('luxury_restrooms')" class="group cursor-pointer bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-100/70 border border-amber-300 flex items-center justify-center text-amber-700 mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="sparkles" class="w-6 h-6"></i>
-            </div>
-            <span class="text-[10px] font-bold text-amber-800 uppercase tracking-wider bg-amber-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Weddings &amp; Galas</span>
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-amber-800 transition-colors">VIP Restroom Trailers</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              2–10 stall luxury mobile restrooms featuring flushing porcelain toilets, climate A/C, hot water &amp; granite vanities.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1">
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Flushing Porcelain</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Climate A/C</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">ADA Certified</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-800">
-            <span>Browse Fleets</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-          </div>
+      <!-- PILLAR 2: SENIOR & HEALTHCARE INFRASTRUCTURE -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Division II: Senior &amp; Healthcare Infrastructure</h3>
+          <span class="text-[11px] text-slate-400 font-medium ml-auto">4 Specialized Senior Verticals</span>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- 6. 65+ Staying in Place -->
+          <div onclick="selectNicheCard('aging_in_place')" class="group cursor-pointer bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-100/70 border border-emerald-300 flex items-center justify-center text-emerald-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider bg-emerald-100/60 px-2 py-0.5 rounded-md inline-block mb-2">CAPS Certified</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">65+ Staying in Place</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Aging-in-place remodeling: roll-in barrier-free showers, stairlifts, wheelchair ramps &amp; home safety modifications.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Roll-In Showers</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Stairlifts</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Ramps</span>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-emerald-700 group-hover:text-emerald-800">
+              <a href="/staying-in-place" class="hover:underline flex items-center justify-between w-full">
+                <span>View Accessibility Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
 
-        <!-- 3. Commercial Cold Storage -->
-        <div onclick="selectNicheCard('commercial_cold_storage')" class="group cursor-pointer bg-slate-50 hover:bg-cyan-50/50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-cyan-100/70 border border-cyan-300 flex items-center justify-center text-cyan-700 mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="snowflake" class="w-6 h-6"></i>
+          <!-- 7. Senior Living Placement -->
+          <div onclick="selectNicheCard('senior_care_placement')" class="group cursor-pointer bg-slate-50 hover:bg-rose-50/50 border border-slate-200 hover:border-rose-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-rose-100/70 border border-rose-300 flex items-center justify-center text-rose-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-rose-800 uppercase tracking-wider bg-rose-100/60 px-2 py-0.5 rounded-md inline-block mb-2">100% Free Advisory</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-rose-800 transition-colors">Senior Living Placement</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Personalized local guidance for assisted living, memory care &amp; residential retirement communities.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Assisted Living</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Memory Care</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">No Fee</span>
+              </div>
             </div>
-            <span class="text-[10px] font-bold text-cyan-800 uppercase tracking-wider bg-cyan-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Emergency 24/7</span>
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-cyan-800 transition-colors">Cold Storage &amp; Reefers</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Mobile walk-in refrigeration and -20°F deep-freeze trailers for restaurants, food distributors &amp; seasonal overflow.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1">
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">-20°F Deep Freeze</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Walk-In Coolers</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">FSMA Compliant</span>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-rose-700 group-hover:text-rose-800">
+              <a href="/senior-care" class="hover:underline flex items-center justify-between w-full">
+                <span>View Placement Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
             </div>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-cyan-700 group-hover:text-cyan-800">
-            <span>Browse Storage Units</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-          </div>
-        </div>
 
-        <!-- 4. Heavy Cranes & Rigging -->
-        <div onclick="selectNicheCard('heavy_crane_rigging')" class="group cursor-pointer bg-slate-50 hover:bg-orange-50/50 border border-slate-200 hover:border-orange-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-orange-100/70 border border-orange-300 flex items-center justify-center text-orange-700 mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="truck" class="w-6 h-6"></i>
+          <!-- 8. Turnkey Senior Estate Downsizing -->
+          <div onclick="selectNicheCard('senior_downsizing')" class="group cursor-pointer bg-slate-50 hover:bg-teal-50/50 border border-slate-200 hover:border-teal-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-teal-100/70 border border-teal-300 flex items-center justify-center text-teal-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="package" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-teal-800 uppercase tracking-wider bg-teal-100/60 px-2 py-0.5 rounded-md inline-block mb-2">NASMM Accredited</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-teal-800 transition-colors">Turnkey Senior Downsizing</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Full-service transition management: whole-home decluttering, cataloged online estate auctions (65-75% recovery), and turnkey relocation.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Estate Liquidation</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Move Management</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Resale Prep</span>
+              </div>
             </div>
-            <span class="text-[10px] font-bold text-orange-800 uppercase tracking-wider bg-orange-100/60 px-2 py-0.5 rounded-md inline-block mb-2">NCCCO Certified</span>
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-orange-800 transition-colors">Heavy Cranes &amp; Rigging</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              40–500 ton all-terrain mobile cranes with certified rigging crews for critical industrial, HVAC, and steel erection lifts.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1">
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">40-500 Ton</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Rigging Crews</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">HVAC Lifts</span>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-teal-700 group-hover:text-teal-800">
+              <a href="/senior-downsizing" class="hover:underline flex items-center justify-between w-full">
+                <span>View Downsizing Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
             </div>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-orange-700 group-hover:text-orange-800">
-            <span>Browse Crane Fleets</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-          </div>
-        </div>
 
-        <!-- 5. Senior Living Placement -->
-        <div onclick="selectNicheCard('senior_care_placement')" class="group cursor-pointer bg-slate-50 hover:bg-rose-50/50 border border-slate-200 hover:border-rose-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-rose-100/70 border border-rose-300 flex items-center justify-center text-rose-700 mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="heart" class="w-6 h-6"></i>
+          <!-- 9. Wheelchair Accessible Vans (WAV) -->
+          <div onclick="selectNicheCard('wheelchair_vans')" class="group cursor-pointer bg-slate-50 hover:bg-indigo-50/50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-indigo-100/70 border border-indigo-300 flex items-center justify-center text-indigo-700 mb-4 group-hover:scale-110 transition-transform">
+                <i data-lucide="car" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-bold text-indigo-800 uppercase tracking-wider bg-indigo-100/60 px-2 py-0.5 rounded-md inline-block mb-2">NMEDA QAP Certified</span>
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-indigo-800 transition-colors">Wheelchair Accessible Vans</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Side- and rear-entry wheelchair accessible minivans, full-size handicap transit vans &amp; commercial non-emergency medical transit fleets.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">BraunAbility / VMI</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Short/Long Rental</span>
+                <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Q'Straint Retractors</span>
+              </div>
             </div>
-            <span class="text-[10px] font-bold text-rose-800 uppercase tracking-wider bg-rose-100/60 px-2 py-0.5 rounded-md inline-block mb-2">100% Free Advisory</span>
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-rose-800 transition-colors">Senior Living Placement</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Personalized local guidance for assisted living, memory care &amp; residential retirement communities.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1">
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Assisted Living</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Memory Care</span>
-              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">No Fee</span>
+            <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-indigo-700 group-hover:text-indigo-800">
+              <a href="/wheelchair-vans" class="hover:underline flex items-center justify-between w-full">
+                <span>View Mobility Hub</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
             </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-rose-700 group-hover:text-rose-800">
-            <span>Browse Advisors</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
           </div>
         </div>
       </div>
@@ -434,10 +568,6 @@
       <button onclick="switchNiche('all')" id="niche-tab-all" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm whitespace-nowrap">
         All Specialties
       </button>
-      <button onclick="switchNiche('aging_in_place')" id="niche-tab-aging_in_place" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
-        <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
-        <span>65+ Staying in Place</span>
-      </button>
       <button onclick="switchNiche('luxury_restrooms')" id="niche-tab-luxury_restrooms" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
         <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
         <span>VIP Restrooms</span>
@@ -450,9 +580,29 @@
         <i data-lucide="truck" class="w-3.5 h-3.5 text-orange-600"></i>
         <span>Heavy Cranes</span>
       </button>
+      <button onclick="switchNiche('temporary_power')" id="niche-tab-temporary_power" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-yellow-600"></i>
+        <span>Temporary Power</span>
+      </button>
+      <button onclick="switchNiche('machinery_moving')" id="niche-tab-machinery_moving" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="wrench" class="w-3.5 h-3.5 text-orange-600"></i>
+        <span>Machinery Moving</span>
+      </button>
+      <button onclick="switchNiche('aging_in_place')" id="niche-tab-aging_in_place" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
+        <span>65+ Staying in Place</span>
+      </button>
       <button onclick="switchNiche('senior_care_placement')" id="niche-tab-senior_care_placement" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
         <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-600"></i>
         <span>Senior Living</span>
+      </button>
+      <button onclick="switchNiche('senior_downsizing')" id="niche-tab-senior_downsizing" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="package" class="w-3.5 h-3.5 text-teal-600"></i>
+        <span>Senior Downsizing</span>
+      </button>
+      <button onclick="switchNiche('wheelchair_vans')" id="niche-tab-wheelchair_vans" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="car" class="w-3.5 h-3.5 text-indigo-600"></i>
+        <span>Wheelchair Vans</span>
       </button>
     </div>
 
@@ -894,7 +1044,7 @@
         </span>
         <h2 class="text-3xl sm:text-4xl font-serif-title font-bold text-slate-900">Service Coverage &amp; Dispatch Depot Network</h2>
         <p class="text-slate-600 text-sm mt-2">
-          Browse certified staging yards, commercial equipment depots, and verified 75-mile service radiuses for 146 vetted operators across all 50 US states &amp; metropolitan regions.
+          Browse certified staging yards, commercial equipment depots, and verified 75-mile service radiuses for 214 vetted operators across all 50 US states &amp; metropolitan regions.
         </p>
       </div>
 
@@ -907,32 +1057,52 @@
             <div class="flex flex-wrap gap-1.5" id="depot-map-filters">
               <button onclick="filterDepotMap('all')" id="depot-filter-all" class="depot-filter-btn active bg-slate-900 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5">
                 <span>All Specialties</span>
-                <span class="bg-white/20 text-white px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-all">146</span>
-              </button>
-              <button onclick="filterDepotMap('aging_in_place')" id="depot-filter-aging_in_place" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Aging in Place</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-aip">24</span>
+                <span class="bg-white/20 text-white px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-all">214</span>
               </button>
               <button onclick="filterDepotMap('luxury_restrooms')" id="depot-filter-luxury_restrooms" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                 <span>VIP Restrooms</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-restrooms">51</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-restrooms">61</span>
               </button>
               <button onclick="filterDepotMap('cold_storage')" id="depot-filter-cold_storage" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
                 <span>Cold Storage</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cold">24</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cold">32</span>
               </button>
               <button onclick="filterDepotMap('crane_rigging')" id="depot-filter-crane_rigging" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-orange-500"></span>
                 <span>Mobile Cranes</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cranes">24</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cranes">31</span>
+              </button>
+              <button onclick="filterDepotMap('temporary_power')" id="depot-filter-temporary_power" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                <span>Temporary Power</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-power">17</span>
+              </button>
+              <button onclick="filterDepotMap('machinery_moving')" id="depot-filter-machinery_moving" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-600"></span>
+                <span>Machinery Moving</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-machinery">17</span>
+              </button>
+              <button onclick="filterDepotMap('aging_in_place')" id="depot-filter-aging_in_place" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Aging in Place</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-aip">12</span>
               </button>
               <button onclick="filterDepotMap('senior_care')" id="depot-filter-senior_care" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-purple-500"></span>
                 <span>Senior Placement</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-senior">23</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-senior">10</span>
+              </button>
+              <button onclick="filterDepotMap('senior_downsizing')" id="depot-filter-senior_downsizing" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                <span>Senior Downsizing</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-downsizing">17</span>
+              </button>
+              <button onclick="filterDepotMap('wheelchair_vans')" id="depot-filter-wheelchair_vans" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                <span>Wheelchair Vans</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-vans">17</span>
               </button>
             </div>
           </div>
@@ -1036,7 +1206,7 @@
           <div class="flex items-center gap-4 flex-wrap">
             <span class="flex items-center gap-1.5">
               <span class="w-3 h-3 rounded-full bg-amber-500 shadow-xs inline-block"></span>
-              <strong>146 Verified Fleet Depots:</strong> All 50 US States + DC
+              <strong>214 Verified Fleet Depots:</strong> All 50 US States + DC
             </span>
             <span class="flex items-center gap-1.5">
               <span class="w-3 h-3 rounded-full border border-dashed border-amber-500 bg-amber-100 inline-block"></span>
@@ -1047,10 +1217,10 @@
               <strong>Smart Clusters:</strong> Auto-groups nearby staging yards
             </span>
             <span class="flex items-center gap-1 text-slate-500">
-              <span id="depot-map-status">Showing 146 verified commercial staging depots across all 50 states</span>
+              <span id="depot-map-status">Showing 214 verified commercial staging depots across all 50 states</span>
             </span>
           </div>
-          <span class="text-[11px] font-mono text-slate-400">CARTO High-Performance CDN &bull; Zero Marginal Cost</span>
+          <span class="text-[11px] font-mono text-slate-400">Esri ArcGIS Location Services &bull; Zero Marginal Cost</span>
         </div>
       </div>
 
@@ -1162,9 +1332,19 @@
           <div>
             <label class="block text-xs font-semibold text-slate-700 mb-1">Equipment Category</label>
             <select id="q-niche" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
-              <option value="luxury_restrooms">Luxury Restroom Trailers</option>
-              <option value="commercial_cold_storage">Mobile Cold Storage &amp; Freezers</option>
-              <option value="heavy_crane_rigging">Heavy Crane &amp; Rigging</option>
+              <optgroup label="Commercial &amp; Industrial Fleets">
+                <option value="luxury_restrooms">VIP Restroom Trailers (Events &amp; Weddings)</option>
+                <option value="commercial_cold_storage">Commercial Mobile Cold Storage &amp; Freezers</option>
+                <option value="heavy_crane_rigging">Heavy Crane &amp; Industrial Rigging</option>
+                <option value="temporary_power">Industrial Temporary Power (250kW–2MW Generators)</option>
+                <option value="machinery_moving">Heavy Machinery Moving &amp; Millwright Rigging</option>
+              </optgroup>
+              <optgroup label="Senior &amp; Healthcare Infrastructure">
+                <option value="aging_in_place">65+ Staying in Place (Home Accessibility Mods)</option>
+                <option value="senior_care_placement">Senior Living &amp; Memory Care Placement</option>
+                <option value="senior_downsizing">Turnkey Senior Estate Downsizing &amp; Relocation</option>
+                <option value="wheelchair_vans">Wheelchair Accessible Vans (WAV) &amp; Mobility Fleets</option>
+              </optgroup>
             </select>
           </div>
           <div>
@@ -1906,7 +2086,40 @@
         title: 'Modify Homes for 65+ Independence &amp; <span class="gold-text italic">Staying in Place Safely</span>',
         desc: 'Over 88% of seniors choose to remain at home. Connect with rigorously vetted, CAPS-certified remodeling specialists for barrier-free roll-in showers, stairlifts, walk-in tubs, wheelchair ramps, and certified home safety audits.',
         heading: 'Verified Aging-in-Place Specialists',
-        sub: 'Certified 65+ Home Independence Network'
+        sub: 'Certified 65+ Home Independence Network',
+        aliases: ['aging_in_place', 'staying_in_place']
+      },
+      temporary_power: {
+        badge: 'Verified Industrial Temporary Power &amp; Mobile Generators',
+        title: 'Rent High-Capacity Mobile Generators &amp; <span class="gold-text italic">Emergency Power Fleets</span>',
+        desc: 'Zero downtime guaranteed. Connect directly with pre-audited industrial temporary power operators providing Tier 4 Final diesel and gas mobile generators (250 kW – 2MW), high-voltage switchgear, and emergency 24/7 refueling.',
+        heading: 'Verified Power Generation Fleets',
+        sub: 'Industrial Temporary Power Network',
+        aliases: ['temporary_power', 'power', 'generators']
+      },
+      machinery_moving: {
+        badge: 'Certified Heavy Machinery Moving &amp; Millwright Rigging Fleets',
+        title: 'Contract Precision Millwright Rigging &amp; <span class="gold-text italic">Heavy Machine Relocation</span>',
+        desc: 'Millwright precision for critical factory assets. Access SC&amp;RA-certified industrial machinery movers equipped with Versa-Lift mobile cranes, 500-ton hydraulic gantries, and air-skate cleanroom equipment.',
+        heading: 'Verified Millwright &amp; Rigging Contractors',
+        sub: 'Heavy Industrial Machinery Relocation Network',
+        aliases: ['machinery_moving', 'rigging', 'millwright']
+      },
+      senior_downsizing: {
+        badge: 'Certified Senior Relocation &amp; Estate Transition Specialists',
+        title: 'Turnkey Estate Downsizing &amp; <span class="gold-text italic">Senior Transition Management</span>',
+        desc: 'Compassionate, full-service transitions for older adults. NASMM-accredited specialists managing whole-home decluttering, cataloged online estate liquidation auctions (65-75% net return), packing, and turnkey relocation.',
+        heading: 'Verified Senior Downsizing Specialists',
+        sub: 'Accredited Senior Transition Network',
+        aliases: ['senior_downsizing', 'estate_downsizing', 'downsizing']
+      },
+      wheelchair_vans: {
+        badge: 'Certified Wheelchair Accessible Vehicles (WAV) &amp; Mobility Fleets',
+        title: 'Rent &amp; Purchase Wheelchair Accessible Vans &amp; <span class="gold-text italic">Mobility Fleets</span>',
+        desc: 'Freedom of movement with institutional safety standards. Connect with NMEDA QAP-certified dealers offering side- and rear-entry wheelchair accessible minivans, commercial ADA shuttles, and short- or long-term rentals.',
+        heading: 'Verified WAV &amp; Mobility Fleet Dealers',
+        sub: 'Certified Mobility Vehicle Network',
+        aliases: ['wheelchair_vans', 'wav', 'mobility_vans']
       }
     };
 
@@ -1914,10 +2127,22 @@
     NICHE_METADATA.cold_storage = NICHE_METADATA.commercial_cold_storage;
     NICHE_METADATA.crane_rigging = NICHE_METADATA.heavy_crane_rigging;
     NICHE_METADATA.senior_care = NICHE_METADATA.senior_care_placement;
+    NICHE_METADATA.staying_in_place = NICHE_METADATA.aging_in_place;
+    NICHE_METADATA.power = NICHE_METADATA.temporary_power;
+    NICHE_METADATA.generators = NICHE_METADATA.temporary_power;
+    NICHE_METADATA.rigging = NICHE_METADATA.machinery_moving;
+    NICHE_METADATA.downsizing = NICHE_METADATA.senior_downsizing;
+    NICHE_METADATA.wav = NICHE_METADATA.wheelchair_vans;
+    NICHE_METADATA.mobility = NICHE_METADATA.wheelchair_vans;
 
     function switchNiche(nicheId) {
       activeNiche = nicheId || 'all';
-      const allNiches = ['all', 'aging_in_place', 'luxury_restrooms', 'commercial_cold_storage', 'heavy_crane_rigging', 'senior_care_placement', 'cold_storage', 'crane_rigging', 'senior_care'];
+      const allNiches = [
+        'all', 'luxury_restrooms', 'commercial_cold_storage', 'heavy_crane_rigging', 
+        'temporary_power', 'machinery_moving', 'aging_in_place', 'senior_care_placement', 
+        'senior_downsizing', 'wheelchair_vans', 'cold_storage', 'crane_rigging', 
+        'senior_care', 'staying_in_place', 'power', 'rigging', 'downsizing', 'wav'
+      ];
       allNiches.forEach(k => {
         const tab = document.getElementById(`niche-tab-${k}`);
         if (tab) {
@@ -1954,7 +2179,7 @@
         const titleEl = document.getElementById('hero-title');
         if (titleEl) titleEl.innerHTML = 'Find &amp; Hire Vetted Specialty Contractors &amp; <span class="gold-text italic">High-Capacity Equipment</span>';
         const descEl = document.getElementById('hero-desc');
-        if (descEl) descEl.textContent = 'Connect directly with independently audited specialists across 5 core verticals — from certified 65+ aging-in-place modifications to mobile cold storage and luxury restroom trailers. Zero broker markups, upfront pricing.';
+        if (descEl) descEl.textContent = 'Connect directly with independently audited specialists across 9 core verticals — from commercial mobile generators and precision millwright rigging to certified 65+ aging-in-place remodeling and wheelchair mobility fleets. Zero broker markups, upfront pricing.';
         const headEl = document.getElementById('directory-heading');
         if (headEl) headEl.textContent = 'All Verified Specialty Contractors';
         const subEl = document.getElementById('directory-sub');
@@ -1965,7 +2190,7 @@
 
       loadVendors();
       if (typeof filterDepotMap === 'function') {
-        filterDepotMap(niche);
+        filterDepotMap(activeNiche);
       }
     }
 
@@ -2246,8 +2471,15 @@
       'commercial_cold_storage': { label: 'Cold Storage', color: '#0284c7', badgeBg: '#f0f9ff', badgeText: '#075985' },
       'crane_rigging': { label: 'Mobile Cranes', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
       'heavy_crane_rigging': { label: 'Mobile Cranes', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
+      'temporary_power': { label: 'Temporary Power', color: '#eab308', badgeBg: '#fefce8', badgeText: '#854d0e' },
+      'power': { label: 'Temporary Power', color: '#eab308', badgeBg: '#fefce8', badgeText: '#854d0e' },
+      'machinery_moving': { label: 'Machinery Moving', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
+      'rigging': { label: 'Machinery Moving', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
       'senior_care': { label: 'Senior Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' },
-      'senior_care_placement': { label: 'Senior Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' }
+      'senior_care_placement': { label: 'Senior Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' },
+      'senior_downsizing': { label: 'Senior Downsizing', color: '#0d9488', badgeBg: '#f0fdfa', badgeText: '#115e59' },
+      'wheelchair_vans': { label: 'Wheelchair Vans', color: '#6366f1', badgeBg: '#eef2ff', badgeText: '#3730a3' },
+      'wav': { label: 'Wheelchair Vans', color: '#6366f1', badgeBg: '#eef2ff', badgeText: '#3730a3' }
     };
 
     const METRO_COORDINATES = {
@@ -2507,7 +2739,7 @@
 
       const statusEl = document.getElementById('depot-map-status');
       if (statusEl) {
-        const nicheTitle = (filterNiche === 'all') ? 'all 5 specialties' : (DEPOT_NICHE_CONFIG[filterNiche]?.label || filterNiche);
+        const nicheTitle = (filterNiche === 'all') ? 'all 9 specialties' : (DEPOT_NICHE_CONFIG[filterNiche]?.label || filterNiche);
         statusEl.textContent = `Showing ${filtered.length} verified commercial staging depots (${nicheTitle})`;
       }
     }
@@ -3411,7 +3643,7 @@
         </div>
         <span class="text-xs text-emerald-700 font-bold bg-emerald-50 border border-emerald-300 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          50 States &amp; DC Active (146 Depots)
+          50 States &amp; DC Active (214 Depots)
         </span>
       </div>
 

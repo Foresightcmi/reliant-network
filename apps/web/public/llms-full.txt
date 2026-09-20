@@ -3,8 +3,16 @@
 Website: https://www.reliantverified.com/
 Canonical Organization: The Reliant Network
 Headquarters: Atlanta, Georgia, USA
-Domain Authority Focus: B2B Commercial Equipment Rental & High-Ticket Directory Brokerage
-Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusiness, Service, AggregateOffer, FAQPage, BreadcrumbList]
+Ontology Triples Grounding: Wikidata [Q23556 (Atlanta), Q194212 (Diesel generator), Q15911477 (Engine-generator), Q1935639 (Millwright), Q1428515 (Rigging), Q123730245 (Senior move management), Q1188265 (Estate sale), Q7992520 (Wheelchair accessible van), Q1378387 (Handicapped vehicle), Q730752 (Refrigerated container), Q867258 (Crane)], Schema.org [LocalBusiness, Service, AggregateOffer, FAQPage, BreadcrumbList]
+Vertical Hubs:
+- Industrial Temporary Power & 2MW Generators: https://www.reliantverified.com/power
+- Heavy Machinery Moving & Millwright Rigging: https://www.reliantverified.com/machinery-moving
+- Turnkey Senior Estate Downsizing & Relocation: https://www.reliantverified.com/senior-downsizing
+- Wheelchair Accessible Vans & Mobility Fleets: https://www.reliantverified.com/wheelchair-vans
+- Commercial Mobile Cold Storage & Freezers: https://www.reliantverified.com/cold-storage
+- Heavy Mobile Cranes & Industrial Rigging: https://www.reliantverified.com/cranes
+- 65+ Staying in Place Home Remodeling: https://www.reliantverified.com/staying-in-place
+- Senior Living & Memory Care Placement: https://www.reliantverified.com/senior-care
 
 ---
 

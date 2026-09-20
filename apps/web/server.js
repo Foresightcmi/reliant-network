@@ -1,4 +1,4 @@
-// --- 🏷️ CANONICAL NICHE ALIASES (BIDIRECTIONAL NORMALIZATION) ---
+// --- 🏷️ CANONICAL NICHE ALIASES (BIDIRECTIONAL NORMALIZATION - 9 VERTICALS) ---
 const NICHE_ALIASES = {
   'cold_storage': ['cold_storage', 'commercial_cold_storage'],
   'commercial_cold_storage': ['cold_storage', 'commercial_cold_storage'],
@@ -8,7 +8,23 @@ const NICHE_ALIASES = {
   'senior_care_placement': ['senior_care', 'senior_care_placement'],
   'aging_in_place': ['aging_in_place', 'staying_in_place'],
   'staying_in_place': ['aging_in_place', 'staying_in_place'],
-  'luxury_restrooms': ['luxury_restrooms']
+  'luxury_restrooms': ['luxury_restrooms'],
+  'temporary_power': ['temporary_power', 'power_generation', 'industrial_power', 'generators'],
+  'power_generation': ['temporary_power', 'power_generation', 'industrial_power', 'generators'],
+  'industrial_power': ['temporary_power', 'power_generation', 'industrial_power', 'generators'],
+  'generators': ['temporary_power', 'power_generation', 'industrial_power', 'generators'],
+  'machinery_moving': ['machinery_moving', 'industrial_rigging', 'millwright', 'machinery_movers'],
+  'industrial_rigging': ['machinery_moving', 'industrial_rigging', 'millwright', 'machinery_movers'],
+  'millwright': ['machinery_moving', 'industrial_rigging', 'millwright', 'machinery_movers'],
+  'machinery_movers': ['machinery_moving', 'industrial_rigging', 'millwright', 'machinery_movers'],
+  'senior_downsizing': ['senior_downsizing', 'estate_liquidation', 'transition_management', 'downsizing'],
+  'estate_liquidation': ['senior_downsizing', 'estate_liquidation', 'transition_management', 'downsizing'],
+  'transition_management': ['senior_downsizing', 'estate_liquidation', 'transition_management', 'downsizing'],
+  'downsizing': ['senior_downsizing', 'estate_liquidation', 'transition_management', 'downsizing'],
+  'wheelchair_vans': ['wheelchair_vans', 'mobility_vans', 'accessible_vehicles', 'wav_vans'],
+  'mobility_vans': ['wheelchair_vans', 'mobility_vans', 'accessible_vehicles', 'wav_vans'],
+  'accessible_vehicles': ['wheelchair_vans', 'mobility_vans', 'accessible_vehicles', 'wav_vans'],
+  'wav_vans': ['wheelchair_vans', 'mobility_vans', 'accessible_vehicles', 'wav_vans']
 };
 
 const express = require('express');

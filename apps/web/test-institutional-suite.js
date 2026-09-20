@@ -101,6 +101,38 @@ async function runTests() {
       if (!res.body.includes('calc-total-range')) throw new Error('Missing modification calculator');
     });
 
+    await assert('GET /power serves power.html with Tier 4 generator specs and calculator', async () => {
+      const res = await request('/power');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Industrial Temporary Power')) throw new Error('Missing power header');
+      if (!res.body.includes('Tier 4 Final')) throw new Error('Missing Tier 4 Final compliance');
+      if (!res.body.includes('id="quote-calculator"')) throw new Error('Missing quote calculator');
+    });
+
+    await assert('GET /machinery-moving serves machinery-moving.html with SC&RA millwright specs and calculator', async () => {
+      const res = await request('/machinery-moving');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Industrial Machinery Moving')) throw new Error('Missing machinery moving header');
+      if (!res.body.includes('SC&RA')) throw new Error('Missing SC&RA certification');
+      if (!res.body.includes('id="rigging-estimator"')) throw new Error('Missing rigging estimator');
+    });
+
+    await assert('GET /senior-downsizing serves senior-downsizing.html with NASMM standards and transition calculator', async () => {
+      const res = await request('/senior-downsizing');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Senior Downsizing')) throw new Error('Missing senior downsizing header');
+      if (!res.body.includes('NASMM')) throw new Error('Missing NASMM accreditation');
+      if (!res.body.includes('id="downsizing-calculator"')) throw new Error('Missing downsizing calculator');
+    });
+
+    await assert('GET /wheelchair-vans serves wheelchair-vans.html with NMEDA QAP standards and lease estimator', async () => {
+      const res = await request('/wheelchair-vans');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Wheelchair Accessible Vans')) throw new Error('Missing wheelchair vans header');
+      if (!res.body.includes('NMEDA QAP Certified')) throw new Error('Missing NMEDA QAP certification');
+      if (!res.body.includes('id="van-calculator"')) throw new Error('Missing van calculator');
+    });
+
     // 3. GEO Standards
     await assert('GET /llms.txt serves Kevin Indig / Princeton KDD standard', async () => {
       const res = await request('/llms.txt');
@@ -327,12 +359,12 @@ async function runTests() {
       if (!resAk.body.includes('Alaska Commercial &amp; VIP Restroom Fleet Network')) throw new Error('Missing Alaska title');
     });
 
-    // 17. 50-State Directory API & Zero Placeholder Data Integrity
-    await assert('GET /api/vendors?niche_id=all returns 140+ verified vendors across all 50 states with zero 555-numbers', async () => {
+    // 17. 50-State Directory API & Zero Placeholder Data Integrity (214 Verified Vendors)
+    await assert('GET /api/vendors?niche_id=all returns 214 verified vendors across all 50 states with zero 555-numbers', async () => {
       const res = await request('/api/vendors?niche_id=all');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length < 140) throw new Error(`Expected at least 140 vendors, got ${vendors.length}`);
+      if (vendors.length !== 214) throw new Error(`Expected exactly 214 vendors, got ${vendors.length}`);
       
       const states = new Set(vendors.map(v => v.state));
       if (states.size < 50) throw new Error(`Expected at least 50 states covered, got ${states.size}`);
@@ -341,14 +373,48 @@ async function runTests() {
       if (has555) throw new Error('Detected forbidden 555 placeholder phone number in vendor database');
     });
 
-    // 18. Comprehensive 50-State Canonical Sitemap
-    await assert('GET /sitemap.xml contains 270+ URLs including 50 state hubs', async () => {
+    // 18. New Vertical API Endpoints (17 Verified Depots Each)
+    await assert('GET /api/vendors?niche_id=temporary_power returns 17 verified power fleets', async () => {
+      const res = await request('/api/vendors?niche_id=temporary_power');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const vendors = JSON.parse(res.body);
+      if (vendors.length !== 17) throw new Error(`Expected 17 temporary power vendors, got ${vendors.length}`);
+      if (vendors.some(v => !v.phone || v.phone.includes('555'))) throw new Error('Invalid vendor data in power fleet');
+    });
+
+    await assert('GET /api/vendors?niche_id=machinery_moving returns 17 verified millwright contractors', async () => {
+      const res = await request('/api/vendors?niche_id=machinery_moving');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const vendors = JSON.parse(res.body);
+      if (vendors.length !== 17) throw new Error(`Expected 17 machinery moving vendors, got ${vendors.length}`);
+    });
+
+    await assert('GET /api/vendors?niche_id=senior_downsizing returns 17 verified downsizing specialists', async () => {
+      const res = await request('/api/vendors?niche_id=senior_downsizing');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const vendors = JSON.parse(res.body);
+      if (vendors.length !== 17) throw new Error(`Expected 17 senior downsizing vendors, got ${vendors.length}`);
+    });
+
+    await assert('GET /api/vendors?niche_id=wheelchair_vans returns 17 verified mobility vehicle dealers', async () => {
+      const res = await request('/api/vendors?niche_id=wheelchair_vans');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const vendors = JSON.parse(res.body);
+      if (vendors.length !== 17) throw new Error(`Expected 17 wheelchair van vendors, got ${vendors.length}`);
+    });
+
+    // 19. Comprehensive 50-State Canonical Sitemap
+    await assert('GET /sitemap.xml contains 350+ URLs including 50 state hubs and all 9 vertical hubs', async () => {
       const res = await request('/sitemap.xml');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       if (!res.body.includes('https://www.reliantverified.com/state/alabama')) throw new Error('Missing Alabama in sitemap');
       if (!res.body.includes('https://www.reliantverified.com/state/wyoming')) throw new Error('Missing Wyoming in sitemap');
+      if (!res.body.includes('https://www.reliantverified.com/power')) throw new Error('Missing power hub in sitemap');
+      if (!res.body.includes('https://www.reliantverified.com/machinery-moving')) throw new Error('Missing machinery moving hub in sitemap');
+      if (!res.body.includes('https://www.reliantverified.com/senior-downsizing')) throw new Error('Missing senior downsizing hub in sitemap');
+      if (!res.body.includes('https://www.reliantverified.com/wheelchair-vans')) throw new Error('Missing wheelchair vans hub in sitemap');
       const urlCount = (res.body.match(/<loc>/g) || []).length;
-      if (urlCount < 270) throw new Error(`Expected at least 270 URLs in sitemap, got ${urlCount}`);
+      if (urlCount < 350) throw new Error(`Expected at least 350 URLs in sitemap, got ${urlCount}`);
     });
 
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);

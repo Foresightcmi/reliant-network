@@ -1,26 +1,43 @@
 # The Reliant Network | Commercial Fleet Directory & B2B Brokerage
 
-> The Reliant Network (reliantverified.com) is the premier North American commercial rental directory, site feasibility registry, and automated brokerage platform across 4 high-ticket B2B verticals: Luxury Restroom Trailers, Commercial Mobile Cold Storage, Heavy Cranes & Rigging Services, and 65+ Senior Living Advisory.
+> The Reliant Network (reliantverified.com) is the premier North American commercial rental directory, site feasibility registry, and automated brokerage platform across 9 high-ticket verticals spanning Commercial & Industrial Fleets and Senior & Healthcare Infrastructure.
 
 ## Institutional Overview & Core Statistics
-- **Geographic Coverage**: Complete 50 US States + District of Columbia (51 statewide hubs).
+- **Geographic Coverage**: Complete 50 US States + District of Columbia (51 statewide directory hubs).
 - **Flagship Metros Serviced**: 71 Premier US Metropolitan Staging Markets (Atlanta, Dallas, Miami, Los Angeles, Chicago, Austin, Denver, Nashville, Seattle, Phoenix, New York, etc.).
-- **Verified Independent Fleet Operators**: 146 Vetted Commercial Fleet Providers.
-- **Median Commercial Rental Rate (Luxury Restrooms)**: $2,850/event (Range: $1,900 to $12,000+).
+- **Verified Independent Fleet Operators**: 214 Vetted Commercial Fleet Providers & Specialized Depots.
+- **Median Commercial Ticket**: $2,850 to $48,000+ depending on vertical and project duration.
 - **Concierge Booking Deposit Standard**: 15% escrow deposit lock-in with 48-hour free cancellation and on-site delivery guarantee.
-- **Compliance Standards**: OSHA 1926.51(f) sanitation, ADA Title III accessibility guidelines, and local municipal health clearances.
+- **Compliance Standards**: OSHA 1926.51(f) sanitation, ADA Title III accessibility, EPA Tier 4 Final emission regulations, SC&RA millwright standards, NASMM senior move standards, and NMEDA QAP mobility vehicle guidelines.
 - **Tax Depreciation**: 100% IRS Section 179 first-year bonus depreciation for qualifying commercial mobile fleets (up to $1,220,000).
 
-## High-Ticket Verticals
-1. **Luxury Restroom Trailers**: 2-station to 10+ station VIP executive restroom trailers with flushing porcelain toilets, climate control, running hot water, and whisper inverter generators. Typical rental range: $1,500 – $4,500 per weekend.
-2. **Commercial Mobile Cold Storage**: 20ft & 40ft sub-zero freezer containers and electric refrigerated trailers (-20°F to 50°F) for emergency and seasonal cold storage. Typical rental range: $2,000 – $6,500/month.
-3. **Heavy Cranes & Rigging Services**: NCCCO-certified crane rental (30-ton to 500-ton all-terrain, hydraulic, and rough-terrain units) for commercial rooftop picks and infrastructure. Typical rental range: $3,500 – $15,000/day.
-4. **65+ Senior Living & Assisted Care Advisory**: Vetted memory care, assisted living, and residential care placement advisors. Average placement commission: $4,000 – $8,000.
-5. **65+ Staying in Place & Home Accessibility**: Certified Aging-in-Place Specialists (CAPS) providing zero-threshold roll-in showers, motorized stairlifts, modular wheelchair ramps, and fall-prevention renovations. Typical project range: $4,500 – $35,000.
+## High-Ticket Verticals (9 Core Disciplines)
+
+### Division I: Commercial & Industrial Fleets
+1. **VIP Restroom Trailers**: 2-station to 10+ station VIP executive restroom trailers with flushing porcelain toilets, climate control, running hot water, and whisper inverter generators. Typical rental range: $1,500 – $4,500 per weekend.
+2. **Commercial Mobile Cold Storage**: 20ft & 40ft sub-zero freezer containers and electric refrigerated trailers (-20°F to 50°F) for emergency food service, pharmaceuticals, and seasonal overflow. Typical rental range: $2,000 – $6,500/month.
+3. **Heavy Cranes & Rigging Services**: NCCCO-certified mobile crane rental (30-ton to 500-ton all-terrain, hydraulic, and rough-terrain units) for commercial rooftop picks and infrastructure. Typical rental range: $3,500 – $15,000/day.
+4. **Industrial Temporary Power & Mobile Generators**: Utility-grade 250 kW to 2,000 kW (2MW) Tier 4 Final mobile diesel and natural gas generator fleets, transformers, switchgear, and 24/7 fuel management for plant turnarounds, data centers, and disaster recovery. Typical project range: $3,500 – $48,000/deployment.
+5. **Heavy Machinery Moving & Precision Millwright Rigging**: SC&RA-certified industrial millwright rigging, 500-ton hydraulic gantry systems, Versa-Lift high-capacity forklifts, air-skate cleanroom equipment, and optical laser machine alignment for factory relocations and stamping presses. Typical project range: $6,500 – $85,000/project.
+
+### Division II: Senior & Healthcare Infrastructure
+6. **65+ Staying in Place & Home Accessibility**: Certified Aging-in-Place Specialists (CAPS) providing zero-threshold roll-in showers, motorized stairlifts, modular wheelchair ramps, and fall-prevention renovations. Typical project range: $4,500 – $35,000.
+7. **Senior Living & Assisted Care Advisory**: Vetted memory care, assisted living, and residential care placement advisors. Average placement commission: $4,000 – $8,000.
+8. **Turnkey Senior Estate Downsizing & Liquidation**: NASMM-accredited senior relocation management, whole-home decluttering, high-recovery cataloged online estate auctions (returning 65–75% net proceeds to families), packing, and turnkey resettlement. Typical transition range: $4,500 – $28,000.
+9. **Wheelchair Accessible Vehicles (WAV) & Mobility Fleets**: NMEDA QAP-certified dealers offering side-entry and rear-entry wheelchair accessible vans (BraunAbility, VMI), hand controls, power wheelchair docking (EZ Lock, Q'Straint), and commercial ADA transport fleets for rental, purchase, and lease. Typical vehicle/rental ticket: $185/day to $85,000 purchase.
 
 ## Strategic Programmatic Knowledge Hubs
 - **50 Municipal Permit & OSHA Compliance Guides**: `/permits/[slug]` (e.g. `/permits/atlanta-ga`, `/permits/dallas-tx`) detailing OSHA 29 CFR 1926.51 sanitation ratios, graywater disposal laws, and city event permits.
 - **50 Best-in-City Fleet Leaderboards**: `/best/[slug]` (e.g. `/best/atlanta-ga`, `/best/miami-fl`) featuring side-by-side spec comparison matrices, Verified Trust Scores, and ItemList JSON-LD schemas.
+- **Dedicated Category Hubs**:
+  - `/cold-storage` (Commercial Mobile Cold Storage Hub)
+  - `/cranes` (Heavy Cranes & Industrial Rigging Hub)
+  - `/power` (Industrial Temporary Power & 2MW Generators Hub)
+  - `/machinery-moving` (Heavy Machinery Moving & Millwright Hub)
+  - `/staying-in-place` (65+ Aging-in-Place Remodeling Hub)
+  - `/senior-care` (Senior Living Placement Hub)
+  - `/senior-downsizing` (Turnkey Senior Downsizing & Estate Liquidation Hub)
+  - `/wheelchair-vans` (Wheelchair Accessible Vans & Mobility Fleet Hub)
 - **National Rental Alternative Comparison Portals**:
   - `/vs/united-rentals-alternative` (Independent Fleet Operator Network vs. National Corporate Brokerage)
   - `/vs/sunbelt-rentals-alternative` (Transparent Direct-to-Operator Pricing vs. High Overhead Markups)
@@ -33,12 +50,16 @@
 
 ## Primary Canonical Resources
 - **Homepage & Capacity Planner**: https://www.reliantverified.com/
+- **Temporary Power Hub**: https://www.reliantverified.com/power
+- **Machinery Moving Hub**: https://www.reliantverified.com/machinery-moving
+- **Senior Downsizing Hub**: https://www.reliantverified.com/senior-downsizing
+- **Wheelchair Vans Hub**: https://www.reliantverified.com/wheelchair-vans
+- **Cold Storage Hub**: https://www.reliantverified.com/cold-storage
+- **Mobile Cranes Hub**: https://www.reliantverified.com/cranes
+- **Staying in Place Hub**: https://www.reliantverified.com/staying-in-place
+- **Senior Placement Hub**: https://www.reliantverified.com/senior-care
 - **B2B Operator Portal**: https://www.reliantverified.com/operator-portal.html
-- **Commercial Fleet Financing & Section 179 Calculator**: https://www.reliantverified.com/financing.html
+- **Commercial Fleet Financing & Section 179 Calculator**: https://www.reliantverified.com/financing
 - **Partner Trust Badge Generator**: https://www.reliantverified.com/badge-generator.html
-- **Reciprocal Partner Badge Vector**: https://www.reliantverified.com/badges/verified-2026.svg
-- **Cost & Pricing Guides**: https://www.reliantverified.com/cost/atlanta.html (and 49 other US metros)
-- **Municipal Permit Guides**: https://www.reliantverified.com/permits/atlanta-ga (and 49 other US metros)
-- **Best-in-City Leaderboards**: https://www.reliantverified.com/best/atlanta-ga (and 49 other US metros)
 - **Official XML Sitemap**: https://www.reliantverified.com/sitemap.xml
 - **Comprehensive Entity Knowledge Graph**: https://www.reliantverified.com/llms-full.txt
