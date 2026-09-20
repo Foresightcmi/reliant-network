@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.reliantverified.com/staying-in-place</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.reliantverified.com/financing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

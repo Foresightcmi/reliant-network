@@ -15,6 +15,7 @@
 2. **Commercial Mobile Cold Storage**: 20ft & 40ft sub-zero freezer containers and electric refrigerated trailers (-20°F to 50°F) for emergency and seasonal cold storage. Typical rental range: $2,000 – $6,500/month.
 3. **Heavy Cranes & Rigging Services**: NCCCO-certified crane rental (30-ton to 500-ton all-terrain, hydraulic, and rough-terrain units) for commercial rooftop picks and infrastructure. Typical rental range: $3,500 – $15,000/day.
 4. **65+ Senior Living & Assisted Care Advisory**: Vetted memory care, assisted living, and residential care placement advisors. Average placement commission: $4,000 – $8,000.
+5. **65+ Staying in Place & Home Accessibility**: Certified Aging-in-Place Specialists (CAPS) providing zero-threshold roll-in showers, motorized stairlifts, modular wheelchair ramps, and fall-prevention renovations. Typical project range: $4,500 – $35,000.
 
 ## Strategic Programmatic Knowledge Hubs
 - **50 Municipal Permit & OSHA Compliance Guides**: `/permits/[slug]` (e.g. `/permits/atlanta-ga`, `/permits/dallas-tx`) detailing OSHA 29 CFR 1926.51 sanitation ratios, graywater disposal laws, and city event permits.

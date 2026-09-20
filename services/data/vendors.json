@@ -4878,5 +4878,123 @@
         "text": "Flawless execution from Elite Heavy Crane Rental Professionals. Running hot water, premium vanities, and completely odor-free all evening. Will be booking them for all our upcoming TX estate weddings."
       }
     ]
+  },
+  {
+    "id": "vend_aip_atl_01",
+    "slug": "atlanta-aging-in-place-solutions-atlanta-ga",
+    "niche_id": "aging_in_place",
+    "name": "Atlanta Aging-in-Place & Accessibility Solutions",
+    "city": "Atlanta",
+    "state": "GA",
+    "address": "3405 Piedmont Rd NE, Atlanta, GA",
+    "phone": "4045557741",
+    "email": "contact@atlantaaginginplace.com",
+    "website": "https://atlantaaginginplace.com",
+    "rating": 4.9,
+    "review_count": 38,
+    "min_price": 1500,
+    "max_price": 24000,
+    "fleet_types": [
+      "Curbless Roll-In Showers",
+      "Bruno Motorized Stairlifts",
+      "Modular Wheelchair Ramps",
+      "Grab Bar Systems"
+    ],
+    "amenities": [
+      "CAPS Certified Specialist",
+      "Licensed & Insured (+)",
+      "Zero-Threshold Roll-In",
+      "Same-Day Safety Audit",
+      "VA HISA Grant Approved"
+    ],
+    "description": "Certified Aging-in-Place Specialists (CAPS) providing barrier-free roll-in showers, stairlifts, exterior ramps, and comprehensive fall-prevention remodeling across Greater Atlanta.",
+    "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+    "service_radius_miles": 65,
+    "verified": 1,
+    "claimed": 1,
+    "subscription_active": 1,
+    "created_at": "2026-09-19T12:00:00.000Z",
+    "latitude": 33.848,
+    "longitude": -84.3733,
+    "zip_code": "30305",
+    "full_address": "3405 Piedmont Rd NE, Atlanta, GA 30305"
+  },
+  {
+    "id": "vend_aip_dfw_01",
+    "slug": "lone-star-senior-home-accessibility-dallas-tx",
+    "niche_id": "aging_in_place",
+    "name": "Lone Star Senior Home Accessibility & Lifts",
+    "city": "Dallas",
+    "state": "TX",
+    "address": "2100 Ross Ave, Dallas, TX",
+    "phone": "2145558920",
+    "email": "info@lonestaraccessibility.com",
+    "website": "https://lonestaraccessibility.com",
+    "rating": 5.0,
+    "review_count": 42,
+    "min_price": 1800,
+    "max_price": 28000,
+    "fleet_types": [
+      "Walk-In Hydrotherapy Tubs",
+      "Curved & Straight Stairlifts",
+      "ADA Doorway Widening",
+      "Non-Slip Flooring"
+    ],
+    "amenities": [
+      "CAPS Certified Specialist",
+      "ADA Title III Compliance",
+      "Emergency 48-Hour Installation",
+      "Medicaid Waiver Assistance"
+    ],
+    "description": "Premier North Texas mobility and home adaptation contractor specializing in universal design, custom stairlifts, and walk-in bathroom conversions.",
+    "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    "service_radius_miles": 75,
+    "verified": 1,
+    "claimed": 1,
+    "subscription_active": 1,
+    "created_at": "2026-09-19T12:00:00.000Z",
+    "latitude": 32.7876,
+    "longitude": -96.797,
+    "zip_code": "75201",
+    "full_address": "2100 Ross Ave, Dallas, TX 75201"
+  },
+  {
+    "id": "vend_aip_mia_01",
+    "slug": "biscayne-senior-safety-renovations-miami-fl",
+    "niche_id": "aging_in_place",
+    "name": "Biscayne Senior Safety & Accessible Living",
+    "city": "Miami",
+    "state": "FL",
+    "address": "1110 Brickell Ave, Miami, FL",
+    "phone": "3055554311",
+    "email": "service@biscayneseniorsafety.com",
+    "website": "https://biscayneseniorsafety.com",
+    "rating": 4.8,
+    "review_count": 29,
+    "min_price": 2000,
+    "max_price": 26000,
+    "fleet_types": [
+      "Zero-Lip Showers",
+      "Wheelchair Ingress Ramps",
+      "Smart Motion Safety Systems",
+      "Grab Bar Reinforcements"
+    ],
+    "amenities": [
+      "CAPS Certified Specialist",
+      "Licensed Florida General Contractor",
+      "Bi-Lingual Consultations",
+      "Free Home Safety Audit"
+    ],
+    "description": "South Florida trusted aging-in-place remodeling team delivering zero-threshold transitions, smart fall sensors, and accessible luxury bathroom remodels.",
+    "image_url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    "service_radius_miles": 50,
+    "verified": 1,
+    "claimed": 1,
+    "subscription_active": 1,
+    "created_at": "2026-09-19T12:00:00.000Z",
+    "latitude": 25.7617,
+    "longitude": -80.1918,
+    "zip_code": "33131",
+    "full_address": "1110 Brickell Ave, Miami, FL 33131"
   }
 ]

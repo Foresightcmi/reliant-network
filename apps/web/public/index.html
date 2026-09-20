@@ -47,7 +47,7 @@
   <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold tracking-wide text-center flex items-center justify-center gap-2 shadow-sm">
     <i data-lucide="shield-check" class="w-4 h-4"></i>
-    <span>Autonomous Multi-Vertical B2B Portfolio: Restrooms &bull; Cold Storage &bull; Heavy Cranes &bull; Senior Care</span>
+    <span>Autonomous Multi-Vertical B2B Portfolio: Restrooms &bull; Cold Storage &bull; Heavy Cranes &bull; Senior Care &bull; 65+ Staying in Place</span>
     <span class="hidden md:inline bg-slate-950 text-amber-300 px-2.5 py-0.5 rounded-full text-[10px] ml-2 font-mono">Edge Pre-Rendered (0ms)</span>
   </div>
 
@@ -68,17 +68,21 @@
 
       <!-- NICHE SELECTOR PILLS IN NAVBAR -->
       <div class="hidden lg:flex items-center gap-1 bg-slate-100 border border-slate-200 p-1.5 rounded-2xl">
-        <button onclick="switchNiche('luxury_restrooms')" id="niche-btn-restrooms" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm">
-          VIP Restrooms ($85/lead)
+        <button onclick="switchNiche('luxury_restrooms')" id="niche-btn-restrooms" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm">
+          VIP Restrooms
         </button>
-        <button onclick="switchNiche('commercial_cold_storage')" id="niche-btn-cold" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          Cold Storage ($125/lead)
+        <button onclick="switchNiche('commercial_cold_storage')" id="niche-btn-cold" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
+          Cold Storage
         </button>
-        <button onclick="switchNiche('heavy_crane_rigging')" id="niche-btn-crane" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          Heavy Cranes ($175/lead)
+        <button onclick="switchNiche('heavy_crane_rigging')" id="niche-btn-crane" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
+          Heavy Cranes
         </button>
-        <button onclick="switchNiche('senior_care_placement')" id="niche-btn-senior" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          65+ Senior Care ($250/lead)
+        <button onclick="switchNiche('senior_care_placement')" id="niche-btn-senior" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
+          Senior Living
+        </button>
+        <button onclick="switchNiche('aging_in_place')" id="niche-btn-staying" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 flex items-center gap-1">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>65+ Staying in Place</span>
         </button>
       </div>
 
@@ -1336,22 +1340,29 @@
         desc: 'Making care decisions for a loved one is overwhelming. Let our compassionate, heavily-vetted local advisors guide you to the safest, highest-rated communities with total transparency.',
         heading: 'Trusted Senior Care Advisors',
         sub: 'Verified 65+ Compassion Network'
+      },
+      aging_in_place: {
+        badge: 'Certified Aging-in-Place Specialists (CAPS) &amp; Accessibility',
+        title: 'Modify Homes for 65+ Independence &amp; <span class="gold-text italic">Staying in Place Safely</span>',
+        desc: 'Over 88% of seniors choose to remain at home. Connect with rigorously vetted, CAPS-certified remodeling specialists for barrier-free roll-in showers, stairlifts, walk-in tubs, wheelchair ramps, and certified home safety audits.',
+        heading: 'Verified Aging-in-Place Specialists',
+        sub: 'Certified 65+ Home Independence Network'
       }
     };
 
     function switchNiche(nicheId) {
       activeNiche = nicheId;
-      ['restrooms', 'cold', 'crane', 'senior'].forEach(k => {
+      ['restrooms', 'cold', 'crane', 'senior', 'staying'].forEach(k => {
         const btn = document.getElementById(`niche-btn-${k}`);
         if (btn) {
-          btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60';
+          btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 flex items-center gap-1';
         }
       });
 
-      const activeBtnId = nicheId === 'luxury_restrooms' ? 'niche-btn-restrooms' : (nicheId === 'commercial_cold_storage' ? 'niche-btn-cold' : (nicheId === 'heavy_crane_rigging' ? 'niche-btn-crane' : 'niche-btn-senior'));
+      const activeBtnId = nicheId === 'luxury_restrooms' ? 'niche-btn-restrooms' : (nicheId === 'commercial_cold_storage' ? 'niche-btn-cold' : (nicheId === 'heavy_crane_rigging' ? 'niche-btn-crane' : (nicheId === 'senior_care_placement' ? 'niche-btn-senior' : 'niche-btn-staying')));
       const activeBtn = document.getElementById(activeBtnId);
       if (activeBtn) {
-        activeBtn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm';
+        activeBtn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-500 text-slate-950 shadow-sm flex items-center gap-1';
       }
 
       const meta = NICHE_METADATA[nicheId];
@@ -2334,6 +2345,7 @@
         <a href="/cold-storage.html" class="hover:text-blue-600 transition-colors">Cold Storage Hub</a>
         <a href="/cranes.html" class="hover:text-amber-600 transition-colors">Heavy Cranes Hub</a>
         <a href="/senior-care.html" class="hover:text-emerald-700 transition-colors">Senior Living Hub</a>
+        <a href="/staying-in-place.html" class="hover:text-emerald-600 font-bold transition-colors">65+ Staying in Place Hub</a>
         <a href="/operator-portal.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5 inline"></i> Operator Portal</a>
         <a href="/financing.html" class="text-amber-700 font-bold hover:text-amber-800 transition-colors flex items-center gap-1"><i data-lucide="calculator" class="w-3.5 h-3.5 inline"></i> Fleet Financing</a>
         <a href="/badge-generator.html" class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 inline"></i> Partner Badges</a>

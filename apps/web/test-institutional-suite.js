@@ -94,6 +94,13 @@ async function runTests() {
       if (!res.body.includes('adl-meds')) throw new Error('Missing ADL assessment');
     });
 
+    await assert('GET /staying-in-place serves staying-in-place.html', async () => {
+      const res = await request('/staying-in-place');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('65+ Staying in Place')) throw new Error('Missing staying in place header');
+      if (!res.body.includes('calc-total-range')) throw new Error('Missing modification calculator');
+    });
+
     // 3. GEO Standards
     await assert('GET /llms.txt serves Kevin Indig / Princeton KDD standard', async () => {
       const res = await request('/llms.txt');

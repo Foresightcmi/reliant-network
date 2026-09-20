@@ -314,6 +314,9 @@ app.get(['/cranes', '/cranes.html'], (req, res) => {
 app.get(['/senior-care', '/senior-care.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'senior-care.html'));
 });
+app.get(['/staying-in-place', '/staying-in-place.html', '/aging-in-place', '/aging-in-place.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'staying-in-place.html'));
+});
 app.get(['/terms', '/terms.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'terms.html'));
 });
@@ -563,13 +566,13 @@ print(json.dumps(res))
       const budgetNum = parseInt((req.body.budget || '4500').replace(/[^0-9]/g, '')) || 4500;
       const guests = parseInt(req.body.guest_count) || 150;
       const baseQuote = Math.max(budgetNum, guests > 200 ? 5500 : 3500);
-      const leadPrice = activeNiche === 'heavy_crane_rigging' ? 175 : activeNiche === 'commercial_cold_storage' ? 125 : 85;
+      const leadPrice = activeNiche === 'heavy_crane_rigging' ? 175 : activeNiche === 'commercial_cold_storage' ? 125 : activeNiche === 'aging_in_place' ? 150 : activeNiche === 'senior_care_placement' ? 250 : 85;
       return {
         intent_score: 92,
         estimated_quote: baseQuote,
         lead_price: leadPrice,
         deposit_fee: Math.round(baseQuote * 0.15),
-        stations_recommended: guests > 250 ? '4-Station Luxury Trailer' : '2-Station Executive Suite',
+        stations_recommended: activeNiche === 'aging_in_place' ? 'Certified CAPS Accessibility Modification' : (guests > 250 ? '4-Station Luxury Trailer' : '2-Station Executive Suite'),
         niche_name: activeNiche.replace(/_/g, ' ').toUpperCase()
       };
     });

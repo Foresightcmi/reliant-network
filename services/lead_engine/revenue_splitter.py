@@ -23,6 +23,18 @@ NICHE_PRICING_MATRIX = {
         "base_lead_price": 175,
         "contract_range": [5000, 35000],
         "deposit_pct": 0.15
+    },
+    "aging_in_place": {
+        "name": "65+ Staying in Place & Home Accessibility",
+        "base_lead_price": 150,
+        "contract_range": [3500, 28000],
+        "deposit_pct": 0.15
+    },
+    "senior_care_placement": {
+        "name": "65+ Senior Living & Care Placement",
+        "base_lead_price": 250,
+        "contract_range": [4000, 10000],
+        "deposit_pct": 0.15
     }
 }
 

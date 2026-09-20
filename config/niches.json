@@ -92,6 +92,50 @@
       "avg_ticket_size": "$3,500 - $18,000",
       "lead_payout_range": "$100 - $250",
       "monthly_subscription_price": 149
+    },
+    "heavy_crane_rigging": {
+      "id": "heavy_crane_rigging",
+      "name": "Heavy Mobile Cranes & Rigging Services",
+      "brand_title": "Apex Rigging Verified",
+      "tagline": "The Premier National Directory for NCCCO-Certified Mobile Cranes and Industrial Rigging Crews",
+      "avg_ticket_size": "$5,000 - $35,000",
+      "lead_payout_range": "$175 - $350",
+      "monthly_subscription_price": 199
+    },
+    "senior_care_placement": {
+      "id": "senior_care_placement",
+      "name": "Senior Living & Assisted Memory Care Placement Advisory",
+      "brand_title": "ElderCare Compass",
+      "tagline": "Free Family Advisory Directory for Top-Rated Memory Care and Assisted Living Communities",
+      "avg_ticket_size": "$4,000 - $8,500",
+      "lead_payout_range": "$150 - $300",
+      "monthly_subscription_price": 149
+    },
+    "aging_in_place": {
+      "id": "aging_in_place",
+      "name": "65+ Staying in Place & Home Accessibility Modifications",
+      "brand_title": "SafeHome 65+ Network",
+      "tagline": "The Premier Directory for Certified Aging-in-Place Specialists (CAPS), Senior Home Accessibility & Fall Prevention Modifications",
+      "avg_ticket_size": "$4,500 - $35,000",
+      "lead_payout_range": "$95 - $225",
+      "monthly_subscription_price": 129,
+      "categories": [
+        "Curbless / Roll-In Zero-Threshold Showers",
+        "Walk-In Hydrotherapy Safety Tubs",
+        "Motorized Stairlifts & Vertical Platform Lifts",
+        "Wheelchair Modular Ramp Installations",
+        "Grab Bars, Handrails & Non-Slip Floor Safety",
+        "Doorway Widening & Accessible Hallways",
+        "Whole-Home Certified Aging-in-Place (CAPS) Audits"
+      ],
+      "amenities": [
+        "CAPS Certified Specialist",
+        "ADA Compliance Standards",
+        "Zero-Threshold Roll-In",
+        "Licensed & Insured ($2M+)",
+        "Same-Day Safety Assessment",
+        "VA / Medicaid Waiver Assistance"
+      ]
     }
   }
 }
