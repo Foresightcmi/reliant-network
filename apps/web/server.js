@@ -1,4 +1,3 @@
-
 // --- 🏷️ CANONICAL NICHE ALIASES (BIDIRECTIONAL NORMALIZATION) ---
 const NICHE_ALIASES = {
   'cold_storage': ['cold_storage', 'commercial_cold_storage'],
@@ -11,57 +10,65 @@ const NICHE_ALIASES = {
   'staying_in_place': ['aging_in_place', 'staying_in_place'],
   'luxury_restrooms': ['luxury_restrooms']
 };
+
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const path = require('path');
 const os = require('os');
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 
+let helmet;
+try { helmet = require('helmet'); } catch (e) {}
+
+let rateLimit;
+try { rateLimit = require('express-rate-limit'); } catch (e) {}
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// --- 🛡️ SECURITY MIDDLEWARE ---
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdn.tailwindcss.com", "https://unpkg.com"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.tailwindcss.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "https://images.unsplash.com", "data:", "blob:"],
-      connectSrc: ["'self'"]
-    }
-  },
-  crossOriginEmbedderPolicy: false
-}));
+// --- 🛡️ SECURITY MIDDLEWARE (HELMET + RESILIENT HEADERS) ---
+if (helmet) {
+  app.use(helmet({
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false
+  }));
+} else {
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    next();
+  });
+}
 
 app.use(cors({
-  origin: [
-    'https://www.reliantverified.com',
-    'https://reliantverified.com',
-    /^https:\/\/.*\.vercel\.app$/,
-    'http://localhost:3000'
-  ],
+  origin: (origin, callback) => {
+    if (!origin || origin.includes('reliantverified.com') || origin.includes('vercel.app') || origin.includes('localhost')) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
   methods: ['GET', 'POST'],
   optionsSuccessStatus: 200
 }));
 
-const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: { error: 'Too many requests, please try again later.' }
-});
-app.use('/api/', apiLimiter);
+if (rateLimit) {
+  const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: 'Too many requests, please try again later.' }
+  });
+  app.use('/api/', apiLimiter);
+}
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
-// --- 🌐 PROGRAMMATIC SILOS & CLEAN ROUTE HANDLERS ---
 const serveCleanHtml = (dir, req, res, next) => {
   const slug = req.params.slug;
   const directPath = path.join(__dirname, 'public', dir, `${slug}.html`);
