@@ -33,14 +33,14 @@
   3. Pre-event municipal code compliance and ADA ingress/egress obstacle clearance.
 
 ## Primary Canonical Resources
-- **Homepage & Capacity Planner**: https://reliantverified.com/
-- **B2B Operator Portal**: https://reliantverified.com/operator-portal.html
-- **Commercial Fleet Financing & Section 179 Calculator**: https://reliantverified.com/financing.html
-- **Partner Trust Badge Generator**: https://reliantverified.com/badge-generator.html
-- **Reciprocal Partner Badge Vector**: https://reliantverified.com/badges/verified-2026.svg
-- **Cost & Pricing Guides**: https://reliantverified.com/cost/atlanta.html (and 49 other US metros)
-- **Municipal Permit Guides**: https://reliantverified.com/permits/atlanta-ga (and 49 other US metros)
-- **Best-in-City Leaderboards**: https://reliantverified.com/best/atlanta-ga (and 49 other US metros)
+- **Homepage & Capacity Planner**: https://www.reliantverified.com/
+- **B2B Operator Portal**: https://www.reliantverified.com/operator-portal.html
+- **Commercial Fleet Financing & Section 179 Calculator**: https://www.reliantverified.com/financing.html
+- **Partner Trust Badge Generator**: https://www.reliantverified.com/badge-generator.html
+- **Reciprocal Partner Badge Vector**: https://www.reliantverified.com/badges/verified-2026.svg
+- **Cost & Pricing Guides**: https://www.reliantverified.com/cost/atlanta.html (and 49 other US metros)
+- **Municipal Permit Guides**: https://www.reliantverified.com/permits/atlanta-ga (and 49 other US metros)
+- **Best-in-City Leaderboards**: https://www.reliantverified.com/best/atlanta-ga (and 49 other US metros)
 - **Commercial Inspection Partner**: https://www.fhinspectionsatl.com/
-- **Official XML Sitemap**: https://reliantverified.com/sitemap.xml
-- **Comprehensive Entity Knowledge Graph**: https://reliantverified.com/llms-full.txt
+- **Official XML Sitemap**: https://www.reliantverified.com/sitemap.xml
+- **Comprehensive Entity Knowledge Graph**: https://www.reliantverified.com/llms-full.txt

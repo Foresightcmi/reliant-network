@@ -204,7 +204,7 @@ function queryDb(sql, params = []) {
 // 1. Robots.txt
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
-  res.send("User-agent: *\nAllow: /\nSitemap: https://reliantverified.com/sitemap.xml\n");
+  res.send("User-agent: *\nAllow: /\nSitemap: https://www.reliantverified.com/sitemap.xml\n");
 });
 
 // 2. Dynamic XML Sitemap
@@ -723,13 +723,13 @@ app.get('/api/growth/badge-embed/:vendorId', (req, res) => {
     const name = rows.length ? rows[0].name : "High-Ticket Verified Partner";
     const metro = rows.length && rows[0].city ? rows[0].city.toLowerCase().replace(/\s+/g, '-') : 'atlanta';
     
-    const badgeHtml = `<a href="https://reliantverified.com/metro/${metro}" target="_blank" rel="noopener" title="Verified by The Reliant Network"><img src="https://reliantverified.com/badges/verified-2026.svg" alt="${name} Verified by The Reliant Network" style="height:54px; width:auto;" /></a>`;
+    const badgeHtml = `<a href="https://www.reliantverified.com/metro/${metro}" target="_blank" rel="noopener" title="Verified by The Reliant Network"><img src="https://www.reliantverified.com/badges/verified-2026.svg" alt="${name} Verified by The Reliant Network" style="height:54px; width:auto;" /></a>`;
 
     res.json({
       success: true,
       vendor_id: req.params.vendorId,
       badge_html: badgeHtml,
-      badge_preview_url: "https://reliantverified.com/badges/verified-2026.svg"
+      badge_preview_url: "https://www.reliantverified.com/badges/verified-2026.svg"
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -1042,7 +1042,7 @@ app.get('/api/operators/missed-leads', (req, res) => {
 
     const fomoCopy = {
       subject: `Missed customer quote request in ${city} — ${activeLead.lead_code}`,
-      sms: `Hey [Owner], a client in ${city} just requested a quote for a luxury restroom trailer (Est. Value: $${estValue.toLocaleString()}). Routed to verified fleets. Claim your listing to receive future leads: https://reliantverified.com/claim?city=${city.toLowerCase()}`,
+      sms: `Hey [Owner], a client in ${city} just requested a quote for a luxury restroom trailer (Est. Value: $${estValue.toLocaleString()}). Routed to verified fleets. Claim your listing to receive future leads: https://www.reliantverified.com/claim?city=${city.toLowerCase()}`,
       email_template: `Hi [Owner Name],
 
 A client in ${city} just submitted a direct quote request on The Reliant Network for an upcoming ${activeLead.event_type || 'Event'} (${activeLead.guest_count || 200} guests, Est. Value: $${estValue.toLocaleString()}).
@@ -1050,7 +1050,7 @@ A client in ${city} just submitted a direct quote request on The Reliant Network
 Because your fleet profile on our directory is currently unclaimed, our system automatically routed this high-ticket inquiry to a verified competitor in ${city}.
 
 We receive quote requests across your territory every week. To verify your profile for free and receive direct quote notifications:
-👉 Claim Your Listing: https://reliantverified.com/claim?city=${city.toLowerCase()}
+👉 Claim Your Listing: https://www.reliantverified.com/claim?city=${city.toLowerCase()}
 
 Best regards,
 The Reliant Network Dispatch Team`
@@ -1100,7 +1100,7 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
       operators_alerted: unverified.length,
       sample_notification: {
         subject: `Missed customer quote request in ${targetCity}`,
-        body: `A client in ${targetCity} just requested ${service} (Est. $${val.toLocaleString()}). Routed to verified fleets. Claim listing: https://reliantverified.com/claim`
+        body: `A client in ${targetCity} just requested ${service} (Est. $${val.toLocaleString()}). Routed to verified fleets. Claim listing: https://www.reliantverified.com/claim`
       }
     });
   } catch (err) {
@@ -1279,7 +1279,7 @@ app.post('/api/bookings/deposit', (req, res) => {
       balance_due_on_site: balanceDue,
       total_contract: totalEst,
       assigned_vendor: assignedVendor,
-      escrow_receipt_url: `https://reliantverified.com/receipt/${bookingId}`,
+      escrow_receipt_url: `https://www.reliantverified.com/receipt/${bookingId}`,
       message: `Equipment availability locked! 15% deposit ($${depositPaid.toLocaleString()}) secured in escrow. Remaining balance of $${balanceDue.toLocaleString()} is payable upon on-site delivery and walkthrough.`
     });
   } catch (err) {

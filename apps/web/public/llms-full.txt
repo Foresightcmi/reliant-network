@@ -1,6 +1,6 @@
 # The Reliant Network — Complete Semantic Knowledge Graph & API Specification
 
-Website: https://reliantverified.com/
+Website: https://www.reliantverified.com/
 Canonical Organization: The Reliant Network
 Headquarters: Atlanta, Georgia, USA
 Domain Authority Focus: B2B Commercial Equipment Rental & High-Ticket Directory Brokerage
@@ -110,6 +110,6 @@ Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusine
 
 ## 5. Viral Reciprocal Trust Badge & Verification Protocol
 
-- **Official Badge Vector**: `https://reliantverified.com/badges/verified-2026.svg`
+- **Official Badge Vector**: `https://www.reliantverified.com/badges/verified-2026.svg`
 - **Partner Incentives**: Embedding badge on operator site unlocks 30 Days Free Featured Rank ($99 value) and a permanent 15% discount on all RFQ lead unlocks.
 - **Verification Hook**: `GET /api/growth/verify-badge-backlink/:vendorId` validates reciprocal backlink status and updates operator wallet state in real-time.
