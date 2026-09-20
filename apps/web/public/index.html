@@ -47,100 +47,89 @@
   <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold tracking-wide text-center flex items-center justify-center gap-2 shadow-sm">
     <i data-lucide="shield-check" class="w-4 h-4"></i>
-    <span>Autonomous Multi-Vertical B2B Portfolio: Restrooms &bull; Cold Storage &bull; Heavy Cranes &bull; Senior Care &bull; 65+ Staying in Place</span>
-    <span class="hidden md:inline bg-slate-950 text-amber-300 px-2.5 py-0.5 rounded-full text-[10px] ml-2 font-mono">Edge Pre-Rendered (0ms)</span>
+    <span>The Independent Verification Standard &bull; $2M+ Insured &amp; State-Licensed Specialty Contractors Across 50 US Metros</span>
+    <span class="hidden md:inline bg-slate-950 text-amber-300 px-2.5 py-0.5 rounded-full text-[10px] ml-2 font-medium">100% Free for Clients &bull; Zero Broker Markups</span>
   </div>
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600 shadow-xs">
-          <i data-lucide="layers" class="w-6 h-6"></i>
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
         </div>
         <div>
           <span class="text-2xl font-bold font-serif-title tracking-tight text-slate-900 flex items-center gap-1.5">
             Reliant <span class="text-amber-600 font-sans font-extrabold">Verified</span>
           </span>
-          <span class="text-[10px] text-slate-500 tracking-wider block font-semibold uppercase">Nationwide Verified Commercial Directory</span>
+          <span class="text-[10px] text-slate-500 tracking-wider block font-semibold uppercase">Nationwide Verified Directory &amp; Equipment Network</span>
         </div>
-      </div>
+      </a>
 
-      <!-- NICHE SELECTOR PILLS IN NAVBAR -->
-      <div class="hidden lg:flex items-center gap-1 bg-slate-100 border border-slate-200 p-1.5 rounded-2xl">
-        <button onclick="switchNiche('luxury_restrooms')" id="niche-btn-restrooms" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm">
-          VIP Restrooms
-        </button>
-        <button onclick="switchNiche('commercial_cold_storage')" id="niche-btn-cold" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          Cold Storage
-        </button>
-        <button onclick="switchNiche('heavy_crane_rigging')" id="niche-btn-crane" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          Heavy Cranes
-        </button>
-        <button onclick="switchNiche('senior_care_placement')" id="niche-btn-senior" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-          Senior Living
-        </button>
-        <button onclick="switchNiche('aging_in_place')" id="niche-btn-staying" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 flex items-center gap-1">
-          <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>65+ Staying in Place</span>
-        </button>
-      </div>
+      <!-- MAIN CONSUMER NAV LINKS -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a href="#categories" class="hover:text-amber-600 transition-colors">Specialties</a>
+        <a href="#how-it-works" class="hover:text-amber-600 transition-colors">How It Works</a>
+        <a href="#directory" class="hover:text-amber-600 transition-colors">Verified Directory</a>
+        <a href="#tools" class="hover:text-amber-600 transition-colors">Cost Calculators</a>
+        <a href="#metros" class="hover:text-amber-600 transition-colors">50 Metros</a>
+      </nav>
 
-      <div class="flex items-center gap-2">
-        <a href="/operator-portal.html" class="hidden lg:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="layout-dashboard" class="w-4 h-4 text-amber-600"></i>
-          <span>Operator Portal</span>
+      <div class="flex items-center gap-3">
+        <a href="/operator-portal.html" class="hidden sm:flex items-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium px-3 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs transition-colors">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 text-amber-600"></i>
+          <span>For Contractors</span>
         </a>
-        <a href="/financing.html" class="hidden xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="calculator" class="w-4 h-4 text-amber-600"></i>
-          <span>Fleet Financing</span>
-        </a>
-        <button onclick="openPricingModal()" class="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
-          <span>Pricing</span>
-        </button>
-        <a href="/badge-generator.html" class="hidden 2xl:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
-          <span>Badges</span>
-        </a>
-        <button onclick="openSubmitModal()" class="hidden sm:flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-semibold bg-white hover:bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs shadow-2xs transition-colors">
-          <i data-lucide="plus-circle" class="w-4 h-4 text-amber-600"></i>
-          <span>List Fleet</span>
-        </button>
-        <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-amber-800 hover:text-amber-900 font-semibold bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-300 text-xs transition-colors">
-          <i data-lucide="line-chart" class="w-4 h-4 text-amber-600"></i>
-          <span class="hidden sm:inline">Cash Flow Command</span>
-        </button>
-        <button onclick="openQuoteModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl shadow-md shadow-amber-500/20 flex items-center gap-2 transition-all">
+        <button onclick="openQuoteModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-md shadow-amber-500/20 flex items-center gap-2 transition-all">
           <i data-lucide="calculator" class="w-4 h-4"></i>
-          <span>Instant Quote</span>
+          <span>Request Free Quotes</span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-16 pb-20 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-amber-50/50 via-white to-slate-50">
+  <section class="relative pt-14 pb-16 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-amber-50/40 via-white to-slate-50">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div id="hero-badge" class="inline-flex items-center gap-2 bg-white border border-amber-200/90 px-4 py-1.5 rounded-full text-xs font-semibold text-amber-700 mb-6 shadow-xs">
-        <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i>
-        <span>Verified High-Ticket Commercial &amp; VIP Fleets</span>
+      <div id="hero-badge" class="inline-flex items-center gap-2 bg-white border border-amber-200 px-4 py-1.5 rounded-full text-xs font-semibold text-amber-800 mb-5 shadow-xs">
+        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+        <span id="hero-badge-text">Nationwide Independent Verification &bull; $2M+ Liability Insurance Audited</span>
       </div>
 
-      <h1 id="hero-title" class="text-4xl sm:text-6xl font-serif-title font-bold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
-        Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings, VIP Galas &amp; Productions</span>
+      <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-serif-title font-bold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
+        Find &amp; Hire Vetted Specialty Contractors &amp; <span class="gold-text italic">High-Capacity Equipment</span>
       </h1>
       
-      <p id="hero-desc" class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto font-normal">
-        Browse top-rated luxury restroom trailers with flushing porcelain toilets, climate control, running hot water, and granite vanities. Get instant quotes matched to verified operators.
+      <p id="hero-desc" class="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
+        Connect directly with independently audited specialists across 5 core verticals — from certified 65+ aging-in-place modifications to mobile cold storage and luxury restroom trailers. Zero broker markups, upfront pricing.
       </p>
 
-      <!-- SEARCH & FILTER BAR -->
-      <div class="mt-10 max-w-4xl mx-auto bg-white border border-slate-200 p-4 rounded-2xl shadow-xl shadow-slate-200/60 grid grid-cols-1 sm:grid-cols-4 gap-3 text-left">
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Target Metro</label>
-          <select id="filter-city" onchange="loadVendors()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:bg-white focus:border-amber-500">
-            <option value="All">All Major Metros</option>
+      <!-- UNIVERSAL SEARCH & FILTER BAR -->
+      <div class="mt-8 max-w-4xl mx-auto bg-white border border-slate-200 p-3 sm:p-4 rounded-2xl shadow-xl shadow-slate-200/60 grid grid-cols-1 sm:grid-cols-12 gap-3 text-left">
+        <!-- Vertical selector (4 cols) -->
+        <div class="sm:col-span-4">
+          <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 flex items-center gap-1">
+            <i data-lucide="layers" class="w-3 h-3 text-amber-600"></i>
+            <span>Service Specialty</span>
+          </label>
+          <select id="hero-niche-select" onchange="onHeroNicheChange(this.value)" class="w-full bg-slate-50 border border-slate-200 text-slate-900 font-semibold rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:bg-white focus:border-amber-500 cursor-pointer">
+            <option value="all">All Specialties (Overview)</option>
+            <option value="aging_in_place">🏡 65+ Staying in Place (Home Mods)</option>
+            <option value="luxury_restrooms">🚻 VIP Restroom Trailers (Events)</option>
+            <option value="commercial_cold_storage">❄️ Commercial Cold Storage (Reefers)</option>
+            <option value="heavy_crane_rigging">🏗️ Heavy Cranes &amp; Rigging</option>
+            <option value="senior_care_placement">🏥 Senior Living Placement</option>
+          </select>
+        </div>
+
+        <!-- Target Metro (3 cols) -->
+        <div class="sm:col-span-3">
+          <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3 text-amber-600"></i>
+            <span>Target Metro Area</span>
+          </label>
+          <select id="filter-city" onchange="loadVendors()" class="w-full bg-slate-50 border border-slate-200 text-slate-900 font-semibold rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:bg-white focus:border-amber-500 cursor-pointer">
+            <option value="All">All 50 Metros</option>
             <option value="Atlanta">Atlanta, GA</option>
             <option value="Dallas">Dallas, TX</option>
             <option value="Miami">Miami, FL</option>
@@ -151,47 +140,334 @@
           </select>
         </div>
 
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Feature / Spec</label>
-          <select id="filter-amenity" onchange="loadVendors()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:bg-white focus:border-amber-500">
-            <option value="">All Features</option>
-            <option value="ADA Compliant">ADA Compliant</option>
-            <option value="Climate Controlled A/C">Climate Controlled A/C</option>
-            <option value="-20F to 50F Temp Range">-20F Deep Freeze</option>
-            <option value="NCCCO Certified">NCCCO Certified Crane</option>
-            <option value="Granite Countertops">Granite Countertops</option>
-          </select>
+        <!-- Keyword + Search button (5 cols) -->
+        <div class="sm:col-span-5 flex items-end gap-2">
+          <div class="flex-1">
+            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 flex items-center gap-1">
+              <i data-lucide="search" class="w-3 h-3 text-amber-600"></i>
+              <span>Equipment / Keyword</span>
+            </label>
+            <input type="text" id="search-input" onkeyup="loadVendors()" placeholder="e.g. roll-in shower, stairlift, reefer..." class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:bg-white focus:border-amber-500 placeholder:text-slate-400">
+          </div>
+          <button onclick="scrollToDirectoryAndSearch()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-colors shadow-xs shrink-0">
+            <span>Find Specialists</span>
+            <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- UNDER-SEARCH TRUST PILLS -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-600 font-medium">
+        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i> $2M+ General Liability Required</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Active State Licenses &amp; Permits</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-4 h-4 text-amber-600"></i> Zero Broker Markup (Direct-to-Operator)</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-amber-600"></i> 100% Free for Clients</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE 5 VISUAL CATEGORY TILES (CORE DISCOVERY GRID) -->
+  <section id="categories" class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Specialty Directory Verticals</span>
+        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Explore Our 5 Rigorously Vetted Industry Sectors</h2>
+        <p class="text-slate-600 text-sm mt-2">Every provider is independently verified for liability insurance, certifications, and compliance before appearing in our directory.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <!-- 1. 65+ Staying in Place -->
+        <div onclick="selectNicheCard('aging_in_place')" class="group cursor-pointer bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-100/70 border border-emerald-300 flex items-center justify-center text-emerald-700 mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="home" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider bg-emerald-100/60 px-2 py-0.5 rounded-md inline-block mb-2">CAPS Certified</span>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">65+ Staying in Place</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Aging-in-place remodeling: roll-in barrier-free showers, stairlifts, wheelchair ramps &amp; home safety modifications.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1">
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Roll-In Showers</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Stairlifts</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Ramps</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-emerald-700 group-hover:text-emerald-800">
+            <span>Browse Specialists</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
         </div>
 
-        <div class="sm:col-span-2 flex items-end gap-2">
-          <div class="flex-1">
-            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Search Fleet / Equipment</label>
-            <input type="text" id="search-input" onkeyup="loadVendors()" placeholder="e.g. trailer, reefer container, all-terrain crane..." class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:bg-white focus:border-amber-500 placeholder:text-slate-400">
+        <!-- 2. VIP Restroom Trailers -->
+        <div onclick="selectNicheCard('luxury_restrooms')" class="group cursor-pointer bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-100/70 border border-amber-300 flex items-center justify-center text-amber-700 mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-800 uppercase tracking-wider bg-amber-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Weddings &amp; Galas</span>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-amber-800 transition-colors">VIP Restroom Trailers</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              2–10 stall luxury mobile restrooms featuring flushing porcelain toilets, climate A/C, hot water &amp; granite vanities.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1">
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Flushing Porcelain</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Climate A/C</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">ADA Certified</span>
+            </div>
           </div>
-          <button onclick="loadVendors()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 transition-colors shadow-xs">
-            <i data-lucide="search" class="w-4 h-4"></i>
-            <span>Search</span>
-          </button>
+          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-800">
+            <span>Browse Fleets</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- 3. Commercial Cold Storage -->
+        <div onclick="selectNicheCard('commercial_cold_storage')" class="group cursor-pointer bg-slate-50 hover:bg-cyan-50/50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cyan-100/70 border border-cyan-300 flex items-center justify-center text-cyan-700 mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="snowflake" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold text-cyan-800 uppercase tracking-wider bg-cyan-100/60 px-2 py-0.5 rounded-md inline-block mb-2">Emergency 24/7</span>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-cyan-800 transition-colors">Cold Storage &amp; Reefers</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Mobile walk-in refrigeration and -20°F deep-freeze trailers for restaurants, food distributors &amp; seasonal overflow.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1">
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">-20°F Deep Freeze</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Walk-In Coolers</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">FSMA Compliant</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-cyan-700 group-hover:text-cyan-800">
+            <span>Browse Storage Units</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- 4. Heavy Cranes & Rigging -->
+        <div onclick="selectNicheCard('heavy_crane_rigging')" class="group cursor-pointer bg-slate-50 hover:bg-orange-50/50 border border-slate-200 hover:border-orange-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-orange-100/70 border border-orange-300 flex items-center justify-center text-orange-700 mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="truck" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold text-orange-800 uppercase tracking-wider bg-orange-100/60 px-2 py-0.5 rounded-md inline-block mb-2">NCCCO Certified</span>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-orange-800 transition-colors">Heavy Cranes &amp; Rigging</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              40–500 ton all-terrain mobile cranes with certified rigging crews for critical industrial, HVAC, and steel erection lifts.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1">
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">40-500 Ton</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Rigging Crews</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">HVAC Lifts</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-orange-700 group-hover:text-orange-800">
+            <span>Browse Crane Fleets</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- 5. Senior Living Placement -->
+        <div onclick="selectNicheCard('senior_care_placement')" class="group cursor-pointer bg-slate-50 hover:bg-rose-50/50 border border-slate-200 hover:border-rose-400 rounded-2xl p-5 transition-all hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-rose-100/70 border border-rose-300 flex items-center justify-center text-rose-700 mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="heart" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold text-rose-800 uppercase tracking-wider bg-rose-100/60 px-2 py-0.5 rounded-md inline-block mb-2">100% Free Advisory</span>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-rose-800 transition-colors">Senior Living Placement</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Personalized local guidance for assisted living, memory care &amp; residential retirement communities.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1">
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Assisted Living</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">Memory Care</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded">No Fee</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-rose-700 group-hover:text-rose-800">
+            <span>Browse Advisors</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FREY CHU EVENT RESTROOM STATION & CAPACITY PLANNER -->
-  <section id="capacity-planner" class="py-12 bg-white border-b border-slate-200">
+  <!-- HOW IT WORKS (3-STEP TRUST PROTOCOL) -->
+  <section id="how-it-works" class="py-14 bg-slate-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-amber-50/60 via-white to-slate-50 border border-amber-200/80 rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Transparent Vetting Standard</span>
+        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">How Reliant Verification Works</h2>
+        <p class="text-slate-600 text-sm mt-2">Connecting clients directly with pre-audited specialty providers in 3 transparent steps.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <!-- Step 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 font-black text-base flex items-center justify-center mb-4 shadow-sm">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Select Specialty &amp; Metro</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+            Choose your project vertical or search by your zip code to discover top-rated, certified operators available in your region.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 font-black text-base flex items-center justify-center mb-4 shadow-sm">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Inspect Verified Credentials</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+            Every listed business is pre-screened for $2M+ active liability insurance, valid state licensing, safety records, and equipment specs.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 font-black text-base flex items-center justify-center mb-4 shadow-sm">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Receive Direct Upfront Quotes</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+            Get transparent quotes directly from local providers with zero middleman commissions, broker fees, or inflated booking markups.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTORY SECTION -->
+  <section id="directory" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- DIRECTORY HEADER & SORT BAR -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
+      <div>
+        <span id="directory-sub" class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Verified Provider Directory</span>
+        <h2 id="directory-heading" class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Verified Providers &amp; Commercial Fleets</h2>
+        <p id="directory-desc" class="text-xs sm:text-sm text-slate-600 mt-1">Browse pre-screened operators meeting our institutional liability and licensing standards.</p>
+      </div>
+
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2.5 py-1.5 rounded-xl shadow-xs">
+          <i data-lucide="arrow-down-up" class="w-3.5 h-3.5 text-slate-400"></i>
+          <select id="sort-select" onchange="loadVendors()" class="bg-transparent text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer">
+            <option value="featured">Featured Partners First</option>
+            <option value="rating">Highest Rated (5.0★)</option>
+            <option value="price_asc">Lowest Starting Rate ($)</option>
+            <option value="price_desc">Highest Capacity Fleet</option>
+          </select>
+        </div>
+        <span id="vendor-count-badge" class="bg-white text-slate-700 text-xs px-3 py-1.5 rounded-xl border border-slate-200 font-semibold shadow-xs">66 Listings</span>
+        <button onclick="openQuoteModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors flex items-center gap-1.5 shadow-xs">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Broadcast Quote</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- NICHE SELECTOR BUTTON TABS -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
+      <button onclick="switchNiche('all')" id="niche-tab-all" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm whitespace-nowrap">
+        All Specialties
+      </button>
+      <button onclick="switchNiche('aging_in_place')" id="niche-tab-aging_in_place" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
+        <span>65+ Staying in Place</span>
+      </button>
+      <button onclick="switchNiche('luxury_restrooms')" id="niche-tab-luxury_restrooms" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+        <span>VIP Restrooms</span>
+      </button>
+      <button onclick="switchNiche('commercial_cold_storage')" id="niche-tab-commercial_cold_storage" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="snowflake" class="w-3.5 h-3.5 text-cyan-600"></i>
+        <span>Cold Storage</span>
+      </button>
+      <button onclick="switchNiche('heavy_crane_rigging')" id="niche-tab-heavy_crane_rigging" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="truck" class="w-3.5 h-3.5 text-orange-600"></i>
+        <span>Heavy Cranes</span>
+      </button>
+      <button onclick="switchNiche('senior_care_placement')" id="niche-tab-senior_care_placement" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap flex items-center gap-1.5">
+        <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-600"></i>
+        <span>Senior Living</span>
+      </button>
+    </div>
+
+    <!-- GEODIRECTORY ZIP & RADIUS PROXIMITY SEARCH BAR -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs mb-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 w-full sm:w-auto">
+        <div class="w-8 h-8 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 shrink-0">
+          <i data-lucide="map-pin" class="w-4 h-4"></i>
+        </div>
+        <div class="flex-1 sm:w-72">
+          <input type="text" id="proximity-input" placeholder="Enter Zip Code or City (e.g. 30301, Atlanta)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+        <select id="proximity-radius" class="bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 px-3 py-2 rounded-xl focus:outline-none cursor-pointer">
+          <option value="25">Within 25 Miles</option>
+          <option value="50" selected>Within 50 Miles</option>
+          <option value="100">Within 100 Miles</option>
+        </select>
+        <button onclick="searchByProximity()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-xl transition-colors shadow-xs flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="search" class="w-3.5 h-3.5"></i>
+          <span>Find Fleets Near Me</span>
+        </button>
+        <button onclick="clearProximitySearch()" id="clear-proximity-btn" class="hidden text-slate-500 hover:text-slate-800 text-xs font-semibold px-2 py-2">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- VENDORS GRID -->
+    <div id="vendors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected via JS -->
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PLANNING & ESTIMATION TOOLS (#tools) -->
+  <section id="tools" class="py-14 bg-white border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Engineering-Grade Planning Suite</span>
+          <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Interactive Sizing &amp; Cost Calculators</h2>
+          <p class="text-slate-600 text-sm mt-1">Eliminate guesswork with live capacity planners, modification budget estimators, and equipment financing.</p>
+        </div>
+
+        <!-- TOOL SWITCHER TABS -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <button onclick="switchToolTab('restrooms')" id="tab-btn-restrooms" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-sm border border-amber-400 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Restroom Sizing Planner</span>
+          </button>
+          <button onclick="switchToolTab('staying')" id="tab-btn-staying" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 bg-white border border-slate-200 flex items-center gap-1.5">
+            <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>65+ Modification Estimator</span>
+          </button>
+          <button onclick="switchToolTab('financing')" id="tab-btn-financing" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 bg-white border border-slate-200 flex items-center gap-1.5">
+            <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Section 179 Financing</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PANE 1: RESTROOM CAPACITY PLANNER -->
+      <div id="tool-pane-restrooms" class="bg-gradient-to-br from-amber-50/60 via-white to-slate-50 border border-amber-200/80 rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-2xs">
               <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-700"></i>
               <span>Live Equipment Sizing Protocol</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
+            <h3 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
               Event Restroom Station &amp; Capacity Planner
-            </h2>
+            </h3>
             <p class="text-sm text-slate-600 mt-1 max-w-2xl">
-              Eliminate guesswork and prevent guest wait lines. Calculate exact trailer dimensions, stall count, and utility requirements based on event scale, duration, and beverage service.
+              Eliminate guest wait lines. Calculate exact trailer dimensions, stall count, and utility requirements based on event scale, duration, and beverage service.
             </p>
           </div>
           <div class="flex items-center gap-2">
@@ -342,82 +618,208 @@
           </div>
         </div>
       </div>
+
+      <!-- PANE 2: 65+ AGING IN PLACE MODIFICATION ESTIMATOR -->
+      <div id="tool-pane-staying" class="hidden bg-gradient-to-br from-emerald-50/60 via-white to-slate-50 border border-emerald-200 rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-2xs">
+              <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-700"></i>
+              <span>Certified Aging-in-Place (CAPS) Sizing Suite</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
+              65+ Home Modification Budget &amp; Feasibility Estimator
+            </h3>
+            <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+              Calculate typical contractor pricing for barrier-free home accessibility modifications, assess grant eligibility, and match with verified CAPS contractors.
+            </p>
+          </div>
+          <a href="/staying-in-place.html" class="bg-white border border-emerald-300 text-emerald-800 hover:bg-emerald-50 text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-xs">
+            <span>Visit 65+ Staying in Place Hub</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-700 block mb-2">Select Modifications Needed:</span>
+            
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-shower" checked onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">Roll-In Barrier-Free Zero-Threshold Shower</span>
+                  <span class="text-[11px] text-slate-500">Replaces high-curb tub with flat tile entry &amp; fold-down seat</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$8,500 – $14,000</span>
+            </label>
+
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-stairlift" onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">Motorized Straight-Rail Stairlift</span>
+                  <span class="text-[11px] text-slate-500">Battery backup, swivel seat &amp; remote controls</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$3,200 – $5,500</span>
+            </label>
+
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-ramp" onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">Exterior Modular Wheelchair Entry Ramp</span>
+                  <span class="text-[11px] text-slate-500">Commercial aluminum with continuous handrails (1:12 ADA slope)</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$2,800 – $6,500</span>
+            </label>
+
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-tub" onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">Walk-In Hydrotherapy Safety Tub</span>
+                  <span class="text-[11px] text-slate-500">Low-entry door, heated seating &amp; quick-drain pump</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$7,000 – $12,500</span>
+            </label>
+
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-grabbars" onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">ADA Grab Bars &amp; Non-Slip Floor Texturing</span>
+                  <span class="text-[11px] text-slate-500">Moen/Delta 500-lb rated bars in bathroom, toilet &amp; hallways</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$650 – $1,800</span>
+            </label>
+
+            <label class="bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer hover:border-emerald-400 transition-colors shadow-2xs">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="aip-doors" onchange="updateAgingInPlaceCalculator()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                <div>
+                  <span class="text-xs font-bold text-slate-900 block">Doorway Widening (36&quot; Wheelchair Clearance)</span>
+                  <span class="text-[11px] text-slate-500">Structural reframing and swing-clear hinges</span>
+                </div>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 font-mono">$1,200 – $3,000</span>
+            </label>
+          </div>
+
+          <!-- PANE 2 SUMMARY -->
+          <div class="lg:col-span-5 bg-white border-2 border-emerald-400 rounded-3xl p-6 sm:p-7 shadow-xl shadow-emerald-500/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-800 uppercase bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span id="aip-items-count">1 Modification Selected</span>
+                </span>
+                <span class="bg-slate-900 text-emerald-300 font-mono text-xs font-bold px-2.5 py-1 rounded-lg">
+                  CAPS Vetted
+                </span>
+              </div>
+
+              <h4 class="text-2xl font-serif-title font-bold text-slate-900 leading-tight">
+                Estimated Project Investment
+              </h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Based on historical verified pricing from licensed Aging-in-Place remodeling contractors across top metros.
+              </p>
+
+              <div class="mt-6 bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                <span class="text-[11px] font-semibold text-emerald-900 uppercase block">Total Modification Range</span>
+                <span id="aip-total-display" class="text-2xl sm:text-3xl font-black text-emerald-700 font-sans mt-1 block">$8,500 – $14,000</span>
+                <span class="text-[10px] text-slate-500 mt-2 block leading-relaxed">
+                  Includes professional architectural assessment, permits, barrier-free demolition, and Certified Aging-in-Place installation.
+                </span>
+              </div>
+
+              <div class="mt-4 p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 space-y-1">
+                <div class="font-bold text-slate-900 flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5 text-amber-600"></i> Grant &amp; Assistance Feasibility:</div>
+                <div class="text-[11px] text-slate-600">&bull; VA HISA Grant: Up to $6,800 for eligible veterans</div>
+                <div class="text-[11px] text-slate-600">&bull; USDA Section 504: Grants up to $10,000 for low-income seniors</div>
+              </div>
+            </div>
+
+            <button onclick="applyAgingCalculatorToQuote()" class="mt-6 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm py-3.5 rounded-xl shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 transition-all">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
+              <span>Match Local CAPS Remodelers &amp; Get Quotes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: SECTION 179 FINANCING -->
+      <div id="tool-pane-financing" class="hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-3xl p-6 sm:p-10 border border-slate-700/60 shadow-xl">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold mb-3">
+            <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+            <span>Commercial Capital &amp; Section 179 Deduction</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-serif-title font-bold text-white tracking-tight">
+            Fleet Equipment Financing &amp; Section 179 Tax Advantage
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 mt-2.5 leading-relaxed">
+            Acquiring a restroom trailer fleet, mobile refrigeration unit, or heavy crane? Take advantage of IRS Section 179 to write off up to 100% of the equipment purchase price in Year 1.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div class="bg-white/10 border border-white/10 p-4 rounded-2xl">
+              <span class="text-[11px] text-slate-400 uppercase block font-semibold">100% Tax Write-Off</span>
+              <span class="text-xl font-bold text-amber-300 mt-1 block">IRS Section 179</span>
+              <span class="text-[10px] text-slate-400 mt-1 block">Deduct total purchase price Year 1</span>
+            </div>
+            <div class="bg-white/10 border border-white/10 p-4 rounded-2xl">
+              <span class="text-[11px] text-slate-400 uppercase block font-semibold">Prime Rates</span>
+              <span class="text-xl font-bold text-emerald-300 mt-1 block">From 6.25% APR</span>
+              <span class="text-[10px] text-slate-400 mt-1 block">Terms from 24 to 72 months</span>
+            </div>
+            <div class="bg-white/10 border border-white/10 p-4 rounded-2xl">
+              <span class="text-[11px] text-slate-400 uppercase block font-semibold">Fast Approvals</span>
+              <span class="text-xl font-bold text-cyan-300 mt-1 block">Within 24 Hours</span>
+              <span class="text-[10px] text-slate-400 mt-1 block">Application-only up to $250,000</span>
+            </div>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/financing.html" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-6 py-3 rounded-xl transition-all flex items-center gap-2">
+              <span>Launch Commercial Financing Portal</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- JOHN RUSH SPONSORSHIP CALLOUT BANNER -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-8 mt-6">
-    <div class="bg-gradient-to-r from-amber-50 via-white to-amber-50 border border-amber-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-extrabold text-xs">
-          <i data-lucide="crown" class="w-4 h-4"></i>
+  <!-- FOR CONTRACTORS & FLEET OPERATORS BANNER (#for-contractors) -->
+  <section id="for-contractors" class="py-10 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-700/60 shadow-lg flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center font-extrabold text-xl shrink-0 shadow-md">
+            <i data-lucide="crown" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block">For Licensed Contractors &amp; Fleet Owners</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-0.5">Grow Your Revenue with Verified Client Quote Requests</h3>
+            <p class="text-xs text-slate-300 mt-1 max-w-xl">
+              Claim your business profile, showcase your verified licenses and insurance, and receive direct high-ticket client quote broadcasts in your metro area.
+            </p>
+          </div>
         </div>
-        <div>
-          <span class="text-xs font-bold text-slate-900 block">Fleet Operators: Feature Your Equipment at the Top of Your Metro</span>
-          <span class="text-[11px] text-slate-600 block">Lock in exclusive category placement and receive direct client broadcast quote leads.</span>
-        </div>
-      </div>
-      <button onclick="openSubmitModal()" class="bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition-colors whitespace-nowrap self-start sm:self-auto shadow-xs">
-        Claim Featured Placement ($99/mo)
-      </button>
-    </div>
-  </div>
-
-  <!-- DIRECTORY SECTION -->
-  <section id="directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-      <div>
-        <span id="directory-sub" class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Verified Fleet Directory</span>
-        <h2 id="directory-heading" class="text-3xl font-serif-title font-bold text-slate-900">Verified B2B Operators</h2>
-      </div>
-      <div class="flex items-center gap-2.5 flex-wrap">
-        <div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2.5 py-1 rounded-xl shadow-xs">
-          <i data-lucide="arrow-down-up" class="w-3.5 h-3.5 text-slate-400"></i>
-          <select id="sort-select" onchange="loadVendors()" class="bg-transparent text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer">
-            <option value="featured">Featured Partners First</option>
-            <option value="rating">Highest Rated (5.0★)</option>
-            <option value="price_asc">Lowest Starting Rate ($)</option>
-            <option value="price_desc">Highest Capacity Fleet</option>
-          </select>
-        </div>
-        <span id="vendor-count-badge" class="bg-white text-slate-700 text-xs px-3 py-1.5 rounded-xl border border-slate-200 font-semibold shadow-xs">21 Listings</span>
-        <button onclick="openQuoteModal()" class="bg-amber-50 text-amber-800 border border-amber-300 text-xs font-bold px-3.5 py-1.5 rounded-xl hover:bg-amber-100 transition-colors flex items-center gap-1.5">
-          <i data-lucide="send" class="w-3.5 h-3.5 text-amber-600"></i>
-          <span>Broadcast Quote</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- GEODIRECTORY ZIP & RADIUS PROXIMITY SEARCH BAR (Frey Chu Blueprint) -->
-    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs mb-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5 w-full sm:w-auto">
-        <div class="w-8 h-8 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 shrink-0">
-          <i data-lucide="map-pin" class="w-4 h-4"></i>
-        </div>
-        <div class="flex-1 sm:w-72">
-          <input type="text" id="proximity-input" placeholder="Enter Zip Code or City (e.g. 30301, Atlanta)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
+        <div class="flex items-center gap-3 shrink-0 flex-wrap sm:flex-nowrap">
+          <button onclick="openSubmitModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-xl text-xs font-extrabold transition-colors shadow-sm whitespace-nowrap">
+            List Your Business
+          </button>
+          <a href="/operator-portal.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2.5 rounded-xl text-xs font-bold transition-colors whitespace-nowrap">
+            Operator Portal
+          </a>
         </div>
       </div>
-
-      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
-        <select id="proximity-radius" class="bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 px-3 py-2 rounded-xl focus:outline-none cursor-pointer">
-          <option value="25">Within 25 Miles</option>
-          <option value="50" selected>Within 50 Miles</option>
-          <option value="100">Within 100 Miles</option>
-        </select>
-        <button onclick="searchByProximity()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-xl transition-colors shadow-xs flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="search" class="w-3.5 h-3.5"></i>
-          <span>Find Fleets Near Me</span>
-        </button>
-        <button onclick="clearProximitySearch()" id="clear-proximity-btn" class="hidden text-slate-500 hover:text-slate-800 text-xs font-semibold px-2 py-2">
-          Reset
-        </button>
-      </div>
-    </div>
-
-    <!-- VENDORS GRID -->
-    <div id="vendors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Injected via JS -->
     </div>
   </section>
 
@@ -2357,6 +2759,7 @@
         <a href="/terms.html" class="hover:text-amber-600 transition-colors">Terms of Service</a>
         <a href="/privacy.html" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
         <a href="/refund-policy.html" class="hover:text-amber-600 transition-colors">Refund &amp; Escrow Policy</a>
+        <a href="javascript:void(0)" onclick="openAdminModal()" class="text-slate-400 hover:text-slate-600 transition-colors flex items-center gap-1"><i data-lucide="line-chart" class="w-3.5 h-3.5 inline"></i> Operator Telemetry</a>
       </div>
       <p class="mt-2 text-[10px] text-slate-400 max-w-2xl text-center">
         Disclaimer: This platform acts solely as a lead matching technology and brokerage service. We do not own, operate, or maintain any equipment, including but not limited to heavy cranes, cold storage units, or restroom trailers. We are not liable for any damages, injuries, or losses incurred by the independent operators or the end-customers.
