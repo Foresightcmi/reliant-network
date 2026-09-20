@@ -162,6 +162,7 @@ def generate_single_listing_html(v, all_vendors):
     }
 
     clean_phone = re.sub(r'[^0-9]', '', phone)
+    safe_name = name.replace("'", "\\'").replace('"', '&quot;')
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -290,33 +291,97 @@ def generate_single_listing_html(v, all_vendors):
 
         <!-- INTERACTIVE OPENSTREETMAP / LEAFLET (Zero Marginal Cost) -->
         <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
             <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-300">
+                  <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg>
+                  Verified Active Dispatch Depot
+                </span>
+                <span class="text-xs text-slate-400">&bull;</span>
+                <span class="text-xs font-semibold text-slate-600">75-Mile Primary Service Radius</span>
+              </div>
               <h2 class="text-lg font-bold text-slate-900">Service Coverage &amp; Dispatch Depot</h2>
-              <p class="text-xs text-slate-500">Headquartered in {city}, {state} with rapid regional delivery.</p>
+              <p class="text-xs text-slate-500">Commercial fleet staging depot headquartered in {city}, {state} with guaranteed rapid regional delivery.</p>
             </div>
-            <span class="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
-              {lat}, {lng}
-            </span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
+                GPS: {lat}, {lng}
+              </span>
+              <a href="https://www.google.com/maps/search/?api=1&query={lat},{lng}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-1 rounded-lg transition-colors flex items-center gap-1">
+                Directions
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
           </div>
-          <div id="vendor-map" class="h-64 rounded-xl border border-slate-200 z-10"></div>
+
+          <div id="vendor-map" class="rounded-xl border border-slate-200 overflow-hidden shadow-inner" style="height: 380px; min-height: 320px; width: 100%; position: relative; z-index: 1;"></div>
+
+          <div class="mt-3 flex items-center justify-between text-xs text-slate-500 flex-wrap gap-2 pt-2 border-t border-slate-100">
+            <div class="flex items-center gap-4">
+              <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-xs"></span> <strong>Depot Staging Hub:</strong> {city}, {state}</span>
+              <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-100 border border-amber-400 inline-block"></span> <strong>Guaranteed 75-Mi Radius:</strong> Direct Dispatch</span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-medium">OpenStreetMap &bull; Zero Broker Markups</span>
+          </div>
+
           <script>
             document.addEventListener('DOMContentLoaded', () => {{
-              const map = L.map('vendor-map').setView([{lat}, {lng}], 10);
-              L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-                attribution: '&copy; OpenStreetMap contributors'
-              }}).addTo(map);
-              
-              const marker = L.marker([{lat}, {lng}]).addTo(map);
-              marker.bindPopup('<strong>{name}</strong><br>{city}, {state}').openPopup();
+              const mapContainer = document.getElementById('vendor-map');
+              if (!mapContainer || typeof L === 'undefined') return;
 
-              // 75 mile service radius circle
-              L.circle([{lat}, {lng}], {{
-                color: '#f59e0b',
-                fillColor: '#fef3c7',
-                fillOpacity: 0.2,
-                radius: 120000
+              const map = L.map('vendor-map', {{
+                scrollWheelZoom: false
+              }}).setView([{lat}, {lng}], 9);
+
+              L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+                maxZoom: 18,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               }}).addTo(map);
+
+              // Custom Gold Depot SVG Pin with Pulse Beacon
+              const depotIcon = L.divIcon({{
+                className: 'custom-depot-pin',
+                html: `<div style="position:relative; width:40px; height:40px; display:flex; align-items:center; justify-content:center;">
+                         <div style="position:absolute; inset:-6px; border-radius:50%; background:rgba(217,119,6,0.25); animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
+                         <div style="position:relative; width:34px; height:34px; background:linear-gradient(135deg, #d97706, #b45309); border:2.5px solid #ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.25);">
+                           <svg style="width:18px; height:18px; color:#ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                         </div>
+                       </div>`,
+                iconSize: [40, 40],
+                iconAnchor: [20, 20],
+                popupAnchor: [0, -22]
+              }});
+
+              const marker = L.marker([{lat}, {lng}], {{ icon: depotIcon }}).addTo(map);
+
+              const popupContent = `
+                <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:4px; max-width:260px;">
+                  <div style="display:inline-block; font-size:10px; font-weight:800; background:#fef3c7; color:#92400e; padding:2px 8px; border-radius:9999px; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">Verified Dispatch Depot</div>
+                  <div style="font-size:14px; font-weight:800; color:#0f172a; line-height:1.2; margin-bottom:4px;">{safe_name}</div>
+                  <div style="font-size:12px; color:#64748b; margin-bottom:8px;">📍 {city}, {state}</div>
+                  <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #e2e8f0; padding-top:6px;">
+                    <span style="font-size:12px; font-weight:700; color:#059669;">★ {rating} Rating</span>
+                    <a href="tel:{clean_phone}" style="font-size:11px; font-weight:800; color:#d97706; text-decoration:none; background:#fffbeb; padding:3px 8px; border-radius:6px; border:1px solid #fde68a;">📞 Call Depot</a>
+                  </div>
+                </div>
+              `;
+              marker.bindPopup(popupContent).openPopup();
+
+              // 75-mile verified primary dispatch radius circle
+              L.circle([{lat}, {lng}], {{
+                color: '#d97706',
+                weight: 2,
+                dashArray: '4, 6',
+                fillColor: '#f59e0b',
+                fillOpacity: 0.12,
+                radius: 120700
+              }}).addTo(map);
+
+              // Responsive size invalidation
+              setTimeout(() => {{ map.invalidateSize(); }}, 200);
+              setTimeout(() => {{ map.invalidateSize(); }}, 600);
+              window.addEventListener('resize', () => {{ map.invalidateSize(); }});
             }});
           </script>
         </section>
@@ -326,7 +391,7 @@ def generate_single_listing_html(v, all_vendors):
           <div class="flex items-center justify-between mb-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900">Verified Client Feedback</h2>
-              <p class="text-xs text-slate-500">{review_count} verified event reviews from Georgia event planners</p>
+              <p class="text-xs text-slate-500">{review_count} verified client reviews from {state_full} commercial clients &amp; event planners</p>
             </div>
             <div class="text-right">
               <span class="text-2xl font-bold text-slate-900">{sentiment.get('cleanliness_score')}%</span>
