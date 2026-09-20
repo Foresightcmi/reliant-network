@@ -51,7 +51,7 @@ def generate_single_listing_html(v, all_vendors):
     city = v.get("city", "Atlanta")
     state = v.get("state", "GA")
     state_full, state_slug = STATE_NAMES.get(state, (state, state.lower()))
-    phone = v.get("phone", "(404) 555-0100")
+    phone = v.get("phone", "(404) 732-8190")
     rating = v.get("rating", 5.0)
     review_count = v.get("review_count", 18)
     min_price = v.get("min_price", 1500)
@@ -361,7 +361,7 @@ def generate_single_listing_html(v, all_vendors):
             </div>
             <div>
               <label class="block text-[11px] font-semibold text-slate-700 mb-1">Phone Number</label>
-              <input type="tel" id="inq-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-amber-500">
+              <input type="tel" id="inq-phone" required placeholder="(404) 732-8190" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-amber-500">
             </div>
             <div>
               <label class="block text-[11px] font-semibold text-slate-700 mb-1">Target Event Date</label>

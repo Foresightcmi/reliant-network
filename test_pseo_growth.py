@@ -39,7 +39,7 @@ print(f"? Embeddable Verified Backlink Badge Generated:\n   {badge['badge_html']
 lead_payload = {
     "customer_name": "Alexander Sterling",
     "customer_email": "a.sterling@vineyardevents.com",
-    "customer_phone": "(404) 555-9921",
+    "customer_phone": "(404) 732-9921",
     "city": "Atlanta",
     "state": "GA",
     "event_date": "2026-11-28",

@@ -33,7 +33,7 @@ part3 = """
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Phone (SMS Alerts)</label>
-            <input type="tel" id="q-phone" required placeholder="(404) 555-0199" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+            <input type="tel" id="q-phone" required placeholder="(404) 732-0199" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
           </div>
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Event City</label>

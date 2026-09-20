@@ -70,7 +70,7 @@ if __name__ == '__main__':
         'guest_count': 220,
         'event_type': 'Vineyard Wedding',
         'customer_email': 'sarah.miller@gmail.com',
-        'customer_phone': '(404) 555-9012',
+        'customer_phone': '(404) 732-9012',
         'notes': 'Looking for a clean modern 3-4 station trailer with flushing toilets and air conditioning.',
         'city': 'Atlanta'
     })

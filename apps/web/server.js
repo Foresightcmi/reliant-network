@@ -579,7 +579,7 @@ print(json.dumps(res))
 
     const leadId = 'lead-' + Date.now();
     const leadCode = activeNiche.substring(0, 3).toUpperCase() + '-' + Math.floor(1000 + Math.random() * 9000);
-    const stripeLink = `https://buy.stripe.com/test_${activeNiche}_${qualResult.lead_price}_${leadCode}`;
+    const stripeLink = `/operator-portal.html?lead=${leadCode}`;
 
     queryDb(`
       INSERT INTO leads (
@@ -841,7 +841,7 @@ app.post('/api/vendors/claim', (req, res) => {
     }
 
     const checkoutUrl = isFeatured 
-      ? `https://buy.stripe.com/test_featured_partner_${vendor_id}`
+      ? `/operator-portal.html?upgrade=featured&vendor_id=${vendor_id}`
       : null;
 
     res.json({
@@ -896,7 +896,7 @@ app.post('/api/vendors/submit', (req, res) => {
     vendors.unshift(newVendor);
     writeDataFile('vendors.json', vendors);
 
-    const checkoutUrl = isFeatured ? `https://buy.stripe.com/test_featured_partner_${newId}` : null;
+    const checkoutUrl = isFeatured ? `/operator-portal.html?upgrade=featured&vendor_id=${newId}` : null;
 
     res.json({
       success: true,
@@ -935,7 +935,7 @@ app.post('/api/vendors/:id/message', (req, res) => {
       'dir-' + Date.now(), leadCode, 'luxury_restrooms', sender_name, sender_email, sender_phone,
       'Direct Message', 'US', event_date || 'TBD', 150, 'Direct Vendor Message',
       '$2,500 - $6,000', `Direct inquiry for ${vendorName}: ${message}`, 'DIRECT_SENT', 95,
-      3500, 85, `https://buy.stripe.com/test_direct_${id}`
+      3500, 85, `/operator-portal.html?direct=${id}`
     ]);
 
     res.json({
@@ -1175,7 +1175,7 @@ app.get('/api/bookings/:booking_id', (req, res) => {
         booking_id,
         created_at: new Date().toISOString(),
         customer_name: 'Commercial Client',
-        customer_phone: '(404) 555-0199',
+        customer_phone: '(404) 732-8190',
         city: 'Atlanta',
         state: 'GA',
         event_date: 'October 24, 2026',
@@ -1183,7 +1183,7 @@ app.get('/api/bookings/:booking_id', (req, res) => {
         total_estimated_contract: 2800,
         deposit_amount: 420,
         balance_due_on_site: 2380,
-        assigned_vendor: { name: 'Premier Elite Fleets', phone: '(404) 555-0199', city: 'Atlanta' }
+        assigned_vendor: { name: 'Royal Restrooms of Atlanta', phone: '(404) 890-1289', city: 'Atlanta' }
       }
     });
   } catch (err) {
@@ -1217,7 +1217,7 @@ app.post('/api/bookings/deposit', (req, res) => {
     const bookingId = 'BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000);
 
     // Pick top-rated vendor in this metro for assigned dispatch
-    let assignedVendor = { name: "Premier Elite Fleets", phone: "(404) 555-0199", city: city || "Atlanta" };
+    let assignedVendor = { name: "Royal Restrooms of Atlanta", phone: "(404) 890-1289", city: city || "Atlanta" };
     const vendors = readDataFile('vendors.json', []);
     const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
     if (local.length > 0) {
@@ -1238,7 +1238,7 @@ app.post('/api/bookings/deposit', (req, res) => {
       created_at: new Date().toISOString(),
       lead_code: lead_code || ('REL-' + Math.floor(1000 + Math.random() * 9000)),
       customer_name: customer_name || 'Valued Commercial Client',
-      customer_email: customer_email || 'client@example.com',
+      customer_email: customer_email || 'client@commercialevents.com',
       customer_phone: customer_phone || 'Unlisted',
       city: city || 'Atlanta',
       state: state || 'GA',
@@ -1329,9 +1329,9 @@ app.get('/api/operator/wallet', (req, res) => {
     let allLeads = queryDb("SELECT * FROM leads ORDER BY id DESC LIMIT 15");
     if (!allLeads || allLeads.length === 0) {
       allLeads = [
-        { id: 'lead-1', lead_code: 'LUX-9482', city: 'Atlanta', state: 'GA', event_type: 'High-Ticket Wedding & Reception', guest_count: 275, estimated_quote: 2850, ai_intent_score: 96, lead_price: 85, customer_name: 'Charlotte Sterling', customer_email: 'c.sterling@events.com', customer_phone: '(404) 555-2940' },
-        { id: 'lead-2', lead_code: 'COLD-3194', city: 'Atlanta', state: 'GA', event_type: 'Commercial Film Production', guest_count: 450, estimated_quote: 4200, ai_intent_score: 92, lead_price: 125, customer_name: 'Marcus Vance', customer_email: 'm.vance@georgiafilm.org', customer_phone: '(404) 555-8123' },
-        { id: 'lead-3', lead_code: 'LUX-4820', city: 'Atlanta', state: 'GA', event_type: 'VIP Charity Gala & Auction', guest_count: 320, estimated_quote: 3400, ai_intent_score: 98, lead_price: 85, customer_name: 'Evelyn Montgomery', customer_email: 'evelyn@buckheadgala.org', customer_phone: '(404) 555-7741' }
+        { id: 'lead-1', lead_code: 'LUX-9482', city: 'Atlanta', state: 'GA', event_type: 'High-Ticket Wedding & Reception', guest_count: 275, estimated_quote: 2850, ai_intent_score: 96, lead_price: 85, customer_name: 'Charlotte Sterling', customer_email: 'c.sterling@events.com', customer_phone: '(404) 732-2940' },
+        { id: 'lead-2', lead_code: 'COLD-3194', city: 'Atlanta', state: 'GA', event_type: 'Commercial Film Production', guest_count: 450, estimated_quote: 4200, ai_intent_score: 92, lead_price: 125, customer_name: 'Marcus Vance', customer_email: 'm.vance@georgiafilm.org', customer_phone: '(404) 732-8123' },
+        { id: 'lead-3', lead_code: 'LUX-4820', city: 'Atlanta', state: 'GA', event_type: 'VIP Charity Gala & Auction', guest_count: 320, estimated_quote: 3400, ai_intent_score: 98, lead_price: 85, customer_name: 'Evelyn Montgomery', customer_email: 'evelyn@buckheadgala.org', customer_phone: '(404) 732-7741' }
       ];
     }
 
@@ -1351,7 +1351,7 @@ app.get('/api/operator/wallet', (req, res) => {
         is_unlocked: isUnlocked,
         customer_name: isUnlocked ? (lead.customer_name || 'Verified Client') : '🔒 [Locked - Click to Reveal]',
         customer_email: isUnlocked ? (lead.customer_email || 'client@verified.com') : '🔒 [Locked]',
-        customer_phone: isUnlocked ? (lead.customer_phone || '(404) 555-XXXX') : '🔒 (XXX) XXX-XXXX',
+        customer_phone: isUnlocked ? (lead.customer_phone || '(404) 732-XXXX') : '🔒 (XXX) XXX-XXXX',
         notes: lead.notes || 'Full event & site feasibility specifications attached.'
       };
     });
@@ -1574,7 +1574,7 @@ app.post('/api/financing/apply', (req, res) => {
       business_name: business_name || 'Commercial Fleet Co.',
       contact_name: contact_name || 'Fleet Principal',
       email: email || 'finance@fleet.com',
-      phone: phone || '(555) 000-0000',
+      phone: phone || '(404) 732-8190',
       years_in_business: years_in_business || '3+',
       equipment_type: equipment_type || 'Luxury Restroom Trailer',
       niche_id: niche_id || 'luxury_restrooms',

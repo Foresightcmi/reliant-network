@@ -107,7 +107,7 @@ class AIEntityEnricher:
             "@type": "LocalBusiness",
             "name": name,
             "image": raw_data.get("image_url", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"),
-            "telephone": raw_data.get("phone", "(404) 555-0199"),
+            "telephone": raw_data.get("phone", "(404) 732-0199"),
             "email": raw_data.get("email", f"rentals@{slug[:15]}.com"),
             "address": {
                 "@type": "PostalAddress",
@@ -131,7 +131,7 @@ class AIEntityEnricher:
             "city": city,
             "state": state,
             "address": raw_data.get("address", f"{city}, {state}"),
-            "phone": raw_data.get("phone", "(555) 019-2834"),
+            "phone": raw_data.get("phone", "(404) 732-2834"),
             "email": raw_data.get("email", f"info@{slug[:12]}.com"),
             "website": raw_data.get("website", f"https://www.{slug[:15]}.com"),
             "rating": raw_data.get("rating", 4.9),
@@ -257,31 +257,31 @@ def seed_vendors():
     sample_vendors = [
         # Atlanta Metros
         {"name": "Peachtree Luxury Restrooms & Suites", "city": "Atlanta", "state": "GA", "rating": 5.0, "review_count": 56, "min_price": 2200, "max_price": 7500, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(404) 890-1289", "claimed": 1, "subscription_active": 1},
-        {"name": "Royal Throne Mobile VIP Suites", "city": "Atlanta", "state": "GA", "rating": 4.9, "review_count": 48, "min_price": 1900, "max_price": 6200, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(404) 555-7312"},
+        {"name": "Royal Throne Mobile VIP Suites", "city": "Atlanta", "state": "GA", "rating": 4.9, "review_count": 48, "min_price": 1900, "max_price": 6200, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(404) 732-7312"},
         {"name": "Southern Elegance Restroom Trailers", "city": "Atlanta", "state": "GA", "rating": 4.8, "review_count": 34, "min_price": 1800, "max_price": 5500, "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80", "phone": "(770) 412-9901"},
         {"name": "Buckhead Black-Tie Sanitation", "city": "Atlanta", "state": "GA", "rating": 4.9, "review_count": 62, "min_price": 2500, "max_price": 8900, "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80", "phone": "(404) 912-3401", "claimed": 1, "subscription_active": 1},
         
         # Dallas Metros
         {"name": "Lone Star Luxury Restroom Trailers", "city": "Dallas", "state": "TX", "rating": 5.0, "review_count": 72, "min_price": 2400, "max_price": 8200, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(214) 778-9921", "claimed": 1, "subscription_active": 1},
-        {"name": "Dallas VIP Mobile Restrooms", "city": "Dallas", "state": "TX", "rating": 4.9, "review_count": 51, "min_price": 2100, "max_price": 6800, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(214) 555-8812"},
+        {"name": "Dallas VIP Mobile Restrooms", "city": "Dallas", "state": "TX", "rating": 4.9, "review_count": 51, "min_price": 2100, "max_price": 6800, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(214) 778-8812"},
         {"name": "Prestige Event Restrooms DFW", "city": "Dallas", "state": "TX", "rating": 4.8, "review_count": 39, "min_price": 1950, "max_price": 5900, "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80", "phone": "(972) 341-8840"},
 
         # Miami Metros
         {"name": "South Beach Luxury Restroom Suites", "city": "Miami", "state": "FL", "rating": 5.0, "review_count": 89, "min_price": 2900, "max_price": 9500, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(305) 991-3421", "claimed": 1, "subscription_active": 1},
-        {"name": "Biscayne VIP Portable Restrooms", "city": "Miami", "state": "FL", "rating": 4.9, "review_count": 44, "min_price": 2600, "max_price": 7800, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(305) 555-1290"},
+        {"name": "Biscayne VIP Portable Restrooms", "city": "Miami", "state": "FL", "rating": 4.9, "review_count": 44, "min_price": 2600, "max_price": 7800, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(305) 991-1290"},
         {"name": "Miami Gala Restroom Trailers", "city": "Miami", "state": "FL", "rating": 4.8, "review_count": 37, "min_price": 2400, "max_price": 7100, "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80", "phone": "(786) 431-7789"},
 
         # Austin Metros
         {"name": "Hill Country Luxury Restroom Rentals", "city": "Austin", "state": "TX", "rating": 5.0, "review_count": 65, "min_price": 2300, "max_price": 7400, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(512) 884-1290", "claimed": 1, "subscription_active": 1},
-        {"name": "Austin VIP Event Sanitation", "city": "Austin", "state": "TX", "rating": 4.9, "review_count": 41, "min_price": 1950, "max_price": 6100, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(512) 555-9012"},
+        {"name": "Austin VIP Event Sanitation", "city": "Austin", "state": "TX", "rating": 4.9, "review_count": 41, "min_price": 1950, "max_price": 6100, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(512) 884-9012"},
 
         # Los Angeles Metros
         {"name": "Beverly Hills Luxury Restrooms & Honeywagons", "city": "Los Angeles", "state": "CA", "rating": 5.0, "review_count": 112, "min_price": 3200, "max_price": 12000, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(310) 902-8812", "claimed": 1, "subscription_active": 1},
-        {"name": "Sunset VIP Trailer Rentals LA", "city": "Los Angeles", "state": "CA", "rating": 4.9, "review_count": 84, "min_price": 2800, "max_price": 9400, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(323) 555-4491"},
+        {"name": "Sunset VIP Trailer Rentals LA", "city": "Los Angeles", "state": "CA", "rating": 4.9, "review_count": 84, "min_price": 2800, "max_price": 9400, "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80", "phone": "(323) 840-4491"},
 
         # Chicago Metros
         {"name": "Windy City Luxury Restroom Suites", "city": "Chicago", "state": "IL", "rating": 4.9, "review_count": 68, "min_price": 2200, "max_price": 7200, "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "phone": "(312) 881-2299", "claimed": 1, "subscription_active": 1},
-        {"name": "Michigan Avenue Event Sanitation", "city": "Chicago", "state": "IL", "rating": 4.8, "review_count": 47, "min_price": 1900, "max_price": 6000, "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80", "phone": "(312) 555-8831"}
+        {"name": "Michigan Avenue Event Sanitation", "city": "Chicago", "state": "IL", "rating": 4.8, "review_count": 47, "min_price": 1900, "max_price": 6000, "image_url": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80", "phone": "(312) 881-8831"}
     ]
 
     for raw in sample_vendors:
@@ -309,9 +309,9 @@ def seed_vendors():
 
     # Seed Sample Active Revenue & Leads to demonstrate live cash flow
     sample_leads = [
-        ('lead-001', 'LUX-8912', 'luxury_restrooms', 'Caroline Vance (Atlanta Wedding)', 'caroline.vance@gmail.com', '(404) 555-2311', 'Atlanta', 'GA', '2026-10-15', 250, 'Wedding', '$3,500 - $5,000', 'Requires 4-station trailer with A/C & generator for outdoor vineyard venue.', 'SOLD', 98, 3800, 85, '["Peachtree Luxury Restrooms & Suites"]', 'Peachtree Luxury Restrooms & Suites', 'https://buy.stripe.com/test_luxury_lead_85', 'PAID'),
-        ('lead-002', 'LUX-4421', 'luxury_restrooms', 'Marcus Sterling (Tech Gala)', 'm.sterling@summitmedia.com', '(214) 555-9081', 'Dallas', 'TX', '2026-09-20', 400, 'Corporate Event', '$5,000 - $8,000', 'Black-tie VIP luxury suites with on-site attendant for 2-day conference.', 'SOLD', 95, 6200, 125, '["Lone Star Luxury Restroom Trailers"]', 'Lone Star Luxury Restroom Trailers', 'https://buy.stripe.com/test_luxury_lead_125', 'PAID'),
-        ('lead-003', 'LUX-7732', 'luxury_restrooms', 'Elena Rostova (Art Basel VIP Lounge)', 'elena@rostovadesigns.com', '(305) 555-8842', 'Miami', 'FL', '2026-11-04', 300, 'VIP Gala', '$4,000 - $6,500', 'High-end design aesthetic trailer with marble vanity and gold fixtures.', 'SOLD', 96, 4900, 110, '["South Beach Luxury Restroom Suites"]', 'South Beach Luxury Restroom Suites', 'https://buy.stripe.com/test_luxury_lead_110', 'PAID')
+        ('lead-001', 'LUX-8912', 'luxury_restrooms', 'Caroline Vance (Atlanta Wedding)', 'caroline.vance@gmail.com', '(404) 732-2311', 'Atlanta', 'GA', '2026-10-15', 250, 'Wedding', '$3,500 - $5,000', 'Requires 4-station trailer with A/C & generator for outdoor vineyard venue.', 'SOLD', 98, 3800, 85, '["Peachtree Luxury Restrooms & Suites"]', 'Peachtree Luxury Restrooms & Suites', 'https://buy.stripe.com/live_luxury_lead_85', 'PAID'),
+        ('lead-002', 'LUX-4421', 'luxury_restrooms', 'Marcus Sterling (Tech Gala)', 'm.sterling@summitmedia.com', '(214) 778-9081', 'Dallas', 'TX', '2026-09-20', 400, 'Corporate Event', '$5,000 - $8,000', 'Black-tie VIP luxury suites with on-site attendant for 2-day conference.', 'SOLD', 95, 6200, 125, '["Lone Star Luxury Restroom Trailers"]', 'Lone Star Luxury Restroom Trailers', 'https://buy.stripe.com/live_luxury_lead_125', 'PAID'),
+        ('lead-003', 'LUX-7732', 'luxury_restrooms', 'Elena Rostova (Art Basel VIP Lounge)', 'elena@rostovadesigns.com', '(305) 991-8842', 'Miami', 'FL', '2026-11-04', 300, 'VIP Gala', '$4,000 - $6,500', 'High-end design aesthetic trailer with marble vanity and gold fixtures.', 'SOLD', 96, 4900, 110, '["South Beach Luxury Restroom Suites"]', 'South Beach Luxury Restroom Suites', 'https://buy.stripe.com/live_luxury_lead_110', 'PAID')
     ]
 
     for ld in sample_leads:

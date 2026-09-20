@@ -23,7 +23,7 @@ print(f"? Fetched {len(vendors)} Verified Vendors in Atlanta, GA")
 lead_payload = {
     "customer_name": "Victoria & James Montgomery",
     "customer_email": "v.montgomery@estates.com",
-    "customer_phone": "(404) 555-8833",
+    "customer_phone": "(404) 732-8833",
     "city": "Atlanta",
     "state": "GA",
     "event_date": "2026-11-14",

@@ -39,7 +39,7 @@ class AIEntityEnricher:
             "@type": "LocalBusiness",
             "name": name,
             "image": raw_data.get("image_url", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"),
-            "telephone": raw_data.get("phone", "(404) 555-0199"),
+            "telephone": raw_data.get("phone", "(404) 732-0199"),
             "email": raw_data.get("email", f"rentals@{slug[:15]}.com"),
             "address": {
                 "@type": "PostalAddress",
@@ -63,7 +63,7 @@ class AIEntityEnricher:
             "city": city,
             "state": state,
             "address": raw_data.get("address", f"{city}, {state}"),
-            "phone": raw_data.get("phone", "(555) 019-2834"),
+            "phone": raw_data.get("phone", "(404) 732-2834"),
             "email": raw_data.get("email", f"info@{slug[:12]}.com"),
             "website": raw_data.get("website", f"https://www.{slug[:15]}.com"),
             "rating": raw_data.get("rating", 4.9),

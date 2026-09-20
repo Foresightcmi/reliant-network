@@ -88,7 +88,7 @@
           <h3 class="font-bold uppercase tracking-wider text-slate-400 text-[10px]">Client &amp; Venue Parameters</h3>
           <div class="space-y-1.5 text-slate-700">
             <div><span class="text-slate-500">Client Name:</span> <strong class="text-slate-900" id="v-client">Commercial Client</strong></div>
-            <div><span class="text-slate-500">Contact Phone:</span> <span id="v-phone">(404) 555-0199</span></div>
+            <div><span class="text-slate-500">Contact Phone:</span> <span id="v-phone">(404) 732-8190</span></div>
             <div><span class="text-slate-500">Target Territory:</span> <strong class="text-slate-900" id="v-city">Atlanta, GA</strong></div>
             <div><span class="text-slate-500">Event Date:</span> <strong class="text-slate-900" id="v-event-date">October 24, 2026</strong></div>
             <div><span class="text-slate-500">Project Type:</span> <span id="v-type">VIP Event / Production</span></div>
@@ -102,7 +102,7 @@
               <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
               <span id="v-operator-name">Premier Elite Fleets</span>
             </div>
-            <div><span class="text-slate-500">Dispatch Phone:</span> <a href="tel:4045550199" class="text-blue-600 font-bold underline" id="v-operator-phone">(404) 555-0199</a></div>
+            <div><span class="text-slate-500">Dispatch Phone:</span> <a href="tel:4047328190" class="text-blue-600 font-bold underline" id="v-operator-phone">(404) 732-8190</a></div>
             <div><span class="text-slate-500">Inspection Standard:</span> <span class="font-semibold text-emerald-800">OSHA 1926.51 &amp; ADA Verified</span></div>
             <div><span class="text-slate-500">Delivery Walkthrough:</span> Required prior to final balance release</div>
           </div>
@@ -173,12 +173,12 @@
 
           if (b.assigned_vendor) {
             document.getElementById('v-operator-name').textContent = b.assigned_vendor.name;
-            document.getElementById('v-operator-phone').textContent = b.assigned_vendor.phone || '(404) 555-0199';
-            document.getElementById('v-operator-phone').href = 'tel:' + (b.assigned_vendor.phone || '4045550199');
+            document.getElementById('v-operator-phone').textContent = b.assigned_vendor.phone || '(404) 732-8190';
+            document.getElementById('v-operator-phone').href = 'tel:' + (b.assigned_vendor.phone || '4047328190');
           }
         }
       } catch (e) {
-        console.log('Using default voucher mock');
+        console.log('Using fallback confirmation data');
       }
 
       try { lucide.createIcons(); } catch(e){}
