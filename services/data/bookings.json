@@ -1,5 +1,33 @@
 [
   {
+    "booking_id": "BK-REL-2026-136705",
+    "created_at": "2026-09-20T04:00:14.088Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 732-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "niche_id": "luxury_restrooms",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "payment_method": "stripe_instant_deposit",
+    "escrow_status": "FUNDS_HELD_IN_ESCROW",
+    "dispatch_status": "DISPATCH_CONFIRMED",
+    "assigned_vendor": {
+      "id": "vend_atl_01",
+      "name": "Royal Restrooms of Atlanta",
+      "phone": "(404) 890-1289",
+      "city": "Atlanta",
+      "rating": 5
+    },
+    "guarantee": "Reliant 48-Hour Equipment Delivery & Inspection Guarantee Active"
+  },
+  {
     "booking_id": "BK-REL-2026-145079",
     "created_at": "2026-09-20T03:29:56.825Z",
     "lead_code": "TEST-LEAD-999",

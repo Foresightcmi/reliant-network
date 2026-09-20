@@ -41,6 +41,15 @@ app.get('/badges/:name', (req, res, next) => {
   next();
 });
 
+app.get('/images/:name', (req, res, next) => {
+  const filePath = path.join(__dirname, 'public', 'images', req.params.name);
+  if (fs.existsSync(filePath)) {
+    if (filePath.endsWith('.svg')) res.setHeader('Content-Type', 'image/svg+xml');
+    return res.sendFile(filePath);
+  }
+  next();
+});
+
 app.get('/permits/:slug', (req, res, next) => serveCleanHtml('permits', req, res, next));
 app.get('/best/:slug', (req, res, next) => serveCleanHtml('best', req, res, next));
 app.get('/vs/:slug', (req, res, next) => serveCleanHtml('vs', req, res, next));
