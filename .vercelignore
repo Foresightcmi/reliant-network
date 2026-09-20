@@ -20,6 +20,7 @@ apps/web/test*.js
 # Build & Scratch Artifacts
 dist/
 scratch/
+purge_*.js
 payload.*
 test.txt
 *.md
