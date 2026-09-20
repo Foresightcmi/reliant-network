@@ -54,6 +54,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
@@ -61,9 +64,36 @@
     .font-serif-title { font-family: 'Playfair Display', serif; }
     .gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .custom-depot-map-pin { background: transparent; border: none; }
-    .leaflet-popup-content-wrapper { border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; }
+    .leaflet-popup-content-wrapper { border-radius: 1rem; box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); border: 1px solid #cbd5e1; }
     .leaflet-popup-content { margin: 12px 14px; line-height: 1.4; }
     .depot-filter-btn.active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    
+    /* Executive Cluster Badges */
+    .custom-cluster-wrapper { background: transparent; border: none; }
+    .custom-cluster-badge {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 2.5px solid #f59e0b;
+      border-radius: 9999px;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35), 0 0 10px rgba(245, 158, 11, 0.35);
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .custom-cluster-badge:hover {
+      transform: scale(1.15);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.45), 0 0 16px rgba(245, 158, 11, 0.6);
+      border-color: #fbbf24;
+    }
+    .leaflet-control-zoom { border: none !important; box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important; border-radius: 12px !important; overflow: hidden; }
+    .leaflet-control-zoom a { background: #ffffff !important; color: #0f172a !important; font-weight: bold !important; border: 1px solid #e2e8f0 !important; }
+
     @media print {
       body * { visibility: hidden; }
       #rfp-blueprint-print-area, #rfp-blueprint-print-area * { visibility: visible; }
@@ -871,9 +901,9 @@
       <!-- INTERACTIVE DEPOT MAP CARD -->
       <div class="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-md mb-8">
         <!-- Interactive Category Toolbar -->
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-100">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-100">
           <div>
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Filter Depots by Specialty</span>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Filter Depots by Specialty</span>
             <div class="flex flex-wrap gap-1.5" id="depot-map-filters">
               <button onclick="filterDepotMap('all')" id="depot-filter-all" class="depot-filter-btn active bg-slate-900 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5">
                 <span>All Specialties</span>
@@ -906,16 +936,100 @@
               </button>
             </div>
           </div>
-          <div class="flex items-center gap-2 self-end md:self-center">
-            <button onclick="resetDepotMapView()" class="text-xs font-bold text-slate-600 hover:text-amber-700 bg-slate-100 hover:bg-amber-50 border border-slate-200 hover:border-amber-300 px-3 py-1.5 rounded-xl transition-colors flex items-center gap-1.5 shadow-2xs">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-              <span>Fit Entire US Map</span>
+
+          <!-- Controls & Toolbar -->
+          <div class="flex items-center gap-2.5 flex-wrap self-stretch lg:self-center justify-between lg:justify-end">
+            <!-- Metro Quick Jump -->
+            <select id="map-metro-select" onchange="handleMetroSelectJump(this.value)" class="text-xs font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-300 rounded-xl px-3 py-2 cursor-pointer shadow-2xs outline-none">
+              <option value="">📍 Jump to Metro Staging Yard...</option>
+              <option value="atlanta-ga">Atlanta, GA</option>
+              <option value="new-york-ny">New York, NY</option>
+              <option value="los-angeles-ca">Los Angeles, CA</option>
+              <option value="chicago-il">Chicago, IL</option>
+              <option value="dallas-tx">Dallas-Fort Worth, TX</option>
+              <option value="miami-fl">Miami, FL</option>
+              <option value="phoenix-az">Phoenix, AZ</option>
+              <option value="seattle-wa">Seattle, WA</option>
+              <option value="denver-co">Denver, CO</option>
+              <option value="boston-ma">Boston, MA</option>
+              <option value="houston-tx">Houston, TX</option>
+              <option value="philadelphia-pa">Philadelphia, PA</option>
+              <option value="nashville-tn">Nashville, TN</option>
+              <option value="las-vegas-nv">Las Vegas, NV</option>
+              <option value="detroit-mi">Detroit, MI</option>
+              <option value="minneapolis-mn">Minneapolis, MN</option>
+              <option value="san-francisco-ca">San Francisco, CA</option>
+            </select>
+
+            <!-- Locate Nearest Depot Button -->
+            <button onclick="locateUserDepot()" title="Find closest verified depot to your current location" class="text-xs font-bold text-slate-700 hover:text-amber-800 bg-slate-50 hover:bg-amber-50 border border-slate-300 hover:border-amber-400 px-3 py-2 rounded-xl transition-all flex items-center gap-1.5 shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-width="2"/><circle cx="12" cy="12" r="8" stroke-width="2" stroke-dasharray="2 2"/></svg>
+              <span>Near Me</span>
             </button>
+
+            <!-- Reset US Map -->
+            <button onclick="resetDepotMapView()" title="Reset to whole US coverage" class="text-xs font-bold text-slate-700 hover:text-amber-800 bg-slate-50 hover:bg-amber-50 border border-slate-300 hover:border-amber-400 px-3 py-2 rounded-xl transition-all flex items-center gap-1.5 shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span>Reset US</span>
+            </button>
+
+            <!-- Base Map Switcher -->
+            <div class="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-[11px] font-bold">
+              <button onclick="switchMapBaseLayer('voyager')" id="theme-btn-voyager" class="px-2.5 py-1 rounded-lg bg-white text-slate-900 shadow-2xs transition-all">Voyager</button>
+              <button onclick="switchMapBaseLayer('positron')" id="theme-btn-positron" class="px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 transition-all">Light</button>
+              <button onclick="switchMapBaseLayer('dark')" id="theme-btn-dark" class="px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 transition-all">Dark</button>
+            </div>
           </div>
         </div>
 
-        <!-- The Map Container -->
-        <div id="nationwide-depot-map" class="rounded-2xl border border-slate-200 overflow-hidden shadow-inner bg-slate-100" style="height: 520px; min-height: 420px; width: 100%; position: relative; z-index: 1;"></div>
+        <!-- The Map Container with Floating HUD -->
+        <div class="relative rounded-2xl border border-slate-200 overflow-hidden shadow-inner bg-slate-50" style="min-height: 580px;">
+          <div id="nationwide-depot-map" style="height: 580px; width: 100%; position: relative; z-index: 1;"></div>
+
+          <!-- Floating Selected Depot HUD Card -->
+          <div id="depot-hud-card" class="hidden absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-[500] bg-white/95 backdrop-blur-md border border-slate-300 rounded-2xl p-4 sm:p-5 shadow-2xl transition-all animate-in fade-in slide-in-from-bottom-3 duration-200">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <div class="flex items-center gap-2">
+                <span id="hud-depot-badge" class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+                  VIP Restrooms
+                </span>
+                <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Active Staging
+                </span>
+              </div>
+              <button onclick="closeDepotHud()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </button>
+            </div>
+
+            <h4 id="hud-depot-name" class="text-base font-extrabold text-slate-900 leading-snug">
+              Depot Name
+            </h4>
+            <div id="hud-depot-location" class="text-xs text-slate-500 font-medium mt-0.5">
+              📍 Atlanta, GA &bull; 75-Mile Verified Primary Radius
+            </div>
+
+            <div class="mt-3 bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex items-center justify-between text-xs">
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Est. Market Rate</span>
+                <span id="hud-depot-price" class="font-extrabold text-slate-900">$1,850 – $7,200</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Audit Rating</span>
+                <span id="hud-depot-rating" class="font-extrabold text-amber-600">★ 5.0 (80 reviews)</span>
+              </div>
+            </div>
+
+            <div class="mt-3 flex items-center gap-2 pt-2 border-t border-slate-100">
+              <a id="hud-depot-phone-link" href="tel:" class="flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2 px-3 rounded-xl transition-colors shadow-xs flex items-center justify-center gap-1">
+                <span>📞 Call Depot</span>
+              </a>
+              <a id="hud-depot-detail-link" href="/listing/" class="flex-1 text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-2 px-3 rounded-xl transition-colors shadow-xs flex items-center justify-center gap-1">
+                <span>View Specs &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
         <!-- Map Legend & Live Stats Bar -->
         <div class="mt-3.5 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
@@ -928,14 +1042,15 @@
               <span class="w-3 h-3 rounded-full border border-dashed border-amber-500 bg-amber-100 inline-block"></span>
               <strong>75-Mile Primary Radii:</strong> Guaranteed On-Time Staging
             </span>
+            <span class="flex items-center gap-1.5 text-slate-500">
+              <span class="w-3 h-3 rounded-full bg-slate-900 border border-amber-400 inline-block"></span>
+              <strong>Smart Clusters:</strong> Auto-groups nearby staging yards
+            </span>
             <span class="flex items-center gap-1 text-slate-500">
               <span id="depot-map-status">Showing 146 verified commercial staging depots across all 50 states</span>
             </span>
           </div>
-          <span class="text-[11px] font-mono text-slate-400">OpenStreetMap &bull; Zero Marginal Cost</span>
-        </div>
-      </div>
-          <span class="text-[11px] font-mono text-slate-400">OpenStreetMap &bull; Zero Marginal Cost</span>
+          <span class="text-[11px] font-mono text-slate-400">CARTO High-Performance CDN &bull; Zero Marginal Cost</span>
         </div>
       </div>
 
@@ -2118,33 +2233,56 @@
     let depotMarkersLayer = null;
     let allDepotsData = [];
     let activeRadiusCircle = null;
+    let userLocationMarker = null;
+    let activeMapTheme = 'voyager';
+    let mapBaseLayers = {};
 
     const DEPOT_NICHE_CONFIG = {
       'all': { label: 'All Specialties', color: '#d97706', badgeBg: '#fffbeb', badgeText: '#92400e' },
       'aging_in_place': { label: 'Aging-in-Place', color: '#059669', badgeBg: '#ecfdf5', badgeText: '#065f46' },
       'staying_in_place': { label: 'Aging-in-Place', color: '#059669', badgeBg: '#ecfdf5', badgeText: '#065f46' },
-      'luxury_restrooms': { label: 'VIP Restroom Fleets', color: '#d97706', badgeBg: '#fffbeb', badgeText: '#92400e' },
-      'cold_storage': { label: 'Reefer Cold Storage', color: '#0284c7', badgeBg: '#f0f9ff', badgeText: '#075985' },
-      'commercial_cold_storage': { label: 'Reefer Cold Storage', color: '#0284c7', badgeBg: '#f0f9ff', badgeText: '#075985' },
-      'crane_rigging': { label: 'Mobile Crane & Rigging', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
-      'heavy_crane_rigging': { label: 'Mobile Crane & Rigging', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
-      'senior_care': { label: 'Senior Care Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' },
-      'senior_care_placement': { label: 'Senior Care Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' }
+      'luxury_restrooms': { label: 'VIP Restrooms', color: '#d97706', badgeBg: '#fffbeb', badgeText: '#92400e' },
+      'cold_storage': { label: 'Cold Storage', color: '#0284c7', badgeBg: '#f0f9ff', badgeText: '#075985' },
+      'commercial_cold_storage': { label: 'Cold Storage', color: '#0284c7', badgeBg: '#f0f9ff', badgeText: '#075985' },
+      'crane_rigging': { label: 'Mobile Cranes', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
+      'heavy_crane_rigging': { label: 'Mobile Cranes', color: '#ea580c', badgeBg: '#fff7ed', badgeText: '#9a3412' },
+      'senior_care': { label: 'Senior Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' },
+      'senior_care_placement': { label: 'Senior Placement', color: '#7c3aed', badgeBg: '#f5f3ff', badgeText: '#5b21b6' }
+    };
+
+    const METRO_COORDINATES = {
+      'atlanta-ga': { name: 'Atlanta, GA', lat: 33.7490, lng: -84.3880 },
+      'new-york-ny': { name: 'New York, NY', lat: 40.7128, lng: -74.0060 },
+      'los-angeles-ca': { name: 'Los Angeles, CA', lat: 34.0522, lng: -118.2437 },
+      'chicago-il': { name: 'Chicago, IL', lat: 41.8781, lng: -87.6298 },
+      'dallas-tx': { name: 'Dallas-Fort Worth, TX', lat: 32.7767, lng: -96.7970 },
+      'miami-fl': { name: 'Miami, FL', lat: 25.7617, lng: -80.1918 },
+      'phoenix-az': { name: 'Phoenix, AZ', lat: 33.4484, lng: -112.0740 },
+      'seattle-wa': { name: 'Seattle, WA', lat: 47.6062, lng: -122.3321 },
+      'denver-co': { name: 'Denver, CO', lat: 39.7392, lng: -104.9903 },
+      'boston-ma': { name: 'Boston, MA', lat: 42.3601, lng: -71.0589 },
+      'houston-tx': { name: 'Houston, TX', lat: 29.7604, lng: -95.3698 },
+      'philadelphia-pa': { name: 'Philadelphia, PA', lat: 39.9526, lng: -75.1652 },
+      'nashville-tn': { name: 'Nashville, TN', lat: 36.1627, lng: -86.7816 },
+      'las-vegas-nv': { name: 'Las Vegas, NV', lat: 36.1699, lng: -115.1398 },
+      'detroit-mi': { name: 'Detroit, MI', lat: 42.3314, lng: -83.0458 },
+      'minneapolis-mn': { name: 'Minneapolis, MN', lat: 44.9778, lng: -93.2650 },
+      'san-francisco-ca': { name: 'San Francisco, CA', lat: 37.7749, lng: -122.4194 }
     };
 
     function createDepotPin(nicheId) {
       const config = DEPOT_NICHE_CONFIG[nicheId] || { color: '#d97706' };
       return L.divIcon({
         className: 'custom-depot-map-pin',
-        html: `<div style="position:relative; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
-                 <div style="position:absolute; inset:-4px; border-radius:50%; background:${config.color}33; animation:pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;"></div>
-                 <div style="position:relative; width:28px; height:28px; background:${config.color}; border:2.5px solid #ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 8px rgba(0,0,0,0.3);">
-                   <svg style="width:14px; height:14px; color:#ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        html: `<div style="position:relative; width:34px; height:34px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                 <div style="position:absolute; inset:-4px; border-radius:50%; background:${config.color}35; animation:pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;"></div>
+                 <div style="position:relative; width:26px; height:26px; background:${config.color}; border:2.5px solid #ffffff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.35);">
+                   <svg style="width:13px; height:13px; color:#ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                  </div>
                </div>`,
-        iconSize: [36, 36],
-        iconAnchor: [18, 18],
-        popupAnchor: [0, -20]
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -18]
       });
     }
 
@@ -2174,6 +2312,55 @@
       `;
     }
 
+    function showDepotHud(v) {
+      const hud = document.getElementById('depot-hud-card');
+      if (!hud) return;
+
+      const config = DEPOT_NICHE_CONFIG[v.niche_id] || { label: 'Verified Specialty', color: '#d97706', badgeBg: '#fffbeb', badgeText: '#92400e' };
+      const cleanPhone = (v.phone || '').replace(/[^0-9]/g, '');
+      const priceText = (v.min_price && v.max_price) ? `$${v.min_price.toLocaleString()} – $${v.max_price.toLocaleString()}` : '$1,850 – $7,200';
+
+      const badgeEl = document.getElementById('hud-depot-badge');
+      if (badgeEl) {
+        badgeEl.textContent = config.label;
+        badgeEl.style.backgroundColor = config.badgeBg;
+        badgeEl.style.color = config.badgeText;
+        badgeEl.style.borderColor = config.color + '44';
+      }
+
+      const nameEl = document.getElementById('hud-depot-name');
+      if (nameEl) nameEl.textContent = v.name || 'Verified Fleet Operator';
+
+      const locEl = document.getElementById('hud-depot-location');
+      if (locEl) locEl.innerHTML = `📍 ${v.city}, ${v.state} &bull; <strong>75-Mile Primary Radius</strong>`;
+
+      const priceEl = document.getElementById('hud-depot-price');
+      if (priceEl) priceEl.textContent = priceText;
+
+      const ratingEl = document.getElementById('hud-depot-rating');
+      if (ratingEl) ratingEl.textContent = `★ ${v.rating || 5.0} (${v.review_count || 45} reviews)`;
+
+      const phoneLink = document.getElementById('hud-depot-phone-link');
+      if (phoneLink) {
+        phoneLink.href = `tel:${cleanPhone}`;
+        phoneLink.textContent = v.phone ? `📞 ${v.phone}` : '📞 Call Depot';
+      }
+
+      const detailLink = document.getElementById('hud-depot-detail-link');
+      if (detailLink) detailLink.href = `/listing/${v.slug}.html`;
+
+      hud.classList.remove('hidden');
+    }
+
+    function closeDepotHud() {
+      const hud = document.getElementById('depot-hud-card');
+      if (hud) hud.classList.add('hidden');
+      if (activeRadiusCircle && depotMap) {
+        depotMap.removeLayer(activeRadiusCircle);
+        activeRadiusCircle = null;
+      }
+    }
+
     async function initNationwideDepotMap() {
       const mapEl = document.getElementById('nationwide-depot-map');
       if (!mapEl || typeof L === 'undefined') return;
@@ -2183,16 +2370,56 @@
         return;
       }
 
+      // Initialize map with responsive center & zoom
+      const isMobile = window.innerWidth < 768;
       depotMap = L.map('nationwide-depot-map', {
-        scrollWheelZoom: false
-      }).setView([38.5, -96.5], 4);
+        scrollWheelZoom: false,
+        zoomControl: true
+      }).setView(isMobile ? [39.0, -96.0] : [38.5, -96.0], isMobile ? 3.5 : 4.2);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(depotMap);
+      // Setup CARTO CDN Base Map Layers (Fastly CDN, Zero 403 blocks)
+      mapBaseLayers = {
+        voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+          maxZoom: 20,
+          subdomains: 'abcd',
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        }),
+        positron: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 20,
+          subdomains: 'abcd',
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        }),
+        dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 20,
+          subdomains: 'abcd',
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        })
+      };
 
-      depotMarkersLayer = L.layerGroup().addTo(depotMap);
+      mapBaseLayers.voyager.addTo(depotMap);
+      activeMapTheme = 'voyager';
+
+      // Setup Marker Cluster Group with Executive Gold Badging
+      if (typeof L.markerClusterGroup !== 'undefined') {
+        depotMarkersLayer = L.markerClusterGroup({
+          showCoverageOnHover: false,
+          maxClusterRadius: 40,
+          spiderfyOnMaxZoom: true,
+          iconCreateFunction: function(cluster) {
+            const count = cluster.getChildCount();
+            let size = count > 15 ? 40 : (count > 6 ? 34 : 28);
+            return L.divIcon({
+              html: `<div class="custom-cluster-badge" style="width:${size}px; height:${size}px;"><span>${count}</span></div>`,
+              className: 'custom-cluster-wrapper',
+              iconSize: [size, size]
+            });
+          }
+        });
+      } else {
+        depotMarkersLayer = L.layerGroup();
+      }
+
+      depotMap.addLayer(depotMarkersLayer);
 
       try {
         const res = await fetch('/api/vendors?niche_id=all');
@@ -2210,6 +2437,30 @@
       setTimeout(() => { if (depotMap) depotMap.invalidateSize(); }, 250);
       setTimeout(() => { if (depotMap) depotMap.invalidateSize(); }, 800);
       window.addEventListener('resize', () => { if (depotMap) depotMap.invalidateSize(); });
+    }
+
+    function switchMapBaseLayer(theme) {
+      if (!depotMap || !mapBaseLayers[theme] || activeMapTheme === theme) return;
+
+      if (mapBaseLayers[activeMapTheme]) {
+        depotMap.removeLayer(mapBaseLayers[activeMapTheme]);
+      }
+
+      mapBaseLayers[theme].addTo(depotMap);
+      activeMapTheme = theme;
+
+      ['voyager', 'positron', 'dark'].forEach(t => {
+        const btn = document.getElementById(`theme-btn-${t}`);
+        if (btn) {
+          if (t === theme) {
+            btn.classList.add('bg-white', 'text-slate-900', 'shadow-2xs');
+            btn.classList.remove('text-slate-600');
+          } else {
+            btn.classList.remove('bg-white', 'text-slate-900', 'shadow-2xs');
+            btn.classList.add('text-slate-600');
+          }
+        }
+      });
     }
 
     function renderDepotMapMarkers(filterNiche) {
@@ -2240,14 +2491,18 @@
 
         marker.on('click', () => {
           if (activeRadiusCircle) depotMap.removeLayer(activeRadiusCircle);
+          const config = DEPOT_NICHE_CONFIG[v.niche_id] || { color: '#d97706' };
+
           activeRadiusCircle = L.circle([v.latitude, v.longitude], {
-            color: '#d97706',
+            color: config.color,
             weight: 2,
             dashArray: '4, 6',
-            fillColor: '#f59e0b',
-            fillOpacity: 0.15,
+            fillColor: config.color,
+            fillOpacity: 0.16,
             radius: 120700 // 75 miles in meters
           }).addTo(depotMap);
+
+          showDepotHud(v);
         });
 
         depotMarkersLayer.addLayer(marker);
@@ -2276,17 +2531,29 @@
 
     function resetDepotMapView() {
       if (!depotMap) return;
-      depotMap.setView([38.5, -96.5], 4);
-      if (activeRadiusCircle) {
-        depotMap.removeLayer(activeRadiusCircle);
-        activeRadiusCircle = null;
-      }
+      const isMobile = window.innerWidth < 768;
+      depotMap.setView(isMobile ? [39.0, -96.0] : [38.5, -96.0], isMobile ? 3.5 : 4.2);
+      closeDepotHud();
       filterDepotMap('all');
+
+      const metroSelect = document.getElementById('map-metro-select');
+      if (metroSelect) metroSelect.value = '';
+    }
+
+    function handleMetroSelectJump(metroSlug) {
+      if (!metroSlug) {
+        resetDepotMapView();
+        return;
+      }
+      const coords = METRO_COORDINATES[metroSlug];
+      if (coords) {
+        jumpToMetro(coords.name.split(',')[0], coords.lat, coords.lng);
+      }
     }
 
     function jumpToMetro(city, lat, lng) {
       if (depotMap && lat && lng) {
-        depotMap.flyTo([lat, lng], 10, { duration: 1.2 });
+        depotMap.flyTo([lat, lng], 9.5, { duration: 1.4 });
 
         if (activeRadiusCircle) depotMap.removeLayer(activeRadiusCircle);
         activeRadiusCircle = L.circle([lat, lng], {
@@ -2294,20 +2561,15 @@
           weight: 2,
           dashArray: '4, 6',
           fillColor: '#f59e0b',
-          fillOpacity: 0.15,
+          fillOpacity: 0.16,
           radius: 120700
         }).addTo(depotMap);
 
-        setTimeout(() => {
-          if (!depotMarkersLayer) return;
-          depotMarkersLayer.eachLayer(marker => {
-            const mLat = marker.getLatLng().lat;
-            const mLng = marker.getLatLng().lng;
-            if (Math.abs(mLat - lat) < 0.25 && Math.abs(mLng - lng) < 0.25) {
-              marker.openPopup();
-            }
-          });
-        }, 1300);
+        // Find nearest depot in this metro to show HUD
+        const localDepot = allDepotsData.find(v => (v.city && v.city.toLowerCase() === city.toLowerCase()));
+        if (localDepot) {
+          setTimeout(() => showDepotHud(localDepot), 600);
+        }
 
         const statusEl = document.getElementById('depot-map-status');
         if (statusEl) {
@@ -2325,6 +2587,80 @@
           }
         }
       }
+    }
+
+    function locateUserDepot() {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser.');
+        return;
+      }
+
+      const statusEl = document.getElementById('depot-map-status');
+      if (statusEl) statusEl.textContent = 'Locating your nearest verified staging depot...';
+
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const userLat = pos.coords.latitude;
+          const userLng = pos.coords.longitude;
+
+          // Find nearest depot by Haversine formula
+          let nearest = null;
+          let minDistance = Infinity;
+
+          allDepotsData.forEach(v => {
+            if (!v.latitude || !v.longitude) return;
+            const R = 3958.8; // Radius of the Earth in miles
+            const dLat = (v.latitude - userLat) * Math.PI / 180;
+            const dLng = (v.longitude - userLng) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(userLat * Math.PI / 180) * Math.cos(v.latitude * Math.PI / 180) *
+                      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const dist = R * c;
+
+            if (dist < minDistance) {
+              minDistance = dist;
+              nearest = v;
+            }
+          });
+
+          if (userLocationMarker && depotMap) depotMap.removeLayer(userLocationMarker);
+
+          userLocationMarker = L.circleMarker([userLat, userLng], {
+            radius: 8,
+            fillColor: '#2563eb',
+            color: '#ffffff',
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 0.9
+          }).addTo(depotMap).bindPopup('<strong>📍 Your Location</strong>').openPopup();
+
+          if (nearest) {
+            depotMap.flyTo([nearest.latitude, nearest.longitude], 9, { duration: 1.5 });
+            if (activeRadiusCircle) depotMap.removeLayer(activeRadiusCircle);
+
+            activeRadiusCircle = L.circle([nearest.latitude, nearest.longitude], {
+              color: '#059669',
+              weight: 2,
+              dashArray: '4, 6',
+              fillColor: '#10b981',
+              fillOpacity: 0.16,
+              radius: 120700
+            }).addTo(depotMap);
+
+            showDepotHud(nearest);
+
+            if (statusEl) {
+              statusEl.textContent = `Nearest Staging Depot: ${nearest.name} (${Math.round(minDistance)} miles from your location)`;
+            }
+          }
+        },
+        err => {
+          if (statusEl) statusEl.textContent = 'Location access denied. Displaying national view.';
+          console.warn('Geolocation error:', err);
+        },
+        { timeout: 8000 }
+      );
     }
 
     function selectMetro(city) {
