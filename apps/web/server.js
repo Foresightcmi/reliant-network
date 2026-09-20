@@ -190,15 +190,36 @@ function queryDb(sql, params = []) {
       let pIndex = 0;
       if (sql.includes('niche_id = ?')) {
          const n = params[pIndex++];
-         allVendors = allVendors.filter(v => v.niche_id === n);
+         if (n && n.toLowerCase() !== 'all') {
+           allVendors = allVendors.filter(v => v.niche_id === n);
+         }
       }
       if (sql.includes('city = ?')) {
          const c = params[pIndex++];
-         allVendors = allVendors.filter(v => v.city === c);
+         if (c && c.toLowerCase() !== 'all') {
+           allVendors = allVendors.filter(v => v.city && v.city.toLowerCase() === c.toLowerCase());
+         }
       }
       if (sql.includes('amenities LIKE ?')) {
-         const term = params[pIndex++].replace(/%/g, '');
-         allVendors = allVendors.filter(v => v.amenities && v.amenities.includes(term));
+         const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
+         if (term) {
+           allVendors = allVendors.filter(v => v.amenities && JSON.stringify(v.amenities).toLowerCase().includes(term));
+         }
+      }
+      if (sql.includes('name LIKE ? OR description LIKE ? OR city LIKE ?')) {
+         const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
+         pIndex += 2;
+         if (term) {
+           allVendors = allVendors.filter(v => {
+             const n = (v.name || '').toLowerCase();
+             const d = (v.description || '').toLowerCase();
+             const c = (v.city || '').toLowerCase();
+             const s = (v.state || '').toLowerCase();
+             const f = JSON.stringify(v.fleet_types || '').toLowerCase();
+             const a = JSON.stringify(v.amenities || '').toLowerCase();
+             return n.includes(term) || d.includes(term) || c.includes(term) || s.includes(term) || f.includes(term) || a.includes(term);
+           });
+         }
       }
       return allVendors;
     } else {
@@ -385,7 +406,7 @@ app.get('/api/vendors/proximity', (req, res) => {
     }
 
     let results = vendors;
-    if (niche_id && niche_id !== 'All') {
+    if (niche_id && niche_id.toLowerCase() !== 'all') {
       results = results.filter(v => v.niche_id === niche_id);
     }
 
@@ -509,21 +530,21 @@ app.get('/api/vendors', (req, res) => {
     let sql = "SELECT * FROM vendors WHERE 1=1";
     const params = [];
 
-    if (niche_id && niche_id !== 'All') {
+    if (niche_id && niche_id.toLowerCase() !== 'all') {
       sql += " AND niche_id = ?";
       params.push(niche_id);
     }
-    if (city && city !== 'All') {
+    if (city && city.toLowerCase() !== 'all') {
       sql += " AND city = ?";
       params.push(city);
     }
-    if (amenity) {
+    if (amenity && amenity.toLowerCase() !== 'all' && amenity.trim() !== '') {
       sql += " AND amenities LIKE ?";
-      params.push(`%${amenity}%`);
+      params.push(`%${amenity.trim()}%`);
     }
-    if (search) {
+    if (search && search.trim() !== '') {
       sql += " AND (name LIKE ? OR description LIKE ? OR city LIKE ?)";
-      params.push(`%${search}%`, `%${search}%`, `%${search}%`);
+      params.push(`%${search.trim()}%`, `%${search.trim()}%`, `%${search.trim()}%`);
     }
 
     sql += " ORDER BY subscription_active DESC, rating DESC";
