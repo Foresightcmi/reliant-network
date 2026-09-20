@@ -1,5 +1,20 @@
+
+// --- 🏷️ CANONICAL NICHE ALIASES (BIDIRECTIONAL NORMALIZATION) ---
+const NICHE_ALIASES = {
+  'cold_storage': ['cold_storage', 'commercial_cold_storage'],
+  'commercial_cold_storage': ['cold_storage', 'commercial_cold_storage'],
+  'crane_rigging': ['crane_rigging', 'heavy_crane_rigging'],
+  'heavy_crane_rigging': ['crane_rigging', 'heavy_crane_rigging'],
+  'senior_care': ['senior_care', 'senior_care_placement'],
+  'senior_care_placement': ['senior_care', 'senior_care_placement'],
+  'aging_in_place': ['aging_in_place', 'staying_in_place'],
+  'staying_in_place': ['aging_in_place', 'staying_in_place'],
+  'luxury_restrooms': ['luxury_restrooms']
+};
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const os = require('os');
 const { spawnSync } = require('child_process');
@@ -8,7 +23,41 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// --- 🛡️ SECURITY MIDDLEWARE ---
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdn.tailwindcss.com", "https://unpkg.com"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.tailwindcss.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "https://images.unsplash.com", "data:", "blob:"],
+      connectSrc: ["'self'"]
+    }
+  },
+  crossOriginEmbedderPolicy: false
+}));
+
+app.use(cors({
+  origin: [
+    'https://www.reliantverified.com',
+    'https://reliantverified.com',
+    /^https:\/\/.*\.vercel\.app$/,
+    'http://localhost:3000'
+  ],
+  methods: ['GET', 'POST'],
+  optionsSuccessStatus: 200
+}));
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, please try again later.' }
+});
+app.use('/api/', apiLimiter);
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
@@ -189,37 +238,38 @@ function queryDb(sql, params = []) {
       let allVendors = readDataFile('vendors.json', []);
       let pIndex = 0;
       if (sql.includes('niche_id = ?')) {
-         const n = params[pIndex++];
-         if (n && n.toLowerCase() !== 'all') {
-           allVendors = allVendors.filter(v => v.niche_id === n);
-         }
+        const n = params[pIndex++];
+        if (n && n.toLowerCase() !== 'all') {
+          const allowed = NICHE_ALIASES[n.toLowerCase()] || [n];
+          allVendors = allVendors.filter(v => allowed.includes(v.niche_id) || (v.niche_id && allowed.some(a => v.niche_id.includes(a))));
+        }
       }
       if (sql.includes('city = ?')) {
-         const c = params[pIndex++];
-         if (c && c.toLowerCase() !== 'all') {
-           allVendors = allVendors.filter(v => v.city && v.city.toLowerCase() === c.toLowerCase());
-         }
+        const c = params[pIndex++];
+        if (c && c.toLowerCase() !== 'all') {
+          allVendors = allVendors.filter(v => v.city && v.city.toLowerCase() === c.toLowerCase());
+        }
       }
       if (sql.includes('amenities LIKE ?')) {
-         const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
-         if (term) {
-           allVendors = allVendors.filter(v => v.amenities && JSON.stringify(v.amenities).toLowerCase().includes(term));
-         }
+        const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
+        if (term) {
+          allVendors = allVendors.filter(v => v.amenities && JSON.stringify(v.amenities).toLowerCase().includes(term));
+        }
       }
       if (sql.includes('name LIKE ? OR description LIKE ? OR city LIKE ?')) {
-         const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
-         pIndex += 2;
-         if (term) {
-           allVendors = allVendors.filter(v => {
-             const n = (v.name || '').toLowerCase();
-             const d = (v.description || '').toLowerCase();
-             const c = (v.city || '').toLowerCase();
-             const s = (v.state || '').toLowerCase();
-             const f = JSON.stringify(v.fleet_types || '').toLowerCase();
-             const a = JSON.stringify(v.amenities || '').toLowerCase();
-             return n.includes(term) || d.includes(term) || c.includes(term) || s.includes(term) || f.includes(term) || a.includes(term);
-           });
-         }
+        const term = (params[pIndex++] || '').replace(/%/g, '').toLowerCase().trim();
+        pIndex += 2;
+        if (term) {
+          allVendors = allVendors.filter(v => {
+            const n = (v.name || '').toLowerCase();
+            const d = (v.description || '').toLowerCase();
+            const c = (v.city || '').toLowerCase();
+            const s = (v.state || '').toLowerCase();
+            const f = JSON.stringify(v.fleet_types || '').toLowerCase();
+            const a = JSON.stringify(v.amenities || '').toLowerCase();
+            return n.includes(term) || d.includes(term) || c.includes(term) || s.includes(term) || f.includes(term) || a.includes(term);
+          });
+        }
       }
       return allVendors;
     } else {
@@ -407,7 +457,8 @@ app.get('/api/vendors/proximity', (req, res) => {
 
     let results = vendors;
     if (niche_id && niche_id.toLowerCase() !== 'all') {
-      results = results.filter(v => v.niche_id === niche_id);
+      const allowed = NICHE_ALIASES[niche_id.toLowerCase()] || [niche_id];
+      results = results.filter(v => allowed.includes(v.niche_id) || (v.niche_id && allowed.some(a => v.niche_id.includes(a))));
     }
 
     if (userLat && userLng) {

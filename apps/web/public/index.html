@@ -10,9 +10,13 @@
   <meta property="og:description" content="Nationwide verified directory connecting commercial clients with licensed, vetted service providers. Instant quotes, escrow deposits, and verified claim badges.">
   <meta property="og:url" content="https://www.reliantverified.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.reliantverified.com/images/og-social-preview.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Reliant Verified | Verified Directory &amp; High-Ticket Commercial Network">
   <meta name="twitter:description" content="Nationwide verified directory connecting commercial clients with licensed, vetted service providers.">
+  <meta name="twitter:image" content="https://www.reliantverified.com/images/og-social-preview.jpg">
+  <link rel="icon" type="image/svg+xml" href="/badges/reliant-logo.svg">
+  <link rel="apple-touch-icon" href="/badges/reliant-logo.svg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -24,6 +28,26 @@
       "@type": "SearchAction",
       "target": "https://www.reliantverified.com/?s={search_term_string}",
       "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Reliant Verified",
+    "url": "https://www.reliantverified.com",
+    "logo": "https://www.reliantverified.com/badges/reliant-logo.svg",
+    "description": "The premier North American commercial rental directory and automated brokerage platform for luxury restroom trailers, cold storage, crane rigging, aging-in-place modifications, and senior care placement.",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://www.reliantverified.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
     }
   }
   </script>
@@ -43,6 +67,7 @@
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen selection:bg-amber-500 selection:text-slate-950 antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
 
   <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold tracking-wide text-center flex items-center justify-center gap-2 shadow-sm">
@@ -89,7 +114,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-14 pb-16 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-amber-50/40 via-white to-slate-50">
+  <section id="main-content" class="relative pt-14 pb-16 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-amber-50/40 via-white to-slate-50">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div id="hero-badge" class="inline-flex items-center gap-2 bg-white border border-amber-200 px-4 py-1.5 rounded-full text-xs font-semibold text-amber-800 mb-5 shadow-xs">
         <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
@@ -879,18 +904,18 @@
       <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+            <label for="q-name" class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
             <input type="text" id="q-name" required placeholder="Jessica Sterling" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+            <label for="q-email" class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
             <input type="email" id="q-email" required placeholder="jessica@events.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+            <label for="q-phone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
             <input type="tel" id="q-phone" required placeholder="(404) 732-8190" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
@@ -1299,7 +1324,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+            <label for="q-name" class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
             <input type="text" id="msg-name" required placeholder="Elena Rostova" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
@@ -1310,7 +1335,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+            <label for="q-phone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
             <input type="tel" id="msg-phone" required placeholder="(404) 732-8190" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
@@ -1375,7 +1400,7 @@
             </select>
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Event Type</label>
+            <label for="rev-type" class="block text-xs font-semibold text-slate-700 mb-1">Event Type</label>
             <select id="rev-type" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
               <option value="Wedding / Reception">Wedding / Reception</option>
               <option value="Corporate Gala">Corporate Gala</option>
@@ -1387,7 +1412,7 @@
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Review &amp; Equipment Feedback</label>
+          <label for="rev-comment" class="block text-xs font-semibold text-slate-700 mb-1">Review &amp; Equipment Feedback</label>
           <textarea id="rev-comment" rows="3" required placeholder="e.g. Arrived on time with spotless trailers, porcelain toilets smelled clean all night, delivery crew was professional..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
         </div>
 
@@ -1431,17 +1456,17 @@
       <form id="claim-form" onsubmit="handleClaimSubmit(event)" class="space-y-4">
         <input type="hidden" id="claim-vendor-id">
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name / Title</label>
+          <label for="claim-owner-name" class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name / Title</label>
           <input type="text" id="claim-owner-name" required placeholder="Marcus Vance, Managing Operator" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Official Company Email</label>
+            <label for="claim-owner-email" class="block text-xs font-semibold text-slate-700 mb-1">Official Company Email</label>
             <input type="email" id="claim-owner-email" required placeholder="marcus@vancefleets.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Direct Phone / Mobile</label>
+            <label for="claim-owner-phone" class="block text-xs font-semibold text-slate-700 mb-1">Direct Phone / Mobile</label>
             <input type="tel" id="claim-owner-phone" required placeholder="(404) 732-8190" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
@@ -1511,11 +1536,11 @@
       <form id="submit-form" onsubmit="handleSubmitListing(event)" class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Company / Fleet Name</label>
+            <label for="sub-name" class="block text-xs font-semibold text-slate-700 mb-1">Company / Fleet Name</label>
             <input type="text" id="sub-name" required placeholder="Summit Luxury Sanitation LLC" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Equipment Vertical</label>
+            <label for="sub-niche" class="block text-xs font-semibold text-slate-700 mb-1">Equipment Vertical</label>
             <select id="sub-niche" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
               <option value="luxury_restrooms">Luxury Restroom Trailers</option>
               <option value="commercial_cold_storage">Mobile Cold Storage &amp; Freezers</option>
@@ -1527,44 +1552,44 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Metro Area</label>
+            <label for="sub-city" class="block text-xs font-semibold text-slate-700 mb-1">Primary Metro Area</label>
             <input type="text" id="sub-city" required placeholder="Atlanta" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">State</label>
+            <label for="sub-state" class="block text-xs font-semibold text-slate-700 mb-1">State</label>
             <input type="text" id="sub-state" required placeholder="GA" maxlength="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Dispatch Phone</label>
+            <label for="sub-phone" class="block text-xs font-semibold text-slate-700 mb-1">Dispatch Phone</label>
             <input type="tel" id="sub-phone" required placeholder="(404) 732-8188" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Quote Inquiries Email</label>
+            <label for="sub-email" class="block text-xs font-semibold text-slate-700 mb-1">Quote Inquiries Email</label>
             <input type="email" id="sub-email" required placeholder="quotes@summitfleet.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Website URL</label>
+            <label for="sub-website" class="block text-xs font-semibold text-slate-700 mb-1">Website URL</label>
             <input type="url" id="sub-website" placeholder="https://summitfleet.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Fleet Inventory / Station Configurations</label>
+          <label for="sub-fleet" class="block text-xs font-semibold text-slate-700 mb-1">Fleet Inventory / Station Configurations</label>
           <input type="text" id="sub-fleet" placeholder="e.g. 2-Station Presidential, 4-Station Elegance, 8-Station Gala, ADA Suite" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           <span class="text-[10px] text-slate-400 mt-1 block">Separate fleet types or equipment specifications with commas.</span>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Amenities &amp; Technical Capabilities</label>
+          <label for="sub-amenities" class="block text-xs font-semibold text-slate-700 mb-1">Amenities &amp; Technical Capabilities</label>
           <input type="text" id="sub-amenities" placeholder="e.g. Flushing Porcelain, Climate Control, Granite Vanities, Onboard Generator" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
         </div>
 
         <div>
           <div class="flex items-center justify-between mb-1">
-            <label class="block text-xs font-semibold text-slate-700">Company Bio &amp; Fleet Overview</label>
+            <label for="sub-bio" class="block text-xs font-semibold text-slate-700">Company Bio &amp; Fleet Overview</label>
             <button type="button" onclick="enhanceListingWithAI()" id="ai-enhance-btn" class="text-[11px] font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-lg flex items-center gap-1 transition-colors shadow-2xs">
               <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i>
               <span>✨ Enhance with AI</span>
@@ -1626,6 +1651,11 @@
     let currentVendors = [];
 
     const NICHE_METADATA = {
+    // Support aliases in NICHE_METADATA
+    NICHE_METADATA.cold_storage = NICHE_METADATA.commercial_cold_storage;
+    NICHE_METADATA.crane_rigging = NICHE_METADATA.heavy_crane_rigging;
+    NICHE_METADATA.senior_care = NICHE_METADATA.senior_care_placement;
+
       luxury_restrooms: {
         badge: 'Verified VIP Luxury Sanitation Fleets',
         title: 'Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings &amp; VIP Galas</span>',
@@ -1665,7 +1695,7 @@
 
     function switchNiche(nicheId) {
       activeNiche = nicheId || 'all';
-      const allNiches = ['all', 'aging_in_place', 'luxury_restrooms', 'commercial_cold_storage', 'heavy_crane_rigging', 'senior_care_placement'];
+      const allNiches = ['all', 'aging_in_place', 'luxury_restrooms', 'commercial_cold_storage', 'heavy_crane_rigging', 'senior_care_placement', 'cold_storage', 'crane_rigging', 'senior_care'];
       allNiches.forEach(k => {
         const tab = document.getElementById(`niche-tab-${k}`);
         if (tab) {
@@ -1894,7 +1924,7 @@
           <div class="bg-white border ${v.subscription_active ? 'border-amber-400 shadow-lg shadow-amber-500/10' : 'border-slate-200'} rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500 hover:shadow-xl transition-all duration-300">
             <div>
               <div class="relative h-48 overflow-hidden bg-slate-100">
-                <img src="${v.image_url}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'">
+                <img loading="lazy" src="${v.image_url}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'">
                 <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
                   ${v.subscription_active ? '<span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md"><i data-lucide="star" class="w-3 h-3 fill-slate-950"></i> Featured Partner</span>' : ''}
                   <span class="bg-white/95 backdrop-blur text-amber-700 border border-amber-300 font-bold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
@@ -2194,7 +2224,7 @@
         document.getElementById('anomaly-badge').textContent = `${pending.length} Pending`;
 
         if (!anomalies.length) {
-          container.innerHTML = '<div class="text-xs text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-200">No anomalies detected. Circuit breaker healthy.</div>';
+          container.innerHTML = '<div class="text-xs text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-200">No anomalies detected. Directory Engine Operational & Verified.</div>';
           return;
         }
 
