@@ -288,6 +288,41 @@ async function runTests() {
       if (!res.body.includes('Vetted Commercial Equipment &amp; High-Capacity Fleets Nationwide')) throw new Error('Missing fleet assurance headline');
     });
 
+    // 16. 50-State Scaling & Statewide Hub Availability
+    await assert('GET /state/alabama and /state/alaska serve valid state directory hubs with 200 OK', async () => {
+      const resAl = await request('/state/alabama');
+      if (resAl.statusCode !== 200) throw new Error(`Expected 200 for Alabama, got ${resAl.statusCode}`);
+      if (!resAl.body.includes('Alabama Commercial &amp; VIP Restroom Fleet Network')) throw new Error('Missing Alabama title');
+
+      const resAk = await request('/state/alaska');
+      if (resAk.statusCode !== 200) throw new Error(`Expected 200 for Alaska, got ${resAk.statusCode}`);
+      if (!resAk.body.includes('Alaska Commercial &amp; VIP Restroom Fleet Network')) throw new Error('Missing Alaska title');
+    });
+
+    // 17. 50-State Directory API & Zero Placeholder Data Integrity
+    await assert('GET /api/vendors?niche_id=all returns 140+ verified vendors across all 50 states with zero 555-numbers', async () => {
+      const res = await request('/api/vendors?niche_id=all');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const vendors = JSON.parse(res.body);
+      if (vendors.length < 140) throw new Error(`Expected at least 140 vendors, got ${vendors.length}`);
+      
+      const states = new Set(vendors.map(v => v.state));
+      if (states.size < 50) throw new Error(`Expected at least 50 states covered, got ${states.size}`);
+
+      const has555 = vendors.some(v => v.phone && v.phone.includes('555'));
+      if (has555) throw new Error('Detected forbidden 555 placeholder phone number in vendor database');
+    });
+
+    // 18. Comprehensive 50-State Canonical Sitemap
+    await assert('GET /sitemap.xml contains 270+ URLs including 50 state hubs', async () => {
+      const res = await request('/sitemap.xml');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('https://www.reliantverified.com/state/alabama')) throw new Error('Missing Alabama in sitemap');
+      if (!res.body.includes('https://www.reliantverified.com/state/wyoming')) throw new Error('Missing Wyoming in sitemap');
+      const urlCount = (res.body.match(/<loc>/g) || []).length;
+      if (urlCount < 270) throw new Error(`Expected at least 270 URLs in sitemap, got ${urlCount}`);
+    });
+
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);
     server.close();
     process.exit(failed > 0 ? 1 : 0);

@@ -3,8 +3,9 @@
 > The Reliant Network (reliantverified.com) is the premier North American commercial rental directory, site feasibility registry, and automated brokerage platform across 4 high-ticket B2B verticals: Luxury Restroom Trailers, Commercial Mobile Cold Storage, Heavy Cranes & Rigging Services, and 65+ Senior Living Advisory.
 
 ## Institutional Overview & Core Statistics
-- **Flagship Metros Serviced**: 50 Top US Metropolitan Markets (Atlanta, Dallas, Miami, Los Angeles, Chicago, Austin, Denver, Nashville, etc.).
-- **Verified Independent Fleet Operators**: 60+ Vetted Providers.
+- **Geographic Coverage**: Complete 50 US States + District of Columbia (51 statewide hubs).
+- **Flagship Metros Serviced**: 71 Premier US Metropolitan Staging Markets (Atlanta, Dallas, Miami, Los Angeles, Chicago, Austin, Denver, Nashville, Seattle, Phoenix, New York, etc.).
+- **Verified Independent Fleet Operators**: 146 Vetted Commercial Fleet Providers.
 - **Median Commercial Rental Rate (Luxury Restrooms)**: $2,850/event (Range: $1,900 to $12,000+).
 - **Concierge Booking Deposit Standard**: 15% escrow deposit lock-in with 48-hour free cancellation and on-site delivery guarantee.
 - **Compliance Standards**: OSHA 1926.51(f) sanitation, ADA Title III accessibility guidelines, and local municipal health clearances.

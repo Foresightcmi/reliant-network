@@ -307,7 +307,8 @@ app.get('/sitemap.xml', (req, res) => {
 
 // 2a. GeoDirectory Dedicated Single Listing Permalinks (/listing/:slug)
 app.get('/listing/:slug', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'listing', `${req.params.slug}.html`);
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'listing', `${cleanSlug}.html`);
   if (fs.existsSync(filePath)) {
     return res.sendFile(filePath);
   }
@@ -316,7 +317,8 @@ app.get('/listing/:slug', (req, res) => {
 
 // 2b. GeoDirectory Statewide Hubs (/state/:slug)
 app.get('/state/:slug', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'state', `${req.params.slug}.html`);
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'state', `${cleanSlug}.html`);
   if (fs.existsSync(filePath)) {
     return res.sendFile(filePath);
   }
@@ -325,7 +327,8 @@ app.get('/state/:slug', (req, res) => {
 
 // 2c. GeoDirectory Metro Landing Pages (/metro/:slug)
 app.get('/metro/:slug', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'metro', `${req.params.slug}.html`);
+  const cleanSlug = req.params.slug.replace(/\.html$/, '');
+  const filePath = path.join(__dirname, 'public', 'metro', `${cleanSlug}.html`);
   if (fs.existsSync(filePath)) {
     return res.sendFile(filePath);
   }

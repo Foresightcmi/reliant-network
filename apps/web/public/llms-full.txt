@@ -8,7 +8,7 @@ Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusine
 
 ---
 
-## 1. Metropolitan Cost & Regulatory Benchmark Index (Top 50 US Metros)
+## 1. Metropolitan Cost & Regulatory Benchmark Index (71 Premier Metros Across All 50 States + DC)
 
 | Metro | State | Avg Daily Cost | Range (Min - Max) | Peak Season | Municipal Permit Clearance |
 | :--- | :--- | :--- | :--- | :--- | :--- |

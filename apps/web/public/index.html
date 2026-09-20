@@ -864,7 +864,7 @@
         </span>
         <h2 class="text-3xl sm:text-4xl font-serif-title font-bold text-slate-900">Service Coverage &amp; Dispatch Depot Network</h2>
         <p class="text-slate-600 text-sm mt-2">
-          Browse certified staging yards, commercial equipment depots, and verified 75-mile service radiuses for 60 vetted operators across 50 US metropolitan regions.
+          Browse certified staging yards, commercial equipment depots, and verified 75-mile service radiuses for 146 vetted operators across all 50 US states &amp; metropolitan regions.
         </p>
       </div>
 
@@ -877,32 +877,32 @@
             <div class="flex flex-wrap gap-1.5" id="depot-map-filters">
               <button onclick="filterDepotMap('all')" id="depot-filter-all" class="depot-filter-btn active bg-slate-900 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5">
                 <span>All Specialties</span>
-                <span class="bg-white/20 text-white px-1.5 py-0.2 rounded-full text-[10px]">60</span>
+                <span class="bg-white/20 text-white px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-all">146</span>
               </button>
               <button onclick="filterDepotMap('aging_in_place')" id="depot-filter-aging_in_place" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span>Aging in Place</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]">12</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-aip">24</span>
               </button>
               <button onclick="filterDepotMap('luxury_restrooms')" id="depot-filter-luxury_restrooms" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                 <span>VIP Restrooms</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]">12</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-restrooms">51</span>
               </button>
               <button onclick="filterDepotMap('cold_storage')" id="depot-filter-cold_storage" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
                 <span>Cold Storage</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]">12</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cold">24</span>
               </button>
               <button onclick="filterDepotMap('crane_rigging')" id="depot-filter-crane_rigging" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-orange-500"></span>
                 <span>Mobile Cranes</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]">12</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-cranes">24</span>
               </button>
               <button onclick="filterDepotMap('senior_care')" id="depot-filter-senior_care" class="depot-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-purple-500"></span>
                 <span>Senior Placement</span>
-                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]">12</span>
+                <span class="bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full text-[10px]" id="count-pill-senior">23</span>
               </button>
             </div>
           </div>
@@ -922,16 +922,19 @@
           <div class="flex items-center gap-4 flex-wrap">
             <span class="flex items-center gap-1.5">
               <span class="w-3 h-3 rounded-full bg-amber-500 shadow-xs inline-block"></span>
-              <strong>60 Verified Fleet Depots:</strong> 10 Key States
+              <strong>146 Verified Fleet Depots:</strong> All 50 US States + DC
             </span>
             <span class="flex items-center gap-1.5">
               <span class="w-3 h-3 rounded-full border border-dashed border-amber-500 bg-amber-100 inline-block"></span>
               <strong>75-Mile Primary Radii:</strong> Guaranteed On-Time Staging
             </span>
             <span class="flex items-center gap-1 text-slate-500">
-              <span id="depot-map-status">Showing 60 verified commercial staging depots across 50 metros</span>
+              <span id="depot-map-status">Showing 146 verified commercial staging depots across all 50 states</span>
             </span>
           </div>
+          <span class="text-[11px] font-mono text-slate-400">OpenStreetMap &bull; Zero Marginal Cost</span>
+        </div>
+      </div>
           <span class="text-[11px] font-mono text-slate-400">OpenStreetMap &bull; Zero Marginal Cost</span>
         </div>
       </div>
@@ -3064,57 +3067,426 @@
     });
   </script>
 
-  <!-- STATE DIRECTORY EXPLORER -->
-  <section class="py-12 bg-white border-t border-slate-200">
+    <!-- STATE DIRECTORY EXPLORER (ALL 50 US STATES + DC) -->
+  <section class="py-14 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-3">
         <div>
-          <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block">Statewide Directories</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">Statewide Commercial Fleet &amp; Restroom Networks</h3>
+          <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block">Nationwide Directory Network</span>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1">Statewide Commercial Fleet &amp; Restroom Networks</h3>
+          <p class="text-xs text-slate-500 mt-1">Direct access to state-licensed commercial operators and staging depots across all 50 US states and the District of Columbia.</p>
         </div>
-        <span class="text-xs text-slate-500 font-semibold bg-slate-100 px-3 py-1 rounded-full">10 Flagship States Active</span>
+        <span class="text-xs text-emerald-700 font-bold bg-emerald-50 border border-emerald-300 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          50 States &amp; DC Active (146 Depots)
+        </span>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
-        <a href="/state/georgia" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Georgia</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Atlanta &bull; Savannah</span>
+
+      <!-- South & Southeast -->
+      <div class="mb-8 last:mb-0">
+        <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>South & Southeast (12 States)</span>
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+        <a href="/state/georgia" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Georgia</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Atlanta &bull; Savannah</span>
         </a>
-        <a href="/state/texas" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Texas</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Dallas &bull; Austin</span>
+        <a href="/state/florida" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Florida</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Miami &bull; Tampa &bull; Orlando</span>
         </a>
-        <a href="/state/florida" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Florida</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Miami &bull; Palm Beach</span>
+        <a href="/state/north-carolina" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">North Carolina</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Charlotte &bull; Raleigh</span>
         </a>
-        <a href="/state/california" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">California</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Los Angeles &bull; Napa</span>
+        <a href="/state/south-carolina" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">South Carolina</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Charleston &bull; Columbia</span>
         </a>
-        <a href="/state/illinois" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Illinois</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Chicago Metro</span>
+        <a href="/state/tennessee" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Tennessee</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Nashville &bull; Memphis</span>
         </a>
-        <a href="/state/arizona" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Arizona</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Scottsdale &bull; Phoenix</span>
+        <a href="/state/alabama" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Alabama</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Birmingham &bull; Huntsville</span>
         </a>
-        <a href="/state/colorado" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Colorado</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Denver &bull; Aspen</span>
+        <a href="/state/mississippi" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Mississippi</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Jackson &bull; Gulfport</span>
         </a>
-        <a href="/state/south-carolina" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">South Carolina</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Charleston Lowcountry</span>
+        <a href="/state/louisiana" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Louisiana</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">New Orleans &bull; Baton Rouge</span>
         </a>
-        <a href="/state/tennessee" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">Tennessee</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">Nashville Music City</span>
+        <a href="/state/arkansas" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Arkansas</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Little Rock &bull; Fayetteville</span>
         </a>
-        <a href="/state/new-york" class="p-3.5 bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl text-center transition-all block shadow-2xs">
-          <span class="text-xs font-bold text-slate-900 block">New York</span>
-          <span class="text-[10px] text-slate-500 block mt-0.5">The Hamptons</span>
+        <a href="/state/virginia" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Virginia</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Richmond &bull; Virginia Beach</span>
         </a>
+        <a href="/state/west-virginia" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">West Virginia</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Charleston &bull; Morgantown</span>
+        </a>
+        <a href="/state/kentucky" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Kentucky</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Louisville &bull; Lexington</span>
+        </a>
+        </div>
+      </div>
+
+      <!-- Texas & Southwest -->
+      <div class="mb-8 last:mb-0">
+        <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Texas & Southwest (6 States)</span>
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+        <a href="/state/texas" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Texas</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Dallas &bull; Austin &bull; Houston</span>
+        </a>
+        <a href="/state/arizona" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Arizona</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Phoenix &bull; Scottsdale &bull; Tucson</span>
+        </a>
+        <a href="/state/nevada" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Nevada</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Las Vegas &bull; Reno &bull; Tahoe</span>
+        </a>
+        <a href="/state/new-mexico" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">New Mexico</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Albuquerque &bull; Santa Fe</span>
+        </a>
+        <a href="/state/oklahoma" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Oklahoma</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Oklahoma City &bull; Tulsa</span>
+        </a>
+        <a href="/state/utah" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Utah</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Salt Lake City &bull; Park City</span>
+        </a>
+        </div>
+      </div>
+
+      <!-- West & Pacific -->
+      <div class="mb-8 last:mb-0">
+        <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>West & Pacific (9 States)</span>
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+        <a href="/state/california" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">California</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Los Angeles &bull; SF &bull; San Diego</span>
+        </a>
+        <a href="/state/washington" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Washington</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Seattle &bull; Bellevue &bull; Tacoma</span>
+        </a>
+        <a href="/state/oregon" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Oregon</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Portland &bull; Eugene &bull; Bend</span>
+        </a>
+        <a href="/state/colorado" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Colorado</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Denver &bull; Boulder &bull; Aspen</span>
+        </a>
+        <a href="/state/idaho" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Idaho</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Boise &bull; Sun Valley</span>
+        </a>
+        <a href="/state/montana" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Montana</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Billings &bull; Bozeman &bull; Missoula</span>
+        </a>
+        <a href="/state/wyoming" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Wyoming</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Cheyenne &bull; Jackson Hole</span>
+        </a>
+        <a href="/state/alaska" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Alaska</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Anchorage &bull; Fairbanks</span>
+        </a>
+        <a href="/state/hawaii" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Hawaii</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Honolulu &bull; Maui &bull; Kauai</span>
+        </a>
+        </div>
+      </div>
+
+      <!-- Midwest & Great Lakes -->
+      <div class="mb-8 last:mb-0">
+        <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Midwest & Great Lakes (12 States)</span>
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+        <a href="/state/illinois" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Illinois</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Chicago &bull; Naperville</span>
+        </a>
+        <a href="/state/ohio" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Ohio</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Columbus &bull; Cleveland &bull; Cincinnati</span>
+        </a>
+        <a href="/state/michigan" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Michigan</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Detroit &bull; Grand Rapids &bull; Ann Arbor</span>
+        </a>
+        <a href="/state/indiana" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Indiana</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Indianapolis &bull; Fort Wayne</span>
+        </a>
+        <a href="/state/wisconsin" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Wisconsin</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Milwaukee &bull; Madison &bull; Green Bay</span>
+        </a>
+        <a href="/state/minnesota" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Minnesota</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Minneapolis &bull; St. Paul</span>
+        </a>
+        <a href="/state/missouri" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Missouri</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">St. Louis &bull; Kansas City</span>
+        </a>
+        <a href="/state/iowa" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Iowa</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Des Moines &bull; Cedar Rapids</span>
+        </a>
+        <a href="/state/kansas" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Kansas</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Wichita &bull; Overland Park</span>
+        </a>
+        <a href="/state/nebraska" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Nebraska</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Omaha &bull; Lincoln</span>
+        </a>
+        <a href="/state/north-dakota" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">North Dakota</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Fargo &bull; Bismarck</span>
+        </a>
+        <a href="/state/south-dakota" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">South Dakota</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Sioux Falls &bull; Rapid City</span>
+        </a>
+        </div>
+      </div>
+
+      <!-- Northeast & Mid-Atlantic -->
+      <div class="mb-8 last:mb-0">
+        <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Northeast & Mid-Atlantic (12 States)</span>
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+        <a href="/state/new-york" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">New York</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">NYC &bull; Hamptons &bull; Buffalo</span>
+        </a>
+        <a href="/state/pennsylvania" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Pennsylvania</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Philadelphia &bull; Pittsburgh</span>
+        </a>
+        <a href="/state/new-jersey" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">New Jersey</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Newark &bull; Jersey Shore</span>
+        </a>
+        <a href="/state/massachusetts" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Massachusetts</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Boston &bull; Cape Cod &bull; Worcester</span>
+        </a>
+        <a href="/state/connecticut" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Connecticut</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Hartford &bull; Greenwich &bull; Stamford</span>
+        </a>
+        <a href="/state/maryland" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Maryland</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Baltimore &bull; Bethesda &bull; Annapolis</span>
+        </a>
+        <a href="/state/district-of-columbia" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">District of Columbia</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Washington DC Capital Hub</span>
+        </a>
+        <a href="/state/delaware" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Delaware</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Wilmington &bull; Rehoboth Beach</span>
+        </a>
+        <a href="/state/rhode-island" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Rhode Island</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Providence &bull; Newport</span>
+        </a>
+        <a href="/state/new-hampshire" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">New Hampshire</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Manchester &bull; Portsmouth</span>
+        </a>
+        <a href="/state/maine" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Maine</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Portland &bull; Bar Harbor</span>
+        </a>
+        <a href="/state/vermont" class="p-3 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-400 rounded-xl transition-all block shadow-2xs hover:shadow-xs group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">Vermont</span>
+            <span class="text-[10px] text-amber-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+          </div>
+          <span class="text-[10px] text-slate-500 block mt-0.5 truncate">Burlington &bull; Stowe</span>
+        </a>
+        </div>
       </div>
     </div>
   </section>
