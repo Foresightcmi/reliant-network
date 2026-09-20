@@ -1651,11 +1651,6 @@
     let currentVendors = [];
 
     const NICHE_METADATA = {
-    // Support aliases in NICHE_METADATA
-    NICHE_METADATA.cold_storage = NICHE_METADATA.commercial_cold_storage;
-    NICHE_METADATA.crane_rigging = NICHE_METADATA.heavy_crane_rigging;
-    NICHE_METADATA.senior_care = NICHE_METADATA.senior_care_placement;
-
       luxury_restrooms: {
         badge: 'Verified VIP Luxury Sanitation Fleets',
         title: 'Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings &amp; VIP Galas</span>',
@@ -1692,6 +1687,11 @@
         sub: 'Certified 65+ Home Independence Network'
       }
     };
+
+    // Support aliases in NICHE_METADATA
+    NICHE_METADATA.cold_storage = NICHE_METADATA.commercial_cold_storage;
+    NICHE_METADATA.crane_rigging = NICHE_METADATA.heavy_crane_rigging;
+    NICHE_METADATA.senior_care = NICHE_METADATA.senior_care_placement;
 
     function switchNiche(nicheId) {
       activeNiche = nicheId || 'all';
