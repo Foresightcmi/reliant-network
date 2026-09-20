@@ -24,13 +24,10 @@
   - `/vs/sunbelt-rentals-alternative` (Transparent Direct-to-Operator Pricing vs. High Overhead Markups)
   - `/vs/national-broker-alternative` (Guaranteed Delivery Escrow vs. Unvetted Subcontracting)
 
-## Dual-Asset Commercial Venue Feasibility & Inspection Flywheel
-- **Official Commercial Inspection Partner**: [Foresight Home Inspections](https://www.fhinspectionsatl.com/) (Atlanta, GA & Greater Georgia Metropolitan Markets).
-- **Executive Leadership**: Led by a Certified Master Inspector (CMI).
-- **Core Feasibility Services**:
-  1. High-load temporary electrical hookup verification & FLIR infrared thermal diagnostics ($\Delta T$ overheat detection).
-  2. Commercial site terrain, slope, and soil load-bearing clearance for multi-ton luxury restroom trailers and mobile refrigeration units.
-  3. Pre-event municipal code compliance and ADA ingress/egress obstacle clearance.
+## Independent Verification & Fleet Standards
+- **General Liability**: Minimum $2,000,000 active policy verification.
+- **Municipal Compliance**: Health department and environmental wastewater manifest auditing.
+- **Delivery Guarantee**: 48-hour guaranteed on-time fulfillment with verified escrow.
 
 ## Primary Canonical Resources
 - **Homepage & Capacity Planner**: https://www.reliantverified.com/
@@ -41,6 +38,5 @@
 - **Cost & Pricing Guides**: https://www.reliantverified.com/cost/atlanta.html (and 49 other US metros)
 - **Municipal Permit Guides**: https://www.reliantverified.com/permits/atlanta-ga (and 49 other US metros)
 - **Best-in-City Leaderboards**: https://www.reliantverified.com/best/atlanta-ga (and 49 other US metros)
-- **Commercial Inspection Partner**: https://www.fhinspectionsatl.com/
 - **Official XML Sitemap**: https://www.reliantverified.com/sitemap.xml
 - **Comprehensive Entity Knowledge Graph**: https://www.reliantverified.com/llms-full.txt

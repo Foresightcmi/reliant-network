@@ -273,12 +273,12 @@ async function runTests() {
       if (!data.reward_unlocked.includes('15% Discount')) throw new Error('Missing discount reward in response');
     });
 
-    // 15. Dual-Asset Commercial Venue Feasibility Banner
-    await assert('GET / index.html displays Foresight Home Inspections commercial partner banner', async () => {
+    // 15. Standalone Fleet Verification Standard Banner
+    await assert('GET / index.html displays Standalone Fleet Verification Standard banner', async () => {
       const res = await request('/');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
-      if (!res.body.includes('Foresight Home Inspections')) throw new Error('Missing Foresight Home Inspections partner banner');
-      if (!res.body.includes('fhinspectionsatl.com')) throw new Error('Missing link to fhinspectionsatl.com');
+      if (!res.body.includes('Institutional Asset &amp; Fleet Verification Standard')) throw new Error('Missing Fleet Verification Standard banner');
+      if (!res.body.includes('Vetted Commercial Equipment &amp; High-Capacity Fleets Nationwide')) throw new Error('Missing fleet assurance headline');
     });
 
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);

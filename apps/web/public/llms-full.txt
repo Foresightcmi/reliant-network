@@ -96,15 +96,14 @@ Ontology Triples Grounding: Wikidata [Q23556 (Atlanta)], Schema.org [LocalBusine
 
 ---
 
-## 4. Dual-Asset Commercial Inspection & Venue Feasibility Flywheel
+## 4. Institutional Fleet Vetting & Logistics Standards
 
-- **Strategic Partner**: [Foresight Home Inspections](https://www.fhinspectionsatl.com/)
-- **Geographic Coverage**: Greater Atlanta, North Georgia, Savannah, and Southeast Regional Hubs.
-- **Authority Grounding**: Certified Master Inspector (CMI), FLIR Level 1 Thermographer, InterNACHI certified.
-- **B2B Service Matrix**:
-  1. **Commercial Electrical Load Feasibility**: Infrared FLIR thermal inspections of temporary venue panels, distribution boxes, and generator tie-ins to detect $\Delta T > 15^\circ\text{C}$ overheating risks prior to luxury trailer or reefer container startup.
-  2. **Subsurface & Grade Feasibility**: Structural foundation and ground-bearing verification ensuring soil stability for 10,000+ lb mobile commercial equipment.
-  3. **ADA Ingress & Municipal Path Compliance**: Site survey for barrier-free access routes complying with ADA Title III and local fire marshal clearances.
+- **Underwriting Framework**: Strict third-party verification for commercial equipment operators.
+- **Coverage**: All 50 major US Metropolitan Statistical Areas (MSAs).
+- **Compliance Matrix**:
+  1. **Commercial Electrical & Shore Power Verification**: Multi-circuit 110V/20A dedicated line validation and Tier-4 sound-attenuated generator compliance.
+  2. **Subsurface & Grade Feasibility**: Ground-bearing and access-route assessment for heavy-equipment deployment.
+  3. **Environmental Health Compliance**: Certified electronic blackwater and graywater disposal manifests at municipal wastewater facilities.
 
 ---
 
