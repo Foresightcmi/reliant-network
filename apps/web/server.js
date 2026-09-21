@@ -68,7 +68,8 @@ const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 if (stripeSecretKey) {
   try {
     stripe = require('stripe')(stripeSecretKey);
-    console.log(`💳 [Stripe Engine] Initialized in ${stripeSecretKey.startsWith('sk_live_') ? 'LIVE' : 'TEST'} mode.`);
+    const isLive = stripeSecretKey.startsWith('sk_live_') || stripeSecretKey.startsWith('rk_live_');
+    console.log(`💳 [Stripe Engine] Initialized in ${isLive ? 'LIVE' : 'TEST'} mode.`);
   } catch (err) {
     console.warn('⚠️ [Stripe Engine] Failed to initialize Stripe client:', err.message);
   }
@@ -1391,7 +1392,7 @@ app.get('/api/stripe/status', async (req, res) => {
   const isConfigured = !!stripe;
   const key = process.env.STRIPE_SECRET_KEY || '';
   const pubKey = process.env.STRIPE_PUBLISHABLE_KEY || '';
-  const mode = key.startsWith('sk_live_') ? 'live' : (key.startsWith('sk_test_') ? 'test' : 'unconfigured');
+  const mode = (key.startsWith('sk_live_') || key.startsWith('rk_live_')) ? 'live' : (key ? 'test' : 'unconfigured');
 
   let accountInfo = null;
   if (stripe) {
@@ -1588,7 +1589,7 @@ app.post('/api/stripe/create-checkout-session', async (req, res) => {
       success: true,
       checkout_url: session.url,
       session_id: session.id,
-      mode: process.env.STRIPE_SECRET_KEY.startsWith('sk_live_') ? 'live' : 'test'
+      mode: (process.env.STRIPE_SECRET_KEY.startsWith('sk_live_') || process.env.STRIPE_SECRET_KEY.startsWith('rk_live_')) ? 'live' : 'test'
     });
   } catch (err) {
     console.error('❌ [Stripe Checkout Session Error]:', err);
