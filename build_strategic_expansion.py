@@ -464,22 +464,6 @@ for m in metros:
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "AggregateRating",
-    "itemReviewed": {{
-      "@type": "Service",
-      "name": "Luxury Restroom Trailer Rentals in {city}, {state}",
-      "areaServed": "{city}, {state}"
-    }},
-    "ratingValue": "4.94",
-    "bestRating": "5.0",
-    "worstRating": "1.0",
-    "ratingCount": "148"
-  }}
-  </script>
-
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {{

@@ -1,7 +1,7 @@
 {
   "vend_atl_01": {
     "operator_id": "vend_atl_01",
-    "balance": 26740,
+    "balance": 27290,
     "currency": "USD",
     "company_name": "Royal Restrooms of Atlanta",
     "city": "Atlanta",
@@ -9,6 +9,20 @@
     "subscription_active": true,
     "monopoly_active": true,
     "unlocked_leads": [
+      {
+        "id": "lead-1789995369401",
+        "lead_code": "LUX-9972",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-21T12:56:09.402Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
       {
         "id": "lead-1789961330541",
         "lead_code": "LUX-5628",
@@ -54,6 +68,13 @@
       "lead-1"
     ],
     "transactions": [
+      {
+        "id": "tx_1789995367904",
+        "date": "2026-09-21T12:56:07.904Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
       {
         "id": "tx_1789961329174",
         "date": "2026-09-21T03:28:49.174Z",
@@ -458,6 +479,21 @@
     "monopoly_active": false,
     "unlocked_leads": [
       {
+        "id": "lead-1789995368959",
+        "lead_code": "MAC-7311",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-21T12:56:09.353Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-09-28T12:56:08.959Z"
+      },
+      {
         "id": "lead-1789961330034",
         "lead_code": "MAC-8021",
         "customer_name": "David Vance (Gulf Coast Heavy Haul)",
@@ -496,8 +532,8 @@
       "state": "TX",
       "niche_id": "machinery_moving",
       "price_per_month": 299,
-      "expires_at": "2026-09-28T03:28:50.035Z",
-      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1yilAmet8seR170FDRtyRM67PZ9pzovHKuU0KQF5g5g5I1VBheVScDMFJ#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+      "expires_at": "2026-09-28T12:56:08.959Z",
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1TjzCyitSJH2NrDyHeUbgAmrHz8oEsrVZTHJ2qkGysRLCgDg0hJhW80q4#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
     }
   },
   "cr-002": {
