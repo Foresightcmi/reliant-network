@@ -1,7 +1,7 @@
 {
   "vend_atl_01": {
     "operator_id": "vend_atl_01",
-    "balance": 23440,
+    "balance": 26190,
     "currency": "USD",
     "company_name": "Royal Restrooms of Atlanta",
     "city": "Atlanta",
@@ -9,9 +9,72 @@
     "subscription_active": true,
     "monopoly_active": true,
     "unlocked_leads": [
+      {
+        "id": "lead-1789959907995",
+        "lead_code": "LUX-3502",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-21T03:05:07.995Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1789959892144",
+        "lead_code": "LUX-7530",
+        "customer_name": "Genevieve DuMont (Buckhead Estate Weddings)",
+        "customer_phone": "(404) 555-9382",
+        "customer_email": "weddings@buckheadestate.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "8-Station Presidential Restroom Suite for 300 Guests",
+        "estimated_quote": 3450,
+        "unlocked_at": "2026-09-21T03:04:52.144Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
       "lead-1"
     ],
     "transactions": [
+      {
+        "id": "tx_1789959906685",
+        "date": "2026-09-21T03:05:06.685Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789959803076",
+        "date": "2026-09-21T03:03:23.076Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789959557332",
+        "date": "2026-09-21T02:59:17.332Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789951294375",
+        "date": "2026-09-21T00:41:34.375Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1789951260543",
+        "date": "2026-09-21T00:41:00.543Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
       {
         "id": "tx_1789937638917",
         "date": "2026-09-20T20:53:58.917Z",
@@ -324,5 +387,81 @@
     "monopoly_metro": "atlanta-ga",
     "backlink_verified": true,
     "lead_discount_pct": 15
+  },
+  "vend_pwr_chi_106": {
+    "operator_id": "vend_pwr_chi_106",
+    "balance": 100,
+    "currency": "USD",
+    "company_name": "Chicago Mega-Watt Emergency Power Fleets",
+    "city": "Chicago",
+    "state": "IL",
+    "subscription_active": false,
+    "monopoly_active": false,
+    "unlocked_leads": [
+      {
+        "id": "lead-1789959891518",
+        "lead_code": "TEM-5266",
+        "customer_name": "Marcus Sterling (Midwest Industrial Logistics)",
+        "customer_phone": "(312) 849-2910",
+        "customer_email": "procurement@midwestlogistics.org",
+        "city": "Chicago",
+        "state": "IL",
+        "event_type": "500kVA Tier 4 Diesel Generator Rental + Distribution Panel (3-Week Shutdown)",
+        "estimated_quote": 8500,
+        "unlocked_at": "2026-09-21T03:04:52.117Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-09-28T03:04:51.526Z"
+      }
+    ],
+    "transactions": [],
+    "trojan_reservation": {
+      "active": true,
+      "metro_slug": "chicago-il",
+      "city": "Chicago",
+      "state": "IL",
+      "niche_id": "temporary_power",
+      "price_per_month": 299,
+      "expires_at": "2026-09-28T03:04:51.526Z",
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1QeHV53voQPWSLW9B2yzPuUNcdc8VZbj7h5RMVNvUV3jwiEEqRFQsX4me#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+    }
+  },
+  "vend_mch_hou_124": {
+    "operator_id": "vend_mch_hou_124",
+    "balance": 100,
+    "currency": "USD",
+    "company_name": "Houston Precision Millwrights & Heavy Rigging",
+    "city": "Houston",
+    "state": "TX",
+    "subscription_active": false,
+    "monopoly_active": false,
+    "unlocked_leads": [
+      {
+        "id": "lead-1789959907615",
+        "lead_code": "MAC-1556",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-21T03:05:07.983Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-09-28T03:05:07.615Z"
+      }
+    ],
+    "transactions": [],
+    "trojan_reservation": {
+      "active": true,
+      "metro_slug": "houston-tx",
+      "city": "Houston",
+      "state": "TX",
+      "niche_id": "machinery_moving",
+      "price_per_month": 299,
+      "expires_at": "2026-09-28T03:05:07.615Z",
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1X8kTJyFe7XOvWiuCqxaEGhw1xwPgl7D8Mws7y6JMkt9EzCoVuUaxORfK#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+    }
   }
 }

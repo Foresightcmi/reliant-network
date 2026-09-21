@@ -1,5 +1,131 @@
 [
   {
+    "id": "notif_1789959907997",
+    "timestamp": "2026-09-21T03:05:07.997Z",
+    "title": "⚡ EXCLUSIVE MONOPOLY LEAD (Atlanta)",
+    "amount": 3100,
+    "city": "Atlanta",
+    "operator": "Royal Restrooms of Atlanta",
+    "message": "Lead LUX-3502 routed exclusively to Royal Restrooms of Atlanta. Zero competitors notified."
+  },
+  {
+    "id": "notif_1789959907991",
+    "timestamp": "2026-09-21T03:05:07.991Z",
+    "title": "🎁 TROJAN HORSE LEAD DISPATCH (Houston)",
+    "amount": 12500,
+    "city": "Houston",
+    "operator": "Houston Precision Millwrights & Heavy Rigging",
+    "message": "Free trial lead ($12,500) gifted to Houston Precision Millwrights & Heavy Rigging. 7-day exclusive territory lock initiated."
+  },
+  {
+    "id": "notif_1789959906691",
+    "timestamp": "2026-09-21T03:05:06.691Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789959906685"
+  },
+  {
+    "id": "notif_1789959906176",
+    "timestamp": "2026-09-21T03:05:06.176Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-504248"
+  },
+  {
+    "id": "notif_1789959892147",
+    "timestamp": "2026-09-21T03:04:52.147Z",
+    "title": "⚡ EXCLUSIVE MONOPOLY LEAD (Atlanta)",
+    "amount": 3450,
+    "city": "Atlanta",
+    "operator": "Royal Restrooms of Atlanta",
+    "message": "Lead LUX-7530 routed exclusively to Royal Restrooms of Atlanta. Zero competitors notified."
+  },
+  {
+    "id": "notif_1789959892129",
+    "timestamp": "2026-09-21T03:04:52.129Z",
+    "title": "🎁 TROJAN HORSE LEAD DISPATCH (Chicago)",
+    "amount": 8500,
+    "city": "Chicago",
+    "operator": "Chicago Mega-Watt Emergency Power Fleets",
+    "message": "Free trial lead ($8,500) gifted to Chicago Mega-Watt Emergency Power Fleets. 7-day exclusive territory lock initiated."
+  },
+  {
+    "id": "notif_1789959803077",
+    "timestamp": "2026-09-21T03:03:23.077Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789959803076"
+  },
+  {
+    "id": "notif_1789959802621",
+    "timestamp": "2026-09-21T03:03:22.621Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-614060"
+  },
+  {
+    "id": "notif_1789959557336",
+    "timestamp": "2026-09-21T02:59:17.336Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789959557332"
+  },
+  {
+    "id": "notif_1789959556855",
+    "timestamp": "2026-09-21T02:59:16.855Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-575104"
+  },
+  {
+    "id": "notif_1789951294378",
+    "timestamp": "2026-09-21T00:41:34.378Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789951294375"
+  },
+  {
+    "id": "notif_1789951293640",
+    "timestamp": "2026-09-21T00:41:33.640Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-944239"
+  },
+  {
+    "id": "notif_1789951260546",
+    "timestamp": "2026-09-21T00:41:00.546Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789951260543"
+  },
+  {
+    "id": "notif_1789951259989",
+    "timestamp": "2026-09-21T00:40:59.989Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-589406"
+  },
+  {
     "id": "notif_1789937638919",
     "timestamp": "2026-09-20T20:53:58.919Z",
     "title": "Operator Wallet Reload ($500)",

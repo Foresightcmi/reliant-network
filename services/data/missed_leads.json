@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-09-21T03:05:07.989Z",
+    "city": "Houston",
+    "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+    "estimated_value": 12500,
+    "trojan_lead_id": "lead-1789959907615",
+    "target_operator": "Houston Precision Millwrights & Heavy Rigging",
+    "status": "TROJAN_GIFT_DISPATCHED"
+  },
+  {
+    "timestamp": "2026-09-21T03:04:52.126Z",
+    "city": "Chicago",
+    "service": "500kVA Tier 4 Diesel Generator Rental + Distribution Panel (3-Week Shutdown)",
+    "estimated_value": 8500,
+    "trojan_lead_id": "lead-1789959891518",
+    "target_operator": "Chicago Mega-Watt Emergency Power Fleets",
+    "status": "TROJAN_GIFT_DISPATCHED"
+  },
+  {
     "timestamp": "2026-09-17T01:45:15.974Z",
     "city": "Atlanta",
     "service": "Luxury Restroom Trailer",

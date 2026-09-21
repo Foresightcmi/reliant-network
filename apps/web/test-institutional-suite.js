@@ -460,6 +460,74 @@ async function runTests() {
       if (!res.body.includes('Live Checkout Sandbox')) throw new Error('Missing sandbox title');
     });
 
+    // 21. Kyle's "Trojan Horse" Rank & Rent Engine Suite
+    await assert('POST /api/leads/trojan-dispatch initiates free gift lead and Kyle\'s outreach kit for open territory', async () => {
+      const res = await request('/api/leads/trojan-dispatch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          niche_id: 'machinery_moving',
+          city: 'Houston',
+          state: 'TX',
+          customer_name: 'David Vance (Gulf Coast Heavy Haul)',
+          customer_phone: '(713) 902-8812',
+          customer_email: 'procurement@gulfhaul.com',
+          estimated_quote: 12500,
+          service_description: '80-Ton Stamping Press Machine Moving & Millwright Leveling'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (data.status !== 'TROJAN_HORSE_GIFT_DISPATCHED') throw new Error(`Expected TROJAN_HORSE_GIFT_DISPATCHED, got ${data.status}`);
+      if (data.territory_status !== 'OPEN') throw new Error(`Expected OPEN territory, got ${data.territory_status}`);
+      if (!data.target_contractor || !data.target_contractor.name) throw new Error('Missing target_contractor');
+      if (!data.monopoly_offer || !data.monopoly_offer.stripe_checkout_url) throw new Error('Missing stripe_checkout_url');
+      if (!data.outreach_scripts || !data.outreach_scripts.sms || !data.outreach_scripts.email || !data.outreach_scripts.phone_cold_call) {
+        throw new Error('Missing Kyle\'s multi-channel outreach scripts');
+      }
+    });
+
+    await assert('POST /api/leads/trojan-dispatch routes exclusively to active monopoly partner for locked territory', async () => {
+      const res = await request('/api/leads/trojan-dispatch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          niche_id: 'luxury_restrooms',
+          city: 'Atlanta',
+          state: 'GA',
+          customer_name: 'Margaret Holloway',
+          customer_phone: '(404) 555-1234',
+          customer_email: 'margaret@atlantaevent.com',
+          estimated_quote: 3100,
+          service_description: 'Luxury VIP Restroom Suite for Corporate Gala'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (data.status !== 'EXCLUSIVE_MONOPOLY_ROUTED') throw new Error(`Expected EXCLUSIVE_MONOPOLY_ROUTED, got ${data.status}`);
+      if (data.territory_status !== 'LOCKED') throw new Error(`Expected LOCKED territory, got ${data.territory_status}`);
+      if (data.operator.id !== 'vend_atl_01') throw new Error(`Expected vend_atl_01, got ${data.operator.id}`);
+    });
+
+    await assert('GET /api/leads/trojan-status returns valid telemetry on dispatched gift leads', async () => {
+      const res = await request('/api/leads/trojan-status');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (typeof data.total_dispatched !== 'number') throw new Error('Missing total_dispatched count');
+      if (typeof data.total_gift_value !== 'number') throw new Error('Missing total_gift_value');
+      if (!Array.isArray(data.locked_territories)) throw new Error('Missing locked_territories array');
+    });
+
+    await assert('GET /api/leads/trojan-territories returns metropolitan roster and lockout telemetry', async () => {
+      const res = await request('/api/leads/trojan-territories');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (data.total_territories < 5) throw new Error(`Expected at least 5 territories, got ${data.total_territories}`);
+      if (typeof data.open_count !== 'number' || typeof data.locked_count !== 'number') throw new Error('Missing open/locked counts');
+      const atlanta = data.territories.find(t => t.city === 'Atlanta');
+      if (!atlanta || atlanta.status !== 'LOCKED') throw new Error('Expected Atlanta to be LOCKED');
+    });
+
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);
     server.close();
     process.exit(failed > 0 ? 1 : 0);

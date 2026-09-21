@@ -686,7 +686,7 @@ app.get('/api/vendors', (req, res) => {
 });
 
 // 7. Multi-Vertical Lead Capture, AI Qualification & Dispatch
-app.post('/api/leads', (req, res) => {
+app.post('/api/leads', async (req, res) => {
   try {
     const { customer_name, customer_email, customer_phone, city, state, event_date, guest_count, event_type, budget, notes, niche_id } = req.body;
     const activeNiche = niche_id || 'luxury_restrooms';
@@ -800,6 +800,34 @@ print(json.dumps(res))
     });
     writeDataFile('leads.json', leadsList);
 
+    // Trigger Kyle's Trojan Horse Lead Dispatch / Territory Monopoly Check
+    let trojanDispatch = null;
+    try {
+      let reqOrigin = 'https://www.reliantverified.com';
+      try {
+        if (req.headers.origin) reqOrigin = req.headers.origin;
+        else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+      } catch(e){}
+
+      trojanDispatch = await dispatchTrojanLead({
+        leadId,
+        leadCode,
+        niche_id: activeNiche,
+        city: city || 'Atlanta',
+        state: state || 'GA',
+        customer_name,
+        customer_email,
+        customer_phone,
+        estimated_quote: qualResult.estimated_quote,
+        service_description: notes || event_type,
+        event_type,
+        guest_count,
+        event_date
+      }, reqOrigin);
+    } catch (tErr) {
+      console.warn('⚠️ [Trojan Dispatch Auto-Trigger Warning]:', tErr.message);
+    }
+
     res.json({
       success: true,
       lead_id: leadId,
@@ -807,7 +835,8 @@ print(json.dumps(res))
       niche_id: activeNiche,
       qualification: qualResult,
       dispatch: dispatchResult,
-      growth_outreach: growthResult
+      growth_outreach: growthResult,
+      trojan_dispatch: trojanDispatch
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -1912,9 +1941,20 @@ app.get('/api/operator/wallet', (req, res) => {
       ];
     }
 
-    // Mask unpurchased leads
+    // Mask unpurchased leads (unlocked if purchased, trial gift, or active monopoly holder)
     const feed = allLeads.map(lead => {
-      const isUnlocked = (opWallet.unlocked_leads || []).includes(lead.id || lead.lead_code);
+      const unlockedItem = (opWallet.unlocked_leads || []).find(item => 
+        typeof item === 'string'
+          ? (item === lead.id || item === lead.lead_code)
+          : (item.id === lead.id || item.lead_code === lead.lead_code)
+      );
+      const isTrialGift = unlockedItem && typeof unlockedItem === 'object' && unlockedItem.trial_gift;
+      const isMonopolyHolder = opWallet.monopoly_active && (
+        (opWallet.monopoly_metro && opWallet.monopoly_metro.toLowerCase().includes((lead.city || '').toLowerCase())) ||
+        (opWallet.city && lead.city && opWallet.city.toLowerCase() === lead.city.toLowerCase())
+      );
+      const isUnlocked = !!unlockedItem || isMonopolyHolder;
+
       return {
         id: lead.id || lead.lead_code,
         lead_code: lead.lead_code,
@@ -1926,6 +1966,8 @@ app.get('/api/operator/wallet', (req, res) => {
         ai_intent_score: lead.ai_intent_score || 94,
         lead_price: lead.lead_price || 85,
         is_unlocked: isUnlocked,
+        is_trial_gift: !!isTrialGift,
+        is_monopoly_lead: !!isMonopolyHolder,
         customer_name: isUnlocked ? (lead.customer_name || 'Verified Client') : '🔒 [Locked - Click to Reveal]',
         customer_email: isUnlocked ? (lead.customer_email || 'client@verified.com') : '🔒 [Locked]',
         customer_phone: isUnlocked ? (lead.customer_phone || '(404) 732-XXXX') : '🔒 (XXX) XXX-XXXX',
@@ -2101,6 +2143,478 @@ app.post('/api/operator/monopoly/subscribe', (req, res) => {
       message: targetTier === 'metro_monopoly'
         ? `Congratulations! Exclusive Metro Monopoly active for ${metro_slug || 'Atlanta'}. Your fleet now captures 100% top banner placement.`
         : `Featured Partner placement activated! Your fleet profile now has 3x priority matching and direct contact buttons.`
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// =========================================================================
+// 👑 KYLE'S RANK & RENT "TROJAN HORSE" MONOPOLY DISPATCH ENGINE
+// =========================================================================
+
+async function dispatchTrojanLead(leadData, reqOrigin = 'https://www.reliantverified.com') {
+  const {
+    leadId,
+    leadCode,
+    niche_id,
+    city,
+    state,
+    customer_name,
+    customer_phone,
+    customer_email,
+    estimated_quote,
+    service_description,
+    event_type,
+    guest_count,
+    event_date,
+    budget,
+    notes
+  } = leadData || {};
+
+  const activeNiche = (niche_id || 'luxury_restrooms').trim().toLowerCase();
+  const targetCity = (city || 'Atlanta').trim();
+  const targetState = (state || 'GA').trim().toUpperCase();
+  const metroSlug = `${targetCity.toLowerCase().replace(/\s+/g, '-')}-${targetState.toLowerCase()}`;
+  const estQuoteVal = typeof estimated_quote === 'number'
+    ? estimated_quote
+    : (parseFloat(String(estimated_quote || '2850').replace(/[^0-9.]/g, '')) || 2850);
+  const leadIdentifier = leadId || ('lead-' + Date.now());
+  const leadRef = leadCode || (activeNiche.substring(0, 3).toUpperCase() + '-' + Math.floor(1000 + Math.random() * 9000));
+  const serviceTitle = service_description || event_type || notes || `${activeNiche.replace(/_/g, ' ')} equipment & services`;
+  const cName = customer_name || 'Commercial Project Director';
+  const cPhone = customer_phone || '(404) 732-2940';
+  const cEmail = customer_email || 'procurement@commercialproject.org';
+
+  // 1. Check if an active Metro Monopoly holder exists
+  const wallets = getWalletsData();
+  const activeHolderEntry = Object.entries(wallets).find(([id, w]) => {
+    if (!w.monopoly_active) return false;
+    const metroMatch = w.monopoly_metro && (
+      w.monopoly_metro.toLowerCase() === metroSlug ||
+      w.monopoly_metro.toLowerCase().includes(targetCity.toLowerCase())
+    );
+    const cityMatch = w.city && w.city.toLowerCase() === targetCity.toLowerCase();
+    return metroMatch || cityMatch;
+  });
+
+  // CASE A: ACTIVE MONOPOLY HOLDER (Paying Contractor) -> Exclusively route to them
+  if (activeHolderEntry) {
+    const [holderId, holderWallet] = activeHolderEntry;
+    if (!holderWallet.unlocked_leads) holderWallet.unlocked_leads = [];
+    const alreadyPresent = holderWallet.unlocked_leads.some(item => 
+      typeof item === 'string' ? (item === leadIdentifier || item === leadRef) : (item.id === leadIdentifier || item.lead_code === leadRef)
+    );
+    if (!alreadyPresent) {
+      holderWallet.unlocked_leads.unshift({
+        id: leadIdentifier,
+        lead_code: leadRef,
+        customer_name: cName,
+        customer_phone: cPhone,
+        customer_email: cEmail,
+        city: targetCity,
+        state: targetState,
+        event_type: serviceTitle,
+        estimated_quote: estQuoteVal,
+        unlocked_at: new Date().toISOString(),
+        monopoly_perk: true,
+        cost: 0
+      });
+      saveWalletsData(wallets);
+    }
+
+    dispatchPushNotification({
+      title: `⚡ EXCLUSIVE MONOPOLY LEAD (${targetCity})`,
+      amount: estQuoteVal,
+      city: targetCity,
+      operator: holderWallet.company_name || holderId,
+      message: `Lead ${leadRef} routed exclusively to ${holderWallet.company_name || holderId}. Zero competitors notified.`
+    });
+
+    return {
+      success: true,
+      status: 'EXCLUSIVE_MONOPOLY_ROUTED',
+      territory_status: 'LOCKED',
+      operator: {
+        id: holderId,
+        company_name: holderWallet.company_name || 'Verified Territory Monopoly Partner',
+        city: holderWallet.city || targetCity,
+        state: holderWallet.state || targetState
+      },
+      lead_id: leadIdentifier,
+      lead_code: leadRef,
+      customer: {
+        name: cName,
+        phone: cPhone,
+        email: cEmail,
+        estimated_quote: estQuoteVal,
+        service: serviceTitle
+      },
+      message: `Lead routed exclusively to active territory monopoly partner (${holderWallet.company_name || holderId}) in ${targetCity}. Zero competitors alerted.`
+    };
+  }
+
+  // CASE B: OPEN TERRITORY -> Execute Kyle's "Trojan Horse" Free Lead Dispatch
+  const allVendors = readDataFile('vendors.json', []);
+  const matchingAliases = NICHE_ALIASES[activeNiche] || [activeNiche];
+
+  let localCandidates = allVendors.filter(v => {
+    const nicheOk = matchingAliases.includes(v.niche_id);
+    const cityOk = v.city && v.city.toLowerCase() === targetCity.toLowerCase();
+    return nicheOk && cityOk;
+  });
+
+  if (localCandidates.length === 0) {
+    localCandidates = allVendors.filter(v => {
+      const nicheOk = matchingAliases.includes(v.niche_id);
+      const stateOk = v.state && v.state.toLowerCase() === targetState.toLowerCase();
+      return nicheOk && stateOk;
+    });
+  }
+  if (localCandidates.length === 0) {
+    localCandidates = allVendors.filter(v => matchingAliases.includes(v.niche_id));
+  }
+
+  localCandidates.sort((a, b) => (b.rating || 4.5) - (a.rating || 4.5) || (b.reviews_count || 0) - (a.reviews_count || 0));
+
+  const targetVendor = localCandidates[0] || {
+    id: `vend_${targetCity.toLowerCase().replace(/[^a-z0-9]/g, '_')}_01`,
+    name: `${targetCity} Premier ${activeNiche.replace(/_/g, ' ')} Fleet`,
+    phone: '(404) 555-0192',
+    email: `contact@${targetCity.toLowerCase()}contractor.com`,
+    city: targetCity,
+    state: targetState,
+    rating: 4.9
+  };
+
+  const competitors = localCandidates.slice(1, 4).map(c => c.name).filter(Boolean);
+  const primaryCompetitor = competitors[0] || 'top regional competitors';
+  const trialExpiresAt = new Date(Date.now() + 7 * 86400000).toISOString();
+
+  let checkoutUrl = `${reqOrigin}/operator-portal.html?metro=${metroSlug}&operator_id=${targetVendor.id}&trojan=true`;
+  let stripeSessionId = null;
+
+  if (stripe) {
+    try {
+      const nicheDisplay = activeNiche.replace(/_/g, ' ').toUpperCase();
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        mode: 'subscription',
+        customer_email: (targetVendor.email && targetVendor.email.includes('@')) ? targetVendor.email : undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            recurring: { interval: 'month' },
+            unit_amount: 29900,
+            product_data: {
+              name: `Reliant Verified - ${targetCity} ${nicheDisplay} Territory Monopoly ($299/mo)`,
+              description: `100% Exclusive Top Banner Takeover & Lead Lockout in ${targetCity}. Zero rival vendors receive quote requests.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'metro_monopoly',
+          operator_id: targetVendor.id,
+          metro_slug: metroSlug,
+          city: targetCity,
+          state: targetState,
+          niche_id: activeNiche,
+          trial_lead_id: leadIdentifier,
+          trojan_dispatch: 'true'
+        },
+        success_url: `${reqOrigin}/operator-portal.html?monopoly_success=true&session_id={CHECKOUT_SESSION_ID}&operator_id=${targetVendor.id}`,
+        cancel_url: `${reqOrigin}/operator-portal.html?operator_id=${targetVendor.id}`
+      });
+      checkoutUrl = session.url;
+      stripeSessionId = session.id;
+    } catch (err) {
+      console.warn('⚠️ [Trojan Engine] Stripe session creation fallback:', err.message);
+    }
+  }
+
+  // Multi-Channel Psychological Copy
+  const smsScript = `Hey ${targetVendor.name}, we just received a high-ticket quote request for ${serviceTitle} in ${targetCity} (Est. Value: $${estQuoteVal.toLocaleString()}). We operate The Reliant Network directory—we don't do physical jobs, so we gave the client your contact info and sent the lead straight to you for $0: ${cName} at ${cPhone}. If you want first-right exclusivity to ALL incoming ${targetCity} leads before we route them to ${primaryCompetitor}, claim your 7-day territory lockout here: ${checkoutUrl}`;
+
+  const emailTemplate = `Subject: 🎁 Free Customer Quote Lead in ${targetCity} — ${cName} (Est. $${estQuoteVal.toLocaleString()})
+
+Hi ${targetVendor.name} Dispatch & Ownership,
+
+A commercial client in ${targetCity} just submitted an urgent quote inquiry through The Reliant Network for ${serviceTitle}.
+
+Because we operate an asset-backed B2B directory rather than performing on-site service ourselves, we have forwarded this customer directly to your fleet at ZERO CHARGE:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 VERIFIED CUSTOMER RFQ SPECIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Customer / Company: ${cName}
+• Direct Phone: ${cPhone}
+• Email: ${cEmail}
+• Project Location: ${targetCity}, ${targetState}
+• Service / Equipment: ${serviceTitle}
+• Estimated Booking Value: $${estQuoteVal.toLocaleString()}
+• Urgency: High Priority Inquiry
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+We recommend contacting ${cName} immediately to secure the booking.
+
+WHY ARE WE SENDING YOU THIS FOR FREE?
+The Reliant Network operates under a strict "One Exclusive Contractor Per Metropolitan Market" policy. Instead of selling cold marketing services, we partner with the #1 rated operator in each city to rent our digital territory.
+
+We are giving your company an exclusive 7-Day First Right of Refusal to rent the ${targetCity} territory for a flat $299/month (zero commissions, zero percentage cuts, 100% lead exclusivity).
+
+If you choose not to reserve the territory within 7 days, all subsequent quote inquiries in ${targetCity} will be permanently routed to verified competitors including ${competitors.join(', ') || 'local operators'}.
+
+👉 Lock Your Exclusive Metro Monopoly ($299/mo):
+${checkoutUrl}
+
+👉 Access Operator Command Portal:
+${reqOrigin}/operator-portal.html?operator_id=${targetVendor.id}
+
+Best regards,
+Dispatch Operations | The Reliant Network`;
+
+  const phoneScript = {
+    opening: `Hi ${targetVendor.name}, this is Dispatch with The Reliant Network. I'm calling because we just received a commercial quote request for ${serviceTitle} right here in ${targetCity} worth an estimated $${estQuoteVal.toLocaleString()}. Did you receive the email and text we just sent you with the customer's phone number?`,
+    lead_handoff: `We operate the regional directory network for verified equipment fleets, so we don't perform the physical work ourselves. That lead is 100% yours as a complimentary gift—go ahead and call ${cName} at ${cPhone} to close the job.`,
+    monopoly_pitch: `Here is how our model works: we only partner with ONE exclusive company per metropolitan area. We gave you this first high-ticket job for free so you can see the lead quality firsthand. You have a 7-day exclusive window to test it. If you want us to route every single quote in ${targetCity} directly to your trucks, it's a flat $299 a month—zero commissions, zero contracts. If not, no hard feelings, we will transition the territory over to ${primaryCompetitor}.`,
+    call_to_action: `I've sent the direct Stripe reservation link straight to your text and email. Lock down the ${targetCity} territory now so nobody else can take it.`
+  };
+
+  // Persist to target vendor's wallet
+  if (!wallets[targetVendor.id]) {
+    wallets[targetVendor.id] = {
+      operator_id: targetVendor.id,
+      balance: 100.00,
+      currency: 'USD',
+      company_name: targetVendor.name,
+      city: targetVendor.city || targetCity,
+      state: targetVendor.state || targetState,
+      subscription_active: false,
+      monopoly_active: false,
+      unlocked_leads: [],
+      transactions: []
+    };
+  }
+  const opWallet = wallets[targetVendor.id];
+  if (!opWallet.unlocked_leads) opWallet.unlocked_leads = [];
+  opWallet.unlocked_leads.unshift({
+    id: leadIdentifier,
+    lead_code: leadRef,
+    customer_name: cName,
+    customer_phone: cPhone,
+    customer_email: cEmail,
+    city: targetCity,
+    state: targetState,
+    event_type: serviceTitle,
+    estimated_quote: estQuoteVal,
+    unlocked_at: new Date().toISOString(),
+    trial_gift: true,
+    cost: 0,
+    trial_expires_at: trialExpiresAt
+  });
+  opWallet.trojan_reservation = {
+    active: true,
+    metro_slug: metroSlug,
+    city: targetCity,
+    state: targetState,
+    niche_id: activeNiche,
+    price_per_month: 299,
+    expires_at: trialExpiresAt,
+    stripe_checkout_url: checkoutUrl
+  };
+  saveWalletsData(wallets);
+
+  // Persist to trojan_leads.json
+  const trojanEntry = {
+    id: leadIdentifier,
+    lead_code: leadRef,
+    timestamp: new Date().toISOString(),
+    city: targetCity,
+    state: targetState,
+    niche_id: activeNiche,
+    service: serviceTitle,
+    estimated_quote: estQuoteVal,
+    customer: {
+      name: cName,
+      phone: cPhone,
+      email: cEmail
+    },
+    target_contractor: {
+      id: targetVendor.id,
+      name: targetVendor.name,
+      phone: targetVendor.phone,
+      email: targetVendor.email,
+      city: targetVendor.city,
+      rating: targetVendor.rating
+    },
+    competitors,
+    stripe_checkout_url: checkoutUrl,
+    stripe_session_id: stripeSessionId,
+    trial_expires_at: trialExpiresAt,
+    status: 'FREE_TRIAL_DISPATCHED'
+  };
+
+  let trojanLogs = readDataFile('trojan_leads.json', []);
+  trojanLogs.unshift(trojanEntry);
+  writeDataFile('trojan_leads.json', trojanLogs.slice(0, 100));
+
+  // Record in missed_leads.json
+  let missedLogs = readDataFile('missed_leads.json', []);
+  missedLogs.unshift({
+    timestamp: new Date().toISOString(),
+    city: targetCity,
+    service: serviceTitle,
+    estimated_value: estQuoteVal,
+    trojan_lead_id: leadIdentifier,
+    target_operator: targetVendor.name,
+    status: 'TROJAN_GIFT_DISPATCHED'
+  });
+  writeDataFile('missed_leads.json', missedLogs.slice(0, 50));
+
+  dispatchPushNotification({
+    title: `🎁 TROJAN HORSE LEAD DISPATCH (${targetCity})`,
+    amount: estQuoteVal,
+    city: targetCity,
+    operator: targetVendor.name,
+    message: `Free trial lead ($${estQuoteVal.toLocaleString()}) gifted to ${targetVendor.name}. 7-day exclusive territory lock initiated.`
+  });
+
+  return {
+    success: true,
+    status: 'TROJAN_HORSE_GIFT_DISPATCHED',
+    territory_status: 'OPEN',
+    lead_id: leadIdentifier,
+    lead_code: leadRef,
+    target_contractor: {
+      id: targetVendor.id,
+      name: targetVendor.name,
+      phone: targetVendor.phone,
+      email: targetVendor.email,
+      city: targetVendor.city,
+      state: targetVendor.state,
+      rating: targetVendor.rating
+    },
+    competitors,
+    customer: {
+      name: cName,
+      phone: cPhone,
+      email: cEmail,
+      estimated_quote: estQuoteVal,
+      service: serviceTitle
+    },
+    monopoly_offer: {
+      monthly_rate: 299,
+      trial_days: 7,
+      expires_at: trialExpiresAt,
+      stripe_checkout_url: checkoutUrl
+    },
+    outreach_scripts: {
+      sms: smsScript,
+      email: emailTemplate,
+      phone_cold_call: phoneScript
+    },
+    message: `Free trial gift lead ($${estQuoteVal.toLocaleString()}) dispatched to ${targetVendor.name} in ${targetCity}. 7-day exclusive territory lock initiated.`
+  };
+}
+
+// 5. POST /api/leads/trojan-dispatch
+app.post('/api/leads/trojan-dispatch', async (req, res) => {
+  try {
+    let reqOrigin = 'https://www.reliantverified.com';
+    try {
+      if (req.headers.origin) reqOrigin = req.headers.origin;
+      else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+    } catch(e){}
+
+    const result = await dispatchTrojanLead(req.body, reqOrigin);
+    res.json(result);
+  } catch (err) {
+    console.error('Trojan dispatch error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 6. GET /api/leads/trojan-status
+app.get('/api/leads/trojan-status', (req, res) => {
+  try {
+    const trojanLogs = readDataFile('trojan_leads.json', []);
+    const wallets = getWalletsData();
+
+    const lockedMetros = Object.values(wallets).filter(w => w.monopoly_active).map(w => ({
+      operator_id: w.operator_id,
+      company_name: w.company_name,
+      metro: w.monopoly_metro,
+      city: w.city,
+      state: w.state
+    }));
+
+    const totalEstValue = trojanLogs.reduce((acc, item) => acc + (parseFloat(item.estimated_quote) || 0), 0);
+
+    res.json({
+      success: true,
+      total_dispatched: trojanLogs.length,
+      total_gift_value: totalEstValue,
+      locked_territories_count: lockedMetros.length,
+      locked_territories: lockedMetros,
+      recent_dispatches: trojanLogs.slice(0, 15)
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 7. GET /api/leads/trojan-territories
+app.get('/api/leads/trojan-territories', (req, res) => {
+  try {
+    const wallets = getWalletsData();
+    const vendors = readDataFile('vendors.json', []);
+    const majorMetros = [
+      { city: 'Atlanta', state: 'GA' },
+      { city: 'Chicago', state: 'IL' },
+      { city: 'Dallas', state: 'TX' },
+      { city: 'Houston', state: 'TX' },
+      { city: 'Miami', state: 'FL' },
+      { city: 'Phoenix', state: 'AZ' },
+      { city: 'Denver', state: 'CO' },
+      { city: 'Seattle', state: 'WA' }
+    ];
+
+    const territories = majorMetros.map(m => {
+      const slug = `${m.city.toLowerCase()}-${m.state.toLowerCase()}`;
+      const lockedHolder = Object.values(wallets).find(w => 
+        w.monopoly_active && (
+          (w.monopoly_metro && w.monopoly_metro.toLowerCase() === slug) ||
+          (w.city && w.city.toLowerCase() === m.city.toLowerCase())
+        )
+      );
+
+      const topVendor = vendors.find(v => v.city && v.city.toLowerCase() === m.city.toLowerCase());
+
+      return {
+        metro_slug: slug,
+        city: m.city,
+        state: m.state,
+        status: lockedHolder ? 'LOCKED' : 'OPEN',
+        monthly_rental_rate: 299,
+        monopoly_holder: lockedHolder ? {
+          operator_id: lockedHolder.operator_id,
+          company_name: lockedHolder.company_name
+        } : null,
+        top_candidate: !lockedHolder && topVendor ? {
+          id: topVendor.id,
+          name: topVendor.name,
+          phone: topVendor.phone
+        } : null
+      };
+    });
+
+    res.json({
+      success: true,
+      total_territories: territories.length,
+      locked_count: territories.filter(t => t.status === 'LOCKED').length,
+      open_count: territories.filter(t => t.status === 'OPEN').length,
+      territories
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
