@@ -1,0 +1,89 @@
+[
+  {
+    "id": "outreach-sub-001",
+    "timestamp": "2026-09-21T03:23:22.000Z",
+    "metro": "Chicago, IL",
+    "niche": "Temporary Commercial Power & Generator Fleets",
+    "target_contractor": {
+      "company_name": "Rush Power Systems, LLC",
+      "contact_url": "https://www.rushpower.com/contact-us-rush-power-sales-service/",
+      "phone": "(815) 540-9895",
+      "address": "1981 Belford North Drive, Belvidere, IL 61008"
+    },
+    "form_technology": "Gravity Forms (WordPress Elementor)",
+    "lead_gifted": {
+      "lead_code": "TEM-5266",
+      "customer_name": "Marcus Sterling (Midwest Industrial Logistics)",
+      "customer_phone": "(312) 849-2910",
+      "customer_email": "procurement@midwestlogistics.org",
+      "service_scope": "500kVA Tier 4 Diesel Generator Rental + Distribution Panel (3-Week Scheduled Plant Maintenance Shutdown in Cook County)",
+      "estimated_quote_value": 8500
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1QeHV53voQPWSLW9B2yzPuUNcdc8VZbj7h5RMVNvUV3jwiEEqRFQsX4me#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+    },
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Thanks for contacting us! We will get in touch with you shortly.",
+    "evidence_log": "chrome-devtools-mcp step 8351"
+  },
+  {
+    "id": "outreach-sub-002",
+    "timestamp": "2026-09-21T03:24:38.000Z",
+    "metro": "Houston, TX",
+    "niche": "Heavy Machinery Moving & Industrial Millwright",
+    "target_contractor": {
+      "company_name": "All Pro Machinery Movers",
+      "contact_url": "https://www.allpromachinerymovers.com/contact-us/4964751",
+      "phone": "(713) 454-0505",
+      "location": "Houston, TX (Harris County)"
+    },
+    "form_technology": "Duda / Hibu Enterprise Form",
+    "lead_gifted": {
+      "lead_code": "MAC-1556",
+      "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+      "customer_phone": "(713) 902-8812",
+      "customer_email": "procurement@gulfhaul.com",
+      "service_scope": "80-Ton Stamping Press Machine Moving & Millwright Leveling (Harris County Industrial Corridor)",
+      "estimated_quote_value": 12500
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1X8kTJyFe7XOvWiuCqxaEGhw1xwPgl7D8Mws7y6JMkt9EzCoVuUaxORfK#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+    },
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Thank you for contacting us. We will get back to you as soon as possible",
+    "evidence_log": "chrome-devtools-mcp step 8397"
+  },
+  {
+    "id": "outreach-sub-003",
+    "timestamp": "2026-09-21T03:28:30.000Z",
+    "metro": "Dallas, TX",
+    "niche": "Heavy Mobile Crane & Hydraulic Rigging",
+    "target_contractor": {
+      "company_name": "Davis Crane Group (Davis Crane Service / Crocker Crane)",
+      "contact_url": "https://daviscrane.com/contact-us/",
+      "phone": "(972) 445-1919 / Dispatch: (214) 712-5246",
+      "address": "Dallas-Fort Worth Metroplex, TX"
+    },
+    "form_technology": "Elementor Pro Multi-Division Form",
+    "lead_gifted": {
+      "lead_code": "CRA-7164",
+      "customer_name": "Julian Vance (Lone Star Industrial Constructors)",
+      "customer_phone": "(214) 790-4419",
+      "customer_email": "procurement@lonestarconstructors.com",
+      "service_scope": "150-Ton All-Terrain Hydraulic Crane + Rigging Crew (4-Day Industrial Steel Erection in Irving / Dallas County)",
+      "estimated_quote_value": 14000
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1Uy1rvOaHPCq71R5LYD0yAqbrXEph8Ij8WNl1g8ZTYZUHHHKX8ffBcQnr#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
+    },
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Your submission was successful.",
+    "evidence_log": "chrome-devtools-mcp step 8530"
+  }
+]

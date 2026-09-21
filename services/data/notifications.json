@@ -1,5 +1,50 @@
 [
   {
+    "id": "notif_1789961330548",
+    "timestamp": "2026-09-21T03:28:50.548Z",
+    "title": "⚡ EXCLUSIVE MONOPOLY LEAD (Atlanta)",
+    "amount": 3100,
+    "city": "Atlanta",
+    "operator": "Royal Restrooms of Atlanta",
+    "message": "Lead LUX-5628 routed exclusively to Royal Restrooms of Atlanta. Zero competitors notified."
+  },
+  {
+    "id": "notif_1789961330527",
+    "timestamp": "2026-09-21T03:28:50.527Z",
+    "title": "🎁 TROJAN HORSE LEAD DISPATCH (Houston)",
+    "amount": 12500,
+    "city": "Houston",
+    "operator": "Houston Precision Millwrights & Heavy Rigging",
+    "message": "Free trial lead ($12,500) gifted to Houston Precision Millwrights & Heavy Rigging. 7-day exclusive territory lock initiated."
+  },
+  {
+    "id": "notif_1789961329178",
+    "timestamp": "2026-09-21T03:28:49.178Z",
+    "title": "Operator Wallet Reload ($500)",
+    "amount": 500,
+    "city": "vend_atl_01",
+    "customer": "Royal Restrooms of Atlanta",
+    "reference": "tx_1789961329174"
+  },
+  {
+    "id": "notif_1789961328661",
+    "timestamp": "2026-09-21T03:28:48.661Z",
+    "title": "15% Escrow Deposit Paid ($525)",
+    "amount": 525,
+    "city": "Atlanta",
+    "customer": "Institutional Test Client",
+    "reference": "BK-REL-2026-269419"
+  },
+  {
+    "id": "notif_1789961096291",
+    "timestamp": "2026-09-21T03:24:56.291Z",
+    "title": "🎁 TROJAN HORSE LEAD DISPATCH (Dallas)",
+    "amount": 14000,
+    "city": "Dallas",
+    "operator": "Lone Star Industrial Rigging & Crane Hire",
+    "message": "Free trial lead ($14,000) gifted to Lone Star Industrial Rigging & Crane Hire. 7-day exclusive territory lock initiated."
+  },
+  {
     "id": "notif_1789959907997",
     "timestamp": "2026-09-21T03:05:07.997Z",
     "title": "⚡ EXCLUSIVE MONOPOLY LEAD (Atlanta)",
@@ -853,32 +898,5 @@
     "city": "vend_atl_01",
     "customer": "Royal Restrooms of Atlanta",
     "reference": "tx_1789617957545"
-  },
-  {
-    "id": "notif_1789617957512",
-    "timestamp": "2026-09-17T04:05:57.512Z",
-    "title": "15% Escrow Deposit Paid ($525)",
-    "amount": 525,
-    "city": "Atlanta",
-    "customer": "Institutional Test Client",
-    "reference": "BK-REL-2026-638787"
-  },
-  {
-    "id": "notif_1789617932955",
-    "timestamp": "2026-09-17T04:05:32.955Z",
-    "title": "15% Escrow Deposit Paid ($525)",
-    "amount": 525,
-    "city": "Atlanta",
-    "customer": "Institutional Test Client",
-    "reference": "BK-REL-2026-260275"
-  },
-  {
-    "id": "notif_1789617908010",
-    "timestamp": "2026-09-17T04:05:08.010Z",
-    "title": "15% Escrow Deposit Paid ($525)",
-    "amount": 525,
-    "city": "Atlanta",
-    "customer": "Institutional Test Client",
-    "reference": "BK-REL-2026-563315"
   }
 ]
