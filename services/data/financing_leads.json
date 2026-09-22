@@ -1,5 +1,25 @@
 [
   {
+    "application_id": "FIN-959143",
+    "timestamp": "2026-09-22T09:47:37.449Z",
+    "business_name": "Georgia Mobile Fleets LLC",
+    "contact_name": "David Vance",
+    "email": "dvance@gafleets.com",
+    "phone": "(404) 732-4321",
+    "years_in_business": "3+",
+    "equipment_type": "Luxury Restroom Trailer",
+    "niche_id": "luxury_restrooms",
+    "purchase_amount": 75000,
+    "term_months": 60,
+    "credit_tier": "tier_1_prime",
+    "estimated_monthly_payment": 1520,
+    "section_179_tax_deduction": 75000,
+    "estimated_tax_savings": 18750,
+    "net_equipment_cost": 56250,
+    "platform_referral_bounty": 2625,
+    "underwriting_status": "PRE_QUALIFIED_PENDING_DOCS"
+  },
+  {
     "application_id": "FIN-470006",
     "timestamp": "2026-09-21T12:56:07.921Z",
     "business_name": "Georgia Mobile Fleets LLC",

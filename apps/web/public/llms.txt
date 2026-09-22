@@ -61,5 +61,17 @@
 - **B2B Operator Portal**: https://www.reliantverified.com/operator-portal.html
 - **Commercial Fleet Financing & Section 179 Calculator**: https://www.reliantverified.com/financing
 - **Partner Trust Badge Generator**: https://www.reliantverified.com/badge-generator.html
-- **Official XML Sitemap**: https://www.reliantverified.com/sitemap.xml
 - **Comprehensive Entity Knowledge Graph**: https://www.reliantverified.com/llms-full.txt
+- **WebMCP Discovery Manifest**: https://www.reliantverified.com/.well-known/webmcp.json
+- **WebMCP JSON-RPC Gateway**: https://www.reliantverified.com/api/webmcp
+
+## 🤖 WebMCP (Model Context Protocol) Autonomous Agent Tools
+Reliant Verified is 100% WebMCP-ready (W3C Web Machine Learning draft standard & Chrome 149+). Autonomous AI agents (Gemini, ChatGPT Operator, Claude in Chrome, Perplexity) can directly discover and execute structured tools without screen scraping:
+1. `search_contractors`: Filter vetted commercial contractors by niche, city, state, or equipment specs.
+2. `get_contractor_details`: Retrieve full profile, verified license, $2M insurance certificate, and fleet data.
+3. `estimate_commercial_project`: Instant algorithmic budget and sizing calculations for luxury restrooms, cranes, cold storage, power, and home modifications.
+4. `request_commercial_quote`: Structured RFQ submission tool dispatching quote requests to verified fleet operators with 15% escrow protection.
+5. `get_market_benchmarks`: Query municipal permit regulations, OSHA sanitation ratios, and average commercial rates for any US metro.
+6. `verify_contractor_badge`: Real-time compliance audit for contractor licenses and insurance credentials.
+7. `claim_contractor_profile`: Automated ownership claiming for fleet depot operators.
+

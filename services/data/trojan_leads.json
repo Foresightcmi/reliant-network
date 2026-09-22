@@ -1,5 +1,33 @@
 [
   {
+    "id": "lead-1790070458359",
+    "lead_code": "MAC-9712",
+    "timestamp": "2026-09-22T09:47:38.706Z",
+    "city": "Houston",
+    "state": "TX",
+    "niche_id": "machinery_moving",
+    "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+    "estimated_quote": 12500,
+    "customer": {
+      "name": "David Vance (Gulf Coast Heavy Haul)",
+      "phone": "(713) 902-8812",
+      "email": "procurement@gulfhaul.com"
+    },
+    "target_contractor": {
+      "id": "vend_mch_hou_124",
+      "name": "Houston Precision Millwrights & Heavy Rigging",
+      "phone": "(713) 444-1868",
+      "email": "dispatch@houston-precisi.com",
+      "city": "Houston",
+      "rating": 4.9
+    },
+    "competitors": [],
+    "stripe_checkout_url": "https://checkout.stripe.com/c/pay/cs_live_a1k4ZvWWgNF30LrDHJJxYGM1cDRc2AenoZzMlvTpFMElE5sBiFXvvSujBU#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5aaWxzYFowNFBNcFR2RjFHMHZxdElhYkE1bmtNQEx%2FXGRKb1Q3N3VCdTFOV29Qa2FqbmlkV2hcTGQxUF1xMDdfYzROYUdqYGxRY1BWNkxUSH1DfWIzM29MVXJAbjR0UjU1bDx1SDJrMUonKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl",
+    "stripe_session_id": "cs_live_a1k4ZvWWgNF30LrDHJJxYGM1cDRc2AenoZzMlvTpFMElE5sBiFXvvSujBU",
+    "trial_expires_at": "2026-09-29T09:47:38.359Z",
+    "status": "FREE_TRIAL_DISPATCHED"
+  },
+  {
     "id": "lead-1789995368959",
     "lead_code": "MAC-7311",
     "timestamp": "2026-09-21T12:56:09.360Z",

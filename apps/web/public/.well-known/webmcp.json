@@ -1,0 +1,120 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/mcp.json",
+  "name": "Reliant Verified WebMCP Agent Gateway",
+  "description": "Structured Model Context Protocol tools for autonomous AI agents to search verified commercial contractors, compute technical estimates, inspect compliance specs, and dispatch institutional quotes across 9 high-ticket rental and healthcare verticals.",
+  "version": "1.0.0",
+  "homepage": "https://www.reliantverified.com",
+  "rpcEndpoint": "https://www.reliantverified.com/api/webmcp",
+  "documentation": "https://www.reliantverified.com/llms.txt",
+  "tools": [
+    {
+      "name": "search_contractors",
+      "description": "Search vetted commercial contractors and rental depots across North America by vertical niche, city, state, or keywords.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "niche_id": {
+            "type": "string",
+            "description": "Vertical: luxury_restrooms, commercial_cold_storage, heavy_crane_rigging, temporary_power, machinery_moving, aging_in_place, senior_downsizing, wheelchair_vans, senior_care, or all."
+          },
+          "city": { "type": "string", "description": "Target metropolitan area (e.g. Atlanta, Dallas, Miami, Los Angeles, Chicago)" },
+          "state": { "type": "string", "description": "Two-letter US state code" },
+          "query": { "type": "string", "description": "Free-text search terms" }
+        }
+      },
+      "readOnly": true
+    },
+    {
+      "name": "get_contractor_details",
+      "description": "Get full profile, licensing verification, insurance status, equipment fleet, and contact details for a specific contractor.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor_id": { "type": "string", "description": "Vendor identifier or slug" }
+        },
+        "required": ["vendor_id"]
+      },
+      "readOnly": true
+    },
+    {
+      "name": "estimate_commercial_project",
+      "description": "Calculate instant technical specifications and budget estimates for luxury restroom trailers, crane picks, cold storage, power generation, or aging-in-place remodeling.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vertical": {
+            "type": "string",
+            "enum": ["luxury_restrooms", "heavy_crane_rigging", "commercial_cold_storage", "temporary_power", "aging_in_place"]
+          },
+          "guest_count": { "type": "number", "description": "Peak event attendees (restrooms)" },
+          "event_hours": { "type": "number", "description": "Duration in hours (restrooms)" },
+          "alcohol_served": { "type": "boolean", "description": "Alcohol served flag (restrooms)" },
+          "load_weight_lbs": { "type": "number", "description": "Weight of pick in lbs (cranes)" },
+          "lift_radius_ft": { "type": "number", "description": "Radius in feet (cranes)" },
+          "storage_sqft": { "type": "number", "description": "Required square footage (cold storage)" },
+          "temperature_mode": { "type": "string", "enum": ["cooler_35F", "freezer_0F", "deep_freeze_neg20F"] },
+          "modifications": { "type": "array", "items": { "type": "string" }, "description": "Home accessibility modifications" }
+        },
+        "required": ["vertical"]
+      },
+      "readOnly": true
+    },
+    {
+      "name": "request_commercial_quote",
+      "description": "Submit an institutional RFQ or commercial quote request on behalf of a user. Dispatches inquiry to verified contractors and locks in 15% escrow protection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_name": { "type": "string", "description": "Client full name" },
+          "client_email": { "type": "string", "description": "Corporate or personal email" },
+          "client_phone": { "type": "string", "description": "Direct phone number" },
+          "niche_id": { "type": "string", "description": "Target vertical" },
+          "project_city": { "type": "string", "description": "Job site city" },
+          "project_state": { "type": "string", "description": "Job site state" },
+          "project_description": { "type": "string", "description": "Detailed project requirements" },
+          "vendor_id": { "type": "string", "description": "Optional specific vendor ID" }
+        },
+        "required": ["client_name", "client_email", "client_phone", "niche_id", "project_city", "project_state"]
+      },
+      "readOnly": false
+    },
+    {
+      "name": "get_market_benchmarks",
+      "description": "Query municipal compliance guidelines, OSHA rules, and average commercial equipment rental rates for any US market.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "metro_slug": { "type": "string", "description": "Slug of metro guide (e.g. atlanta-ga, dallas-tx)" }
+        },
+        "required": ["metro_slug"]
+      },
+      "readOnly": true
+    },
+    {
+      "name": "verify_contractor_badge",
+      "description": "Audit a contractor live verification status, including active $2M liability insurance certificate, state business license, and Verified Trust Score.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor_id": { "type": "string", "description": "Vendor ID or company name" }
+        },
+        "required": ["vendor_id"]
+      },
+      "readOnly": true
+    },
+    {
+      "name": "claim_contractor_profile",
+      "description": "Initiate ownership claiming of an existing contractor profile by business email.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor_id": { "type": "string", "description": "Vendor ID to claim" },
+          "business_email": { "type": "string", "description": "Official corporate domain email" },
+          "officer_name": { "type": "string", "description": "Name of fleet manager" }
+        },
+        "required": ["vendor_id", "business_email"]
+      },
+      "readOnly": false
+    }
+  ]
+}

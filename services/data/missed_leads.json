@@ -1,5 +1,14 @@
 [
   {
+    "timestamp": "2026-09-22T09:47:38.727Z",
+    "city": "Houston",
+    "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+    "estimated_value": 12500,
+    "trojan_lead_id": "lead-1790070458359",
+    "target_operator": "Houston Precision Millwrights & Heavy Rigging",
+    "status": "TROJAN_GIFT_DISPATCHED"
+  },
+  {
     "timestamp": "2026-09-21T12:56:09.377Z",
     "city": "Houston",
     "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
