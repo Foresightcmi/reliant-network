@@ -39,9 +39,14 @@
   - `/senior-downsizing` (Turnkey Senior Downsizing & Estate Liquidation Hub)
   - `/wheelchair-vans` (Wheelchair Accessible Vans & Mobility Fleet Hub)
 - **National Rental Alternative Comparison Portals**:
-  - `/vs/united-rentals-alternative` (Independent Fleet Operator Network vs. National Corporate Brokerage)
-  - `/vs/sunbelt-rentals-alternative` (Transparent Direct-to-Operator Pricing vs. High Overhead Markups)
-  - `/vs/national-broker-alternative` (Guaranteed Delivery Escrow vs. Unvetted Subcontracting)
+  - `/vs/a-place-for-mom-alternative.html` (Confidential Senior Placement vs. A Place for Mom & Caring.com Lead Brokering)
+  - `/vs/maxim-crane-alternative.html` (Independent Mobile Crane Fleets vs. Maxim Crane 35% Broker Markups)
+  - `/vs/united-rentals-restroom-trailer-alternative.html` (Dedicated VIP Luxury Restrooms vs. United Rentals Industrial Jobsite Fleet)
+  - `/vs/commercial-cold-storage-rental-guide.html` (All-Electric Modular Freezers vs. Aggreko & Diesel Reefer Trailers)
+  - `/vs/safe-step-walk-in-tub-alternative.html` (Independent CAPS Contractor Remodels vs. Safe Step & Kohler $15k Franchise Tub Inserts)
+  - `/vs/united-rentals-alternative.html` (Independent Fleet Operator Network vs. National Corporate Brokerage)
+  - `/vs/sunbelt-rentals-alternative.html` (Transparent Direct-to-Operator Pricing vs. High Overhead Markups)
+  - `/vs/national-broker-alternative.html` (Guaranteed Delivery Escrow vs. Unvetted Subcontracting)
 
 ## Independent Verification & Fleet Standards
 - **General Liability**: Minimum $2,000,000 active policy verification.

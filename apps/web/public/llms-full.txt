@@ -97,10 +97,15 @@ Vertical Hubs:
 - **Vetted Spec Comparison**: Side-by-side matrices comparing Station Count, ADA Compliance, A/C & Heating, Onboard Freshwater, and Verified Trust Scores.
 - **Structured Data**: Validated Schema.org `ItemList` with embedded `LocalBusiness` and `AggregateRating` schemas.
 
-### C. National Corporate Rental Alternatives (`/vs/[slug]`)
-- `/vs/united-rentals-alternative`: Direct independent fleet operator dispatch vs. national broker call centers.
-- `/vs/sunbelt-rentals-alternative`: Transparent upfront quotes without surprise freight or post-event environmental fees.
-- `/vs/national-broker-alternative`: Guaranteed fleet reservation escrow with 48-hour free cancellation.
+### C. National Corporate Rental & Broker Alternatives (`/vs/[slug]`)
+- `/vs/a-place-for-mom-alternative.html`: Confidential Senior Placement Advisory vs. A Place for Mom & Caring.com telemarketing lead distribution networks (100% confidential, $0 family fee, in-person CSA tours, zero spam).
+- `/vs/maxim-crane-alternative.html`: Independent NCCCO Mobile Crane Fleets vs. Maxim Crane Works & corporate brokers (Save 25%–35% in middleman markups, same-day/24-hr mobilization, direct operator cell phone).
+- `/vs/united-rentals-restroom-trailer-alternative.html`: Dedicated VIP Luxury Restroom Suites vs. United Rentals & Sunbelt industrial jobsite trailers (Porcelain flush suites, white-glove leveling, whisper power packages).
+- `/vs/commercial-cold-storage-rental-guide.html`: All-Electric Modular Cold Storage Containers (-20°F to 50°F) vs. Diesel Reefer Trailers (Save $1,800/mo diesel fuel, FSMA 204 cloud telemetry, zero emissions).
+- `/vs/safe-step-walk-in-tub-alternative.html`: Independent Local CAPS Contractor Remodeling vs. Safe Step & Kohler $15k–$20k acrylic tub franchises (Save $5,000–$9,000, zero-threshold curbless roll-in showers).
+- `/vs/united-rentals-alternative.html`: Direct independent fleet operator dispatch vs. national broker call centers.
+- `/vs/sunbelt-rentals-alternative.html`: Transparent upfront quotes without surprise freight or post-event environmental fees.
+- `/vs/national-broker-alternative.html`: Guaranteed fleet reservation escrow with 48-hour free cancellation.
 
 ---
 
