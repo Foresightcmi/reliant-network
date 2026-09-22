@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Restroom Trailer Quote Calculator | The Reliant Network</title>
+  <meta name="description" content="Calculate your exact luxury restroom trailer rental cost. Get an instant quote based on guest count, event duration, and location. Instant booking available.">
+  <link rel="canonical" href="https://www.reliantverified.com/quote-calculator.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-title { font-family: 'Playfair Display', serif; }
+    .gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
+    input[type="range"] {
+      -webkit-appearance: none; width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #d97706; cursor: pointer; transition: 0.2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col items-center py-12 px-4 sm:px-6">
+
+  <!-- Header -->
+  <div class="max-w-3xl w-full text-center mb-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+      <i data-lucide="calculator" class="w-3 h-3"></i> Instant ROI & Cost Engine
+    </div>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-serif-title mb-4">
+      Instant <span class="gold-text">Quote Calculator</span>
+    </h1>
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      Adjust the parameters below to calculate the exact cost for your luxury restroom trailer, VIP suite, or commercial sanitation setup.
+    </p>
+  </div>
+
+  <!-- Calculator Engine -->
+  <div class="max-w-3xl w-full glass-panel rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-200">
+    
+    <!-- Controls -->
+    <div class="p-8 flex-1 border-r border-slate-100">
+      
+      <!-- Event Type -->
+      <div class="mb-8">
+        <label class="block text-sm font-bold text-slate-700 mb-3">Event Type</label>
+        <div class="grid grid-cols-2 gap-3">
+          <button class="type-btn active bg-slate-900 text-white border-slate-900 border py-3 px-4 rounded-xl font-semibold text-sm transition-all" data-type="wedding">Wedding / Gala</button>
+          <button class="type-btn bg-white text-slate-600 border border-slate-200 hover:border-slate-400 py-3 px-4 rounded-xl font-semibold text-sm transition-all" data-type="commercial">Commercial / Film</button>
+        </div>
+      </div>
+
+      <!-- Guest Count -->
+      <div class="mb-8">
+        <div class="flex justify-between items-end mb-3">
+          <label class="block text-sm font-bold text-slate-700">Guest / Staff Count</label>
+          <span id="guestCountVal" class="text-xl font-extrabold text-slate-900">150</span>
+        </div>
+        <input type="range" id="guestSlider" min="50" max="1000" step="25" value="150" class="w-full">
+        <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
+          <span>50</span>
+          <span>1,000+</span>
+        </div>
+      </div>
+
+      <!-- Duration -->
+      <div class="mb-8">
+        <div class="flex justify-between items-end mb-3">
+          <label class="block text-sm font-bold text-slate-700">Rental Duration</label>
+          <span id="durationVal" class="text-xl font-extrabold text-slate-900">1 Day</span>
+        </div>
+        <input type="range" id="durationSlider" min="1" max="14" step="1" value="1" class="w-full">
+        <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
+          <span>1 Day</span>
+          <span>14 Days (Long-Term)</span>
+        </div>
+      </div>
+
+      <!-- Zip Code -->
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-2">Delivery ZIP Code</label>
+        <input type="text" id="zipInput" placeholder="e.g. 90210" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all">
+      </div>
+
+    </div>
+
+    <!-- Live Output -->
+    <div class="p-8 bg-slate-50 w-full md:w-80 flex flex-col justify-between">
+      
+      <div>
+        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Estimated Cost</h3>
+        <div class="text-5xl font-extrabold text-slate-900 mb-2 font-serif-title flex items-start">
+          <span class="text-2xl mt-1 mr-1 text-slate-400">$</span><span id="totalCost">1,850</span>
+        </div>
+        <p class="text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
+          Includes delivery, setup, and teardown. <span id="stationRec" class="font-bold text-slate-700">Recommended: 3-Station VIP Trailer</span>
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center text-sm text-slate-600">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> OSHA 29 CFR 1926.51 Compliant
+          </li>
+          <li class="flex items-center text-sm text-slate-600">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> Climate Controlled (A/C & Heat)
+          </li>
+          <li class="flex items-center text-sm text-slate-600">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> Premium Running Water
+          </li>
+        </ul>
+      </div>
+
+      <button id="bookBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex justify-center items-center gap-2">
+        Lock In Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const typeBtns = document.querySelectorAll('.type-btn');
+    const guestSlider = document.getElementById('guestSlider');
+    const guestVal = document.getElementById('guestCountVal');
+    const durationSlider = document.getElementById('durationSlider');
+    const durationVal = document.getElementById('durationVal');
+    const totalCostEl = document.getElementById('totalCost');
+    const stationRec = document.getElementById('stationRec');
+    const bookBtn = document.getElementById('bookBtn');
+    const zipInput = document.getElementById('zipInput');
+
+    let currentType = 'wedding';
+
+    function calculateCost() {
+      const guests = parseInt(guestSlider.value);
+      const days = parseInt(durationSlider.value);
+      
+      let baseRate = currentType === 'wedding' ? 1200 : 900;
+      let stations = "2-Station Trailer";
+
+      // Capacity Matrix
+      if (guests > 100) { baseRate += 400; stations = "3-Station VIP Trailer"; }
+      if (guests > 250) { baseRate += 1200; stations = "6-Station Executive Suite"; }
+      if (guests > 500) { baseRate += 2800; stations = "10-Station Festival Suite"; }
+      if (guests >= 1000) { baseRate += 5000; stations = "Multiple 10-Station Suites"; }
+
+      // Duration multiplier (discounted for multi-day)
+      let dayMultiplier = 1;
+      if (days > 1) dayMultiplier = 1 + ((days - 1) * 0.35); // 35% of base rate per additional day
+      
+      // Commercial discount logic
+      let finalCost = Math.round(baseRate * dayMultiplier);
+      if (currentType === 'commercial' && days > 3) {
+        finalCost = Math.round(finalCost * 0.85); // 15% long-term commercial discount
+      }
+
+      guestVal.innerText = guests >= 1000 ? '1,000+' : guests;
+      durationVal.innerText = days === 1 ? '1 Day' : days + ' Days';
+      totalCostEl.innerText = finalCost.toLocaleString();
+      stationRec.innerText = `Recommended: ${stations}`;
+    }
+
+    typeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        typeBtns.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
+          b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+        });
+        e.target.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+        e.target.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
+        currentType = e.target.dataset.type;
+        calculateCost();
+      });
+    });
+
+    guestSlider.addEventListener('input', calculateCost);
+    durationSlider.addEventListener('input', calculateCost);
+
+    bookBtn.addEventListener('click', () => {
+      const guests = guestSlider.value;
+      const type = currentType;
+      const days = durationSlider.value;
+      const zip = zipInput.value || '00000';
+      const cost = totalCostEl.innerText.replace(',', '');
+      
+      const payload = {
+        event_type: type === 'wedding' ? 'High-Ticket Wedding' : 'Commercial / Film',
+        guest_count: guests,
+        duration_days: days,
+        zip_code: zip,
+        estimated_quote: parseInt(cost),
+        intent_score: 95
+      };
+
+      // In a real scenario, this submits to the API and redirects to stripe checkout
+      alert(`Routing lead to the API! Est. Value: $${cost}\\nPayload: ` + JSON.stringify(payload));
+      window.location.href = '/';
+    });
+
+    // Init
+    calculateCost();
+  </script>
+</body>
+</html>
