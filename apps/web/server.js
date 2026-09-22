@@ -128,7 +128,7 @@ app.use(express.json({
     req.rawBody = buf;
   }
 }));
-app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'], dotfiles: 'allow' }));
 
 const serveCleanHtml = (dir, req, res, next) => {
   const slug = req.params.slug;
@@ -2720,7 +2720,7 @@ app.get('/.well-known/webmcp.json', (req, res) => {
   const manifestPath = path.join(__dirname, 'public', '.well-known', 'webmcp.json');
   if (fs.existsSync(manifestPath)) {
     res.setHeader('Content-Type', 'application/json');
-    return res.sendFile(manifestPath);
+    return res.send(fs.readFileSync(manifestPath, 'utf8'));
   }
   res.status(404).json({ error: 'WebMCP manifest not found' });
 });
@@ -2729,7 +2729,7 @@ app.get('/.well-known/mcp.json', (req, res) => {
   const manifestPath = path.join(__dirname, 'public', '.well-known', 'mcp.json');
   if (fs.existsSync(manifestPath)) {
     res.setHeader('Content-Type', 'application/json');
-    return res.sendFile(manifestPath);
+    return res.send(fs.readFileSync(manifestPath, 'utf8'));
   }
   res.status(404).json({ error: 'MCP manifest not found' });
 });
