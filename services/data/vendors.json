@@ -20008,5 +20008,1259 @@
         "Long-Term Monthly Medical Mobility Lease"
       ]
     }
+  },
+  {
+    "id": "vend_dmp_atlanta_1400",
+    "niche_id": "commercial_dumpsters",
+    "name": "Atlanta Commercial Roll-Off & Waste Logistics",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "00000",
+    "phone": "(555) 496-2555",
+    "email": "dispatch@atlantacommercialrolloffwastelogistics.com",
+    "website": "https://www.atlantacommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Atlanta Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_dallas_e6e0",
+    "niche_id": "commercial_dumpsters",
+    "name": "Dallas Commercial Roll-Off & Waste Logistics",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 559-6623",
+    "email": "dispatch@dallascommercialrolloffwastelogistics.com",
+    "website": "https://www.dallascommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Dallas Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_miami_0953",
+    "niche_id": "commercial_dumpsters",
+    "name": "Miami Commercial Roll-Off & Waste Logistics",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "00000",
+    "phone": "(555) 867-5987",
+    "email": "dispatch@miamicommercialrolloffwastelogistics.com",
+    "website": "https://www.miamicommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Miami Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_austin_7d11",
+    "niche_id": "commercial_dumpsters",
+    "name": "Austin Commercial Roll-Off & Waste Logistics",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 436-6851",
+    "email": "dispatch@austincommercialrolloffwastelogistics.com",
+    "website": "https://www.austincommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Austin Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_los_angeles_c068",
+    "niche_id": "commercial_dumpsters",
+    "name": "Los Angeles Commercial Roll-Off & Waste Logistics",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "00000",
+    "phone": "(555) 730-9044",
+    "email": "dispatch@losangelescommercialrolloffwastelogistics.com",
+    "website": "https://www.losangelescommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Los Angeles Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_chicago_e4da",
+    "niche_id": "commercial_dumpsters",
+    "name": "Chicago Commercial Roll-Off & Waste Logistics",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "00000",
+    "phone": "(555) 665-7449",
+    "email": "dispatch@chicagocommercialrolloffwastelogistics.com",
+    "website": "https://www.chicagocommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Chicago Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_houston_54f1",
+    "niche_id": "commercial_dumpsters",
+    "name": "Houston Commercial Roll-Off & Waste Logistics",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 906-9819",
+    "email": "dispatch@houstoncommercialrolloffwastelogistics.com",
+    "website": "https://www.houstoncommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Houston Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_phoenix_ce8f",
+    "niche_id": "commercial_dumpsters",
+    "name": "Phoenix Commercial Roll-Off & Waste Logistics",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "00000",
+    "phone": "(555) 618-8556",
+    "email": "dispatch@phoenixcommercialrolloffwastelogistics.com",
+    "website": "https://www.phoenixcommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Phoenix Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_denver_5798",
+    "niche_id": "commercial_dumpsters",
+    "name": "Denver Commercial Roll-Off & Waste Logistics",
+    "city": "Denver",
+    "state": "CO",
+    "zip": "00000",
+    "phone": "(555) 722-1377",
+    "email": "dispatch@denvercommercialrolloffwastelogistics.com",
+    "website": "https://www.denvercommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Denver Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_seattle_5bdc",
+    "niche_id": "commercial_dumpsters",
+    "name": "Seattle Commercial Roll-Off & Waste Logistics",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "00000",
+    "phone": "(555) 416-9523",
+    "email": "dispatch@seattlecommercialrolloffwastelogistics.com",
+    "website": "https://www.seattlecommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "Seattle Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_dmp_new_york_20dd",
+    "niche_id": "commercial_dumpsters",
+    "name": "New York Commercial Roll-Off & Waste Logistics",
+    "city": "New York",
+    "state": "NY",
+    "zip": "00000",
+    "phone": "(555) 617-9240",
+    "email": "dispatch@newyorkcommercialrolloffwastelogistics.com",
+    "website": "https://www.newyorkcommercialrolloffwastelogistics.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 450,
+    "max_price": 5000,
+    "fleet_inventory": [
+      "10-Yard Heavy Debris",
+      "20-Yard Commercial",
+      "30-Yard Construction",
+      "40-Yard Demolition Roll-Off"
+    ],
+    "amenities": [
+      "24-Hour Swap Out",
+      "Concrete/Dirt Allowed",
+      "LEED Certified Recycling",
+      "No Hidden Tonnage Fees"
+    ],
+    "description": "New York Commercial Roll-Off provides heavy-duty jobsite waste logistics. We specialize in 40-yard demolition dumpsters, concrete recycling, and LEED compliance reporting for commercial builders.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$2M Policy on File"
+    },
+    "highlights": [
+      "Same-day swaps",
+      "Transparent flat-rate pricing",
+      "LEED documentation provided"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_atlanta_0cb8",
+    "niche_id": "private_security",
+    "name": "Atlanta Elite Event & Corporate Security",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "00000",
+    "phone": "(555) 766-8270",
+    "email": "dispatch@atlantaeliteeventcorporatesecurity.com",
+    "website": "https://www.atlantaeliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Atlanta Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_dallas_0310",
+    "niche_id": "private_security",
+    "name": "Dallas Elite Event & Corporate Security",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 532-5019",
+    "email": "dispatch@dallaseliteeventcorporatesecurity.com",
+    "website": "https://www.dallaseliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Dallas Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_miami_88c2",
+    "niche_id": "private_security",
+    "name": "Miami Elite Event & Corporate Security",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "00000",
+    "phone": "(555) 799-6525",
+    "email": "dispatch@miamieliteeventcorporatesecurity.com",
+    "website": "https://www.miamieliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Miami Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_austin_edf2",
+    "niche_id": "private_security",
+    "name": "Austin Elite Event & Corporate Security",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 869-3447",
+    "email": "dispatch@austineliteeventcorporatesecurity.com",
+    "website": "https://www.austineliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Austin Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_los_angeles_1f44",
+    "niche_id": "private_security",
+    "name": "Los Angeles Elite Event & Corporate Security",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "00000",
+    "phone": "(555) 737-4546",
+    "email": "dispatch@losangeleseliteeventcorporatesecurity.com",
+    "website": "https://www.losangeleseliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Los Angeles Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_chicago_dd30",
+    "niche_id": "private_security",
+    "name": "Chicago Elite Event & Corporate Security",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "00000",
+    "phone": "(555) 896-9650",
+    "email": "dispatch@chicagoeliteeventcorporatesecurity.com",
+    "website": "https://www.chicagoeliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Chicago Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_houston_6641",
+    "niche_id": "private_security",
+    "name": "Houston Elite Event & Corporate Security",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 401-8004",
+    "email": "dispatch@houstoneliteeventcorporatesecurity.com",
+    "website": "https://www.houstoneliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Houston Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_phoenix_0c1b",
+    "niche_id": "private_security",
+    "name": "Phoenix Elite Event & Corporate Security",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "00000",
+    "phone": "(555) 773-8743",
+    "email": "dispatch@phoenixeliteeventcorporatesecurity.com",
+    "website": "https://www.phoenixeliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Phoenix Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_denver_f24d",
+    "niche_id": "private_security",
+    "name": "Denver Elite Event & Corporate Security",
+    "city": "Denver",
+    "state": "CO",
+    "zip": "00000",
+    "phone": "(555) 464-8641",
+    "email": "dispatch@denvereliteeventcorporatesecurity.com",
+    "website": "https://www.denvereliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Denver Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_seattle_6e72",
+    "niche_id": "private_security",
+    "name": "Seattle Elite Event & Corporate Security",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "00000",
+    "phone": "(555) 697-8587",
+    "email": "dispatch@seattleeliteeventcorporatesecurity.com",
+    "website": "https://www.seattleeliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "Seattle Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_sec_new_york_8b91",
+    "niche_id": "private_security",
+    "name": "New York Elite Event & Corporate Security",
+    "city": "New York",
+    "state": "NY",
+    "zip": "00000",
+    "phone": "(555) 314-9658",
+    "email": "dispatch@newyorkeliteeventcorporatesecurity.com",
+    "website": "https://www.newyorkeliteeventcorporatesecurity.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 1200,
+    "max_price": 15000,
+    "fleet_inventory": [
+      "Armed Off-Duty Police",
+      "Unarmed Event Staffing",
+      "K9 Explosive Detection",
+      "VIP Close Protection Details"
+    ],
+    "amenities": [
+      "Licensed & Bonded",
+      "Ex-Military/Law Enforcement",
+      "24/7 Command Center",
+      "Crowd Control Specialists"
+    ],
+    "description": "New York Elite Security delivers uncompromising protection for high-value corporate events, private estates, and commercial jobsites. Fully licensed and bonded ex-law enforcement personnel.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5M Liability Policy on File"
+    },
+    "highlights": [
+      "Off-duty police officers available",
+      "Discreet VIP protection",
+      "Rapid riot/crowd control deployment"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_atlanta_7917",
+    "niche_id": "hazmat_remediation",
+    "name": "Atlanta Rapid Hazmat & Biohazard Response",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "00000",
+    "phone": "(555) 806-1132",
+    "email": "dispatch@atlantarapidhazmatbiohazardresponse.com",
+    "website": "https://www.atlantarapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Atlanta emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_dallas_5c17",
+    "niche_id": "hazmat_remediation",
+    "name": "Dallas Rapid Hazmat & Biohazard Response",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 579-4160",
+    "email": "dispatch@dallasrapidhazmatbiohazardresponse.com",
+    "website": "https://www.dallasrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Dallas emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_miami_96bf",
+    "niche_id": "hazmat_remediation",
+    "name": "Miami Rapid Hazmat & Biohazard Response",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "00000",
+    "phone": "(555) 758-9832",
+    "email": "dispatch@miamirapidhazmatbiohazardresponse.com",
+    "website": "https://www.miamirapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Miami emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_austin_77fc",
+    "niche_id": "hazmat_remediation",
+    "name": "Austin Rapid Hazmat & Biohazard Response",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 708-6467",
+    "email": "dispatch@austinrapidhazmatbiohazardresponse.com",
+    "website": "https://www.austinrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Austin emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_los_angeles_9df4",
+    "niche_id": "hazmat_remediation",
+    "name": "Los Angeles Rapid Hazmat & Biohazard Response",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "00000",
+    "phone": "(555) 583-3962",
+    "email": "dispatch@losangelesrapidhazmatbiohazardresponse.com",
+    "website": "https://www.losangelesrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Los Angeles emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_chicago_607f",
+    "niche_id": "hazmat_remediation",
+    "name": "Chicago Rapid Hazmat & Biohazard Response",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "00000",
+    "phone": "(555) 815-9146",
+    "email": "dispatch@chicagorapidhazmatbiohazardresponse.com",
+    "website": "https://www.chicagorapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Chicago emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_houston_830d",
+    "niche_id": "hazmat_remediation",
+    "name": "Houston Rapid Hazmat & Biohazard Response",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "00000",
+    "phone": "(555) 536-3126",
+    "email": "dispatch@houstonrapidhazmatbiohazardresponse.com",
+    "website": "https://www.houstonrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Houston emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_phoenix_9a26",
+    "niche_id": "hazmat_remediation",
+    "name": "Phoenix Rapid Hazmat & Biohazard Response",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "00000",
+    "phone": "(555) 215-7157",
+    "email": "dispatch@phoenixrapidhazmatbiohazardresponse.com",
+    "website": "https://www.phoenixrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Phoenix emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_denver_4cfa",
+    "niche_id": "hazmat_remediation",
+    "name": "Denver Rapid Hazmat & Biohazard Response",
+    "city": "Denver",
+    "state": "CO",
+    "zip": "00000",
+    "phone": "(555) 441-2313",
+    "email": "dispatch@denverrapidhazmatbiohazardresponse.com",
+    "website": "https://www.denverrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Denver emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_seattle_f60f",
+    "niche_id": "hazmat_remediation",
+    "name": "Seattle Rapid Hazmat & Biohazard Response",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "00000",
+    "phone": "(555) 200-1910",
+    "email": "dispatch@seattlerapidhazmatbiohazardresponse.com",
+    "website": "https://www.seattlerapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier Seattle emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
+  },
+  {
+    "id": "vend_haz_new_york_2735",
+    "niche_id": "hazmat_remediation",
+    "name": "New York Rapid Hazmat & Biohazard Response",
+    "city": "New York",
+    "state": "NY",
+    "zip": "00000",
+    "phone": "(555) 511-8937",
+    "email": "dispatch@newyorkrapidhazmatbiohazardresponse.com",
+    "website": "https://www.newyorkrapidhazmatbiohazardresponse.com",
+    "rating": 4.9,
+    "review_count": 45,
+    "min_price": 2500,
+    "max_price": 45000,
+    "fleet_inventory": [
+      "Level A Hazmat Response Unit",
+      "Bio-Containment Trailers",
+      "Industrial Decontamination Scrubbers",
+      "Chemical Spill Vacuum Trucks"
+    ],
+    "amenities": [
+      "OSHA HAZWOPER Certified",
+      "Direct Insurance Billing",
+      "EPA Compliant Disposal",
+      "2-Hour Emergency Response"
+    ],
+    "description": "The premier New York emergency response contractor for industrial chemical spills, biohazard cleanup, and environmental remediation. OSHA certified with turnkey EPA disposal manifesting.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$10M Environmental Policy"
+    },
+    "highlights": [
+      "2-hour dispatch for industrial spills",
+      "Full EPA manifesting",
+      "Direct commercial insurance billing"
+    ],
+    "stripe_account_id": "acct_1TESTB2B_PENDING"
   }
 ]
