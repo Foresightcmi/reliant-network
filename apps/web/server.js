@@ -28,6 +28,10 @@ const NICHE_ALIASES = {
 };
 
 const express = require('express');
+
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient(process.env.SUPABASE_URL || '', process.env.SUPABASE_ANON_KEY || '');
+
 const cors = require('cors');
 const path = require('path');
 const os = require('os');
@@ -1732,180 +1736,55 @@ app.post('/api/stripe/webhook', async (req, res) => {
 });
 
 // --- VECTOR 1: 15% CONCIERGE ESCROW BOOKING DEPOSIT CAPTURE ($300 - $1,500/booking) ---
+
 app.post('/api/bookings/deposit', async (req, res) => {
   try {
-    const idempotencyKey = req.headers['idempotency-key'] || req.headers['x-idempotency-key'] || req.body.idempotency_key;
-    let bookings = readDataFile('bookings.json', []);
-
-    // Idempotency check: if key already processed, return existing booking
-    if (idempotencyKey) {
-      const existing = bookings.find(b => b.idempotency_key === idempotencyKey);
-      if (existing) {
-        return res.json({
-          success: true,
-          booking_id: existing.booking_id,
-          lead_code: existing.lead_code,
-          deposit_paid: existing.deposit_amount,
-          balance_due_on_site: existing.balance_due_on_site,
-          total_contract: existing.total_estimated_contract,
-          assigned_vendor: existing.assigned_vendor,
-          escrow_receipt_url: `https://www.reliantverified.com/receipt/${existing.booking_id}`,
-          message: `Equipment availability locked! 15% deposit ($${existing.deposit_amount.toLocaleString()}) secured in escrow. (Replayed via Idempotency Key).`,
-          idempotent_replay: true
-        });
-      }
-    }
-
     const {
-      lead_code,
-      customer_name,
-      customer_email,
-      customer_phone,
-      city,
-      state,
-      event_date,
-      guest_count,
-      event_type,
-      estimated_total,
-      deposit_amount,
-      niche_id,
-      payment_method
+      lead_code, customer_name, customer_email, customer_phone,
+      city, state, event_date, guest_count, event_type, estimated_total, niche_id
     } = req.body;
 
     const totalEst = parseFloat(estimated_total) || 2800;
-    const depositPaid = parseFloat(deposit_amount) || Math.round(totalEst * 0.15);
-    const balanceDue = totalEst - depositPaid;
     const targetNiche = niche_id || 'luxury_restrooms';
     const bookingId = 'BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000);
 
-    // Pick top-rated vendor in this metro for assigned dispatch
-    let assignedVendor = { name: "Royal Restrooms of Atlanta", phone: "(404) 890-1289", city: city || "Atlanta" };
+    // Get a local vendor to assign the lead to
     const vendors = readDataFile('vendors.json', []);
     const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
-    if (local.length > 0) {
-      assignedVendor = {
-        id: local[0].id,
-        name: local[0].name,
-        phone: local[0].phone,
-        city: local[0].city,
-        rating: local[0].rating
-      };
+    let assignedVendor = local.length > 0 ? local[Math.floor(Math.random() * local.length)] : { id: 'sys_fallback', name: "National Affiliate Network" };
+
+    // Insert Lead into Supabase
+    if (process.env.SUPABASE_URL) {
+      await supabase.from('leads').insert([{
+        id: bookingId,
+        lead_code: lead_code || 'L-2026',
+        niche_id: targetNiche,
+        city: city || 'Metro',
+        state: state || 'US',
+        customer_name,
+        customer_phone,
+        customer_email,
+        estimated_total: totalEst,
+        assigned_vendor_id: assignedVendor.id !== 'sys_fallback' ? assignedVendor.id : null,
+        expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
+      }]);
     }
 
-    const newBooking = {
-      booking_id: bookingId,
-      idempotency_key: idempotencyKey || null,
-      created_at: new Date().toISOString(),
-      lead_code: lead_code || ('REL-' + Math.floor(1000 + Math.random() * 9000)),
-      customer_name: customer_name || 'Valued Commercial Client',
-      customer_email: customer_email || 'client@commercialevents.com',
-      customer_phone: customer_phone || 'Unlisted',
-      city: city || 'Atlanta',
-      state: state || 'GA',
-      event_date: event_date || 'TBD 2026',
-      guest_count: guest_count || 150,
-      event_type: event_type || 'Private Event',
-      niche_id: targetNiche,
-      total_estimated_contract: totalEst,
-      deposit_amount: depositPaid,
-      balance_due_on_site: balanceDue,
-      payment_method: payment_method || 'stripe_instant_deposit',
-      escrow_status: 'FUNDS_HELD_IN_ESCROW',
-      dispatch_status: 'DISPATCH_CONFIRMED',
-      assigned_vendor: assignedVendor,
-      guarantee: 'Reliant 48-Hour Equipment Delivery & Inspection Guarantee Active'
-    };
-
-    bookings.unshift(newBooking);
-    writeDataFile('bookings.json', bookings.slice(0, 100));
-
-    // Record payout / cash collection
-    const payoutId = 'dep-' + Date.now();
-    queryDb(`
-      INSERT INTO payouts (id, vendor_id, amount, type, status)
-      VALUES (?, ?, ?, '15PCT_CONCIERGE_DEPOSIT', 'COMPLETED')
-    `, [payoutId, assignedVendor.id || 'system_escrow', depositPaid]);
-
-    dispatchPushNotification({
-      title: `15% Escrow Deposit Paid ($${depositPaid.toLocaleString()})`,
-      amount: depositPaid,
-      city: city || 'Atlanta',
-      customer: customer_name || 'Commercial Client',
-      reference: bookingId
-    });
-
-    let checkoutUrl = null;
-    if (stripe) {
-      try {
-        let origin = 'https://www.reliantverified.com';
-        if (req.headers.origin) origin = req.headers.origin;
-        else if (req.headers.referer) origin = new URL(req.headers.referer).origin;
-
-        const nicheTitle = (targetNiche || 'Equipment').replace(/_/g, ' ').toUpperCase();
-        const session = await stripe.checkout.sessions.create({
-          payment_method_types: ['card'],
-          mode: 'payment',
-          customer_email: customer_email || undefined,
-          line_items: [{
-            price_data: {
-              currency: 'usd',
-              unit_amount: Math.round(depositPaid * 100),
-              product_data: {
-                name: `15% Escrow Deposit - ${nicheTitle} (${city || 'Metro'}, ${state || 'US'})`,
-                description: `Ref: ${bookingId}. Locked dispatch with ${assignedVendor.name}. Remaining balance payable upon on-site walkthrough.`
-              }
-            },
-            quantity: 1
-          }],
-          metadata: {
-            type: 'escrow_deposit',
-            booking_id: bookingId,
-            lead_code: newBooking.lead_code,
-            niche_id: targetNiche,
-            customer_name: customer_name || '',
-            customer_email: customer_email || '',
-            customer_phone: customer_phone || '',
-            deposit_amount: depositPaid,
-            total_contract: totalEst
-          },
-          success_url: `${origin}/receipt/${bookingId}?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${origin}/`
-        });
-        checkoutUrl = session.url;
-        newBooking.stripe_session_id = session.id;
-        writeDataFile('bookings.json', bookings.slice(0, 100));
-      } catch (stripeErr) {
-        console.warn('⚠️ [Stripe] Could not generate session for booking:', stripeErr.message);
-      }
-    }
-
-    res.json({
+    // Success response - NO 15% ESCROW REQUIRED
+    return res.json({
       success: true,
       booking_id: bookingId,
-      lead_code: newBooking.lead_code,
-      deposit_paid: depositPaid,
-      balance_due_on_site: balanceDue,
+      lead_code: lead_code || 'L-2026',
       total_contract: totalEst,
       assigned_vendor: assignedVendor,
-      checkout_url: checkoutUrl,
-      escrow_receipt_url: `https://www.reliantverified.com/receipt/${bookingId}`,
-      message: `Equipment availability locked! 15% deposit ($${depositPaid.toLocaleString()}) secured in escrow. Remaining balance of $${balanceDue.toLocaleString()} is payable upon on-site delivery and walkthrough.`
+      message: 'Lead successfully captured and dispatched. 100% Free for the customer.'
     });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+
+  } catch (error) {
+    console.error('Lead capture error:', error);
+    res.status(500).json({ error: error.message });
   }
 });
-
-// --- VECTOR 2: OPERATOR SELF-SERVE WALLET, LEAD MARKETPLACE & MONOPOLIES ---
-function getWalletsData() {
-  return readDataFile('operator_wallets.json', {});
-}
-
-function saveWalletsData(data) {
-  writeDataFile('operator_wallets.json', data);
-}
-
-// 1. Get Operator Wallet Balance & Lead Feed
 app.get('/api/operator/wallet', (req, res) => {
   try {
     const operatorId = req.query.operator_id || 'vend_atl_01';

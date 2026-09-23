@@ -1,0 +1,17 @@
+name: Trojan Dispatch Cron
+
+on:
+  schedule:
+    # Run every hour to dispatch leads and check monopolies
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Run-Cron Endpoint
+        run: |
+          curl -X POST https://www.reliantverified.com/api/admin/run-cron \
+          -H "Content-Type: application/json" \
+          -d "{}"
