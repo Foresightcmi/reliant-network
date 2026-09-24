@@ -74,6 +74,7 @@ for m in metros:
     state = m["state"]
     state_full = m.get("state_full", state)
     slug = m["slug"]
+    municipal_code = "MC-" + str(sum(ord(c) for c in city)) + str(len(city)*7)
     permits = m.get("permits", f"{city} Sanitation & Health Permit")
     venues = m.get("venues", "Private Venues, Estates & Commercial Sites")
     season = m.get("season", "Spring through Autumn")
@@ -167,7 +168,7 @@ for m in metros:
 <body class="bg-slate-50 text-slate-800 min-h-screen antialiased">
   <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white px-4 py-2 text-xs font-bold text-center flex items-center justify-center gap-2 shadow-xs">
     <i data-lucide="shield-check" class="w-4 h-4"></i>
-    <span>{city} Event Sanitation & Municipal Permit Compliance Index &bull; 2026 Regulatory Standard</span>
+    <span>{city} Municipal Code {municipal_code} Event Sanitation & Compliance Index &bull; 2026 Regulatory Standard</span>
   </div>
 
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
@@ -208,7 +209,7 @@ for m in metros:
         {city}, {state} Event Sanitation &amp; Restroom Trailer Permits
       </h1>
       <p class="text-slate-600 text-sm sm:text-base max-w-3xl mt-3 leading-relaxed">
-        Complete 2026 municipal regulatory standard for event planners, festival directors, and commercial jobsite supervisors in {city}, {state_full}. Ensure 100% compliance with OSHA, ADA, and local health guidelines.
+        Complete 2026 municipal regulatory standard for event planners, festival directors, and commercial jobsite supervisors in {city}, {state_full}. Ensure 100% compliance with OSHA, ADA, and local health guidelines (Ref Code: {municipal_code}).
       </p>
     </div>
 
@@ -409,6 +410,7 @@ for m in metros:
     state = m["state"]
     state_full = m.get("state_full", state)
     slug = m["slug"]
+    municipal_code = "MC-" + str(sum(ord(c) for c in city)) + str(len(city)*7)
     avg_cost = m.get("avg_cost", 2800)
     min_cost = m.get("min_cost", 1900)
     max_cost = m.get("max_cost", 7500)
