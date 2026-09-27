@@ -81,13 +81,15 @@ LEAD_TEMPLATES = {
 
 def send_ntfy_push(title, message, priority="high"):
     try:
+        clean_title = "".join(c for c in title if 32 <= ord(c) <= 126).strip() or "Outbound Campaign Alert"
         req = urllib.request.Request(
             NTFY_URL,
             data=message.encode("utf-8"),
             headers={
-                "Title": title,
+                "Title": clean_title,
                 "Priority": priority,
-                "Tags": "rocket,moneybag,handshake"
+                "Tags": "rocket,moneybag,handshake",
+                "Content-Type": "text/plain; charset=utf-8"
             },
             method="POST"
         )
