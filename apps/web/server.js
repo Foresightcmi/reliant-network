@@ -775,7 +775,7 @@ print(json.dumps(res))
     // 📲 Instant Real-Time Push Alert via ntfy.sh ($0 Marginal Cost)
     try {
       const alertBody = `🚨 NEW HIGH-TICKET LEAD: ${activeNiche.toUpperCase()} in ${city || 'Atlanta'}, ${state || 'GA'}!\nClient: ${customer_name || 'Commercial Client'} (${customer_phone || customer_email || 'Verified'})\nEst. Value: $${qualResult.estimated_quote} | Brokerage Fee: $${qualResult.lead_price}\nTerritory Code: ${leadCode}`;
-      fetch('https://ntfy.sh/fores-antigravity-alerts-77', {
+      await fetch('https://ntfy.sh/fores-antigravity-alerts-77', {
         method: 'POST',
         headers: {
           'Title': `New ${activeNiche.replace(/_/g, ' ').toUpperCase()} Lead ($${qualResult.estimated_quote})`,
@@ -783,7 +783,7 @@ print(json.dumps(res))
           'Tags': 'moneybag,zap,bell'
         },
         body: alertBody
-      }).catch(() => {});
+      }).catch((err) => { console.warn('ntfy push err:', err.message); });
     } catch (pushErr) {}
 
     // Dispatch lead alerts
