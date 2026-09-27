@@ -1,0 +1,229 @@
+{
+  "vend_atl_01": {
+    "operator_id": "vend_atl_01",
+    "balance": 3175,
+    "currency": "USD",
+    "company_name": "Royal Restrooms of Atlanta",
+    "city": "Atlanta",
+    "state": "GA",
+    "subscription_active": true,
+    "monopoly_active": true,
+    "unlocked_leads": [
+      {
+        "id": "lead-1790470628432",
+        "lead_code": "LUX-8556",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T00:57:08.432Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1790470604919",
+        "lead_code": "LUX-4472",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T00:56:44.919Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1790470577181",
+        "lead_code": "LUX-9742",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T00:56:17.182Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1790470547809",
+        "lead_code": "LUX-2464",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T00:55:47.809Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1790470435866",
+        "lead_code": "LUX-8067",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T00:53:55.866Z",
+        "monopoly_perk": true,
+        "cost": 0
+      }
+    ],
+    "transactions": [
+      {
+        "id": "tx_1790470628053",
+        "date": "2026-09-27T00:57:08.053Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1790470604526",
+        "date": "2026-09-27T00:56:44.526Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1790470576785",
+        "date": "2026-09-27T00:56:16.785Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1790470547423",
+        "date": "2026-09-27T00:55:47.423Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1790470435446",
+        "date": "2026-09-27T00:53:55.447Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_init",
+        "date": "2026-09-27T00:53:55.428Z",
+        "type": "INITIAL_CREDIT",
+        "amount": 425,
+        "description": "Welcome fleet promotional balance"
+      }
+    ],
+    "monopoly_metro": "atlanta-ga",
+    "backlink_verified": true,
+    "lead_discount_pct": 15
+  },
+  "vend_mch_hou_124": {
+    "operator_id": "vend_mch_hou_124",
+    "balance": 100,
+    "currency": "USD",
+    "company_name": "Houston Precision Millwrights & Heavy Rigging",
+    "city": "Houston",
+    "state": "TX",
+    "subscription_active": false,
+    "monopoly_active": false,
+    "unlocked_leads": [
+      {
+        "id": "lead-1790470628378",
+        "lead_code": "MAC-4054",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T00:57:08.422Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T00:57:08.379Z"
+      },
+      {
+        "id": "lead-1790470604865",
+        "lead_code": "MAC-2888",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T00:56:44.907Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T00:56:44.865Z"
+      },
+      {
+        "id": "lead-1790470577128",
+        "lead_code": "MAC-5034",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T00:56:17.170Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T00:56:17.128Z"
+      },
+      {
+        "id": "lead-1790470547756",
+        "lead_code": "MAC-3171",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T00:55:47.799Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T00:55:47.757Z"
+      },
+      {
+        "id": "lead-1790470435810",
+        "lead_code": "MAC-9149",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T00:53:55.853Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T00:53:55.811Z"
+      }
+    ],
+    "transactions": [],
+    "trojan_reservation": {
+      "active": true,
+      "metro_slug": "houston-tx",
+      "city": "Houston",
+      "state": "TX",
+      "niche_id": "machinery_moving",
+      "price_per_month": 299,
+      "expires_at": "2026-10-04T00:57:08.379Z",
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_mch_hou_124&trojan=true"
+    }
+  }
+}

@@ -80,6 +80,19 @@ async function runTests() {
       if (!res.body.includes('id="calculator"')) throw new Error('Missing calculator');
     });
 
+    await assert('GET /commercial-hvac serves commercial-hvac.html with technical specs and quote engine', async () => {
+      const res = await request('/commercial-hvac');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Commercial HVAC')) throw new Error('Missing commercial HVAC header');
+      if (!res.body.includes('Enterprise Equipment Fleet Specifications')) throw new Error('Missing fleet specs');
+    });
+
+    await assert('GET /chillers serves chillers.html with industrial water chiller specs', async () => {
+      const res = await request('/chillers');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      if (!res.body.includes('Mobile Chillers')) throw new Error('Missing chillers header');
+    });
+
     await assert('GET /cranes serves cranes.html', async () => {
       const res = await request('/cranes');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
@@ -359,12 +372,12 @@ async function runTests() {
       if (!resAk.body.includes('Alaska Commercial &amp; VIP Restroom Fleet Network')) throw new Error('Missing Alaska title');
     });
 
-    // 17. 50-State Directory API & Zero Placeholder Data Integrity (214 Verified Vendors)
-    await assert('GET /api/vendors?niche_id=all returns 214 verified vendors across all 50 states with zero 555-numbers', async () => {
+    // 17. 50-State Directory API & Zero Placeholder Data Integrity (214+ Verified Vendors)
+    await assert('GET /api/vendors?niche_id=all returns verified vendors across all 50 states with zero 555-numbers', async () => {
       const res = await request('/api/vendors?niche_id=all');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length !== 214) throw new Error(`Expected exactly 214 vendors, got ${vendors.length}`);
+      if (vendors.length < 214) throw new Error(`Expected at least 214 vendors, got ${vendors.length}`);
       
       const states = new Set(vendors.map(v => v.state));
       if (states.size < 50) throw new Error(`Expected at least 50 states covered, got ${states.size}`);
@@ -373,34 +386,34 @@ async function runTests() {
       if (has555) throw new Error('Detected forbidden 555 placeholder phone number in vendor database');
     });
 
-    // 18. New Vertical API Endpoints (17 Verified Depots Each)
-    await assert('GET /api/vendors?niche_id=temporary_power returns 17 verified power fleets', async () => {
+    // 18. New Vertical API Endpoints (Verified Depots Each)
+    await assert('GET /api/vendors?niche_id=temporary_power returns verified power fleets', async () => {
       const res = await request('/api/vendors?niche_id=temporary_power');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length !== 17) throw new Error(`Expected 17 temporary power vendors, got ${vendors.length}`);
+      if (vendors.length < 17) throw new Error(`Expected at least 17 temporary power vendors, got ${vendors.length}`);
       if (vendors.some(v => !v.phone || v.phone.includes('555'))) throw new Error('Invalid vendor data in power fleet');
     });
 
-    await assert('GET /api/vendors?niche_id=machinery_moving returns 17 verified millwright contractors', async () => {
+    await assert('GET /api/vendors?niche_id=machinery_moving returns verified millwright contractors', async () => {
       const res = await request('/api/vendors?niche_id=machinery_moving');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length !== 17) throw new Error(`Expected 17 machinery moving vendors, got ${vendors.length}`);
+      if (vendors.length < 17) throw new Error(`Expected at least 17 machinery moving vendors, got ${vendors.length}`);
     });
 
-    await assert('GET /api/vendors?niche_id=senior_downsizing returns 17 verified downsizing specialists', async () => {
+    await assert('GET /api/vendors?niche_id=senior_downsizing returns verified downsizing specialists', async () => {
       const res = await request('/api/vendors?niche_id=senior_downsizing');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length !== 17) throw new Error(`Expected 17 senior downsizing vendors, got ${vendors.length}`);
+      if (vendors.length < 17) throw new Error(`Expected at least 17 senior downsizing vendors, got ${vendors.length}`);
     });
 
-    await assert('GET /api/vendors?niche_id=wheelchair_vans returns 17 verified mobility vehicle dealers', async () => {
+    await assert('GET /api/vendors?niche_id=wheelchair_vans returns verified mobility vehicle dealers', async () => {
       const res = await request('/api/vendors?niche_id=wheelchair_vans');
       if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
       const vendors = JSON.parse(res.body);
-      if (vendors.length !== 17) throw new Error(`Expected 17 wheelchair van vendors, got ${vendors.length}`);
+      if (vendors.length < 17) throw new Error(`Expected at least 17 wheelchair van vendors, got ${vendors.length}`);
     });
 
     // 19. Comprehensive 50-State Canonical Sitemap

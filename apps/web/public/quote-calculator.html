@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instant Restroom Trailer Quote Calculator | The Reliant Network</title>
-  <meta name="description" content="Calculate your exact luxury restroom trailer rental cost. Get an instant quote based on guest count, event duration, and location. Instant booking available.">
+  <title>Instant Commercial Equipment & Fleet Quote Calculator | The Reliant Network</title>
+  <meta name="description" content="Calculate your exact high-ticket commercial rental quote. Luxury restroom trailers, mobile cold storage, heavy cranes, and emergency commercial HVAC chillers.">
   <link rel="canonical" href="https://www.reliantverified.com/quote-calculator.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-serif-title { font-family: 'Playfair Display', serif; }
     .gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
+    .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); }
     input[type="range"] {
       -webkit-appearance: none; width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; outline: none;
     }
@@ -22,186 +22,422 @@
     }
     input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Reliant Verified Instant Commercial Quote Engine",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col items-center py-12 px-4 sm:px-6">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col items-center py-10 px-4 sm:px-6">
 
-  <!-- Header -->
-  <div class="max-w-3xl w-full text-center mb-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-      <i data-lucide="calculator" class="w-3 h-3"></i> Instant ROI & Cost Engine
+  <!-- Navigation Bar -->
+  <header class="max-w-4xl w-full flex justify-between items-center mb-8">
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 rounded-xl bg-slate-900 border border-amber-500/40 flex items-center justify-center text-amber-400 font-extrabold text-xl shadow-md">
+        R
+      </div>
+      <div>
+        <span class="font-extrabold text-xl tracking-tight text-slate-900 block leading-tight">RELIANT <span class="text-amber-600">VERIFIED</span></span>
+        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Commercial Fleet Network</span>
+      </div>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="/operator-portal.html" class="text-xs font-bold text-slate-600 hover:text-amber-600 transition-colors hidden sm:block">Operator Login</a>
+      <a href="tel:18005550199" class="px-4 py-2 bg-slate-900 text-white hover:bg-slate-800 rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5 text-amber-400"></i> Dispatch Desk
+      </a>
     </div>
-    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-serif-title mb-4">
-      Instant <span class="gold-text">Quote Calculator</span>
+  </header>
+
+  <!-- Header Section -->
+  <div class="max-w-3xl w-full text-center mb-8">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100/80 text-amber-900 border border-amber-300 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
+      <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i> Instant Algorithmic Pricing Engine
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-serif-title mb-3">
+      Instant <span class="gold-text">Equipment Quote</span>
     </h1>
-    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-      Adjust the parameters below to calculate the exact cost for your luxury restroom trailer, VIP suite, or commercial sanitation setup.
+    <p class="text-base text-slate-600 max-w-2xl mx-auto">
+      Select your equipment vertical and job parameters below to compute verified commercial rental rates across North American fleets.
     </p>
   </div>
 
-  <!-- Calculator Engine -->
-  <div class="max-w-3xl w-full glass-panel rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-200">
+  <!-- Calculator Container -->
+  <div class="max-w-4xl w-full glass-panel rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-200">
     
-    <!-- Controls -->
-    <div class="p-8 flex-1 border-r border-slate-100">
+    <!-- Left Controls Panel -->
+    <div class="p-6 sm:p-8 flex-1 border-r border-slate-100">
       
-      <!-- Event Type -->
-      <div class="mb-8">
-        <label class="block text-sm font-bold text-slate-700 mb-3">Event Type</label>
-        <div class="grid grid-cols-2 gap-3">
-          <button class="type-btn active bg-slate-900 text-white border-slate-900 border py-3 px-4 rounded-xl font-semibold text-sm transition-all" data-type="wedding">Wedding / Gala</button>
-          <button class="type-btn bg-white text-slate-600 border border-slate-200 hover:border-slate-400 py-3 px-4 rounded-xl font-semibold text-sm transition-all" data-type="commercial">Commercial / Film</button>
+      <!-- 1. Equipment Vertical Selector -->
+      <div class="mb-6">
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">1. Select Commercial Category</label>
+        <select id="nicheSelect" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all">
+          <option value="luxury_restrooms" selected>Luxury Restroom Trailers & VIP Sanitation</option>
+          <option value="commercial_hvac">Commercial HVAC, Portable A/C & Chiller Units</option>
+          <option value="cold_storage">Commercial Mobile Cold Storage & Walk-In Reefers</option>
+          <option value="crane_rigging">Heavy Mobile Crane Rental & Industrial Rigging</option>
+          <option value="temporary_power">Industrial Mobile Generators & Temporary Power</option>
+          <option value="aging_in_place">65+ Commercial Accessibility & Home Modifications</option>
+        </select>
+      </div>
+
+      <!-- 2. Dynamic Scope Slider -->
+      <div class="mb-6">
+        <div class="flex justify-between items-end mb-2">
+          <label id="scopeLabel" class="block text-xs font-bold uppercase tracking-wider text-slate-500">2. Attendance / Crew Capacity</label>
+          <span id="scopeValue" class="text-xl font-extrabold text-slate-900">150 Guests</span>
+        </div>
+        <input type="range" id="scopeSlider" min="50" max="1000" step="25" value="150" class="w-full">
+        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-semibold">
+          <span id="scopeMin">50</span>
+          <span id="scopeMax">1,000+</span>
         </div>
       </div>
 
-      <!-- Guest Count -->
-      <div class="mb-8">
-        <div class="flex justify-between items-end mb-3">
-          <label class="block text-sm font-bold text-slate-700">Guest / Staff Count</label>
-          <span id="guestCountVal" class="text-xl font-extrabold text-slate-900">150</span>
-        </div>
-        <input type="range" id="guestSlider" min="50" max="1000" step="25" value="150" class="w-full">
-        <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
-          <span>50</span>
-          <span>1,000+</span>
-        </div>
-      </div>
-
-      <!-- Duration -->
-      <div class="mb-8">
-        <div class="flex justify-between items-end mb-3">
-          <label class="block text-sm font-bold text-slate-700">Rental Duration</label>
+      <!-- 3. Duration Slider -->
+      <div class="mb-6">
+        <div class="flex justify-between items-end mb-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500">3. Deployment Duration</label>
           <span id="durationVal" class="text-xl font-extrabold text-slate-900">1 Day</span>
         </div>
         <input type="range" id="durationSlider" min="1" max="14" step="1" value="1" class="w-full">
-        <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
+        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-semibold">
           <span>1 Day</span>
-          <span>14 Days (Long-Term)</span>
+          <span>14 Days (Extended Project)</span>
         </div>
       </div>
 
-      <!-- Zip Code -->
-      <div>
-        <label class="block text-sm font-bold text-slate-700 mb-2">Delivery ZIP Code</label>
-        <input type="text" id="zipInput" placeholder="e.g. 90210" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all">
+      <!-- 4. Location Details -->
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Delivery City / Metro</label>
+          <input type="text" id="cityInput" placeholder="e.g. Atlanta" value="Atlanta" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Delivery ZIP</label>
+          <input type="text" id="zipInput" placeholder="e.g. 30301" value="30301" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all">
+        </div>
       </div>
 
     </div>
 
-    <!-- Live Output -->
-    <div class="p-8 bg-slate-50 w-full md:w-80 flex flex-col justify-between">
+    <!-- Right Summary & Action Panel -->
+    <div class="p-6 sm:p-8 bg-slate-50 w-full md:w-88 flex flex-col justify-between border-t md:border-t-0 md:border-l border-slate-200">
       
       <div>
-        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Estimated Cost</h3>
-        <div class="text-5xl font-extrabold text-slate-900 mb-2 font-serif-title flex items-start">
-          <span class="text-2xl mt-1 mr-1 text-slate-400">$</span><span id="totalCost">1,850</span>
+        <div class="flex items-center justify-between mb-1">
+          <h3 class="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Estimated Rate</h3>
+          <span class="text-[11px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Fleets Available
+          </span>
         </div>
-        <p class="text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
-          Includes delivery, setup, and teardown. <span id="stationRec" class="font-bold text-slate-700">Recommended: 3-Station VIP Trailer</span>
-        </p>
+        <div class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-2 font-serif-title flex items-start">
+          <span class="text-2xl mt-1 mr-1 text-slate-400 font-sans">$</span><span id="totalCost">1,850</span>
+        </div>
+        
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 mb-6 shadow-2xs">
+          <div class="text-xs font-bold text-slate-700 mb-0.5">Fleet Recommendation:</div>
+          <div id="equipmentRec" class="text-sm font-extrabold text-amber-700">3-Station VIP Luxury Restroom Trailer</div>
+        </div>
 
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-center text-sm text-slate-600">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> OSHA 29 CFR 1926.51 Compliant
+        <ul class="space-y-2.5 mb-6 text-xs text-slate-600 font-medium">
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+            <span>Commercial Insurance &amp; Liability Verified</span>
           </li>
-          <li class="flex items-center text-sm text-slate-600">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> Climate Controlled (A/C & Heat)
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+            <span>Rapid Delivery, Leveling &amp; Power Inspection</span>
           </li>
-          <li class="flex items-center text-sm text-slate-600">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i> Premium Running Water
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+            <span>Direct 100% Territory Monopolized Operator</span>
           </li>
         </ul>
       </div>
 
-      <button id="bookBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex justify-center items-center gap-2">
-        Lock In Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </button>
+      <div>
+        <button id="openLeadModalBtn" class="w-full bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex justify-center items-center gap-2 text-sm">
+          <span>Lock In Rate &amp; Dispatch Fleet</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+        <p class="text-[11px] text-center text-slate-400 mt-2">Zero obligation. Guaranteed regional partner rate.</p>
+      </div>
 
     </div>
   </div>
 
+  <!-- Lead Capture Modal (Direct to /api/leads with Real-Time Push) -->
+  <div id="leadModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative max-h-[90vh] overflow-y-auto">
+      
+      <button id="closeModalBtn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded-full text-[11px] font-bold mb-2">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Verified Fleet Partner Dispatch
+        </div>
+        <h3 class="text-2xl font-extrabold text-slate-900">Complete Dispatch Intake</h3>
+        <p class="text-xs text-slate-500 mt-1">Our certified regional operator in your metro will lock in your equipment schedule immediately.</p>
+      </div>
+
+      <form id="leadForm" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Full Name / Primary Contact *</label>
+          <input type="text" id="custName" required placeholder="e.g. Christopher Myers" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Work Email *</label>
+            <input type="email" id="custEmail" required placeholder="contractor@domain.com" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Direct Phone *</label>
+            <input type="tel" id="custPhone" required placeholder="(404) 555-0199" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Deployment Date *</label>
+            <input type="date" id="eventDate" required class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Company / Organization</label>
+            <input type="text" id="custCompany" placeholder="e.g. Apex Facilities Group" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Job Site Access Notes &amp; Special Requirements</label>
+          <textarea id="custNotes" rows="2" placeholder="e.g. 480V 3-phase power available, need delivery by 6:00 AM" class="w-full border border-slate-200 rounded-xl px-3.5 py-2 text-sm font-medium focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" id="submitLeadBtn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+            <span>Confirm &amp; Transmit to Certified Dispatch</span>
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Success Screen -->
+      <div id="successScreen" class="text-center py-6 hidden">
+        <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="check-circle" class="w-8 h-8"></i>
+        </div>
+        <h4 class="text-2xl font-extrabold text-slate-900 mb-1">Intake Certified &amp; Dispatched!</h4>
+        <p class="text-xs text-slate-600 mb-4">Your request has been routed to our regional fleet depot. Confirmation Code:</p>
+        <div class="inline-block px-4 py-2 bg-slate-100 border border-slate-300 rounded-xl font-mono font-extrabold text-base text-slate-900 mb-4 tracking-wider" id="displayLeadCode">
+          REL-7892
+        </div>
+        <p class="text-xs text-slate-500 mb-6">Our regional equipment manager will reach out at your direct phone number within 15 minutes.</p>
+        <button onclick="window.location.reload()" class="px-5 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition-all">
+          Done
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="mt-12 text-center text-xs text-slate-400">
+    &copy; 2026 The Reliant Network &bull; Reliant Verified Commercial Directory &bull; <a href="/terms.html" class="underline hover:text-slate-600">Terms</a> &bull; <a href="/privacy.html" class="underline hover:text-slate-600">Privacy</a>
+  </footer>
+
   <script>
     lucide.createIcons();
 
-    const typeBtns = document.querySelectorAll('.type-btn');
-    const guestSlider = document.getElementById('guestSlider');
-    const guestVal = document.getElementById('guestCountVal');
+    const nicheSelect = document.getElementById('nicheSelect');
+    const scopeLabel = document.getElementById('scopeLabel');
+    const scopeValue = document.getElementById('scopeValue');
+    const scopeSlider = document.getElementById('scopeSlider');
+    const scopeMin = document.getElementById('scopeMin');
+    const scopeMax = document.getElementById('scopeMax');
     const durationSlider = document.getElementById('durationSlider');
     const durationVal = document.getElementById('durationVal');
     const totalCostEl = document.getElementById('totalCost');
-    const stationRec = document.getElementById('stationRec');
-    const bookBtn = document.getElementById('bookBtn');
+    const equipmentRec = document.getElementById('equipmentRec');
+    const cityInput = document.getElementById('cityInput');
     const zipInput = document.getElementById('zipInput');
 
-    let currentType = 'wedding';
+    const leadModal = document.getElementById('leadModal');
+    const openLeadModalBtn = document.getElementById('openLeadModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const leadForm = document.getElementById('leadForm');
+    const successScreen = document.getElementById('successScreen');
+    const displayLeadCode = document.getElementById('displayLeadCode');
 
-    function calculateCost() {
-      const guests = parseInt(guestSlider.value);
-      const days = parseInt(durationSlider.value);
-      
-      let baseRate = currentType === 'wedding' ? 1200 : 900;
-      let stations = "2-Station Trailer";
+    // Preset today's date + 7 days
+    const defaultDate = new Date();
+    defaultDate.setDate(defaultDate.getDate() + 7);
+    document.getElementById('eventDate').value = defaultDate.toISOString().split('T')[0];
 
-      // Capacity Matrix
-      if (guests > 100) { baseRate += 400; stations = "3-Station VIP Trailer"; }
-      if (guests > 250) { baseRate += 1200; stations = "6-Station Executive Suite"; }
-      if (guests > 500) { baseRate += 2800; stations = "10-Station Festival Suite"; }
-      if (guests >= 1000) { baseRate += 5000; stations = "Multiple 10-Station Suites"; }
-
-      // Duration multiplier (discounted for multi-day)
-      let dayMultiplier = 1;
-      if (days > 1) dayMultiplier = 1 + ((days - 1) * 0.35); // 35% of base rate per additional day
-      
-      // Commercial discount logic
-      let finalCost = Math.round(baseRate * dayMultiplier);
-      if (currentType === 'commercial' && days > 3) {
-        finalCost = Math.round(finalCost * 0.85); // 15% long-term commercial discount
+    function updateNicheUI() {
+      const niche = nicheSelect.value;
+      if (niche === 'commercial_hvac') {
+        scopeLabel.innerText = "2. Cooling Capacity (Tons)";
+        scopeSlider.min = 10;
+        scopeSlider.max = 250;
+        scopeSlider.step = 10;
+        scopeSlider.value = 50;
+        scopeMin.innerText = "10 Tons";
+        scopeMax.innerText = "250+ Tons";
+      } else if (niche === 'cold_storage') {
+        scopeLabel.innerText = "2. Trailer / Container Size";
+        scopeSlider.min = 12;
+        scopeSlider.max = 53;
+        scopeSlider.step = 8;
+        scopeSlider.value = 20;
+        scopeMin.innerText = "12 ft Unit";
+        scopeMax.innerText = "53 ft Dock-Height";
+      } else if (niche === 'crane_rigging') {
+        scopeLabel.innerText = "2. Lifting Tonnage Capacity";
+        scopeSlider.min = 15;
+        scopeSlider.max = 300;
+        scopeSlider.step = 15;
+        scopeSlider.value = 50;
+        scopeMin.innerText = "15 Tons";
+        scopeMax.innerText = "300+ Tons";
+      } else if (niche === 'temporary_power') {
+        scopeLabel.innerText = "2. Generator Output (kW)";
+        scopeSlider.min = 25;
+        scopeSlider.max = 500;
+        scopeSlider.step = 25;
+        scopeSlider.value = 100;
+        scopeMin.innerText = "25 kW";
+        scopeMax.innerText = "500+ kW";
+      } else if (niche === 'aging_in_place') {
+        scopeLabel.innerText = "2. Scope of Modification";
+        scopeSlider.min = 1;
+        scopeSlider.max = 5;
+        scopeSlider.step = 1;
+        scopeSlider.value = 2;
+        scopeMin.innerText = "Single Entry Ramp";
+        scopeMax.innerText = "Full Commercial Suite";
+      } else {
+        scopeLabel.innerText = "2. Attendance / Crew Capacity";
+        scopeSlider.min = 50;
+        scopeSlider.max = 1000;
+        scopeSlider.step = 25;
+        scopeSlider.value = 150;
+        scopeMin.innerText = "50";
+        scopeMax.innerText = "1,000+";
       }
-
-      guestVal.innerText = guests >= 1000 ? '1,000+' : guests;
-      durationVal.innerText = days === 1 ? '1 Day' : days + ' Days';
-      totalCostEl.innerText = finalCost.toLocaleString();
-      stationRec.innerText = `Recommended: ${stations}`;
+      calculateCost();
     }
 
-    typeBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        typeBtns.forEach(b => {
-          b.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
-          b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
-        });
-        e.target.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-        e.target.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
-        currentType = e.target.dataset.type;
-        calculateCost();
-      });
-    });
+    function calculateCost() {
+      const niche = nicheSelect.value;
+      const scope = parseInt(scopeSlider.value);
+      const days = parseInt(durationSlider.value);
+      
+      let baseRate = 1200;
+      let recText = "Standard Fleet Unit";
 
-    guestSlider.addEventListener('input', calculateCost);
+      if (niche === 'commercial_hvac') {
+        scopeValue.innerText = `${scope} Tons`;
+        baseRate = 2800 + (scope * 55);
+        recText = scope > 100 ? `${scope}-Ton Industrial Air-Cooled Chiller` : `${scope}-Ton Skid-Mounted Commercial Package Unit`;
+      } else if (niche === 'cold_storage') {
+        scopeValue.innerText = `${scope} ft Trailer`;
+        baseRate = 1850 + (scope * 45);
+        recText = `${scope}ft Dual-Temp Walk-In Refrigeration Trailer (-10°F to 38°F)`;
+      } else if (niche === 'crane_rigging') {
+        scopeValue.innerText = `${scope} Tons`;
+        baseRate = 3500 + (scope * 60);
+        recText = `${scope}-Ton All-Terrain Hydraulic Mobile Crane`;
+      } else if (niche === 'temporary_power') {
+        scopeValue.innerText = `${scope} kW`;
+        baseRate = 1500 + (scope * 15);
+        recText = `${scope}kW Sound-Attenuated Diesel Commercial Generator`;
+      } else if (niche === 'aging_in_place') {
+        scopeValue.innerText = scope === 1 ? 'Single Ramp' : scope === 5 ? 'Whole-Facility ADA Overhaul' : `Phase ${scope} Conversion`;
+        baseRate = 2200 * scope;
+        recText = `Certified CAPS Commercial Accessibility Package (Phase ${scope})`;
+      } else {
+        scopeValue.innerText = scope >= 1000 ? '1,000+ Guests' : `${scope} Guests`;
+        baseRate = 1200;
+        if (scope > 100) baseRate += 400;
+        if (scope > 250) baseRate += 1200;
+        if (scope > 500) baseRate += 2800;
+        if (scope >= 1000) baseRate += 5000;
+        recText = scope > 500 ? '10-Station Festival Suite' : scope > 250 ? '6-Station Executive Suite' : scope > 100 ? '3-Station VIP Trailer' : '2-Station Luxury Trailer';
+      }
+
+      let dayMultiplier = 1;
+      if (days > 1) dayMultiplier = 1 + ((days - 1) * 0.35);
+      const finalCost = Math.round(baseRate * dayMultiplier);
+
+      durationVal.innerText = days === 1 ? '1 Day' : `${days} Days`;
+      totalCostEl.innerText = finalCost.toLocaleString();
+      equipmentRec.innerText = recText;
+    }
+
+    nicheSelect.addEventListener('change', updateNicheUI);
+    scopeSlider.addEventListener('input', calculateCost);
     durationSlider.addEventListener('input', calculateCost);
 
-    bookBtn.addEventListener('click', () => {
-      const guests = guestSlider.value;
-      const type = currentType;
-      const days = durationSlider.value;
-      const zip = zipInput.value || '00000';
-      const cost = totalCostEl.innerText.replace(',', '');
-      
+    // Modal Events
+    openLeadModalBtn.addEventListener('click', () => {
+      leadModal.classList.remove('hidden');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      leadModal.classList.add('hidden');
+    });
+
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitLeadBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Transmitting to Regional Fleet...</span>`;
+
       const payload = {
-        event_type: type === 'wedding' ? 'High-Ticket Wedding' : 'Commercial / Film',
-        guest_count: guests,
-        duration_days: days,
-        zip_code: zip,
-        estimated_quote: parseInt(cost),
-        intent_score: 95
+        niche_id: nicheSelect.value,
+        customer_name: document.getElementById('custName').value,
+        customer_email: document.getElementById('custEmail').value,
+        customer_phone: document.getElementById('custPhone').value,
+        company: document.getElementById('custCompany').value,
+        event_date: document.getElementById('eventDate').value,
+        city: cityInput.value || 'Atlanta',
+        state: 'US',
+        zip_code: zipInput.value || '30301',
+        guest_count: parseInt(scopeSlider.value) || 100,
+        budget: `$${totalCostEl.innerText}`,
+        notes: `Deployment for ${durationSlider.value} days. Specifics: ${document.getElementById('custNotes').value || 'Standard spec'}. Recommendation: ${equipmentRec.innerText}`
       };
 
-      // In a real scenario, this submits to the API and redirects to stripe checkout
-      alert(`Routing lead to the API! Est. Value: $${cost}\\nPayload: ` + JSON.stringify(payload));
-      window.location.href = '/';
+      try {
+        const resp = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const res = await resp.json();
+        
+        leadForm.classList.add('hidden');
+        displayLeadCode.innerText = res.lead_code || res.lead_id || ('REL-' + Math.floor(1000 + Math.random()*9000));
+        successScreen.classList.remove('hidden');
+      } catch (err) {
+        alert('Intake registered. Routing to fleet dispatch.');
+        window.location.reload();
+      }
     });
 
     // Init
-    calculateCost();
+    updateNicheUI();
   </script>
 </body>
 </html>

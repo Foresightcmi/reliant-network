@@ -3,7 +3,7 @@ import csv
 import os
 
 VENDORS_FILE = os.path.join(os.path.dirname(__file__), 'services', 'data', 'vendors.json')
-OUTPUT_FILE = os.path.join(os.path.expanduser('~'), 'Desktop', 'reliant_outbound_campaign.csv')
+OUTPUT_FILE = os.path.join(os.path.dirname(__file__), 'services', 'data', 'reliant_outbound_campaign.csv')
 
 def generate_campaign():
     with open(VENDORS_FILE, 'r', encoding='utf-8') as f:
@@ -34,7 +34,10 @@ def generate_campaign():
             'commercial_dumpsters': 'commercial roll-off dumpsters',
             'private_security': 'private event security',
             'hazmat_remediation': 'hazmat and biohazard remediation',
-            'senior_care': 'senior care logistics'
+            'senior_care': 'senior care logistics',
+            'commercial_hvac': 'commercial HVAC & emergency chillers',
+            'mobile_chillers': 'industrial chiller rentals',
+            'chillers': 'commercial mobile chillers'
         }
         niche = niche_map.get(niche_raw, niche_raw.replace('_', ' '))
 
