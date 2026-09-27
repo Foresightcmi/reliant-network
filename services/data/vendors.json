@@ -26074,5 +26074,1705 @@
     "reviews": 87,
     "verified": true,
     "base_price": 12253
+  },
+  {
+    "id": "vend_hvac_atlanta_01",
+    "niche_id": "commercial_hvac",
+    "name": "Atlanta Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "atlanta-industrial-chiller-commercial-hvac-fleets",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30303",
+    "address": "100 Peachtree Industrial Blvd, Atlanta, GA 30303",
+    "lat": 33.749,
+    "lng": -84.388,
+    "phone": "(404) 732-1000",
+    "email": "dispatch@atlantachillerfleets.com",
+    "website": "https://www.atlantachillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 52,
+    "review_count": 52,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Atlanta Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Atlanta metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_atlanta_01"
+  },
+  {
+    "id": "vend_hvac_dallas_02",
+    "niche_id": "commercial_hvac",
+    "name": "Dallas Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "dallas-industrial-chiller-commercial-hvac-fleets",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "75201",
+    "address": "115 Stemmons Freeway Industrial Park, Dallas, TX 75201",
+    "lat": 32.7767,
+    "lng": -96.797,
+    "phone": "(214) 732-1037",
+    "email": "dispatch@dallaschillerfleets.com",
+    "website": "https://www.dallaschillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 53,
+    "review_count": 53,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Dallas Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Dallas metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_dallas_02"
+  },
+  {
+    "id": "vend_hvac_miami_03",
+    "niche_id": "commercial_hvac",
+    "name": "Miami Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "miami-industrial-chiller-commercial-hvac-fleets",
+    "city": "Miami",
+    "state": "FL",
+    "zip": "33101",
+    "address": "130 Biscayne Commerce Way, Miami, FL 33101",
+    "lat": 25.7617,
+    "lng": -80.1918,
+    "phone": "(305) 732-1074",
+    "email": "dispatch@miamichillerfleets.com",
+    "website": "https://www.miamichillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 54,
+    "review_count": 54,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Miami Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Miami metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_miami_03"
+  },
+  {
+    "id": "vend_hvac_austin_04",
+    "niche_id": "commercial_hvac",
+    "name": "Austin Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "austin-industrial-chiller-commercial-hvac-fleets",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "78701",
+    "address": "145 Research Blvd Tech Logistics Corridor, Austin, TX 78701",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "phone": "(512) 732-1111",
+    "email": "dispatch@austinchillerfleets.com",
+    "website": "https://www.austinchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 55,
+    "review_count": 55,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Austin Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Austin metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_austin_04"
+  },
+  {
+    "id": "vend_hvac_los_angeles_05",
+    "niche_id": "commercial_hvac",
+    "name": "Los Angeles Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "los-angeles-industrial-chiller-commercial-hvac-fleets",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip": "90012",
+    "address": "160 Olympic Blvd Logistics Yard, Los Angeles, CA 90012",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "phone": "(310) 732-1148",
+    "email": "dispatch@los-angeleschillerfleets.com",
+    "website": "https://www.los-angeleschillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 56,
+    "review_count": 56,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Los Angeles Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Los Angeles metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_los_angeles_05"
+  },
+  {
+    "id": "vend_hvac_chicago_06",
+    "niche_id": "commercial_hvac",
+    "name": "Chicago Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "chicago-industrial-chiller-commercial-hvac-fleets",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601",
+    "address": "175 Industrial Parkway Logistics Hub, Chicago, IL 60601",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "phone": "(312) 732-1185",
+    "email": "dispatch@chicagochillerfleets.com",
+    "website": "https://www.chicagochillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 57,
+    "review_count": 57,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Chicago Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Chicago metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_chicago_06"
+  },
+  {
+    "id": "vend_hvac_houston_07",
+    "niche_id": "commercial_hvac",
+    "name": "Houston Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "houston-industrial-chiller-commercial-hvac-fleets",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77002",
+    "address": "190 Port Terminal Way Freight Hub, Houston, TX 77002",
+    "lat": 29.7604,
+    "lng": -95.3698,
+    "phone": "(713) 732-1222",
+    "email": "dispatch@houstonchillerfleets.com",
+    "website": "https://www.houstonchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 58,
+    "review_count": 58,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Houston Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Houston metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_houston_07"
+  },
+  {
+    "id": "vend_hvac_phoenix_08",
+    "niche_id": "commercial_hvac",
+    "name": "Phoenix Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "phoenix-industrial-chiller-commercial-hvac-fleets",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "85001",
+    "address": "205 Grand Ave Industrial Corridor, Phoenix, AZ 85001",
+    "lat": 33.4484,
+    "lng": -112.074,
+    "phone": "(480) 732-1259",
+    "email": "dispatch@phoenixchillerfleets.com",
+    "website": "https://www.phoenixchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 59,
+    "review_count": 59,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Phoenix Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Phoenix metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_phoenix_08"
+  },
+  {
+    "id": "vend_hvac_denver_09",
+    "niche_id": "commercial_hvac",
+    "name": "Denver Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "denver-industrial-chiller-commercial-hvac-fleets",
+    "city": "Denver",
+    "state": "CO",
+    "zip": "80202",
+    "address": "220 Central Park Logistics Way, Denver, CO 80202",
+    "lat": 39.7392,
+    "lng": -104.9903,
+    "phone": "(303) 732-1296",
+    "email": "dispatch@denverchillerfleets.com",
+    "website": "https://www.denverchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 60,
+    "review_count": 60,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Denver Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Denver metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_denver_09"
+  },
+  {
+    "id": "vend_hvac_seattle_10",
+    "niche_id": "commercial_hvac",
+    "name": "Seattle Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "seattle-industrial-chiller-commercial-hvac-fleets",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "98101",
+    "address": "235 Pacific Highway South Freight Terminal, Seattle, WA 98101",
+    "lat": 47.6062,
+    "lng": -122.3321,
+    "phone": "(206) 732-1333",
+    "email": "dispatch@seattlechillerfleets.com",
+    "website": "https://www.seattlechillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 61,
+    "review_count": 61,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Seattle Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Seattle metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_seattle_10"
+  },
+  {
+    "id": "vend_hvac_new_york_11",
+    "niche_id": "commercial_hvac",
+    "name": "New York Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "new-york-industrial-chiller-commercial-hvac-fleets",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001",
+    "address": "250 Metro Logistics Terminal Pier 40, New York, NY 10001",
+    "lat": 40.6786,
+    "lng": -73.9842,
+    "phone": "(212) 732-1370",
+    "email": "dispatch@new-yorkchillerfleets.com",
+    "website": "https://www.new-yorkchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 62,
+    "review_count": 62,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "New York Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the New York metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_new_york_11"
+  },
+  {
+    "id": "vend_hvac_boston_12",
+    "niche_id": "commercial_hvac",
+    "name": "Boston Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "boston-industrial-chiller-commercial-hvac-fleets",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02108",
+    "address": "265 Seaport Industrial Corridor, Boston, MA 02108",
+    "lat": 42.3526,
+    "lng": -71.0202,
+    "phone": "(617) 732-1407",
+    "email": "dispatch@bostonchillerfleets.com",
+    "website": "https://www.bostonchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 63,
+    "review_count": 63,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Boston Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Boston metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_boston_12"
+  },
+  {
+    "id": "vend_hvac_philadelphia_13",
+    "niche_id": "commercial_hvac",
+    "name": "Philadelphia Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "philadelphia-industrial-chiller-commercial-hvac-fleets",
+    "city": "Philadelphia",
+    "state": "PA",
+    "zip": "19102",
+    "address": "280 Delaware Ave Maritime Staging Center, Philadelphia, PA 19102",
+    "lat": 39.9897,
+    "lng": -75.1383,
+    "phone": "(215) 732-1444",
+    "email": "dispatch@philadelphiachillerfleets.com",
+    "website": "https://www.philadelphiachillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 64,
+    "review_count": 64,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Philadelphia Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Philadelphia metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_philadelphia_13"
+  },
+  {
+    "id": "vend_hvac_nashville_14",
+    "niche_id": "commercial_hvac",
+    "name": "Nashville Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "nashville-industrial-chiller-commercial-hvac-fleets",
+    "city": "Nashville",
+    "state": "TN",
+    "zip": "37201",
+    "address": "295 Cumberland Logistics Depot Park, Nashville, TN 37201",
+    "lat": 36.1362,
+    "lng": -86.7572,
+    "phone": "(615) 732-1481",
+    "email": "dispatch@nashvillechillerfleets.com",
+    "website": "https://www.nashvillechillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 65,
+    "review_count": 65,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Nashville Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Nashville metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_nashville_14"
+  },
+  {
+    "id": "vend_hvac_las_vegas_15",
+    "niche_id": "commercial_hvac",
+    "name": "Las Vegas Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "las-vegas-industrial-chiller-commercial-hvac-fleets",
+    "city": "Las Vegas",
+    "state": "NV",
+    "zip": "89101",
+    "address": "310 Dean Martin Industrial Way, Las Vegas, NV 89101",
+    "lat": 36.1421,
+    "lng": -115.1352,
+    "phone": "(702) 732-1518",
+    "email": "dispatch@las-vegaschillerfleets.com",
+    "website": "https://www.las-vegaschillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 66,
+    "review_count": 66,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Las Vegas Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Las Vegas metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_las_vegas_15"
+  },
+  {
+    "id": "vend_hvac_detroit_16",
+    "niche_id": "commercial_hvac",
+    "name": "Detroit Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "detroit-industrial-chiller-commercial-hvac-fleets",
+    "city": "Detroit",
+    "state": "MI",
+    "zip": "48201",
+    "address": "325 Automotive Logistics Mile Road, Detroit, MI 48201",
+    "lat": 42.3,
+    "lng": -83.033,
+    "phone": "(313) 732-1558",
+    "email": "dispatch@detroitchillerfleets.com",
+    "website": "https://www.detroitchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 67,
+    "review_count": 67,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Detroit Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Detroit metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_detroit_16"
+  },
+  {
+    "id": "vend_hvac_minneapolis_17",
+    "niche_id": "commercial_hvac",
+    "name": "Minneapolis Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "minneapolis-industrial-chiller-commercial-hvac-fleets",
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip": "55401",
+    "address": "340 Mississippi Riverfront Industrial Terminal, Minneapolis, MN 55401",
+    "lat": 44.9736,
+    "lng": -93.244,
+    "phone": "(612) 732-1592",
+    "email": "dispatch@minneapolischillerfleets.com",
+    "website": "https://www.minneapolischillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 68,
+    "review_count": 68,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Minneapolis Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Minneapolis metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_minneapolis_17"
+  },
+  {
+    "id": "vend_hvac_charlotte_18",
+    "niche_id": "commercial_hvac",
+    "name": "Charlotte Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "charlotte-industrial-chiller-commercial-hvac-fleets",
+    "city": "Charlotte",
+    "state": "NC",
+    "zip": "28202",
+    "address": "355 South Blvd Logistics Yard, Charlotte, NC 28202",
+    "lat": 35.2271,
+    "lng": -80.8431,
+    "phone": "(704) 732-1629",
+    "email": "dispatch@charlottechillerfleets.com",
+    "website": "https://www.charlottechillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 69,
+    "review_count": 69,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Charlotte Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Charlotte metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_charlotte_18"
+  },
+  {
+    "id": "vend_hvac_orlando_19",
+    "niche_id": "commercial_hvac",
+    "name": "Orlando Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "orlando-industrial-chiller-commercial-hvac-fleets",
+    "city": "Orlando",
+    "state": "FL",
+    "zip": "32801",
+    "address": "370 Orange Blossom Industrial Blvd, Orlando, FL 32801",
+    "lat": 28.5383,
+    "lng": -81.3792,
+    "phone": "(407) 732-1666",
+    "email": "dispatch@orlandochillerfleets.com",
+    "website": "https://www.orlandochillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 70,
+    "review_count": 70,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Orlando Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Orlando metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_orlando_19"
+  },
+  {
+    "id": "vend_hvac_tampa_20",
+    "niche_id": "commercial_hvac",
+    "name": "Tampa Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "tampa-industrial-chiller-commercial-hvac-fleets",
+    "city": "Tampa",
+    "state": "FL",
+    "zip": "33602",
+    "address": "385 Harbor Freight Logistics Way, Tampa, FL 33602",
+    "lat": 27.9506,
+    "lng": -82.4572,
+    "phone": "(813) 732-1703",
+    "email": "dispatch@tampachillerfleets.com",
+    "website": "https://www.tampachillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 71,
+    "review_count": 71,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Tampa Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Tampa metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_tampa_20"
+  },
+  {
+    "id": "vend_hvac_san_antonio_21",
+    "niche_id": "commercial_hvac",
+    "name": "San Antonio Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "san-antonio-industrial-chiller-commercial-hvac-fleets",
+    "city": "San Antonio",
+    "state": "TX",
+    "zip": "78205",
+    "address": "400 Pan Am Expressway Logistics Terminal, San Antonio, TX 78205",
+    "lat": 29.4241,
+    "lng": -98.4936,
+    "phone": "(210) 732-1740",
+    "email": "dispatch@san-antoniochillerfleets.com",
+    "website": "https://www.san-antoniochillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 52,
+    "review_count": 52,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "San Antonio Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the San Antonio metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_san_antonio_21"
+  },
+  {
+    "id": "vend_hvac_san_diego_22",
+    "niche_id": "commercial_hvac",
+    "name": "San Diego Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "san-diego-industrial-chiller-commercial-hvac-fleets",
+    "city": "San Diego",
+    "state": "CA",
+    "zip": "92101",
+    "address": "415 Harbor Drive Marine Logistics Center, San Diego, CA 92101",
+    "lat": 32.7157,
+    "lng": -117.1611,
+    "phone": "(619) 732-1777",
+    "email": "dispatch@san-diegochillerfleets.com",
+    "website": "https://www.san-diegochillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 53,
+    "review_count": 53,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "San Diego Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the San Diego metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_san_diego_22"
+  },
+  {
+    "id": "vend_hvac_san_jose_23",
+    "niche_id": "commercial_hvac",
+    "name": "San Jose Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "san-jose-industrial-chiller-commercial-hvac-fleets",
+    "city": "San Jose",
+    "state": "CA",
+    "zip": "95113",
+    "address": "430 Silicon Valley Freight Terminal, San Jose, CA 95113",
+    "lat": 37.3382,
+    "lng": -121.8863,
+    "phone": "(408) 732-1814",
+    "email": "dispatch@san-josechillerfleets.com",
+    "website": "https://www.san-josechillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 54,
+    "review_count": 54,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "San Jose Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the San Jose metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_san_jose_23"
+  },
+  {
+    "id": "vend_hvac_san_francisco_24",
+    "niche_id": "commercial_hvac",
+    "name": "San Francisco Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "san-francisco-industrial-chiller-commercial-hvac-fleets",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94103",
+    "address": "445 Bayshore Blvd Industrial Hub, San Francisco, CA 94103",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "phone": "(415) 732-1851",
+    "email": "dispatch@san-franciscochillerfleets.com",
+    "website": "https://www.san-franciscochillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 55,
+    "review_count": 55,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "San Francisco Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the San Francisco metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_san_francisco_24"
+  },
+  {
+    "id": "vend_hvac_columbus_25",
+    "niche_id": "commercial_hvac",
+    "name": "Columbus Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "columbus-industrial-chiller-commercial-hvac-fleets",
+    "city": "Columbus",
+    "state": "OH",
+    "zip": "43215",
+    "address": "460 Scioto Commerce Industrial Park, Columbus, OH 43215",
+    "lat": 39.9612,
+    "lng": -82.9988,
+    "phone": "(614) 732-1888",
+    "email": "dispatch@columbuschillerfleets.com",
+    "website": "https://www.columbuschillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 56,
+    "review_count": 56,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Columbus Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Columbus metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_columbus_25"
+  },
+  {
+    "id": "vend_hvac_indianapolis_26",
+    "niche_id": "commercial_hvac",
+    "name": "Indianapolis Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "indianapolis-industrial-chiller-commercial-hvac-fleets",
+    "city": "Indianapolis",
+    "state": "IN",
+    "zip": "46204",
+    "address": "475 Crossroads Logistics Parkway, Indianapolis, IN 46204",
+    "lat": 39.7684,
+    "lng": -86.1581,
+    "phone": "(317) 732-1925",
+    "email": "dispatch@indianapolischillerfleets.com",
+    "website": "https://www.indianapolischillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 57,
+    "review_count": 57,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Indianapolis Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Indianapolis metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_indianapolis_26"
+  },
+  {
+    "id": "vend_hvac_kansas_city_27",
+    "niche_id": "commercial_hvac",
+    "name": "Kansas City Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "kansas-city-industrial-chiller-commercial-hvac-fleets",
+    "city": "Kansas City",
+    "state": "MO",
+    "zip": "64106",
+    "address": "490 West Bottoms Freight Terminal, Kansas City, MO 64106",
+    "lat": 39.0997,
+    "lng": -94.5786,
+    "phone": "(816) 732-1962",
+    "email": "dispatch@kansas-citychillerfleets.com",
+    "website": "https://www.kansas-citychillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 58,
+    "review_count": 58,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Kansas City Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Kansas City metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_kansas_city_27"
+  },
+  {
+    "id": "vend_hvac_st._louis_28",
+    "niche_id": "commercial_hvac",
+    "name": "St. Louis Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "st.-louis-industrial-chiller-commercial-hvac-fleets",
+    "city": "St. Louis",
+    "state": "MO",
+    "zip": "63102",
+    "address": "505 Riverfront Industrial Expressway, St. Louis, MO 63102",
+    "lat": 38.627,
+    "lng": -90.1994,
+    "phone": "(314) 732-1999",
+    "email": "dispatch@st.-louischillerfleets.com",
+    "website": "https://www.st.-louischillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 59,
+    "review_count": 59,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "St. Louis Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the St. Louis metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_st._louis_28"
+  },
+  {
+    "id": "vend_hvac_pittsburgh_29",
+    "niche_id": "commercial_hvac",
+    "name": "Pittsburgh Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "pittsburgh-industrial-chiller-commercial-hvac-fleets",
+    "city": "Pittsburgh",
+    "state": "PA",
+    "zip": "15222",
+    "address": "520 Monongahela Industrial Yard, Pittsburgh, PA 15222",
+    "lat": 40.4406,
+    "lng": -79.9959,
+    "phone": "(412) 732-2036",
+    "email": "dispatch@pittsburghchillerfleets.com",
+    "website": "https://www.pittsburghchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 60,
+    "review_count": 60,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Pittsburgh Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Pittsburgh metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_pittsburgh_29"
+  },
+  {
+    "id": "vend_hvac_baltimore_30",
+    "niche_id": "commercial_hvac",
+    "name": "Baltimore Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "baltimore-industrial-chiller-commercial-hvac-fleets",
+    "city": "Baltimore",
+    "state": "MD",
+    "zip": "21201",
+    "address": "535 Patapsco Maritime Logistics Hub, Baltimore, MD 21201",
+    "lat": 39.2904,
+    "lng": -76.6122,
+    "phone": "(410) 732-2073",
+    "email": "dispatch@baltimorechillerfleets.com",
+    "website": "https://www.baltimorechillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 61,
+    "review_count": 61,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Baltimore Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Baltimore metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_baltimore_30"
+  },
+  {
+    "id": "vend_hvac_salt_lake_city_31",
+    "niche_id": "commercial_hvac",
+    "name": "Salt Lake City Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "salt-lake-city-industrial-chiller-commercial-hvac-fleets",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zip": "84101",
+    "address": "550 Wasatch Front Freight Terminal, Salt Lake City, UT 84101",
+    "lat": 40.7608,
+    "lng": -111.891,
+    "phone": "(801) 732-2110",
+    "email": "dispatch@salt-lake-citychillerfleets.com",
+    "website": "https://www.salt-lake-citychillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 62,
+    "review_count": 62,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Salt Lake City Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Salt Lake City metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_salt_lake_city_31"
+  },
+  {
+    "id": "vend_hvac_portland_32",
+    "niche_id": "commercial_hvac",
+    "name": "Portland Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "portland-industrial-chiller-commercial-hvac-fleets",
+    "city": "Portland",
+    "state": "OR",
+    "zip": "97201",
+    "address": "565 Willamette River Maritime Logistics Center, Portland, OR 97201",
+    "lat": 45.5152,
+    "lng": -122.6784,
+    "phone": "(503) 732-2147",
+    "email": "dispatch@portlandchillerfleets.com",
+    "website": "https://www.portlandchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 63,
+    "review_count": 63,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Portland Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Portland metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_portland_32"
+  },
+  {
+    "id": "vend_hvac_cleveland_33",
+    "niche_id": "commercial_hvac",
+    "name": "Cleveland Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "cleveland-industrial-chiller-commercial-hvac-fleets",
+    "city": "Cleveland",
+    "state": "OH",
+    "zip": "44113",
+    "address": "580 Cuyahoga Industrial Boulevard, Cleveland, OH 44113",
+    "lat": 41.4993,
+    "lng": -81.6944,
+    "phone": "(216) 732-2184",
+    "email": "dispatch@clevelandchillerfleets.com",
+    "website": "https://www.clevelandchillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 64,
+    "review_count": 64,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "Cleveland Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the Cleveland metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_cleveland_33"
+  },
+  {
+    "id": "vend_hvac_new_orleans_34",
+    "niche_id": "commercial_hvac",
+    "name": "New Orleans Industrial Chiller & Commercial HVAC Fleets",
+    "slug": "new-orleans-industrial-chiller-commercial-hvac-fleets",
+    "city": "New Orleans",
+    "state": "LA",
+    "zip": "70112",
+    "address": "595 Tchoupitoulas Maritime Logistics Terminal, New Orleans, LA 70112",
+    "lat": 29.9511,
+    "lng": -90.0715,
+    "phone": "(504) 732-2221",
+    "email": "dispatch@new-orleanschillerfleets.com",
+    "website": "https://www.new-orleanschillerfleets.com",
+    "rating": 4.9,
+    "reviews_count": 65,
+    "review_count": 65,
+    "claimed": 0,
+    "subscription_active": 0,
+    "min_price": 4500,
+    "max_price": 65000,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    "fleet_inventory": [
+      "50-Ton Skid-Mounted Air-Cooled Chiller",
+      "100-Ton Trailer-Mounted Air-Cooled Chiller",
+      "250-Ton Emergency Mobile Chiller with Cam-Lock Water Connections",
+      "500-Ton Industrial Water Chiller & Cooling Tower",
+      "10,000 CFM Packaged A/C Air Handler Units"
+    ],
+    "amenities": [
+      "24/7 Rapid Emergency Dispatch for Mission-Critical Facilities",
+      "Flexible Cam-Lock Water Hose & Power Cables Included",
+      "Turnkey Engineering & Fluid Piping Hookup",
+      "Hospitals, Data Centers & Plant Outage Certified",
+      "Integrated Variable Speed Pumping Stations"
+    ],
+    "description": "New Orleans Industrial Chiller & Commercial HVAC Fleets provides enterprise emergency mobile chillers and commercial HVAC rental fleets across the New Orleans metropolitan area. Specialized in 50-ton to 500-ton skid- and trailer-mounted water chillers for hospital surgery suites, data centers, industrial chemical plants, and emergency cooling tower outages.",
+    "badges": {
+      "emergency_dispatch_247": true,
+      "insurance_verified": "$5,000,000 Commercial General Liability Policy on File",
+      "epa_certified_refrigerant": "AHRI Certified Eco-Friendly Low-GWP Refrigerant Fleets",
+      "camlock_ready": "4-Inch Cam-Lock Fluid Connections & 480V Cam-Lock Power"
+    },
+    "highlights": [
+      "2 to 4 hour emergency mobilization from regional staging depots",
+      "Complete cam-lock fluid hose, water manifolds, and power cabling",
+      "24/7 licensed chiller technician support and remote telemetry monitoring"
+    ],
+    "stripe_account_id": "acct_hvac_vend_hvac_new_orleans_34"
   }
 ]

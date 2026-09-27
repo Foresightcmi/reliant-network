@@ -1,5 +1,201 @@
 [
   {
+    "booking_id": "BK-REL-2026-509051",
+    "idempotency_key": "IDEMP-TEST-INST-1790471465358",
+    "created_at": "2026-09-27T01:11:05.385Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 732-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "escrow_status": "HOLDING_VERIFIED_DEPOSIT",
+    "assigned_vendor": {
+      "id": "66632c27",
+      "slug": "peachtree-luxury-restrooms-suites-atlanta-ga",
+      "niche_id": "luxury_restrooms",
+      "name": "Peachtree Luxury Restrooms & Suites",
+      "city": "Atlanta",
+      "state": "GA",
+      "address": "6595 Peachtree St NE, Atlanta, GA 30303",
+      "phone": "(404) 890-7711",
+      "email": "events@peachtreerestrooms.com",
+      "website": "https://www.peachtreerestrooms.com",
+      "rating": 4.9,
+      "review_count": 88,
+      "min_price": 1850,
+      "max_price": 6800,
+      "fleet_types": "[\"2-Station Executive\",\"5-Station VIP Suite\",\"8-Station Ballroom Special\"]",
+      "amenities": "[\"Porcelain Fixtures\",\"Climate Control\",\"Bluetooth Audio\",\"Marble Countertops\"]",
+      "description": "Serving Buckhead, Midtown, Alpharetta, and North Georgia estate venues with immaculate mobile sanitary suites and dedicated white-glove event attendants.",
+      "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80",
+      "service_radius_miles": 75,
+      "verified": 1,
+      "claimed": 1,
+      "subscription_active": 1,
+      "stripe_customer_id": null,
+      "json_ld": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"name\":\"Peachtree Luxury Restrooms & Suites\",\"image\":\"https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80\",\"telephone\":\"(404) 890-7711\",\"email\":\"events@peachtreerestrooms.com\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"5767 Peachtree St NE\",\"addressLocality\":\"Atlanta\",\"addressRegion\":\"GA\",\"postalCode\":\"30303\",\"addressCountry\":\"US\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":33.749,\"longitude\":-84.388},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":4.9,\"reviewCount\":88},\"priceRange\":\"$$$ - $$$$\"}",
+      "created_at": "2026-08-23 08:15:21",
+      "ad_budget_tier": "TIER_1_ENTERPRISE",
+      "estimated_monthly_ad_spend": 4200,
+      "station_specs": "[{\"type\":\"2-Station Executive\",\"status\":\"Available\",\"certified\":true},{\"type\":\"5-Station VIP Suite\",\"status\":\"Available\",\"certified\":true},{\"type\":\"8-Station Ballroom Special\",\"status\":\"Available\",\"certified\":true}]",
+      "latitude": 33.749,
+      "longitude": -84.388,
+      "zip_code": "30303",
+      "full_address": "6595 Peachtree St NE, Atlanta, GA 30303",
+      "badges": {
+        "emergency_dispatch_247": true,
+        "weekend_delivery": true,
+        "insurance_verified": "$2,000,000 Commercial General Liability Policy on File",
+        "ada_certified": "ADA Compliant Systems Available",
+        "power_hookup": "Dedicated Commercial Power & Auxiliary Generators Included",
+        "onboard_freshwater": "Sanitary Pressurized Water Systems",
+        "odor_barrier": "Commercial Carbon Filtration & Active Ventilation"
+      },
+      "sentiment_summary": {
+        "cleanliness_score": 98,
+        "punctuality_score": 98,
+        "recommended_by_percentage": 99,
+        "key_highlights": [
+          "Immaculate trailer condition & white-glove attendant service",
+          "On-time delivery with turnkey setup & leveling",
+          "Commercial-grade reliability for high-profile events",
+          "Transparent pricing with no hidden fees"
+        ]
+      },
+      "capacity_matrix": {
+        "min_guests": 20,
+        "max_guests": 1500,
+        "typical_setup_time_mins": 45,
+        "primary_uses": [
+          "High-Ticket Weddings & Galas",
+          "VIP Festival & Concert Lounges",
+          "Film & TV Production Base Camps",
+          "Corporate Retreats & Outdoor Events"
+        ]
+      },
+      "sample_reviews": [
+        {
+          "author": "Atlanta Event Planner",
+          "rating": 5,
+          "date": "September 2026",
+          "text": "Exceptional quality from Peachtree Luxury Restrooms & Suites. The trailers arrived spotless and the attendant service was impeccable. Our guests were genuinely impressed."
+        },
+        {
+          "author": "Verified Wedding Coordinator",
+          "rating": 5,
+          "date": "August 2026",
+          "text": "Peachtree Luxury Restrooms & Suites transformed our outdoor venue. Climate control worked flawlessly in the heat and everything was pristine from start to finish."
+        }
+      ]
+    },
+    "receipt_pin": 6545
+  },
+  {
+    "booking_id": "BK-REL-2026-429378",
+    "idempotency_key": "IDEMP-TEST-INST-1790471449108",
+    "created_at": "2026-09-27T01:10:49.135Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 732-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "escrow_status": "HOLDING_VERIFIED_DEPOSIT",
+    "assigned_vendor": {
+      "id": "66632c27",
+      "slug": "peachtree-luxury-restrooms-suites-atlanta-ga",
+      "niche_id": "luxury_restrooms",
+      "name": "Peachtree Luxury Restrooms & Suites",
+      "city": "Atlanta",
+      "state": "GA",
+      "address": "6595 Peachtree St NE, Atlanta, GA 30303",
+      "phone": "(404) 890-7711",
+      "email": "events@peachtreerestrooms.com",
+      "website": "https://www.peachtreerestrooms.com",
+      "rating": 4.9,
+      "review_count": 88,
+      "min_price": 1850,
+      "max_price": 6800,
+      "fleet_types": "[\"2-Station Executive\",\"5-Station VIP Suite\",\"8-Station Ballroom Special\"]",
+      "amenities": "[\"Porcelain Fixtures\",\"Climate Control\",\"Bluetooth Audio\",\"Marble Countertops\"]",
+      "description": "Serving Buckhead, Midtown, Alpharetta, and North Georgia estate venues with immaculate mobile sanitary suites and dedicated white-glove event attendants.",
+      "image_url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80",
+      "service_radius_miles": 75,
+      "verified": 1,
+      "claimed": 1,
+      "subscription_active": 1,
+      "stripe_customer_id": null,
+      "json_ld": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"name\":\"Peachtree Luxury Restrooms & Suites\",\"image\":\"https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80\",\"telephone\":\"(404) 890-7711\",\"email\":\"events@peachtreerestrooms.com\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"5767 Peachtree St NE\",\"addressLocality\":\"Atlanta\",\"addressRegion\":\"GA\",\"postalCode\":\"30303\",\"addressCountry\":\"US\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":33.749,\"longitude\":-84.388},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":4.9,\"reviewCount\":88},\"priceRange\":\"$$$ - $$$$\"}",
+      "created_at": "2026-08-23 08:15:21",
+      "ad_budget_tier": "TIER_1_ENTERPRISE",
+      "estimated_monthly_ad_spend": 4200,
+      "station_specs": "[{\"type\":\"2-Station Executive\",\"status\":\"Available\",\"certified\":true},{\"type\":\"5-Station VIP Suite\",\"status\":\"Available\",\"certified\":true},{\"type\":\"8-Station Ballroom Special\",\"status\":\"Available\",\"certified\":true}]",
+      "latitude": 33.749,
+      "longitude": -84.388,
+      "zip_code": "30303",
+      "full_address": "6595 Peachtree St NE, Atlanta, GA 30303",
+      "badges": {
+        "emergency_dispatch_247": true,
+        "weekend_delivery": true,
+        "insurance_verified": "$2,000,000 Commercial General Liability Policy on File",
+        "ada_certified": "ADA Compliant Systems Available",
+        "power_hookup": "Dedicated Commercial Power & Auxiliary Generators Included",
+        "onboard_freshwater": "Sanitary Pressurized Water Systems",
+        "odor_barrier": "Commercial Carbon Filtration & Active Ventilation"
+      },
+      "sentiment_summary": {
+        "cleanliness_score": 98,
+        "punctuality_score": 98,
+        "recommended_by_percentage": 99,
+        "key_highlights": [
+          "Immaculate trailer condition & white-glove attendant service",
+          "On-time delivery with turnkey setup & leveling",
+          "Commercial-grade reliability for high-profile events",
+          "Transparent pricing with no hidden fees"
+        ]
+      },
+      "capacity_matrix": {
+        "min_guests": 20,
+        "max_guests": 1500,
+        "typical_setup_time_mins": 45,
+        "primary_uses": [
+          "High-Ticket Weddings & Galas",
+          "VIP Festival & Concert Lounges",
+          "Film & TV Production Base Camps",
+          "Corporate Retreats & Outdoor Events"
+        ]
+      },
+      "sample_reviews": [
+        {
+          "author": "Atlanta Event Planner",
+          "rating": 5,
+          "date": "September 2026",
+          "text": "Exceptional quality from Peachtree Luxury Restrooms & Suites. The trailers arrived spotless and the attendant service was impeccable. Our guests were genuinely impressed."
+        },
+        {
+          "author": "Verified Wedding Coordinator",
+          "rating": 5,
+          "date": "August 2026",
+          "text": "Peachtree Luxury Restrooms & Suites transformed our outdoor venue. Climate control worked flawlessly in the heat and everything was pristine from start to finish."
+        }
+      ]
+    },
+    "receipt_pin": 1559
+  },
+  {
     "booking_id": "BK-REL-2026-207886",
     "idempotency_key": "IDEMP-TEST-INST-1790470627781",
     "created_at": "2026-09-27T00:57:07.810Z",
