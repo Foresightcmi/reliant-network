@@ -1,5 +1,53 @@
 [
   {
+    "booking_id": "BK-REL-2026-593630",
+    "idempotency_key": "IDEMP-TEST-INST-1790472584212",
+    "created_at": "2026-09-27T01:29:44.231Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 732-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "escrow_status": "HOLDING_VERIFIED_DEPOSIT",
+    "assigned_vendor": {
+      "id": "vend_atl_01",
+      "name": "Royal Restrooms of Atlanta",
+      "city": "Atlanta"
+    },
+    "receipt_pin": 7600
+  },
+  {
+    "booking_id": "BK-REL-2026-781842",
+    "idempotency_key": "IDEMP-TEST-INST-1790472455860",
+    "created_at": "2026-09-27T01:27:35.880Z",
+    "lead_code": "TEST-LEAD-999",
+    "customer_name": "Institutional Test Client",
+    "customer_email": "test@reliant-network.com",
+    "customer_phone": "(404) 732-9876",
+    "city": "Atlanta",
+    "state": "GA",
+    "event_date": "December 12, 2026",
+    "guest_count": 300,
+    "event_type": "High-Ticket Corporate Event",
+    "total_estimated_contract": 3500,
+    "deposit_amount": 525,
+    "balance_due_on_site": 2975,
+    "escrow_status": "HOLDING_VERIFIED_DEPOSIT",
+    "assigned_vendor": {
+      "id": "vend_atl_01",
+      "name": "Royal Restrooms of Atlanta",
+      "city": "Atlanta"
+    },
+    "receipt_pin": 2172
+  },
+  {
     "booking_id": "BK-REL-2026-509051",
     "idempotency_key": "IDEMP-TEST-INST-1790471465358",
     "created_at": "2026-09-27T01:11:05.385Z",

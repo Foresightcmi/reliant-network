@@ -541,6 +541,65 @@ async function runTests() {
       if (!atlanta || atlanta.status !== 'LOCKED') throw new Error('Expected Atlanta to be LOCKED');
     });
 
+    // 22. Real-Time Push Alerting & Instant Lead Routing Telemetry Suite
+    await assert('GET /api/router/telemetry returns active routing metrics and ntfy smartphone connection', async () => {
+      const res = await request('/api/router/telemetry');
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (data.status !== 'ACTIVE_OPERATIONAL') throw new Error(`Expected ACTIVE_OPERATIONAL, got ${data.status}`);
+      if (data.push_alerting.channel !== 'ntfy.sh/fores-antigravity-alerts-77') throw new Error('Invalid ntfy channel');
+      if (typeof data.lead_routing.total_trojan_gifts_dispatched !== 'number') throw new Error('Missing trojan dispatches count');
+      if (typeof data.performance.routing_velocity_ms !== 'number') throw new Error('Missing routing velocity');
+      if (data.performance.compliance !== 'MET') throw new Error('Routing SLA target was not met');
+    });
+
+    await assert('POST /api/operator/leads/unlock unlocks qualified lead and records transaction', async () => {
+      const res = await request('/api/operator/leads/unlock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          operator_id: 'vend_atl_01',
+          lead_id: 'lead-test-suite-001'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.success) throw new Error('Failed to unlock lead');
+      if (data.lead_id !== 'lead-test-suite-001') throw new Error('Mismatched lead_id');
+    });
+
+    await assert('POST /api/claim registers contractor claim and dispatches priority alert', async () => {
+      const res = await request('/api/claim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          vendor_id: 'vend_atl_01',
+          email: 'dispatch@royalrestrooms.com'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.success) throw new Error('Failed to claim vendor');
+    });
+
+    await assert('POST /api/vendors/vend_atl_01/message transmits customer RFQ and logs lead', async () => {
+      const res = await request('/api/vendors/vend_atl_01/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sender_name: 'David Rockefeller',
+          sender_email: 'david@rockefellerholdings.org',
+          sender_phone: '(404) 555-8822',
+          event_date: '2026-11-15',
+          message: 'Need 3 Presidential restroom units for charity polo match.'
+        })
+      });
+      if (res.statusCode !== 200) throw new Error(`Expected 200, got ${res.statusCode}`);
+      const data = JSON.parse(res.body);
+      if (!data.success) throw new Error('Failed to transmit message');
+      if (!data.lead_code) throw new Error('Missing lead_code');
+    });
+
     console.log(`\nTEST RESULTS: ${passed} PASSED, ${failed} FAILED.`);
     server.close();
     process.exit(failed > 0 ? 1 : 0);

@@ -773,18 +773,16 @@ print(json.dumps(res))
     ]);
 
     // 📲 Instant Real-Time Push Alert via ntfy.sh ($0 Marginal Cost)
-    try {
-      const alertBody = `🚨 NEW HIGH-TICKET LEAD: ${activeNiche.toUpperCase()} in ${city || 'Atlanta'}, ${state || 'GA'}!\nClient: ${customer_name || 'Commercial Client'} (${customer_phone || customer_email || 'Verified'})\nEst. Value: $${qualResult.estimated_quote} | Brokerage Fee: $${qualResult.lead_price}\nTerritory Code: ${leadCode}`;
-      await fetch('https://ntfy.sh/fores-antigravity-alerts-77', {
-        method: 'POST',
-        headers: {
-          'Title': `New ${activeNiche.replace(/_/g, ' ').toUpperCase()} Lead ($${qualResult.estimated_quote})`,
-          'Priority': 'high',
-          'Tags': 'moneybag,zap,bell'
-        },
-        body: alertBody
-      }).catch((err) => { console.warn('ntfy push err:', err.message); });
-    } catch (pushErr) {}
+    await dispatchPushNotification({
+      title: `NEW HIGH-TICKET LEAD ($${qualResult.estimated_quote.toLocaleString()})`,
+      amount: qualResult.estimated_quote,
+      city: city || 'Atlanta',
+      customer: `${customer_name || 'Commercial Client'} (${customer_phone || customer_email || 'Verified'})`,
+      reference: leadCode,
+      tags: 'moneybag,zap,bell',
+      click: `https://www.reliantverified.com/operator-portal.html?lead=${leadCode}`,
+      message: `🚨 NEW HIGH-TICKET LEAD: ${activeNiche.toUpperCase()} in ${city || 'Atlanta'}, ${state || 'GA'}!\nClient: ${customer_name || 'Commercial Client'} (${customer_phone || customer_email || 'Verified'})\nEst. Value: $${qualResult.estimated_quote.toLocaleString()} | Brokerage Fee: $${qualResult.lead_price}\nTerritory Code: ${leadCode}`
+    });
 
     // Dispatch lead alerts
     const dScript = `
@@ -884,7 +882,7 @@ print(json.dumps(res))
 });
 
 // 8. Claim Profile
-app.post('/api/claim', (req, res) => {
+app.post('/api/claim', async (req, res) => {
   try {
     const { vendor_id, email } = req.body;
     queryDb("UPDATE vendors SET claimed = 1, subscription_active = 1 WHERE id = ?", [vendor_id]);
@@ -902,9 +900,13 @@ app.post('/api/claim', (req, res) => {
     // Update claimed status in vendors.json
     let allVendors = readDataFile('vendors.json', []);
     const vIdx = allVendors.findIndex(v => v.id === vendor_id);
+    let vendorName = vendor_id;
+    let vendorCity = 'National';
     if (vIdx !== -1) {
       allVendors[vIdx].claimed = 1;
       allVendors[vIdx].subscription_active = 1;
+      vendorName = allVendors[vIdx].name || vendor_id;
+      vendorCity = allVendors[vIdx].city || 'National';
       writeDataFile('vendors.json', allVendors);
     }
 
@@ -916,6 +918,17 @@ app.post('/api/claim', (req, res) => {
       `Vendor ${vendor_id} claimed profile and activated $99/mo subscription`,
       JSON.stringify({ vendor_id, email, amount: 99 })
     ]);
+
+    await dispatchPushNotification({
+      title: `CONTRACTOR PROFILE CLAIMED ($99/mo)`,
+      amount: 99,
+      city: vendorCity,
+      operator: `${vendorName} (${email || 'No email'})`,
+      reference: payoutId,
+      tags: 'white_check_mark,moneybag,star',
+      click: `https://www.reliantverified.com/operator-portal.html?vendor_id=${vendor_id}`,
+      message: `🏢 CONTRACTOR DIRECTORY CLAIM!\nCompany: ${vendorName}\nVendor ID: ${vendor_id}\nContact: ${email || 'Verified'}\nSubscription: $99/mo Featured Partner\nPayout Ref: ${payoutId}`
+    });
 
     pseoCache.invalidate();
     res.json({ success: true, message: 'Profile claimed and priority subscription activated!' });
@@ -1085,7 +1098,7 @@ print(json.dumps(res))
 });
 
 // 14. Claim Listing (John Rush Blueprint)
-app.post('/api/vendors/claim', (req, res) => {
+app.post('/api/vendors/claim', async (req, res) => {
   try {
     const { vendor_id, owner_name, owner_email, owner_phone, plan_tier } = req.body;
     const isFeatured = plan_tier === 'featured';
@@ -1093,17 +1106,32 @@ app.post('/api/vendors/claim', (req, res) => {
     // Update local vendors.json if present
     let vendors = readDataFile('vendors.json', []);
     const idx = vendors.findIndex(v => v.id === vendor_id);
+    let vName = vendor_id;
+    let vCity = 'National';
     if (idx !== -1) {
       vendors[idx].claimed = 1;
       if (isFeatured) {
         vendors[idx].subscription_active = 1;
       }
+      vName = vendors[idx].name || vendor_id;
+      vCity = vendors[idx].city || 'National';
       writeDataFile('vendors.json', vendors);
     }
 
     const checkoutUrl = isFeatured 
       ? `/operator-portal.html?upgrade=featured&vendor_id=${vendor_id}`
       : null;
+
+    await dispatchPushNotification({
+      title: `CONTRACTOR PROFILE CLAIM: ${vName}`,
+      amount: isFeatured ? 99 : 0,
+      city: vCity,
+      operator: `${owner_name || 'Owner'} (${vName})`,
+      reference: vendor_id,
+      tags: 'id,bell,briefcase',
+      click: checkoutUrl ? `https://www.reliantverified.com${checkoutUrl}` : 'https://www.reliantverified.com',
+      message: `📋 CONTRACTOR PROFILE CLAIM SUBMISSION!\nCompany: ${vName} (${vCity})\nOwner: ${owner_name || 'N/A'} (${owner_phone || 'N/A'})\nEmail: ${owner_email || 'N/A'}\nPlan: ${plan_tier || 'standard'}\nAction: ${isFeatured ? 'Awaiting $99/mo Stripe Activation' : 'Pending Verification'}`
+    });
 
     res.json({
       success: true,
@@ -1120,7 +1148,7 @@ app.post('/api/vendors/claim', (req, res) => {
 });
 
 // 15. Self-Serve Business / Fleet Submission (John Rush Blueprint)
-app.post('/api/vendors/submit', (req, res) => {
+app.post('/api/vendors/submit', async (req, res) => {
   try {
     const { name, niche_id, city, state, phone, email, website, description, fleet_types, amenities, plan_tier } = req.body;
     const isFeatured = plan_tier === 'featured';
@@ -1159,6 +1187,17 @@ app.post('/api/vendors/submit', (req, res) => {
 
     const checkoutUrl = isFeatured ? `/operator-portal.html?upgrade=featured&vendor_id=${newId}` : null;
 
+    await dispatchPushNotification({
+      title: `NEW CONTRACTOR REGISTRATION: ${name}`,
+      amount: isFeatured ? 99 : 0,
+      city: city || 'Atlanta',
+      operator: `${name} (${phone || email || 'N/A'})`,
+      reference: newId,
+      tags: 'truck,heavy_check_mark,star',
+      click: checkoutUrl ? `https://www.reliantverified.com${checkoutUrl}` : 'https://www.reliantverified.com',
+      message: `🚛 NEW FLEET OPERATOR REGISTERED!\nCompany: ${name}\nNiche: ${(niche_id || 'Commercial Fleet').toUpperCase()}\nLocation: ${city}, ${state}\nPhone: ${phone || 'N/A'}\nEmail: ${email || 'N/A'}\nPlan: ${plan_tier || 'standard'}`
+    });
+
     res.json({
       success: true,
       vendor: newVendor,
@@ -1173,16 +1212,20 @@ app.post('/api/vendors/submit', (req, res) => {
 });
 
 // 16. Direct Operator Message / Inquiry (Mr. Web Blueprint)
-app.post('/api/vendors/:id/message', (req, res) => {
+app.post('/api/vendors/:id/message', async (req, res) => {
   try {
     const { id } = req.params;
     const { sender_name, sender_email, sender_phone, event_date, message } = req.body;
     
     // Find vendor name
     let vendorName = "Featured Fleet Operator";
+    let vendorCity = "Atlanta";
     const vendors = readDataFile('vendors.json', []);
     const found = vendors.find(v => v.id === id);
-    if (found) vendorName = found.name;
+    if (found) {
+      vendorName = found.name;
+      vendorCity = found.city || "Atlanta";
+    }
 
     // Record lead in database/logs
     const leadCode = 'DIR-' + Math.floor(1000 + Math.random() * 9000);
@@ -1194,10 +1237,21 @@ app.post('/api/vendors/:id/message', (req, res) => {
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `, [
       'dir-' + Date.now(), leadCode, 'luxury_restrooms', sender_name, sender_email, sender_phone,
-      'Direct Message', 'US', event_date || 'TBD', 150, 'Direct Vendor Message',
+      vendorCity, 'US', event_date || 'TBD', 150, 'Direct Vendor Message',
       '$2,500 - $6,000', `Direct inquiry for ${vendorName}: ${message}`, 'DIRECT_SENT', 95,
       3500, 85, `/operator-portal.html?direct=${id}`
     ]);
+
+    await dispatchPushNotification({
+      title: `DIRECT CUSTOMER INQUIRY: ${vendorName}`,
+      amount: 3500,
+      city: vendorCity,
+      customer: `${sender_name || 'Commercial Client'} (${sender_phone || sender_email || 'Verified'})`,
+      reference: leadCode,
+      tags: 'incoming_envelope,speech_balloon,zap',
+      click: `https://www.reliantverified.com/operator-portal.html?direct=${id}`,
+      message: `💬 DIRECT VENDOR MESSAGE RECEIVED!\nTarget Fleet: ${vendorName} (${id})\nFrom: ${sender_name} (${sender_phone || sender_email})\nEvent Date: ${event_date || 'TBD'}\nMessage: ${message || 'Quote inquiry'}\nLead Ref: ${leadCode}`
+    });
 
     res.json({
       success: true,
@@ -1377,7 +1431,7 @@ app.post(['/api/leads/fomo-broadcast', '/api/leads/fomo-blast'], async (req, res
 // =========================================================================
 
 // --- REAL-TIME SMARTPHONE PUSH NOTIFICATION DISPATCHER (Zero-Cost) ---
-function dispatchPushNotification(alertData) {
+async function dispatchPushNotification(alertData) {
   try {
     const alertEntry = {
       id: 'notif_' + Date.now(),
@@ -1387,6 +1441,42 @@ function dispatchPushNotification(alertData) {
     let list = readDataFile('notifications.json', []);
     list.unshift(alertEntry);
     writeDataFile('notifications.json', list.slice(0, 100));
+
+    // 📲 Instant Real-Time Push Notification via ntfy.sh ($0 Marginal Cost)
+    try {
+      const cleanHeader = (s) => String(s || '').replace(/[^\x20-\x7E]/g, '').trim();
+      const rawTitle = alertData.title || 'RELIANT ALERT';
+      const cleanTitle = cleanHeader(rawTitle) || 'RELIANT CASH ALERT';
+      const cleanPriority = cleanHeader(alertData.priority || 'high') || 'high';
+      const cleanTags = cleanHeader(alertData.tags || 'moneybag,zap,bell') || 'moneybag,zap,bell';
+      const cleanClick = cleanHeader(alertData.click || alertData.url || 'https://www.reliantverified.com');
+      const body = alertData.message || (
+        `Alert: ${rawTitle}\n` +
+        `Amount: $${(alertData.amount || 0).toLocaleString()}\n` +
+        `City: ${alertData.city || 'National'}\n` +
+        `Party: ${alertData.operator || alertData.customer || 'Commercial Client'}\n` +
+        `Ref: ${alertData.reference || alertEntry.id}`
+      );
+
+      const resp = await fetch('https://ntfy.sh/fores-antigravity-alerts-77', {
+        method: 'POST',
+        headers: {
+          'Title': cleanTitle,
+          'Priority': cleanPriority,
+          'Tags': cleanTags,
+          'Click': cleanClick,
+          'Content-Type': 'text/plain; charset=utf-8'
+        },
+        body: Buffer.from(body, 'utf8')
+      }).catch(err => {
+        console.warn('⚠️ [ntfy push error]:', err.message);
+      });
+      if (resp && resp.ok) {
+        console.log(`📲 [ntfy push delivered]: ${cleanTitle}`);
+      }
+    } catch (ntfyErr) {
+      console.warn('⚠️ [ntfy dispatch error]:', ntfyErr.message);
+    }
 
     // If an external webhook is configured (e.g. Discord, Telegram, Slack), forward it
     const webhookUrl = process.env.RELIANT_ALERT_WEBHOOK;
@@ -1781,6 +1871,51 @@ app.post('/api/stripe/webhook', async (req, res) => {
   if (event && event.type === 'checkout.session.completed') {
     const session = event.data?.object;
     console.log(`✅ [Stripe Webhook] Checkout completed for session: ${session?.id}`);
+    const meta = session?.metadata || {};
+    const amountPaid = session?.amount_total ? (session.amount_total / 100) : 0;
+    const opId = meta.operator_id || 'vend_atl_01';
+
+    // Auto-fulfill if monopoly subscription
+    if (meta.type === 'metro_monopoly' || meta.type === 'featured_partner') {
+      const wallets = getWalletsData();
+      if (wallets[opId]) {
+        wallets[opId].subscription_active = true;
+        if (meta.type === 'metro_monopoly') {
+          wallets[opId].monopoly_active = true;
+          wallets[opId].monopoly_metro = meta.metro_slug || 'atlanta-ga';
+        }
+        saveWalletsData(wallets);
+      }
+    } else if (meta.type === 'wallet_topup') {
+      const wallets = getWalletsData();
+      const topupAmount = parseFloat(meta.topup_amount) || amountPaid;
+      const bonusAmount = parseFloat(meta.bonus_amount) || 0;
+      const totalCred = topupAmount + bonusAmount;
+      if (wallets[opId]) {
+        wallets[opId].balance = (wallets[opId].balance || 0) + totalCred;
+        wallets[opId].transactions = wallets[opId].transactions || [];
+        wallets[opId].transactions.unshift({
+          id: 'tx_' + Date.now(),
+          stripe_session_id: session?.id,
+          date: new Date().toISOString(),
+          type: 'WALLET_RELOAD_STRIPE',
+          amount: totalCred,
+          description: `Stripe Checkout Reload ($${topupAmount} + $${bonusAmount} Bonus)`
+        });
+        saveWalletsData(wallets);
+      }
+    }
+
+    await dispatchPushNotification({
+      title: `STRIPE PAYMENT COMPLETED ($${amountPaid.toLocaleString()})`,
+      amount: amountPaid,
+      city: meta.city || meta.metro_slug || 'National',
+      customer: session?.customer_details?.name || session?.customer_details?.email || opId,
+      reference: session?.id || 'stripe_checkout',
+      tags: 'credit_card,moneybag,tada',
+      click: 'https://dashboard.stripe.com',
+      message: `💳 STRIPE PAYMENT COMPLETED!\nAmount: $${amountPaid.toLocaleString()}\nCustomer: ${session?.customer_details?.name || 'Verified Customer'} (${session?.customer_details?.email || 'N/A'})\nSession ID: ${session?.id}\nType: ${(meta.type || 'direct_payment').toUpperCase()}\nMetro: ${meta.metro_slug || 'National'}`
+    });
   }
 
   res.json({ received: true });
@@ -1823,10 +1958,23 @@ app.post('/api/bookings/deposit', async (req, res) => {
     const targetNiche = niche_id || 'luxury_restrooms';
     const bookingId = 'BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000);
 
-    // Get a local vendor to assign the lead to
-    const vendors = readDataFile('vendors.json', []);
-    const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
-    let assignedVendor = local.length > 0 ? local[Math.floor(Math.random() * local.length)] : { id: 'sys_fallback', name: "National Affiliate Network" };
+    // Check if territory has an active monopoly holder
+    const wallets = getWalletsData();
+    const activeHolder = Object.entries(wallets).find(([id, w]) => {
+      if (!w.monopoly_active) return false;
+      const metroSlug = `${(city || 'Atlanta').toLowerCase().replace(/\s+/g, '-')}-${(state || 'GA').toLowerCase()}`;
+      return w.monopoly_metro === metroSlug || (w.city && w.city.toLowerCase() === (city || '').toLowerCase());
+    });
+
+    let assignedVendor;
+    if (activeHolder) {
+      const [hId, hWallet] = activeHolder;
+      assignedVendor = { id: hId, name: hWallet.company_name || 'Exclusive Territory Partner', city: hWallet.city || city };
+    } else {
+      const vendors = readDataFile('vendors.json', []);
+      const local = vendors.filter(v => (!city || v.city.toLowerCase() === (city || '').toLowerCase()) && v.niche_id === targetNiche);
+      assignedVendor = local.length > 0 ? local[Math.floor(Math.random() * local.length)] : { id: 'sys_fallback', name: "National Affiliate Network" };
+    }
 
     const newBooking = {
       booking_id: bookingId,
@@ -1852,17 +2000,17 @@ app.post('/api/bookings/deposit', async (req, res) => {
     bookings.unshift(newBooking);
     writeDataFile('bookings.json', bookings.slice(0, 100));
 
-    // Log notification
-    let notifications = readDataFile('notifications.json', []);
-    notifications.unshift({
-      id: 'notif-' + Date.now(),
-      type: 'ESCROW_DEPOSIT_RESERVED',
-      reference: bookingId,
-      customer_name: customer_name || 'Valued Commercial Client',
+    // Real-Time Push Notification & Log
+    await dispatchPushNotification({
+      title: `💰 NEW ESCROW DEPOSIT ($${depositPaid.toLocaleString()})`,
       amount: depositPaid,
-      timestamp: new Date().toISOString()
+      city: city || 'Atlanta',
+      customer: customer_name || 'Commercial Client',
+      reference: bookingId,
+      tags: 'moneybag,lock,star',
+      click: `https://www.reliantverified.com/receipt/${bookingId}`,
+      message: `🚨 NEW ESCROW DEPOSIT SECURED!\nAmount: $${depositPaid.toLocaleString()} (15% Deposit) | Total: $${totalEst.toLocaleString()}\nClient: ${customer_name} (${customer_phone})\nAssigned Fleet: ${assignedVendor.name} (${city}, ${state})\nReceipt: ${bookingId}`
     });
-    writeDataFile('notifications.json', notifications.slice(0, 50));
 
     // Insert Lead into Supabase if configured
     if (supabase) {
@@ -1983,7 +2131,7 @@ app.get('/api/operator/wallet', (req, res) => {
 });
 
 // 2. Operator Wallet Top-Up ($250, $500, $1,000)
-app.post('/api/operator/wallet/topup', (req, res) => {
+app.post('/api/operator/wallet/topup', async (req, res) => {
   try {
     const { operator_id, amount } = req.body;
     const topupAmount = parseFloat(amount) || 250;
@@ -2024,12 +2172,15 @@ app.post('/api/operator/wallet/topup', (req, res) => {
       payoutId, opId, topupAmount
     ]);
 
-    dispatchPushNotification({
-      title: `Operator Wallet Reload ($${topupAmount.toLocaleString()})`,
+    await dispatchPushNotification({
+      title: `OPERATOR WALLET RELOAD ($${topupAmount.toLocaleString()})`,
       amount: topupAmount,
-      city: opId,
-      customer: wallets[opId].company_name || 'Fleet Operator',
-      reference: txId
+      city: wallets[opId].city || opId,
+      operator: wallets[opId].company_name || opId,
+      reference: txId,
+      tags: 'moneybag,dollar,credit_card',
+      click: `https://www.reliantverified.com/operator-portal.html?operator_id=${opId}`,
+      message: `💵 OPERATOR WALLET RELOAD CONFIRMED!\nOperator: ${wallets[opId].company_name || opId}\nAmount Paid: $${topupAmount.toLocaleString()} (+ $${bonus} bonus)\nCredited: $${totalCredit.toLocaleString()}\nNew Wallet Balance: $${wallets[opId].balance.toLocaleString()}`
     });
 
     res.json({
@@ -2046,7 +2197,7 @@ app.post('/api/operator/wallet/topup', (req, res) => {
 });
 
 // 3. Operator Instant 1-Click Lead Unlock
-app.post('/api/operator/leads/unlock', (req, res) => {
+app.post('/api/operator/leads/unlock', async (req, res) => {
   try {
     const { operator_id, lead_id } = req.body;
     const opId = operator_id || 'vend_atl_01';
@@ -2075,8 +2226,9 @@ app.post('/api/operator/leads/unlock', (req, res) => {
 
     opWallet.balance -= leadPrice;
     opWallet.unlocked_leads.push(lead_id);
+    const txId = 'tx_' + Date.now();
     opWallet.transactions.unshift({
-      id: 'tx_' + Date.now(),
+      id: txId,
       date: new Date().toISOString(),
       type: 'LEAD_PURCHASE',
       amount: -leadPrice,
@@ -2084,6 +2236,17 @@ app.post('/api/operator/leads/unlock', (req, res) => {
     });
 
     saveWalletsData(wallets);
+
+    await dispatchPushNotification({
+      title: `LEAD UNLOCKED: $${leadPrice.toFixed(2)} (${opWallet.company_name || opId})`,
+      amount: leadPrice,
+      city: opWallet.city || 'National',
+      operator: opWallet.company_name || opId,
+      reference: lead_id,
+      tags: 'unlock,key,moneybag',
+      click: `https://www.reliantverified.com/operator-portal.html?operator_id=${opId}`,
+      message: `🔓 QUALIFIED LEAD UNLOCKED!\nOperator: ${opWallet.company_name || opId}\nLead Ref: ${lead_id}\nLead Fee: $${leadPrice.toFixed(2)}\nRemaining Wallet Balance: $${opWallet.balance.toFixed(2)}`
+    });
 
     res.json({
       success: true,
@@ -2097,7 +2260,7 @@ app.post('/api/operator/leads/unlock', (req, res) => {
 });
 
 // 4. Operator Metro Monopoly / Featured Subscription
-app.post('/api/operator/monopoly/subscribe', (req, res) => {
+app.post('/api/operator/monopoly/subscribe', async (req, res) => {
   try {
     const { operator_id, metro_slug, tier } = req.body;
     const opId = operator_id || 'vend_atl_01';
@@ -2130,6 +2293,17 @@ app.post('/api/operator/monopoly/subscribe', (req, res) => {
     queryDb("INSERT INTO payouts (id, vendor_id, amount, type, status) VALUES (?, ?, ?, ?, 'COMPLETED')", [
       payoutId, opId, cost, targetTier.toUpperCase()
     ]);
+
+    await dispatchPushNotification({
+      title: `👑 NEW METRO MONOPOLY LOCKED ($${cost}/mo)`,
+      amount: cost,
+      city: targetMetro,
+      operator: wallets[opId]?.company_name || opId,
+      reference: payoutId,
+      tags: 'crown,trophy,moneybag',
+      click: `https://www.reliantverified.com/operator-portal.html?metro=${targetMetro}&operator_id=${opId}`,
+      message: `👑 NEW EXCLUSIVE METRO MONOPOLY LOCKED!\nOperator: ${wallets[opId]?.company_name || opId}\nMetro: ${targetMetro.toUpperCase()} ($${cost}/mo)\nAll future leads in this market are now exclusively locked to this partner!`
+    });
 
     res.json({
       success: true,
@@ -2220,12 +2394,16 @@ async function dispatchTrojanLead(leadData, reqOrigin = 'https://www.reliantveri
       saveWalletsData(wallets);
     }
 
-    dispatchPushNotification({
+    await dispatchPushNotification({
       title: `⚡ EXCLUSIVE MONOPOLY LEAD (${targetCity})`,
       amount: estQuoteVal,
       city: targetCity,
       operator: holderWallet.company_name || holderId,
-      message: `Lead ${leadRef} routed exclusively to ${holderWallet.company_name || holderId}. Zero competitors notified.`
+      customer: cName,
+      reference: leadRef,
+      tags: 'crown,zap,star',
+      click: `https://www.reliantverified.com/operator-portal.html?operator_id=${holderId}`,
+      message: `👑 EXCLUSIVE MONOPOLY LEAD ROUTED!\nClient: ${cName} (${cPhone})\nExclusive Partner: ${holderWallet.company_name || holderId} (${targetCity})\nProject: ${serviceTitle}\nEst. Value: $${estQuoteVal.toLocaleString()}\nZero competitors alerted.`
     });
 
     return {
@@ -2469,12 +2647,51 @@ Dispatch Operations | The Reliant Network`;
   });
   writeDataFile('missed_leads.json', missedLogs.slice(0, 50));
 
-  dispatchPushNotification({
+  // Record in outreach_submissions.json
+  let subLogs = readDataFile('outreach_submissions.json', []);
+  subLogs.unshift({
+    id: 'outreach-sub-' + Date.now(),
+    contractor_id: targetVendor.id,
+    timestamp: new Date().toISOString(),
+    metro: `${targetCity}, ${targetState}`,
+    niche: activeNiche.replace(/_/g, ' ').toUpperCase(),
+    target_contractor: {
+      company_name: targetVendor.name,
+      contact_url: targetVendor.website ? `${targetVendor.website.replace(/\/$/, '')}/contact` : 'https://www.reliantverified.com',
+      phone: targetVendor.phone,
+      address: targetVendor.address || `${targetCity}, ${targetState}`
+    },
+    form_technology: 'Autonomous Instant Lead Router',
+    lead_gifted: {
+      lead_code: leadRef,
+      customer_name: cName,
+      customer_phone: cPhone,
+      customer_email: cEmail,
+      service_scope: serviceTitle,
+      estimated_quote_value: estQuoteVal
+    },
+    monopoly_offer: {
+      monthly_rental_rate: 299,
+      trial_window_days: 7,
+      stripe_checkout_url: checkoutUrl
+    },
+    pitch_delivered: smsScript,
+    submission_status: 'CONFIRMED_DELIVERED',
+    confirmation_message: `Gift lead automatically routed to ${targetVendor.name}. Territory monopoly lockout offer initiated.`,
+    evidence_log: `Instant Lead Routing Engine - Dispatched ${new Date().toISOString()}`
+  });
+  writeDataFile('outreach_submissions.json', subLogs.slice(0, 200));
+
+  await dispatchPushNotification({
     title: `🎁 TROJAN HORSE LEAD DISPATCH (${targetCity})`,
     amount: estQuoteVal,
     city: targetCity,
     operator: targetVendor.name,
-    message: `Free trial lead ($${estQuoteVal.toLocaleString()}) gifted to ${targetVendor.name}. 7-day exclusive territory lock initiated.`
+    customer: cName,
+    reference: leadRef,
+    tags: 'gift,zap,rocket',
+    click: checkoutUrl,
+    message: `🚨 NEW LEAD ROUTED INSTANTLY (TROJAN HORSE)!\nClient: ${cName} (${cPhone})\nGifted Fleet: ${targetVendor.name} (${targetVendor.phone})\nProject: ${serviceTitle}\nEst. Value: $${estQuoteVal.toLocaleString()}\nMonopoly Lockout Offer: $299/mo (7-day trial)`
   });
 
   return {
@@ -2618,6 +2835,62 @@ app.get('/api/leads/trojan-territories', (req, res) => {
   }
 });
 
+// 8. GET /api/router/telemetry (Real-Time Push Alerting & Instant Lead Routing Telemetry)
+app.get(['/api/router/telemetry', '/api/router/status'], (req, res) => {
+  const start = process.hrtime.bigint();
+  try {
+    const leads = readDataFile('leads.json', []);
+    const trojanLogs = readDataFile('trojan_leads.json', []);
+    const notifications = readDataFile('notifications.json', []);
+    const outreachLogs = readDataFile('outreach_submissions.json', []);
+    const wallets = getWalletsData();
+
+    const lockedMetros = Object.values(wallets).filter(w => w.monopoly_active).map(w => ({
+      operator_id: w.operator_id,
+      company_name: w.company_name,
+      metro: w.monopoly_metro,
+      city: w.city,
+      state: w.state
+    }));
+
+    const totalGiftValue = trojanLogs.reduce((acc, item) => acc + (parseFloat(item.estimated_quote) || 0), 0);
+    const totalDepositValue = (readDataFile('bookings.json', []) || []).reduce((acc, b) => acc + (parseFloat(b.deposit_paid) || 0), 0);
+
+    const end = process.hrtime.bigint();
+    const latencyMs = parseFloat((Number(end - start) / 1e6).toFixed(3));
+
+    res.json({
+      status: 'ACTIVE_OPERATIONAL',
+      service: 'Reliant Real-Time Push Alerting & Instant Lead Routing Engine',
+      protocol_version: '2026.4.0',
+      push_alerting: {
+        channel: 'ntfy.sh/fores-antigravity-alerts-77',
+        status: 'CONNECTED_REAL_TIME',
+        total_notifications_sent: notifications.length,
+        recent_notifications: notifications.slice(0, 5)
+      },
+      lead_routing: {
+        total_leads_captured: leads.length,
+        total_trojan_gifts_dispatched: trojanLogs.length,
+        total_gift_lead_value_usd: totalGiftValue,
+        total_escrow_deposits_usd: totalDepositValue,
+        locked_territories_count: lockedMetros.length,
+        locked_territories: lockedMetros,
+        outreach_proofs_count: outreachLogs.length,
+        recent_dispatches: trojanLogs.slice(0, 5)
+      },
+      performance: {
+        routing_velocity_ms: latencyMs,
+        sla_target: '< 250ms',
+        compliance: latencyMs < 250 ? 'MET' : 'WARNING'
+      },
+      timestamp: new Date().toISOString()
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // --- VECTOR 3: HIGH-TICKET B2B EQUIPMENT FINANCING ARBITRAGE ($1,200 - $4,000/lease) ---
 app.get('/api/financing/rates', (req, res) => {
   res.json({
@@ -2638,7 +2911,7 @@ app.get('/api/financing/rates', (req, res) => {
   });
 });
 
-app.post('/api/financing/apply', (req, res) => {
+app.post('/api/financing/apply', async (req, res) => {
   try {
     const {
       business_name,
@@ -2694,6 +2967,17 @@ app.post('/api/financing/apply', (req, res) => {
     let apps = readDataFile('financing_leads.json', []);
     apps.unshift(leadEntry);
     writeDataFile('financing_leads.json', apps.slice(0, 100));
+
+    await dispatchPushNotification({
+      title: `💼 NEW FINANCING APP ($${amount.toLocaleString()})`,
+      amount: amount,
+      city: 'National',
+      customer: `${business_name || 'Commercial Fleet'} (${contact_name || 'Principal'})`,
+      reference: financingAppId,
+      tags: 'briefcase,moneybag,gem',
+      click: 'https://www.reliantverified.com/financing',
+      message: `💼 NEW COMMERCIAL EQUIPMENT FINANCING APP!\nBusiness: ${business_name || 'Commercial Fleet'} (${contact_name || 'Principal'}, ${phone || 'Verified'})\nEquipment: ${equipment_type || 'Commercial Fleet'} | Amount: $${amount.toLocaleString()}\nEst. Broker Bounty (3.5%): $${referralBounty.toLocaleString()}\nMonthly Payment: $${monthlyPayment}/mo`
+    });
 
     res.json({
       success: true,

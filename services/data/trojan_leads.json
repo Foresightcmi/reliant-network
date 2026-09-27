@@ -1,5 +1,65 @@
 [
   {
+    "id": "lead-1790472585317",
+    "lead_code": "MAC-2722",
+    "timestamp": "2026-09-27T01:29:45.362Z",
+    "city": "Houston",
+    "state": "TX",
+    "niche_id": "machinery_moving",
+    "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+    "estimated_quote": 12500,
+    "customer": {
+      "name": "David Vance (Gulf Coast Heavy Haul)",
+      "phone": "(713) 902-8812",
+      "email": "procurement@gulfhaul.com"
+    },
+    "target_contractor": {
+      "id": "vend_mch_hou_124",
+      "name": "Houston Precision Millwrights & Heavy Rigging",
+      "phone": "(713) 444-1868",
+      "email": "dispatch@houston-precisi.com",
+      "city": "Houston",
+      "rating": 4.9
+    },
+    "competitors": [
+      "Houston Precision Millwrights & Heavy Rigging"
+    ],
+    "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_mch_hou_124&trojan=true",
+    "stripe_session_id": null,
+    "trial_expires_at": "2026-10-04T01:29:45.317Z",
+    "status": "FREE_TRIAL_DISPATCHED"
+  },
+  {
+    "id": "lead-1790472456976",
+    "lead_code": "MAC-8229",
+    "timestamp": "2026-09-27T01:27:37.021Z",
+    "city": "Houston",
+    "state": "TX",
+    "niche_id": "machinery_moving",
+    "service": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+    "estimated_quote": 12500,
+    "customer": {
+      "name": "David Vance (Gulf Coast Heavy Haul)",
+      "phone": "(713) 902-8812",
+      "email": "procurement@gulfhaul.com"
+    },
+    "target_contractor": {
+      "id": "vend_mch_hou_124",
+      "name": "Houston Precision Millwrights & Heavy Rigging",
+      "phone": "(713) 444-1868",
+      "email": "dispatch@houston-precisi.com",
+      "city": "Houston",
+      "rating": 4.9
+    },
+    "competitors": [
+      "Houston Precision Millwrights & Heavy Rigging"
+    ],
+    "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_mch_hou_124&trojan=true",
+    "stripe_session_id": null,
+    "trial_expires_at": "2026-10-04T01:27:36.977Z",
+    "status": "FREE_TRIAL_DISPATCHED"
+  },
+  {
     "id": "lead-1790471465997",
     "lead_code": "MAC-2953",
     "timestamp": "2026-09-27T01:11:06.048Z",

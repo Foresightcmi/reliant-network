@@ -1,7 +1,7 @@
 {
   "vend_atl_01": {
     "operator_id": "vend_atl_01",
-    "balance": 4275,
+    "balance": 5290,
     "currency": "USD",
     "company_name": "Royal Restrooms of Atlanta",
     "city": "Atlanta",
@@ -9,6 +9,34 @@
     "subscription_active": true,
     "monopoly_active": true,
     "unlocked_leads": [
+      {
+        "id": "lead-1790472585429",
+        "lead_code": "LUX-9594",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T01:29:45.430Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
+      {
+        "id": "lead-1790472457033",
+        "lead_code": "LUX-7094",
+        "customer_name": "Margaret Holloway",
+        "customer_phone": "(404) 555-1234",
+        "customer_email": "margaret@atlantaevent.com",
+        "city": "Atlanta",
+        "state": "GA",
+        "event_type": "Luxury VIP Restroom Suite for Corporate Gala",
+        "estimated_quote": 3100,
+        "unlocked_at": "2026-09-27T01:27:37.033Z",
+        "monopoly_perk": true,
+        "cost": 0
+      },
       {
         "id": "lead-1790471466059",
         "lead_code": "LUX-4785",
@@ -106,9 +134,31 @@
         "unlocked_at": "2026-09-27T00:53:55.866Z",
         "monopoly_perk": true,
         "cost": 0
-      }
+      },
+      "lead-test-suite-001"
     ],
     "transactions": [
+      {
+        "id": "tx_1790472585502",
+        "date": "2026-09-27T01:29:45.502Z",
+        "type": "LEAD_PURCHASE",
+        "amount": -85,
+        "description": "Unlocked Qualified RFQ Lead lead-test-suite-001"
+      },
+      {
+        "id": "tx_1790472584783",
+        "date": "2026-09-27T01:29:44.783Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
+      {
+        "id": "tx_1790472456600",
+        "date": "2026-09-27T01:27:36.600Z",
+        "type": "WALLET_RELOAD",
+        "amount": 550,
+        "description": "Prepaid Balance Refill ($500 + $50 Bonus Credit)"
+      },
       {
         "id": "tx_1790471465670",
         "date": "2026-09-27T01:11:05.670Z",
@@ -180,6 +230,36 @@
     "subscription_active": false,
     "monopoly_active": false,
     "unlocked_leads": [
+      {
+        "id": "lead-1790472585317",
+        "lead_code": "MAC-2722",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T01:29:45.360Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T01:29:45.317Z"
+      },
+      {
+        "id": "lead-1790472456976",
+        "lead_code": "MAC-8229",
+        "customer_name": "David Vance (Gulf Coast Heavy Haul)",
+        "customer_phone": "(713) 902-8812",
+        "customer_email": "procurement@gulfhaul.com",
+        "city": "Houston",
+        "state": "TX",
+        "event_type": "80-Ton Stamping Press Machine Moving & Millwright Leveling",
+        "estimated_quote": 12500,
+        "unlocked_at": "2026-09-27T01:27:37.019Z",
+        "trial_gift": true,
+        "cost": 0,
+        "trial_expires_at": "2026-10-04T01:27:36.977Z"
+      },
       {
         "id": "lead-1790471465997",
         "lead_code": "MAC-2953",
@@ -294,7 +374,7 @@
       "state": "TX",
       "niche_id": "machinery_moving",
       "price_per_month": 299,
-      "expires_at": "2026-10-04T01:11:05.998Z",
+      "expires_at": "2026-10-04T01:29:45.317Z",
       "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_mch_hou_124&trojan=true"
     }
   }
