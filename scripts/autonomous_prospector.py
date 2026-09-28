@@ -49,7 +49,7 @@ def get_duckduckgo_results(query):
         return []
 
 def run_prospector():
-    print("🚀 INITIALIZING AUTONOMOUS PROSPECTOR ENGINE")
+    print("INITIALIZING AUTONOMOUS PROSPECTOR ENGINE")
     print("Targeting: High-Ticket B2B Contractors ($299/mo subscriptions)")
     
     # Load existing
@@ -95,7 +95,7 @@ def run_prospector():
         print("No new prospects found.")
         return
         
-    print(f"\\n✅ Successfully mined {len(new_prospects)} high-ticket prospects!")
+    print(f"\\nSUCCESS: Successfully mined {len(new_prospects)} high-ticket prospects!")
     
     # Merge and save
     existing_vendors.extend(new_prospects)
@@ -109,11 +109,12 @@ def run_prospector():
         writer.writerow(['Company Name', 'Email', 'City', 'Niche', 'Loss Aversion Pitch'])
         for v in existing_vendors:
             if not v.get('subscription_active'):
-                pitch = f"Someone in {v['city']} just requested a quote for {v['niche']}. I'm holding the lead. You have 24 hours to claim your {v['city']} territory before I give it to your competitor."
-                writer.writerow([v['name'], v['email'], v['city'], v['niche'], pitch])
+                niche = v.get('niche', 'commercial service')
+                pitch = f"Someone in {v['city']} just requested a quote for {niche}. I'm holding the lead. You have 24 hours to claim your {v['city']} territory before I give it to your competitor."
+                writer.writerow([v['name'], v['email'], v['city'], niche, pitch])
                 
-    print(f"📦 Outbound CSV updated at: {CSV_OUT}")
-    print(f"🌐 Vendors JSON updated for API routing.")
+    print(f"OUTBOUND CSV: updated at: {CSV_OUT}")
+    print(f"VENDORS JSON: updated for API routing.")
     
 if __name__ == "__main__":
     run_prospector()

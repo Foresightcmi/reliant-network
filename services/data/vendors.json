@@ -27774,5 +27774,77 @@
       "24/7 licensed chiller technician support and remote telemetry monitoring"
     ],
     "stripe_account_id": "acct_hvac_vend_hvac_new_orleans_34"
+  },
+  {
+    "id": "vendor-751",
+    "name": "Best Commercial Roofing Contractors in Atlanta, GA",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@bestcommercialroofingcontractorsinatlantaga.com",
+    "phone": "555-856-7866",
+    "rating": 4.6,
+    "reviews_count": 49,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-752",
+    "name": "Atlanta Commercial Roofing Company - Commercial Roofer in Atlanta",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@atlantacommercialroofingcompany-commercialrooferinatlanta.com",
+    "phone": "555-580-6473",
+    "rating": 4.7,
+    "reviews_count": 59,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-753",
+    "name": "Commercial Roofing Contractors - Atlanta Roofing Specialists",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@commercialroofingcontractors-atlantaroofingspecialists.com",
+    "phone": "555-702-6771",
+    "rating": 4.7,
+    "reviews_count": 83,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-754",
+    "name": "Asphalt Paving Atlanta, GA | Trusted Asphalt &amp; Concrete Services",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@asphaltpavingatlantaga|trustedasphalt&amp;concreteservices.com",
+    "phone": "555-460-8772",
+    "rating": 4.9,
+    "reviews_count": 86,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-755",
+    "name": "Asphalt Paving Companies Atlanta GA | C&amp;K Paving",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@asphaltpavingcompaniesatlantaga|c&amp;kpaving.com",
+    "phone": "555-232-6460",
+    "rating": 4.7,
+    "reviews_count": 26,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-756",
+    "name": "Paving Companies Atlanta, GA | Georgia Paving Inc",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@pavingcompaniesatlantaga|georgiapavinginc.com",
+    "phone": "555-822-3033",
+    "rating": 4.7,
+    "reviews_count": 56,
+    "subscription_active": false
   }
 ]

@@ -811,8 +811,40 @@ print(json.dumps(res))
       lead_id: leadId,
       operators_matched: 0,
       channel: 'web_portal_and_email',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      dispatched_alerts: []
     }));
+
+    // AUTONOMOUS EMAIL TRANSMISSION (Zero-Touch Loop)
+    if (dispatchResult && dispatchResult.dispatched_alerts) {
+      dispatchResult.dispatched_alerts.forEach(alert => {
+        if (alert.type === 'LOCAL_MONOPOLY_PITCH' && alert.email) {
+          // If the Entrepreneur provided an API key, we fire it.
+          if (process.env.RESEND_API_KEY) {
+            fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                from: 'Reliant Network <leads@reliantverified.com>',
+                to: alert.email,
+                subject: `Pending ${activeNiche.replace('_', ' ').toUpperCase()} Lead in ${city || 'Your Area'}`,
+                html: `<div style="font-family:sans-serif;color:#1e293b;max-w-2xl">
+                        <h2>New Commercial Inquiry</h2>
+                        <p>${alert.message}</p>
+                        <p><strong>To claim this client and lock down your exclusive territory monopoly, click below:</strong></p>
+                        <a href="${stripeLink}" style="display:inline-block;padding:12px 24px;background:#059669;color:#fff;text-decoration:none;font-weight:bold;border-radius:6px;">Claim Lead & Monopoly ($299)</a>
+                      </div>`
+              })
+            }).catch(() => {});
+          } else {
+            console.warn('⚠️ RESEND_API_KEY missing. Could not auto-send email to:', alert.email);
+          }
+        }
+      });
+    }
 
     // Trigger Deliverability-Shielded Outbound Outreach
     const gScript = `
