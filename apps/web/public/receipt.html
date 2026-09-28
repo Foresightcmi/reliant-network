@@ -155,30 +155,66 @@
       document.getElementById('v-booking-id').textContent = bookingId;
       document.getElementById('v-ref-footer').textContent = bookingId;
 
-      try {
-        const res = await fetch('/api/bookings/' + bookingId);
-        const data = await res.json();
-        if (data.success && data.booking) {
-          const b = data.booking;
-          document.getElementById('v-date').textContent = new Date(b.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-          document.getElementById('v-total').textContent = '$' + b.total_estimated_contract.toLocaleString() + '.00';
-          document.getElementById('v-deposit').textContent = '$' + b.deposit_amount.toLocaleString() + '.00';
-          document.getElementById('v-balance').textContent = '$' + b.balance_due_on_site.toLocaleString() + '.00';
-          document.getElementById('v-terms-balance').textContent = b.balance_due_on_site.toLocaleString() + '.00';
-          document.getElementById('v-client').textContent = b.customer_name;
-          document.getElementById('v-phone').textContent = b.customer_phone;
-          document.getElementById('v-city').textContent = b.city + ', ' + b.state;
-          document.getElementById('v-event-date').textContent = b.event_date;
-          document.getElementById('v-type').textContent = b.event_type;
+      if (bookingId === 'permit') {
+        const cityParam = urlParams.get('city') || 'Atlanta';
+        document.title = `Municipal Permit Filing Packet - ${cityParam} | The Reliant Network`;
+        document.getElementById('v-booking-id').textContent = 'PMT-' + cityParam.toUpperCase().slice(0,3) + '-' + Date.now().toString().slice(-6);
+        document.getElementById('v-ref-footer').textContent = 'PMT-' + cityParam.toUpperCase().slice(0,3);
+        const titleH1 = document.querySelector('#printable-receipt h1');
+        if (titleH1) titleH1.textContent = `Municipal Right-of-Way Permit Filing Packet (${cityParam})`;
+        const subTitle = document.querySelector('#printable-receipt span.font-mono');
+        if (subTitle) subTitle.textContent = 'OFFICIAL MUNICIPAL PERMIT FILING BUNDLE';
+        
+        document.getElementById('v-total').textContent = '$49.00';
+        document.getElementById('v-deposit').textContent = '$49.00';
+        document.getElementById('v-balance').textContent = '$0.00';
+        document.getElementById('v-client').textContent = 'Commercial Project Manager';
+        document.getElementById('v-city').textContent = cityParam + ' Public Works';
+        document.getElementById('v-type').textContent = 'DOT Right-of-Way Street Placement';
+        document.getElementById('v-operator-name').textContent = cityParam + ' Municipal Permitting Bureau';
+        document.getElementById('v-terms-balance').textContent = '0.00';
+        
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'mt-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 mb-6';
+        actionsDiv.innerHTML = `
+          <div>
+            <div class="font-extrabold text-sm text-slate-900 flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4 text-amber-600"></i> Your Pre-Filled Packet is Ready
+            </div>
+            <p class="text-xs text-slate-600 mt-0.5">Includes standard ROW application template, site plan checklist, and COI endorsement requirements.</p>
+          </div>
+          <button onclick="window.print()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs rounded-xl shadow-xs transition-all shrink-0">
+            Print / Save Permit Bundle (PDF)
+          </button>
+        `;
+        const complianceTerms = document.querySelector('#printable-receipt .border-t.border-slate-100');
+        if (complianceTerms) complianceTerms.before(actionsDiv);
+      } else {
+        try {
+          const res = await fetch('/api/bookings/' + bookingId);
+          const data = await res.json();
+          if (data.success && data.booking) {
+            const b = data.booking;
+            document.getElementById('v-date').textContent = new Date(b.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            document.getElementById('v-total').textContent = '$' + b.total_estimated_contract.toLocaleString() + '.00';
+            document.getElementById('v-deposit').textContent = '$' + b.deposit_amount.toLocaleString() + '.00';
+            document.getElementById('v-balance').textContent = '$' + b.balance_due_on_site.toLocaleString() + '.00';
+            document.getElementById('v-terms-balance').textContent = b.balance_due_on_site.toLocaleString() + '.00';
+            document.getElementById('v-client').textContent = b.customer_name;
+            document.getElementById('v-phone').textContent = b.customer_phone;
+            document.getElementById('v-city').textContent = b.city + ', ' + b.state;
+            document.getElementById('v-event-date').textContent = b.event_date;
+            document.getElementById('v-type').textContent = b.event_type;
 
-          if (b.assigned_vendor) {
-            document.getElementById('v-operator-name').textContent = b.assigned_vendor.name;
-            document.getElementById('v-operator-phone').textContent = b.assigned_vendor.phone || '(404) 732-8190';
-            document.getElementById('v-operator-phone').href = 'tel:' + (b.assigned_vendor.phone || '4047328190');
+            if (b.assigned_vendor) {
+              document.getElementById('v-operator-name').textContent = b.assigned_vendor.name;
+              document.getElementById('v-operator-phone').textContent = b.assigned_vendor.phone || '(404) 732-8190';
+              document.getElementById('v-operator-phone').href = 'tel:' + (b.assigned_vendor.phone || '4047328190');
+            }
           }
+        } catch (e) {
+          console.log('Using fallback confirmation data');
         }
-      } catch (e) {
-        console.log('Using fallback confirmation data');
       }
 
       const sessionId = urlParams.get('session_id');

@@ -1783,8 +1783,59 @@ app.post('/api/stripe/create-checkout-session', async (req, res) => {
         success_url: `${reqOrigin}/operator-portal.html?monopoly_success=true&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${reqOrigin}/operator-portal.html`
       };
+    } else if (type === 'rfp_bid_token') {
+      const leadId = req.body.lead_id || 'lead-rfp-' + Date.now();
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'payment',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: 4900,
+            product_data: {
+              name: `Single RFP Bid Submission Unlock ($49)`,
+              description: `Instant unlocking of direct client contact specifications for RFQ #${leadId}. Submit proposal directly to client.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'rfp_bid_token',
+          lead_id: leadId,
+          operator_id: operator_id || 'guest_bidder'
+        },
+        success_url: `${reqOrigin}/operator-portal.html?rfp_unlocked=${leadId}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/operator-portal.html`
+      };
+    } else if (type === 'permit_packet') {
+      const targetCity = req.body.city || 'Metro Area';
+      const targetNiche = req.body.niche || 'Commercial Equipment';
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'payment',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: 4900,
+            product_data: {
+              name: `Municipal Right-of-Way Permit Filing Packet ($49) - ${targetCity}`,
+              description: `Automated municipal street obstruction & right-of-way permit application packet for ${targetNiche} deployment in ${targetCity}.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'permit_packet',
+          city: targetCity,
+          niche: targetNiche
+        },
+        success_url: `${reqOrigin}/receipt/permit?city=${encodeURIComponent(targetCity)}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/`
+      };
     } else {
-      return res.status(400).json({ error: 'Invalid checkout type. Expected escrow_deposit, wallet_topup, featured_partner, or metro_monopoly' });
+      return res.status(400).json({ error: 'Invalid checkout type. Expected escrow_deposit, wallet_topup, featured_partner, metro_monopoly, rfp_bid_token, or permit_packet' });
     }
 
     let session;
@@ -1813,6 +1864,90 @@ app.post('/api/stripe/create-checkout-session', async (req, res) => {
   } catch (err) {
     console.error('❌ [Stripe Checkout Session Error]:', err);
     res.status(500).json({ error: err.message });
+  }
+});
+
+// Quick GET redirect for $49 RFP Bid Token Unlock from emails
+app.get('/api/checkout/bid-token', async (req, res) => {
+  try {
+    const leadId = req.query.lead_id || ('lead-rfp-' + Date.now());
+    let reqOrigin = 'https://www.reliantverified.com';
+    try {
+      if (req.headers.origin) reqOrigin = req.headers.origin;
+      else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+    } catch(e){}
+
+    if (stripe) {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        mode: 'payment',
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: 4900,
+            product_data: {
+              name: `Single RFP Bid Submission Unlock ($49)`,
+              description: `Instant unlocking of direct client contact specifications for RFQ #${leadId}. Submit proposal directly to client.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'rfp_bid_token',
+          lead_id: leadId
+        },
+        success_url: `${reqOrigin}/operator-portal.html?rfp_unlocked=${leadId}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/operator-portal.html`
+      });
+      return res.redirect(session.url);
+    }
+    res.redirect(`${reqOrigin}/operator-portal.html?rfp_unlocked=${leadId}&simulated=true`);
+  } catch (err) {
+    console.error('Bid token checkout error:', err);
+    res.redirect('/operator-portal.html');
+  }
+});
+
+// Quick GET redirect for $49 Municipal Permit Packet Checkout
+app.get('/api/checkout/permit-packet', async (req, res) => {
+  try {
+    const city = req.query.city || 'Atlanta';
+    const niche = req.query.niche || 'Commercial Equipment';
+    let reqOrigin = 'https://www.reliantverified.com';
+    try {
+      if (req.headers.origin) reqOrigin = req.headers.origin;
+      else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+    } catch(e){}
+
+    if (stripe) {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        mode: 'payment',
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: 4900,
+            product_data: {
+              name: `Municipal Right-of-Way Permit Filing Packet ($49) - ${city}`,
+              description: `Automated municipal street obstruction & right-of-way permit application packet for ${niche} deployment in ${city}.`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'permit_packet',
+          city,
+          niche
+        },
+        success_url: `${reqOrigin}/receipt/permit?city=${encodeURIComponent(city)}&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${reqOrigin}/`
+      });
+      return res.redirect(session.url);
+    }
+    res.redirect(`${reqOrigin}/receipt/permit?city=${encodeURIComponent(city)}&simulated=true`);
+  } catch (err) {
+    console.error('Permit packet checkout error:', err);
+    res.redirect('/');
   }
 });
 
