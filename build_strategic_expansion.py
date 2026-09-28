@@ -247,7 +247,7 @@ for m in metros:
           {city} Municipal Event Sanitation Calculator
         </h2>
         <p class="text-xs sm:text-sm text-slate-600 mt-1">
-          Calculate the exact number of restroom stations, ADA suites, and electrical circuits needed to meet {city} health codes.
+          Calculate the exact number of restroom stations, ADA suites, and electrical circuits needed to meet {city} health codes. Local baseline requirements in {state_full} strictly mandate minimum facility allocations to prevent environmental graywater penalties under standard code {municipal_code}.
         </p>
       </div>
 
