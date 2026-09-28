@@ -95,12 +95,10 @@
       <div class="mb-6">
         <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">1. Select Commercial Category</label>
         <select id="nicheSelect" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all">
-          <option value="luxury_restrooms" selected>Luxury Restroom Trailers & VIP Sanitation</option>
-          <option value="commercial_hvac">Commercial HVAC, Portable A/C & Chiller Units</option>
+          <option value="commercial_dumpsters" selected>Commercial Roll-Off Dumpsters (10 - 40 Yard)</option>
+          <option value="luxury_restrooms">Luxury Restroom Trailers & VIP Sanitation</option>
           <option value="cold_storage">Commercial Mobile Cold Storage & Walk-In Reefers</option>
-          <option value="crane_rigging">Heavy Mobile Crane Rental & Industrial Rigging</option>
-          <option value="temporary_power">Industrial Mobile Generators & Temporary Power</option>
-          <option value="aging_in_place">65+ Commercial Accessibility & Home Modifications</option>
+          <option value="mobile_office_trailers">Jobsite Mobile Offices & Conex Storage Units</option>
         </select>
       </div>
 
@@ -310,14 +308,22 @@
 
     function updateNicheUI() {
       const niche = nicheSelect.value;
-      if (niche === 'commercial_hvac') {
-        scopeLabel.innerText = "2. Cooling Capacity (Tons)";
+      if (niche === 'commercial_dumpsters') {
+        scopeLabel.innerText = "2. Dumpster Size (Roll-Off)";
         scopeSlider.min = 10;
-        scopeSlider.max = 250;
+        scopeSlider.max = 40;
         scopeSlider.step = 10;
-        scopeSlider.value = 50;
-        scopeMin.innerText = "10 Tons";
-        scopeMax.innerText = "250+ Tons";
+        scopeSlider.value = 20;
+        scopeMin.innerText = "10 Yard";
+        scopeMax.innerText = "40 Yard";
+      } else if (niche === 'mobile_office_trailers') {
+        scopeLabel.innerText = "2. Office Trailer / Container Size";
+        scopeSlider.min = 20;
+        scopeSlider.max = 60;
+        scopeSlider.step = 10;
+        scopeSlider.value = 32;
+        scopeMin.innerText = "20 ft Conex";
+        scopeMax.innerText = "60 ft Complex";
       } else if (niche === 'cold_storage') {
         scopeLabel.innerText = "2. Trailer / Container Size";
         scopeSlider.min = 12;
@@ -326,32 +332,8 @@
         scopeSlider.value = 20;
         scopeMin.innerText = "12 ft Unit";
         scopeMax.innerText = "53 ft Dock-Height";
-      } else if (niche === 'crane_rigging') {
-        scopeLabel.innerText = "2. Lifting Tonnage Capacity";
-        scopeSlider.min = 15;
-        scopeSlider.max = 300;
-        scopeSlider.step = 15;
-        scopeSlider.value = 50;
-        scopeMin.innerText = "15 Tons";
-        scopeMax.innerText = "300+ Tons";
-      } else if (niche === 'temporary_power') {
-        scopeLabel.innerText = "2. Generator Output (kW)";
-        scopeSlider.min = 25;
-        scopeSlider.max = 500;
-        scopeSlider.step = 25;
-        scopeSlider.value = 100;
-        scopeMin.innerText = "25 kW";
-        scopeMax.innerText = "500+ kW";
-      } else if (niche === 'aging_in_place') {
-        scopeLabel.innerText = "2. Scope of Modification";
-        scopeSlider.min = 1;
-        scopeSlider.max = 5;
-        scopeSlider.step = 1;
-        scopeSlider.value = 2;
-        scopeMin.innerText = "Single Entry Ramp";
-        scopeMax.innerText = "Full Commercial Suite";
       } else {
-        scopeLabel.innerText = "2. Attendance / Crew Capacity";
+        scopeLabel.innerText = "2. Attendance / Guest Capacity";
         scopeSlider.min = 50;
         scopeSlider.max = 1000;
         scopeSlider.step = 25;
@@ -367,29 +349,30 @@
       const scope = parseInt(scopeSlider.value);
       const days = parseInt(durationSlider.value);
       
-      let baseRate = 1200;
-      let recText = "Standard Fleet Unit";
+      let baseRate = 495;
+      let recText = "Standard Commercial Unit";
 
-      if (niche === 'commercial_hvac') {
-        scopeValue.innerText = `${scope} Tons`;
-        baseRate = 2800 + (scope * 55);
-        recText = scope > 100 ? `${scope}-Ton Industrial Air-Cooled Chiller` : `${scope}-Ton Skid-Mounted Commercial Package Unit`;
+      if (niche === 'commercial_dumpsters') {
+        scopeValue.innerText = `${scope} Yard Roll-Off`;
+        let dumpBase = 495;
+        if (scope === 10) dumpBase = 395;
+        else if (scope === 20) dumpBase = 495;
+        else if (scope === 30) dumpBase = 595;
+        else dumpBase = 695;
+        const total = dumpBase + (days > 10 ? (days - 10) * 15 : 0);
+        totalCostEl.innerText = total.toLocaleString();
+        equipmentRec.innerText = `${scope}-Yard Heavy-Duty Commercial Roll-Off Container (${scope === 10 ? '1-2 Tons' : scope === 20 ? '2-3 Tons' : scope === 30 ? '3-4 Tons' : '4-5 Tons'} Included, 10 Days On-Site)`;
+        return;
+      } else if (niche === 'mobile_office_trailers') {
+        scopeValue.innerText = `${scope} ft Mobile Office`;
+        const total = 450 + (scope * 8) + (days * 12);
+        totalCostEl.innerText = total.toLocaleString();
+        equipmentRec.innerText = `${scope}ft Commercial Jobsite Mobile Office Container (Dual Desks, Climate A/C & Security Bars)`;
+        return;
       } else if (niche === 'cold_storage') {
         scopeValue.innerText = `${scope} ft Trailer`;
         baseRate = 1850 + (scope * 45);
         recText = `${scope}ft Dual-Temp Walk-In Refrigeration Trailer (-10°F to 38°F)`;
-      } else if (niche === 'crane_rigging') {
-        scopeValue.innerText = `${scope} Tons`;
-        baseRate = 3500 + (scope * 60);
-        recText = `${scope}-Ton All-Terrain Hydraulic Mobile Crane`;
-      } else if (niche === 'temporary_power') {
-        scopeValue.innerText = `${scope} kW`;
-        baseRate = 1500 + (scope * 15);
-        recText = `${scope}kW Sound-Attenuated Diesel Commercial Generator`;
-      } else if (niche === 'aging_in_place') {
-        scopeValue.innerText = scope === 1 ? 'Single Ramp' : scope === 5 ? 'Whole-Facility ADA Overhaul' : `Phase ${scope} Conversion`;
-        baseRate = 2200 * scope;
-        recText = `Certified CAPS Commercial Accessibility Package (Phase ${scope})`;
       } else {
         scopeValue.innerText = scope >= 1000 ? '1,000+ Guests' : `${scope} Guests`;
         baseRate = 1200;
@@ -400,12 +383,9 @@
         recText = scope > 500 ? '10-Station Festival Suite' : scope > 250 ? '6-Station Executive Suite' : scope > 100 ? '3-Station VIP Trailer' : '2-Station Luxury Trailer';
       }
 
-      let dayMultiplier = 1;
-      if (days > 1) dayMultiplier = 1 + ((days - 1) * 0.35);
-      const finalCost = Math.round(baseRate * dayMultiplier);
-
+      const total = baseRate + (days > 1 ? (days - 1) * (baseRate * 0.35) : 0);
       durationVal.innerText = days === 1 ? '1 Day' : `${days} Days`;
-      totalCostEl.innerText = finalCost.toLocaleString();
+      totalCostEl.innerText = Math.round(total).toLocaleString();
       equipmentRec.innerText = recText;
     }
 

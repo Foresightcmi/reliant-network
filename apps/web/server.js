@@ -1,5 +1,10 @@
 // --- 🏷️ CANONICAL NICHE ALIASES (BIDIRECTIONAL NORMALIZATION - 9 VERTICALS) ---
 const NICHE_ALIASES = {
+  'commercial_dumpsters': ['commercial_dumpsters', 'dumpsters', 'roll_off', 'dumpster_rental'],
+  'dumpsters': ['commercial_dumpsters', 'dumpsters', 'roll_off', 'dumpster_rental'],
+  'roll_off': ['commercial_dumpsters', 'dumpsters', 'roll_off', 'dumpster_rental'],
+  'mobile_office_trailers': ['mobile_office_trailers', 'office_trailers', 'conex_storage', 'jobsite_trailers'],
+  'office_trailers': ['mobile_office_trailers', 'office_trailers', 'conex_storage', 'jobsite_trailers'],
   'cold_storage': ['cold_storage', 'commercial_cold_storage'],
   'commercial_cold_storage': ['cold_storage', 'commercial_cold_storage'],
   'crane_rigging': ['crane_rigging', 'heavy_crane_rigging'],
