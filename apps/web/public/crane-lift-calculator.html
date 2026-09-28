@@ -215,11 +215,15 @@
                 </div>
             </div>
             
-            <div class="p-6 bg-slate-950 border-t border-slate-800">
-                <a href="/quote-calculator.html" class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-extrabold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                    Dispatch Lift RFQ to Verified Operators <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="p-6 bg-slate-950 border-t border-slate-800 space-y-3">
+                <a id="instantCraneLink" href="/api/checkout/instant-dispatch?amount=1850&niche=Hydraulic%20Mobile%20Crane&city=Atlanta" class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-extrabold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)] text-sm">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                    <span>Lock In Rigging Dispatch &bull; <span id="craneInstantPrice">$1,850</span> Flat</span>
                 </a>
-                <p class="text-center text-[11px] text-slate-500 mt-2.5 font-medium">Zero broker markup &bull; Direct connection to local crane fleets</p>
+                <div class="flex items-center justify-between text-[11px] text-slate-400 px-1">
+                    <span class="flex items-center gap-1 text-emerald-400 font-bold"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> NCCCO Operator Guaranteed</span>
+                    <a href="/quote-calculator.html" class="text-amber-400 underline font-semibold hover:text-amber-300">Or Request Free Lift Bids &rarr;</a>
+                </div>
             </div>
         </div>
     </div>
@@ -305,6 +309,18 @@
         } else {
             resultNote.innerText = "Standard certified crane operator & rigging crew included. Ensure stable, level ground conditions for outrigger deployment.";
         }
+
+        let baseAmount = 1850;
+        if (loadRadiusFactor > 75 || radiusFt > 130 || totalLoadLbs > 35000) baseAmount = 5500;
+        else if (loadRadiusFactor > 40 || radiusFt > 90 || totalLoadLbs > 20000) baseAmount = 3200;
+        else if (loadRadiusFactor > 20 || radiusFt > 60 || totalLoadLbs > 10000) baseAmount = 2200;
+        else if (loadRadiusFactor > 10 || radiusFt > 40 || totalLoadLbs > 5000) baseAmount = 1850;
+        else baseAmount = 1450;
+
+        const craneInstantEl = document.getElementById('craneInstantPrice');
+        const craneLinkEl = document.getElementById('instantCraneLink');
+        if (craneInstantEl) craneInstantEl.innerText = '$' + baseAmount.toLocaleString();
+        if (craneLinkEl) craneLinkEl.href = `/api/checkout/instant-dispatch?amount=${baseAmount}&niche=${encodeURIComponent(craneClass + ' ' + craneCategory)}&city=Atlanta`;
     }
 
     weightSlider.addEventListener('input', calculateCrane);

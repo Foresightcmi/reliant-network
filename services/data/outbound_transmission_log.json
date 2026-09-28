@@ -133,5 +133,35 @@
     "timestamp": "2026-09-28T22:49:21.344066+00:00",
     "status": "SIMULATED_SENT",
     "mode": "simulation"
+  },
+  {
+    "company": "Atlanta Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@atlanta-mega-wa.com",
+    "city": "Atlanta",
+    "subject": "Atlanta Mega-Watt Emergency Power Fleets 2026 commercial verification badge (Atlanta)",
+    "campaign": "badge",
+    "timestamp": "2026-09-28T23:13:23.639727+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Miami Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@miami-mega-watt.com",
+    "city": "Miami",
+    "subject": "Miami Mega-Watt Emergency Power Fleets 2026 commercial verification badge (Miami)",
+    "campaign": "badge",
+    "timestamp": "2026-09-28T23:13:23.639863+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Los Angeles Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@los-angeles-meg.com",
+    "city": "Los Angeles",
+    "subject": "Los Angeles Mega-Watt Emergency Power Fleets 2026 commercial verification badge (Los Angeles)",
+    "campaign": "badge",
+    "timestamp": "2026-09-28T23:13:23.639943+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
   }
 ]

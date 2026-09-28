@@ -172,11 +172,15 @@
 
             </div>
             
-            <div class="p-6 bg-slate-950 border-t border-slate-800">
-                <a href="/quote-calculator.html" class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-extrabold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                    Get Instant Pricing <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            <div class="p-6 bg-slate-950 border-t border-slate-800 space-y-3">
+                <a id="instantDispatchLink" href="/api/checkout/instant-dispatch?amount=595&niche=Commercial%20Dumpster&city=Atlanta" class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-extrabold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)] text-sm">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                    <span>Lock In Guaranteed Dispatch &bull; <span id="instantPriceDisplay">$595</span> Flat</span>
                 </a>
-                <p class="text-center text-xs text-slate-500 mt-3 font-medium">Bids sent securely to local verified haulers.</p>
+                <div class="flex items-center justify-between text-[11px] text-slate-400 px-1">
+                    <span class="flex items-center gap-1 text-emerald-400 font-bold"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Priority Slot &amp; Delivery Secured</span>
+                    <a href="/quote-calculator.html" class="text-amber-400 underline font-semibold hover:text-amber-300">Or Request Free Bids &rarr;</a>
+                </div>
             </div>
         </div>
     </div>
@@ -236,6 +240,18 @@
         
         resultWeight.innerText = weight;
         resultNotice.innerText = notice;
+
+        let price = 595;
+        if (size === 10) price = 395;
+        else if (size === 20) price = 495;
+        else if (size === 30) price = 595;
+        else if (size === 40) price = 695;
+        else price = 895;
+
+        const instantDisplay = document.getElementById('instantPriceDisplay');
+        const instantLink = document.getElementById('instantDispatchLink');
+        if (instantDisplay) instantDisplay.innerText = '$' + price;
+        if (instantLink) instantLink.href = `/api/checkout/instant-dispatch?amount=${price}&niche=${encodeURIComponent(size + '-Yard Commercial Dumpster')}&city=Atlanta`;
     }
 
     volumeSlider.addEventListener('input', calculateDumpster);

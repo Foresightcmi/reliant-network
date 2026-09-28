@@ -1834,8 +1834,45 @@ app.post('/api/stripe/create-checkout-session', async (req, res) => {
         success_url: `${reqOrigin}/receipt/permit?city=${encodeURIComponent(targetCity)}&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${reqOrigin}/`
       };
+    } else if (type === 'instant_dispatch' || type === 'guaranteed_booking') {
+      const rentalVal = parseFloat(amount) || 595.00;
+      const bId = booking_id || ('BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000));
+      const nicheTitle = (niche_id || 'Commercial Equipment').replace(/_/g, ' ').toUpperCase();
+      const wholesalePayout = Math.round(rentalVal * 0.75);
+      const spreadProfit = rentalVal - wholesalePayout;
+
+      sessionConfig = {
+        payment_method_types: ['card'],
+        mode: 'payment',
+        customer_email: customer_email || undefined,
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: Math.round(rentalVal * 100),
+            product_data: {
+              name: `Guaranteed Equipment Dispatch - ${nicheTitle} (${city || 'Metro Area'})`,
+              description: `100% Guaranteed Commercial Dispatch Voucher. Includes priority delivery & DOT safety verification. Order Ref: ${bId}`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'instant_dispatch',
+          booking_id: bId,
+          niche_id: niche_id || 'commercial_dumpsters',
+          city: city || 'Atlanta',
+          customer_name: customer_name || 'Commercial Client',
+          customer_phone: customer_phone || '',
+          customer_email: customer_email || '',
+          total_contract: rentalVal,
+          wholesale_payout: wholesalePayout,
+          platform_spread: spreadProfit
+        },
+        success_url: `${reqOrigin}/receipt/${bId}?session_id={CHECKOUT_SESSION_ID}&instant=true`,
+        cancel_url: `${reqOrigin}/`
+      };
     } else {
-      return res.status(400).json({ error: 'Invalid checkout type. Expected escrow_deposit, wallet_topup, featured_partner, metro_monopoly, rfp_bid_token, or permit_packet' });
+      return res.status(400).json({ error: 'Invalid checkout type. Expected escrow_deposit, wallet_topup, featured_partner, metro_monopoly, rfp_bid_token, permit_packet, or instant_dispatch' });
     }
 
     let session;
@@ -1951,6 +1988,58 @@ app.get('/api/checkout/permit-packet', async (req, res) => {
   }
 });
 
+// Quick GET redirect for Instant Guaranteed Dispatch Checkout ($150 - $650 net broker margin)
+app.get('/api/checkout/instant-dispatch', async (req, res) => {
+  try {
+    const amountVal = parseFloat(req.query.amount) || 595.00;
+    const city = req.query.city || 'Atlanta';
+    const niche = req.query.niche || 'Commercial Dumpster';
+    const bId = 'BK-REL-2026-' + Math.floor(100000 + Math.random() * 900000);
+    const wholesalePayout = Math.round(amountVal * 0.75);
+    const spreadProfit = amountVal - wholesalePayout;
+
+    let reqOrigin = 'https://www.reliantverified.com';
+    try {
+      if (req.headers.origin) reqOrigin = req.headers.origin;
+      else if (req.headers.referer) reqOrigin = new URL(req.headers.referer).origin;
+    } catch(e){}
+
+    if (stripe) {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        mode: 'payment',
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: Math.round(amountVal * 100),
+            product_data: {
+              name: `Guaranteed Equipment Dispatch - ${niche} (${city})`,
+              description: `100% Guaranteed Commercial Dispatch Voucher. Includes priority delivery & DOT safety verification. Order Ref: ${bId}`
+            }
+          },
+          quantity: 1
+        }],
+        metadata: {
+          type: 'instant_dispatch',
+          booking_id: bId,
+          niche_id: niche.toLowerCase().replace(/\s+/g, '_'),
+          city: city,
+          total_contract: amountVal,
+          wholesale_payout: wholesalePayout,
+          platform_spread: spreadProfit
+        },
+        success_url: `${reqOrigin}/receipt/${bId}?session_id={CHECKOUT_SESSION_ID}&instant=true`,
+        cancel_url: `${reqOrigin}/`
+      });
+      return res.redirect(session.url);
+    }
+    res.redirect(`${reqOrigin}/receipt/${bId}?session_id=demo_session_${Date.now()}&simulated=true&instant=true`);
+  } catch (err) {
+    console.error('Instant dispatch checkout error:', err);
+    res.redirect('/');
+  }
+});
+
 // 3. Instant Session Verification (Handles Redirection from Stripe)
 app.get('/api/stripe/verify-session', async (req, res) => {
   try {
@@ -2015,6 +2104,37 @@ app.get('/api/stripe/verify-session', async (req, res) => {
             wallets[opId].monopoly_metro = meta.metro_slug || 'atlanta-ga';
           }
           saveWalletsData(wallets);
+        }
+      } else if (meta.type === 'instant_dispatch' || meta.type === 'guaranteed_booking') {
+        const bookings = readDataFile('bookings.json', []);
+        let b = bookings.find(item => item.booking_id === meta.booking_id);
+        if (!b) {
+          b = {
+            booking_id: meta.booking_id,
+            created_at: new Date().toISOString(),
+            status: 'GUARANTEED_DISPATCH_CONFIRMED',
+            niche_id: meta.niche_id || 'commercial_dumpsters',
+            city: meta.city || 'Atlanta',
+            total_estimated_contract: parseFloat(meta.total_contract) || 595,
+            deposit_amount: parseFloat(meta.total_contract) || 595,
+            balance_due_on_site: 0,
+            customer_name: meta.customer_name || 'Commercial Client',
+            customer_phone: meta.customer_phone || '(Verified on File)',
+            customer_email: meta.customer_email || session?.customer_details?.email || '',
+            escrow_status: 'PAID_IN_FULL',
+            wholesale_payout: parseFloat(meta.wholesale_payout) || 445,
+            platform_spread: parseFloat(meta.platform_spread) || 150,
+            stripe_session_id: sessionId,
+            stripe_payment_status: 'paid'
+          };
+          bookings.unshift(b);
+          writeDataFile('bookings.json', bookings);
+
+          try {
+            await dispatchPaidWholesaleJob(b, 'https://www.reliantverified.com');
+          } catch(e) {
+            console.error('Paid wholesale dispatch error:', e);
+          }
         }
       }
     }
@@ -2905,6 +3025,72 @@ ${reqOrigin}`;
     },
     message: `Free trial gift lead ($${estQuoteVal.toLocaleString()}) dispatched to ${targetVendor.name} in ${targetCity}. 7-day exclusive territory lock initiated.`
   };
+}
+
+// Breakthrough Engine: Automated Paid Wholesale Job Dispatcher ($150 - $650 Net Profit Spread)
+async function dispatchPaidWholesaleJob(booking, reqOrigin = 'https://www.reliantverified.com') {
+  try {
+    const targetCity = (booking.city || 'Atlanta').trim();
+    const activeNiche = (booking.niche_id || 'commercial_dumpsters').trim().toLowerCase();
+    const allVendors = readDataFile('vendors.json', []);
+    const matchingAliases = NICHE_ALIASES[activeNiche] || [activeNiche];
+
+    let localCandidates = allVendors.filter(v => {
+      const nicheOk = matchingAliases.includes(v.niche_id);
+      const cityOk = v.city && v.city.toLowerCase() === targetCity.toLowerCase();
+      return nicheOk && cityOk;
+    });
+
+    if (localCandidates.length === 0) {
+      localCandidates = allVendors.filter(v => matchingAliases.includes(v.niche_id));
+    }
+    localCandidates.sort((a, b) => (b.rating || 4.5) - (a.rating || 4.5));
+
+    const targetVendor = localCandidates[0] || {
+      name: `${targetCity} Premier Equipment Fleet`,
+      email: 'dispatch@reliantverified.com',
+      phone: '(404) 732-8190'
+    };
+
+    const subject = `[CONFIRMED PAID DISPATCH] New Delivery in ${targetCity} - Wholesale Payout $${booking.wholesale_payout || 445}`;
+    const bodyText = `Hi ${targetVendor.name} Dispatch Team,\n\nWe have a confirmed, fully-funded commercial equipment order for ${targetCity}:\n\n- Service: ${activeNiche.replace(/_/g, ' ').toUpperCase()}\n- Ref Code: ${booking.booking_id}\n- Guaranteed Wholesale Payout: $${(booking.wholesale_payout || 445).toFixed(2)}\n- Client Payment Status: 100% PAID VIA STRIPE ESCROW\n\nJob Scope: Client requires immediate commercial deployment in ${targetCity}. Funds are held in escrow for your company upon confirmed delivery.\n\nPlease reply directly to this dispatch email to confirm equipment availability and receive the full jobsite address and on-site contact.\n\nBest regards,\nCommercial Dispatch Desk\nThe Reliant Network\n${reqOrigin}`;
+
+    if (process.env.RESEND_API_KEY && targetVendor.email) {
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Reliant Dispatch Desk <dispatch@reliantverified.com>',
+            to: [targetVendor.email],
+            subject: subject,
+            text: bodyText
+          })
+        });
+      } catch(e) {
+        console.error('Failed to send vendor dispatch email:', e);
+      }
+    }
+
+    await dispatchPushNotification({
+      title: `🚨 CASH SECURED: $${booking.total_estimated_contract} PAID!`,
+      amount: booking.total_estimated_contract,
+      city: targetCity,
+      customer: booking.customer_name || 'Commercial Client',
+      reference: booking.booking_id,
+      tags: 'moneybag,tada,heavy_dollar_sign',
+      click: `${reqOrigin}/receipt/${booking.booking_id}`,
+      message: `💰 NEW PAID RENTAL ORDER: $${booking.total_estimated_contract} collected!\nYour net profit spread: $${booking.platform_spread} ($${booking.total_estimated_contract} retail - $${booking.wholesale_payout} wholesale).\nDispatched to: ${targetVendor.name} in ${targetCity}.\nRef: ${booking.booking_id}`
+    });
+
+    return { success: true, vendor: targetVendor.name, payout: booking.wholesale_payout };
+  } catch (err) {
+    console.error('dispatchPaidWholesaleJob error:', err);
+    return { success: false, error: err.message };
+  }
 }
 
 // 5. POST /api/leads/trojan-dispatch

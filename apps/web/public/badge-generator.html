@@ -223,9 +223,9 @@
 
       document.getElementById('preview-link').href = '/metro/' + metroSlug;
       document.getElementById('preview-img').src = '/badges/' + currentTheme;
-      document.getElementById('preview-img').alt = 'Vetted Top Restroom Provider in ' + city + ' 2026 - The Reliant Network';
+      document.getElementById('preview-img').alt = 'Reliant Verified Commercial Fleet in ' + city + ' 2026 - The Reliant Network';
 
-      const snippet = '<!-- The Reliant Network Verified Partner Badge -->\n<a href="' + targetUrl + '" target="_blank" rel="noopener" title="Vetted Top Commercial Restroom Fleet in ' + city + ' - The Reliant Network">\n  <img src="' + badgeImgUrl + '" alt="Vetted Top Restroom Fleet in ' + city + ' 2026 - The Reliant Network" width="240" height="76" border="0" />\n</a>';
+      const snippet = '<!-- The Reliant Network Verified Partner Trust Badge -->\n<a href="' + targetUrl + '" target="_blank" rel="noopener" title="Reliant Verified Commercial Contractor - ' + city + '">\n  <img src="' + badgeImgUrl + '" alt="Reliant Verified Commercial Fleet 2026 - ' + city + '" width="220" height="70" border="0" />\n</a>';
 
       document.getElementById('badge-code').value = snippet;
       try { lucide.createIcons(); } catch(e){}
@@ -276,6 +276,22 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const companyParam = urlParams.get('company');
+      const metroParam = urlParams.get('metro');
+      if (companyParam) {
+        document.getElementById('b-company').value = companyParam;
+      }
+      if (metroParam) {
+        const metroSelect = document.getElementById('b-metro');
+        const targetSlug = metroParam.toLowerCase().replace(/[^a-z]/g, '');
+        for (let i = 0; i < metroSelect.options.length; i++) {
+          if (metroSelect.options[i].value.toLowerCase().includes(targetSlug)) {
+            metroSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
       updateBadge();
       try { lucide.createIcons(); } catch(e){}
     });
