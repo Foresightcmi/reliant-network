@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.reliantverified.com/sitemap.xml
+
+# Generative Engine Optimization (GEO) & Machine-Readable Grounding
+# https://www.reliantverified.com/llms.txt
+# https://www.reliantverified.com/llms-full.txt

@@ -62,7 +62,11 @@
 - **Cold Storage Hub**: https://www.reliantverified.com/cold-storage
 - **Mobile Cranes Hub**: https://www.reliantverified.com/cranes
 - **Staying in Place Hub**: https://www.reliantverified.com/staying-in-place
-- **Senior Placement Hub**: https://www.reliantverified.com/senior-care
+- **Commercial Equipment Sizing Calculators Hub**: https://www.reliantverified.com/calculators.html
+- **Commercial Dumpster Size Calculator**: https://www.reliantverified.com/dumpster-size-calculator.html
+- **Mobile Crane Lift Capacity & Radius Estimator**: https://www.reliantverified.com/crane-lift-calculator.html
+- **Luxury Restroom Trailer Sizing Engine**: https://www.reliantverified.com/luxury-restroom-calculator.html
+- **Mobile Cold Storage & Reefer Estimator**: https://www.reliantverified.com/cold-storage-calculator.html
 - **B2B Operator Portal**: https://www.reliantverified.com/operator-portal.html
 - **Commercial Fleet Financing & Section 179 Calculator**: https://www.reliantverified.com/financing
 - **Partner Trust Badge Generator**: https://www.reliantverified.com/badge-generator.html

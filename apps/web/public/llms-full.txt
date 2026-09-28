@@ -127,3 +127,13 @@ Vertical Hubs:
 - **Official Badge Vector**: `https://www.reliantverified.com/badges/verified-2026.svg`
 - **Partner Incentives**: Embedding badge on operator site unlocks 30 Days Free Featured Rank ($99 value) and a permanent 15% discount on all RFQ lead unlocks.
 - **Verification Hook**: `GET /api/growth/verify-badge-backlink/:vendorId` validates reciprocal backlink status and updates operator wallet state in real-time.
+
+---
+
+## 6. Commercial Equipment Sizing & Cost Calculators Suite
+
+1. **Commercial Equipment Sizing Calculators Hub (`/calculators.html`)**: Central directory resource connecting all four proprietary sizing engines for engineering, logistics, and site procurement teams.
+2. **Commercial Dumpster Size Calculator (`/dumpster-size-calculator.html`)**: Computes required roll-off container volume (10-yard, 20-yard, 30-yard, 40-yard) based on pickup truckload equivalents, project category (Concrete/Heavy Dirt, Roofing Shingles, Commercial Construction, Office Cleanouts), and DOT axle weight limitations.
+3. **Mobile Crane Lift Capacity & Radius Estimator (`/crane-lift-calculator.html`)**: Algorithmic mobile crane sizing based on net load weight, center-pin working radius, and tip height. Applies OSHA and ANSI B30 75% load chart safety limits and rigging deductions (1,200 lbs) to determine crane class (40-Ton to 300-Ton all-terrain hydraulics) and estimated daily rental ranges.
+4. **Luxury Restroom Trailer Sizing Engine (`/luxury-restroom-calculator.html`)**: Sizing engine using Portable Sanitation Association International (PSAI) standards. Computes station count (2-station to 10-station presidential suites), dual A/C, onboard fresh/waste tank capacities (250 gal to 1,100 gal), and weekend event pricing based on guest counts, event duration, and alcohol consumption factors.
+5. **Mobile Cold Storage & Reefer Estimator (`/cold-storage-calculator.html`)**: Commercial cold chain sizing for food and pharmaceutical distribution. Calculates standard 40"x48" pallet capacity (2 to 28 pallets), temperature range requirements (-20°F Deep Freeze, 0°F Freezer, 36°F Cooler), 208V/230V/460V 3-phase electric shore power hookups, and monthly lease rates for walk-in reefers and dock-height trailers.
