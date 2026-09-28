@@ -790,13 +790,26 @@ import sys, json, os
 sys.path.append(r"${path.join(__dirname, '..', '..', 'services', 'lead_engine')}")
 from dispatcher import LeadBrokerDispatcher
 dispatcher = LeadBrokerDispatcher()
-res = dispatcher.dispatch_lead("${leadId}")
+lead_data = json.loads(sys.stdin.read())
+res = dispatcher.dispatch_lead(lead_data)
 print(json.dumps(res))
 `;
-    const dispatchResult = runPythonOrFallback(dScript, null, () => ({
+    const dispatchPayload = {
+      lead_code: leadCode,
+      city: city || 'Atlanta',
+      state: state || 'GA',
+      niche_id: activeNiche,
+      customer_name: customer_name,
+      customer_phone: customer_phone,
+      estimated_quote: qualResult.estimated_quote,
+      lead_price: qualResult.lead_price,
+      stripe_payment_link: stripeLink
+    };
+
+    const dispatchResult = runPythonOrFallback(dScript, dispatchPayload, () => ({
       dispatched: true,
       lead_id: leadId,
-      operators_matched: 3,
+      operators_matched: 0,
       channel: 'web_portal_and_email',
       timestamp: new Date().toISOString()
     }));
