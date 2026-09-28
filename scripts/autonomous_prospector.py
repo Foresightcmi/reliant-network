@@ -22,6 +22,19 @@ CITIES = [
 VENDORS_FILE = os.path.join(os.path.dirname(__file__), '..', 'services', 'data', 'vendors.json')
 CSV_OUT = os.path.join(os.path.dirname(__file__), '..', 'reliant_outbound_campaign_expanded_v2.csv')
 
+NICHE_MAP = {
+    'luxury_restrooms': 'luxury restroom trailer',
+    'commercial_roofing': 'commercial roofing',
+    'asphalt_paving': 'asphalt paving',
+    'crane_rigging': 'crane & heavy rigging',
+    'commercial_dumpster': 'commercial dumpster',
+    'temporary_power': 'mobile power & generator',
+    'cold_storage': 'commercial cold storage',
+    'hazmat_remediation': 'environmental remediation',
+    'aging_in_place': 'commercial accessibility',
+    'private_jet_charter': 'private jet charter'
+}
+
 def get_duckduckgo_results(query):
     # Lightweight scraper to bypass bot protection without headless Chrome
     url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(query)}"
@@ -102,16 +115,44 @@ def run_prospector():
     with open(VENDORS_FILE, 'w', encoding='utf-8') as f:
         json.dump(existing_vendors, f, indent=2)
         
-    # Generate the Outbound CSV for the GMass Campaign
+    # Generate the Outbound CSV for Cold Outreach (Corey Haines / High-Converting B2B Standard)
     import csv
     with open(CSV_OUT, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['Company Name', 'Email', 'City', 'Niche', 'Loss Aversion Pitch'])
+        writer.writerow(['Company Name', 'Email', 'City', 'Niche', 'Subject Line', 'Email Body', 'Follow Up Subject', 'Follow Up Body'])
         for v in existing_vendors:
             if not v.get('subscription_active'):
-                niche = v.get('niche', 'commercial service')
-                pitch = f"Someone in {v['city']} just requested a quote for {niche}. I'm holding the lead. You have 24 hours to claim your {v['city']} territory before I give it to your competitor."
-                writer.writerow([v['name'], v['email'], v['city'], niche, pitch])
+                city = v.get('city', 'your area')
+                raw_niche = v.get('niche') or v.get('niche_id') or 'commercial equipment'
+                clean_niche = NICHE_MAP.get(raw_niche, raw_niche.replace('_', ' '))
+                company = v.get('name', 'Team')
+                
+                niche_descriptor = clean_niche if 'commercial' in clean_niche else f"commercial {clean_niche}"
+                subject = f"{city} {niche_descriptor} inquiry"
+                
+                body = (
+                    f"Hi {company} team,\n\n"
+                    f"We run the regional B2B vendor network for {city} and frequently receive inbound inquiries "
+                    f"for {niche_descriptor} projects.\n\n"
+                    f"Rather than managing the crews directly, we partner with one qualified operator in each metro "
+                    f"to route all quote requests exclusively.\n\n"
+                    f"Are you currently accepting new commercial accounts in {city} this month?\n\n"
+                    f"Best regards,\n"
+                    f"Commercial Operations Desk | Reliant Verified Network\n"
+                    f"https://www.reliantverified.com"
+                )
+                
+                fu_subject = f"re: {city} {niche_descriptor} inquiry"
+                fu_body = (
+                    f"Hi {company} team,\n\n"
+                    f"Quick follow-up on my note below—we're finalizing our exclusive dispatch partner for {city} "
+                    f"for upcoming commercial RFQs.\n\n"
+                    f"If you have capacity for additional volume, let me know and I can send over the partner onboarding link.\n\n"
+                    f"Best,\n"
+                    f"Commercial Operations Desk | Reliant Verified Network"
+                )
+                
+                writer.writerow([company, v.get('email', ''), city, clean_niche, subject, body, fu_subject, fu_body])
                 
     print(f"OUTBOUND CSV: updated at: {CSV_OUT}")
     print(f"VENDORS JSON: updated for API routing.")

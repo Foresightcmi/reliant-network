@@ -2553,52 +2553,47 @@ async function dispatchTrojanLead(leadData, reqOrigin = 'https://www.reliantveri
     }
   }
 
-  // Multi-Channel Psychological Copy
-  const smsScript = `Hey ${targetVendor.name}, we just received a high-ticket quote request for ${serviceTitle} in ${targetCity} (Est. Value: $${estQuoteVal.toLocaleString()}). We operate The Reliant Network directory—we don't do physical jobs, so we gave the client your contact info and sent the lead straight to you for $0: ${cName} at ${cPhone}. If you want first-right exclusivity to ALL incoming ${targetCity} leads before we route them to ${primaryCompetitor}, claim your 7-day territory lockout here: ${checkoutUrl}`;
+  // Multi-Channel Institutional Copy (Corey Haines & High-Ticket B2B Standard)
+  const smsScript = `Hi ${targetVendor.name}, we just received a commercial inquiry for ${serviceTitle} in ${targetCity} (est. $${estQuoteVal.toLocaleString()}). We forwarded the client's details to your dispatch: ${cName} at ${cPhone}. To review project specs and hold exclusive dispatch routing for ${targetCity}, visit: ${checkoutUrl}`;
 
-  const emailTemplate = `Subject: 🎁 Free Customer Quote Lead in ${targetCity} — ${cName} (Est. $${estQuoteVal.toLocaleString()})
+  const emailTemplate = `Subject: commercial inquiry: ${serviceTitle} (${targetCity})
 
-Hi ${targetVendor.name} Dispatch & Ownership,
+Hi ${targetVendor.name} team,
 
-A commercial client in ${targetCity} just submitted an urgent quote inquiry through The Reliant Network for ${serviceTitle}.
+A commercial client in ${targetCity} just submitted a project inquiry through our network for ${serviceTitle}.
 
-Because we operate an asset-backed B2B directory rather than performing on-site service ourselves, we have forwarded this customer directly to your fleet at ZERO CHARGE:
+Since we operate the regional commercial equipment directory and do not perform field services, we've routed this lead directly to your fleet at no charge:
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 VERIFIED CUSTOMER RFQ SPECIFICATIONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Customer / Company: ${cName}
-• Direct Phone: ${cPhone}
-• Email: ${cEmail}
-• Project Location: ${targetCity}, ${targetState}
-• Service / Equipment: ${serviceTitle}
-• Estimated Booking Value: $${estQuoteVal.toLocaleString()}
-• Urgency: High Priority Inquiry
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Client: ${cName}
+Direct Phone: ${cPhone}
+Direct Email: ${cEmail}
+Location: ${targetCity}, ${targetState}
+Scope: ${serviceTitle}
+Estimated Value: $${estQuoteVal.toLocaleString()}
 
-We recommend contacting ${cName} immediately to secure the booking.
+We recommend reaching out to ${cName} directly to review project specifications.
 
-WHY ARE WE SENDING YOU THIS FOR FREE?
-The Reliant Network operates under a strict "One Exclusive Contractor Per Metropolitan Market" policy. Instead of selling cold marketing services, we partner with the #1 rated operator in each city to rent our digital territory.
+Why this was routed to you:
+Our directory operates an exclusive single-operator model per metro. We forward inbound RFQs to the top-rated local provider rather than blasting them to multiple competing bidders.
 
-We are giving your company an exclusive 7-Day First Right of Refusal to rent the ${targetCity} territory for a flat $299/month (zero commissions, zero percentage cuts, 100% lead exclusivity).
-
-If you choose not to reserve the territory within 7 days, all subsequent quote inquiries in ${targetCity} will be permanently routed to verified competitors including ${competitors.join(', ') || 'local operators'}.
-
-👉 Lock Your Exclusive Metro Monopoly ($299/mo):
+We are holding an exclusive 7-day reservation on the ${targetCity} territory for your company. If you'd like ongoing exclusive rights to all incoming commercial inquiries in this market, you can activate your territory placement here ($299/mo, cancel anytime):
 ${checkoutUrl}
 
-👉 Access Operator Command Portal:
+Operator Portal:
 ${reqOrigin}/operator-portal.html?operator_id=${targetVendor.id}
 
+If your fleet is currently at maximum capacity, please let us know so we can reassign future inquiries to other verified providers in ${targetCity}.
+
 Best regards,
-Dispatch Operations | The Reliant Network`;
+Commercial Operations Desk
+Reliant Verified Network
+${reqOrigin}`;
 
   const phoneScript = {
-    opening: `Hi ${targetVendor.name}, this is Dispatch with The Reliant Network. I'm calling because we just received a commercial quote request for ${serviceTitle} right here in ${targetCity} worth an estimated $${estQuoteVal.toLocaleString()}. Did you receive the email and text we just sent you with the customer's phone number?`,
-    lead_handoff: `We operate the regional directory network for verified equipment fleets, so we don't perform the physical work ourselves. That lead is 100% yours as a complimentary gift—go ahead and call ${cName} at ${cPhone} to close the job.`,
-    monopoly_pitch: `Here is how our model works: we only partner with ONE exclusive company per metropolitan area. We gave you this first high-ticket job for free so you can see the lead quality firsthand. You have a 7-day exclusive window to test it. If you want us to route every single quote in ${targetCity} directly to your trucks, it's a flat $299 a month—zero commissions, zero contracts. If not, no hard feelings, we will transition the territory over to ${primaryCompetitor}.`,
-    call_to_action: `I've sent the direct Stripe reservation link straight to your text and email. Lock down the ${targetCity} territory now so nobody else can take it.`
+    opening: `Hi ${targetVendor.name}, this is Dispatch with the Reliant Verified Network. We just received a commercial RFQ for ${serviceTitle} in ${targetCity} estimated at $${estQuoteVal.toLocaleString()}, and we just forwarded the client's direct contact info to your inbox. Did you get that?`,
+    lead_handoff: `We operate the regional commercial equipment registry, so we don't handle field operations ourselves. That client is yours to contact directly—${cName} at ${cPhone}.`,
+    monopoly_pitch: `Our model reserves each metropolitan market for one verified operator so you aren't bidding against 10 other companies. We wanted to send this first project over at no charge so you could evaluate the lead quality. We have an exclusive 7-day hold on the ${targetCity} territory for you. It's a flat $299 a month for 100% exclusive routing of all incoming quote requests.`,
+    call_to_action: `I sent the reservation link to your email. If you have the capacity to take on more commercial jobs in ${targetCity}, you can activate it right there.`
   };
 
   // Persist to target vendor's wallet
