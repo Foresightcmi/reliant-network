@@ -1,0 +1,137 @@
+[
+  {
+    "company": "Atlanta Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@atlanta-mega-wa.com",
+    "city": "Atlanta",
+    "subject": "Atlanta commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675226Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Miami Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@miami-mega-watt.com",
+    "city": "Miami",
+    "subject": "Miami commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675358Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Los Angeles Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@los-angeles-meg.com",
+    "city": "Los Angeles",
+    "subject": "Los Angeles commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675431Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Houston Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@houston-mega-wa.com",
+    "city": "Houston",
+    "subject": "Houston commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675511Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Denver Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@denver-mega-wat.com",
+    "city": "Denver",
+    "subject": "Denver commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675570Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "New York Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@new-york-mega-w.com",
+    "city": "New York",
+    "subject": "New York commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675624Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Philadelphia Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@philadelphia-me.com",
+    "city": "Philadelphia",
+    "subject": "Philadelphia commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675686Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Las Vegas Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@las-vegas-mega-.com",
+    "city": "Las Vegas",
+    "subject": "Las Vegas commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675739Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Minneapolis Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@minneapolis-meg.com",
+    "city": "Minneapolis",
+    "subject": "Minneapolis commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:00.675799Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Dallas Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@dallas-precisio.com",
+    "city": "Dallas",
+    "subject": "Dallas commercial machinery moving inquiry",
+    "timestamp": "2026-09-28T22:49:00.675861Z",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Atlanta Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@atlanta-mega-wa.com",
+    "city": "Atlanta",
+    "subject": "Atlanta commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:21.343854+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Miami Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@miami-mega-watt.com",
+    "city": "Miami",
+    "subject": "Miami commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:21.343938+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Los Angeles Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@los-angeles-meg.com",
+    "city": "Los Angeles",
+    "subject": "Los Angeles commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:21.343985+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Houston Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@houston-mega-wa.com",
+    "city": "Houston",
+    "subject": "Houston commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:21.344025+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Denver Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@denver-mega-wat.com",
+    "city": "Denver",
+    "subject": "Denver commercial mobile power & generator inquiry",
+    "timestamp": "2026-09-28T22:49:21.344066+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  }
+]

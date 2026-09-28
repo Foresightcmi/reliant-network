@@ -27846,5 +27846,17 @@
     "rating": 4.7,
     "reviews_count": 56,
     "subscription_active": false
+  },
+  {
+    "id": "vendor-757",
+    "name": "Top Commercial Roofing Companies in Atlanta, GA",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@topcommercialroofingcompaniesinatlantaga.com",
+    "phone": "555-965-9973",
+    "rating": 4.9,
+    "reviews_count": 66,
+    "subscription_active": false
   }
 ]

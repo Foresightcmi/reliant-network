@@ -1,0 +1,1900 @@
+{
+    "atlanta": {
+        "city_name": "Atlanta",
+        "state": "GA",
+        "right_of_way_permit_link": "https://atlantaga.gov/government/departments/public-works",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$472",
+                "price_range": "$401 - $637",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Atlanta Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 125,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Commercial Dumpster Pros",
+                        "rating": 5.0,
+                        "reviews": 54,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 133,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1260",
+                "price_range": "$1071 - $1701",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Atlanta Crane Rigging Pros",
+                        "rating": 5.0,
+                        "reviews": 93,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 141,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 77,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$892",
+                "price_range": "$758 - $1204",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Atlanta Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 71,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 126,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2625",
+                "price_range": "$2231 - $3543",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Atlanta Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 55,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 74,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 99,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 42,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1575",
+                "price_range": "$1338 - $2126",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Atlanta Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 44,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Atlanta Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 32,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            }
+        }
+    },
+    "denver": {
+        "city_name": "Denver",
+        "state": "CO",
+        "right_of_way_permit_link": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Transportation-and-Infrastructure/Programs-Services/Right-of-Way-Services",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$504",
+                "price_range": "$428 - $680",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Denver Commercial Dumpster Pros",
+                        "rating": 4.9,
+                        "reviews": 18,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Denver Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 44,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 27,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 89,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1344",
+                "price_range": "$1142 - $1814",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Denver Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 73,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 116,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 148,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 72,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 35,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$952",
+                "price_range": "$809 - $1285",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Denver Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 117,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 96,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 116,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 105,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 128,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2800",
+                "price_range": "$2380 - $3780",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Denver Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 82,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Hazmat Remediation Pros",
+                        "rating": 5.0,
+                        "reviews": 59,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Hazmat Remediation Pros",
+                        "rating": 5.0,
+                        "reviews": 46,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 42,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1680",
+                "price_range": "$1428 - $2268",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Denver Temporary Power Pros",
+                        "rating": 4.7,
+                        "reviews": 37,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 137,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 42,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Denver Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 118,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Denver Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 22,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            }
+        }
+    },
+    "dallas": {
+        "city_name": "Dallas",
+        "state": "TX",
+        "right_of_way_permit_link": "https://dallascityhall.com/departments/public-works/Pages/default.aspx",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$427",
+                "price_range": "$362 - $576",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Dallas Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 17,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 37,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 105,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 92,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Commercial Dumpster Pros",
+                        "rating": 4.5,
+                        "reviews": 125,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1140",
+                "price_range": "$969 - $1539",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Dallas Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 148,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 85,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Dallas Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 43,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$807",
+                "price_range": "$685 - $1089",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Dallas Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 139,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 33,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 86,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2375",
+                "price_range": "$2018 - $3206",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Dallas Hazmat Remediation Pros",
+                        "rating": 5.0,
+                        "reviews": 144,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Dallas Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 96,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 141,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Hazmat Remediation Pros",
+                        "rating": 5.0,
+                        "reviews": 51,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1425",
+                "price_range": "$1211 - $1923",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Dallas Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 107,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Dallas Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 140,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 118,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Dallas Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 20,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            }
+        }
+    },
+    "chicago": {
+        "city_name": "Chicago",
+        "state": "IL",
+        "right_of_way_permit_link": "https://www.chicago.gov/city/en/depts/cdot/provdrs/construction_information.html",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$562",
+                "price_range": "$477 - $758",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Chicago Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 30,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 147,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 35,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 57,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1500",
+                "price_range": "$1275 - $2025",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Chicago Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 116,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 142,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 115,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 138,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 63,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$1062",
+                "price_range": "$902 - $1433",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Chicago Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 21,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 107,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 144,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$3125",
+                "price_range": "$2656 - $4218",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Chicago Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 24,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 63,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 148,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Chicago Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 115,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 23,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1875",
+                "price_range": "$1593 - $2531",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Chicago Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 105,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 34,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Chicago Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 103,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            }
+        }
+    },
+    "phoenix": {
+        "city_name": "Phoenix",
+        "state": "AZ",
+        "right_of_way_permit_link": "https://www.phoenix.gov/streets/neighborhood-traffic-programs",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$450",
+                "price_range": "$382 - $607",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Phoenix Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 26,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 114,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Phoenix Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 12,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 146,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1200",
+                "price_range": "$1020 - $1620",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Phoenix Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 50,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Phoenix Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 76,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 66,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Phoenix Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 24,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 94,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$850",
+                "price_range": "$722 - $1147",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Phoenix Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 90,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Phoenix Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 40,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Luxury Restrooms Pros",
+                        "rating": 5.0,
+                        "reviews": 58,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2500",
+                "price_range": "$2125 - $3375",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Phoenix Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 145,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 127,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 117,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 111,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 78,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1500",
+                "price_range": "$1275 - $2025",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Phoenix Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 35,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 28,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Phoenix Temporary Power Pros",
+                        "rating": 5.0,
+                        "reviews": 60,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            }
+        }
+    },
+    "miami": {
+        "city_name": "Miami",
+        "state": "FL",
+        "right_of_way_permit_link": "https://www.miamigov.com/Services/Building-Permitting",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$531",
+                "price_range": "$451 - $716",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Miami Commercial Dumpster Pros",
+                        "rating": 4.5,
+                        "reviews": 42,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 38,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Miami Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 52,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1416",
+                "price_range": "$1203 - $1911",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Miami Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 64,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Miami Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 32,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Miami Crane Rigging Pros",
+                        "rating": 5.0,
+                        "reviews": 46,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$1003",
+                "price_range": "$852 - $1354",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Miami Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 15,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Luxury Restrooms Pros",
+                        "rating": 5.0,
+                        "reviews": 27,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 13,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Miami Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 106,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 75,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2950",
+                "price_range": "$2507 - $3982",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Miami Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 36,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 75,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 28,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1770",
+                "price_range": "$1504 - $2389",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Miami Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 113,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 53,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Temporary Power Pros",
+                        "rating": 4.7,
+                        "reviews": 69,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 119,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Miami Temporary Power Pros",
+                        "rating": 4.7,
+                        "reviews": 29,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            }
+        }
+    },
+    "seattle": {
+        "city_name": "Seattle",
+        "state": "WA",
+        "right_of_way_permit_link": "https://www.seattle.gov/transportation/permits-and-services/permits",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$585",
+                "price_range": "$497 - $789",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Seattle Commercial Dumpster Pros",
+                        "rating": 5.0,
+                        "reviews": 37,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 28,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 91,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1560",
+                "price_range": "$1326 - $2106",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Seattle Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 68,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 104,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 20,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 41,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 112,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$1105",
+                "price_range": "$939 - $1491",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Seattle Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 144,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 28,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 44,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Luxury Restrooms Pros",
+                        "rating": 4.5,
+                        "reviews": 83,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Luxury Restrooms Pros",
+                        "rating": 5.0,
+                        "reviews": 94,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$3250",
+                "price_range": "$2762 - $4387",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Seattle Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 104,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 145,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 112,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1950",
+                "price_range": "$1657 - $2632",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Seattle Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 84,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 32,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 75,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Seattle Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 71,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Seattle Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 12,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            }
+        }
+    },
+    "austin": {
+        "city_name": "Austin",
+        "state": "TX",
+        "right_of_way_permit_link": "https://www.austintexas.gov/department/right-way-management",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$486",
+                "price_range": "$413 - $656",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Austin Commercial Dumpster Pros",
+                        "rating": 5.0,
+                        "reviews": 122,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Austin Commercial Dumpster Pros",
+                        "rating": 4.9,
+                        "reviews": 121,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 112,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 93,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 26,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1296",
+                "price_range": "$1101 - $1749",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Austin Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 34,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 32,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 13,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$918",
+                "price_range": "$780 - $1239",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Austin Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 67,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Austin Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 119,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 125,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2700",
+                "price_range": "$2295 - $3645",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Austin Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 126,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 130,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Austin Hazmat Remediation Pros",
+                        "rating": 5.0,
+                        "reviews": 84,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Hazmat Remediation Pros",
+                        "rating": 4.7,
+                        "reviews": 58,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 132,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1620",
+                "price_range": "$1377 - $2187",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Austin Temporary Power Pros",
+                        "rating": 4.7,
+                        "reviews": 99,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 58,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Austin Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 90,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            }
+        }
+    },
+    "charlotte": {
+        "city_name": "Charlotte",
+        "state": "NC",
+        "right_of_way_permit_link": "https://charlottenc.gov/Transportation/Programs/Pages/RightOfWay.aspx",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$441",
+                "price_range": "$374 - $595",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Charlotte Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 87,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Commercial Dumpster Pros",
+                        "rating": 4.5,
+                        "reviews": 39,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 52,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Commercial Dumpster Pros",
+                        "rating": 4.6,
+                        "reviews": 101,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Commercial Dumpster Pros",
+                        "rating": 4.7,
+                        "reviews": 64,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1176",
+                "price_range": "$999 - $1587",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Charlotte Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 110,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Crane Rigging Pros",
+                        "rating": 4.8,
+                        "reviews": 66,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 99,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Crane Rigging Pros",
+                        "rating": 5.0,
+                        "reviews": 31,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 115,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$833",
+                "price_range": "$708 - $1124",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Charlotte Luxury Restrooms Pros",
+                        "rating": 4.8,
+                        "reviews": 52,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 27,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 16,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 138,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Luxury Restrooms Pros",
+                        "rating": 4.9,
+                        "reviews": 99,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2450",
+                "price_range": "$2082 - $3307",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Charlotte Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 100,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 96,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 30,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Hazmat Remediation Pros",
+                        "rating": 4.5,
+                        "reviews": 59,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1470",
+                "price_range": "$1249 - $1984",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Charlotte Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 33,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Temporary Power Pros",
+                        "rating": 4.7,
+                        "reviews": 21,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Charlotte Temporary Power Pros",
+                        "rating": 4.9,
+                        "reviews": 58,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Charlotte Temporary Power Pros",
+                        "rating": 4.8,
+                        "reviews": 99,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            }
+        }
+    },
+    "nashville": {
+        "city_name": "Nashville",
+        "state": "TN",
+        "right_of_way_permit_link": "https://www.nashville.gov/departments/transportation/permits",
+        "services": {
+            "commercial_dumpster": {
+                "median_cost": "$459",
+                "price_range": "$390 - $619",
+                "pricing_unit": "per week (20 Yard)",
+                "market_demand_index": "High",
+                "verified_vendors": [
+                    {
+                        "name": "Nashville Commercial Dumpster Pros",
+                        "rating": 5.0,
+                        "reviews": 120,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 136,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Commercial Dumpster Pros",
+                        "rating": 4.8,
+                        "reviews": 15,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Commercial Dumpster Pros",
+                        "rating": 5.0,
+                        "reviews": 143,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Commercial Dumpster Pros",
+                        "rating": 4.5,
+                        "reviews": 45,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "crane_rigging": {
+                "median_cost": "$1224",
+                "price_range": "$1040 - $1652",
+                "pricing_unit": "daily minimum",
+                "market_demand_index": "Moderate",
+                "verified_vendors": [
+                    {
+                        "name": "Nashville Crane Rigging Pros",
+                        "rating": 4.9,
+                        "reviews": 52,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 94,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Crane Rigging Pros",
+                        "rating": 4.7,
+                        "reviews": 94,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Crane Rigging Pros",
+                        "rating": 4.6,
+                        "reviews": 61,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "luxury_restrooms": {
+                "median_cost": "$867",
+                "price_range": "$736 - $1170",
+                "pricing_unit": "per weekend",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Nashville Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 76,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Luxury Restrooms Pros",
+                        "rating": 4.6,
+                        "reviews": 51,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Luxury Restrooms Pros",
+                        "rating": 4.7,
+                        "reviews": 17,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Luxury Restrooms Pros",
+                        "rating": 5.0,
+                        "reviews": 87,
+                        "verified": true,
+                        "insurance_on_file": false
+                    }
+                ]
+            },
+            "hazmat_remediation": {
+                "median_cost": "$2550",
+                "price_range": "$2167 - $3442",
+                "pricing_unit": "initial site assessment",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Nashville Hazmat Remediation Pros",
+                        "rating": 4.9,
+                        "reviews": 42,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Hazmat Remediation Pros",
+                        "rating": 4.6,
+                        "reviews": 57,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Hazmat Remediation Pros",
+                        "rating": 4.5,
+                        "reviews": 129,
+                        "verified": true,
+                        "insurance_on_file": true
+                    },
+                    {
+                        "name": "Nashville Hazmat Remediation Pros",
+                        "rating": 4.8,
+                        "reviews": 115,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            },
+            "temporary_power": {
+                "median_cost": "$1530",
+                "price_range": "$1300 - $2065",
+                "pricing_unit": "monthly setup (50kW)",
+                "market_demand_index": "Very High",
+                "verified_vendors": [
+                    {
+                        "name": "Nashville Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 97,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 75,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Temporary Power Pros",
+                        "rating": 4.6,
+                        "reviews": 114,
+                        "verified": true,
+                        "insurance_on_file": false
+                    },
+                    {
+                        "name": "Nashville Temporary Power Pros",
+                        "rating": 4.5,
+                        "reviews": 17,
+                        "verified": true,
+                        "insurance_on_file": true
+                    }
+                ]
+            }
+        }
+    }
+}
