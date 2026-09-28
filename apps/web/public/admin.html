@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reliant Verified | Admin Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen">
+  <header class="border-b border-slate-800 bg-slate-950 p-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-xl">R</div>
+        <div>
+          <h1 class="font-bold text-white leading-tight">Admin Command Center</h1>
+          <span class="text-[10px] text-amber-500 font-mono tracking-widest uppercase">Executive View</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-right">
+          <div class="text-xs text-slate-500">Unsold Leads MRR</div>
+          <div class="text-emerald-400 font-bold">$<span id="mrr-val">0</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- LEFT: System Health -->
+    <div class="space-y-6">
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5">
+        <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i> Platform Health
+        </h2>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg">
+            <span class="text-xs font-semibold text-slate-400">SEO Footprint</span>
+            <span class="text-xs font-bold text-emerald-400">750 Indexed Pages</span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg">
+            <span class="text-xs font-semibold text-slate-400">Lead Dispatcher</span>
+            <span class="text-xs font-bold text-emerald-400">Online</span>
+          </div>
+          <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg">
+            <span class="text-xs font-semibold text-slate-400">Affiliate Brokerage</span>
+            <span class="text-xs font-bold text-amber-400">Active ($100/lead)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Outbound Engine -->
+    <div class="lg:col-span-2 bg-slate-800 border border-slate-700 rounded-2xl p-5 flex flex-col">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="send" class="w-4 h-4 text-blue-400"></i> Outbound Prospecting Engine
+        </h2>
+        <span class="px-2.5 py-1 bg-slate-900 text-slate-400 text-xs rounded-lg border border-slate-700 font-mono" id="prospect-count">Loading...</span>
+      </div>
+      
+      <p class="text-xs text-slate-400 mb-6">
+        Click a prospect to instantly open your email client with the psychological Loss Aversion pitch pre-written. Selling 1 territory = $299/mo MRR.
+      </p>
+
+      <div class="flex-1 overflow-auto bg-slate-900 rounded-xl border border-slate-700 p-1">
+        <table class="w-full text-left text-xs">
+          <thead class="text-slate-500 uppercase font-bold sticky top-0 bg-slate-900 shadow-md">
+            <tr>
+              <th class="p-3">Company</th>
+              <th class="p-3">City</th>
+              <th class="p-3">Niche</th>
+              <th class="p-3 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="vendor-list" class="divide-y divide-slate-800">
+            <tr><td colspan="4" class="p-4 text-center text-slate-500">Loading prospects from backend...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    // Fetch Vendors from the API
+    fetch('/api/vendors')
+      .then(res => res.json())
+      .then(data => {
+        const vendors = data.vendors || [];
+        document.getElementById('prospect-count').textContent = `${vendors.length} Pending Targets`;
+        
+        let mrr = 0;
+        const tbody = document.getElementById('vendor-list');
+        tbody.innerHTML = '';
+
+        vendors.slice(0, 100).forEach(v => {
+          if (v.subscription_active) {
+            mrr += 299;
+            return;
+          }
+
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-800 transition-colors group';
+          
+          const pitch = `Someone in ${v.city} just requested a quote for ${v.niche || 'commercial services'}. I'm holding the lead. You have 24 hours to claim your ${v.city} territory before I give it to your competitor. Claim it here: https://reliantverified.com`;
+          const subject = `Pending Lead in ${v.city} (${v.niche || 'Service'})`;
+          const mailto = `mailto:${v.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(pitch)}`;
+
+          tr.innerHTML = `
+            <td class="p-3 font-semibold text-slate-200">${v.name}</td>
+            <td class="p-3 text-slate-400">${v.city}</td>
+            <td class="p-3 text-amber-500 font-medium">${v.niche || 'Service'}</td>
+            <td class="p-3 text-right">
+              <a href="${mailto}" target="_blank" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-[10px] uppercase tracking-wider transition-colors inline-flex items-center gap-1">
+                <i data-lucide="mail" class="w-3 h-3"></i> Pitch $299
+              </a>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById('mrr-val').textContent = mrr.toLocaleString();
+        lucide.createIcons();
+      })
+      .catch(err => {
+        document.getElementById('vendor-list').innerHTML = `<tr><td colspan="4" class="p-4 text-center text-red-400">Failed to load prospects. Make sure backend is running.</td></tr>`;
+      });
+  </script>
+</body>
+</html>
