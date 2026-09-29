@@ -27858,5 +27858,17 @@
     "rating": 4.9,
     "reviews_count": 66,
     "subscription_active": false
+  },
+  {
+    "id": "vendor-758",
+    "name": "The Best Asphalt Paving Companies in Atlanta, GA",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@thebestasphaltpavingcompaniesinatlantaga.com",
+    "phone": "555-836-8437",
+    "rating": 4.7,
+    "reviews_count": 110,
+    "subscription_active": false
   }
 ]
