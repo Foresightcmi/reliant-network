@@ -27870,5 +27870,41 @@
     "rating": 4.7,
     "reviews_count": 110,
     "subscription_active": false
+  },
+  {
+    "id": "vendor-759",
+    "name": "Atlanta&#x27;s Best Roofers - Just Enter Your Zip",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@atlanta&#x27;sbestroofers-justenteryourzip.com",
+    "phone": "555-529-3624",
+    "rating": 4.9,
+    "reviews_count": 66,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-760",
+    "name": "Roof Installers Near Me - Just Enter Your Zip Code",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@roofinstallersnearme-justenteryourzipcode.com",
+    "phone": "555-359-2815",
+    "rating": 4.5,
+    "reviews_count": 77,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-761",
+    "name": "Asphalt Paving Pros - Get Up To Four Quotes For Free",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@asphaltpavingpros-getuptofourquotesforfree.com",
+    "phone": "555-871-4360",
+    "rating": 4.6,
+    "reviews_count": 95,
+    "subscription_active": false
   }
 ]
