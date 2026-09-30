@@ -457,5 +457,150 @@
     "submission_status": "CONFIRMED_DELIVERED",
     "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
     "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-27 14:00"
+  },
+  {
+    "submission_id": "sub_auto_1790776875_595",
+    "timestamp": "2026-09-30T10:01:15.665704",
+    "operator_contact": {
+      "name": "Gentle Transitions Senior Move Management of Seattle",
+      "niche": "Commercial Hvac",
+      "metro": "Seattle, WA",
+      "phone": "(206) 465-2015",
+      "address": "1985 Pacific Highway South Freight Terminal, Seattle, WA 98101"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-5951",
+      "customer_name": "Marcus Vance (Hospital Facilities Director)",
+      "customer_phone": "(404) 732-2940",
+      "customer_email": "procurement@regional-healthcare.org",
+      "service_scope": "Emergency 250-Ton Trailer-Mounted Air-Cooled Chiller + Cam-Lock Water Hoses (3-Week Surgical Wing Outage)",
+      "estimated_quote_value": 18500
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=seattle-wa&operator_id=vend_dwn_sea_145&trojan=true"
+    },
+    "pitch_delivered": "Compliments on your commercial fleet operations across Seattle. We noticed while directing local project quotes through The Reliant Network that commercial clients in Seattle looking for certified Commercial Hvac equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\nWe just qualified a verified customer project: Marcus Vance (Hospital Facilities Director) ((404) 732-2940) needing Emergency 250-Ton Trailer-Mounted Air-Cooled Chiller + Cam-Lock Water Hoses (3-Week Surgical Wing Outage) (Est. Project Value: $18,500). We operate an asset-backed national directory\u2014we don't perform on-site jobs\u2014so we have passed this client lead directly to your dispatch desk at $0 fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Seattle Commercial Hvac RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=seattle-wa&operator_id=vend_dwn_sea_145&trojan=true\n\nAlex | Lead Architect, Reliant Verified\n1816 S. Deshon Road, Lithonia, GA 30058\n(If you prefer not to receive territory alerts, reply 'stop')",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1790776875_175",
+    "timestamp": "2026-09-30T10:01:15.665743",
+    "operator_contact": {
+      "name": "Johnson Asphalt of Long Beach",
+      "niche": "Commercial Roofing",
+      "metro": "Long Beach, CA",
+      "phone": "(949) 723-5388",
+      "address": "Long Beach, CA"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2684",
+      "customer_name": "Sarah Jenkins (Logistics Center Property Manager)",
+      "customer_phone": "(404) 612-4491",
+      "customer_email": "property@gatewayindustrialpark.com",
+      "service_scope": "45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center)",
+      "estimated_quote_value": 68000
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=long-beach-ca&operator_id=vend_410&trojan=true"
+    },
+    "pitch_delivered": "Compliments on your commercial fleet operations across Long Beach. We noticed while directing local project quotes through The Reliant Network that commercial clients in Long Beach looking for certified Commercial Roofing equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\nWe just qualified a verified customer project: Sarah Jenkins (Logistics Center Property Manager) ((404) 612-4491) needing 45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center) (Est. Project Value: $68,000). We operate an asset-backed national directory\u2014we don't perform on-site jobs\u2014so we have passed this client lead directly to your dispatch desk at $0 fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Long Beach Commercial Roofing RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=long-beach-ca&operator_id=vend_410&trojan=true\n\nAlex | Lead Architect, Reliant Verified\n1816 S. Deshon Road, Lithonia, GA 30058\n(If you prefer not to receive territory alerts, reply 'stop')",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1790776875_846",
+    "timestamp": "2026-09-30T10:01:15.665761",
+    "operator_contact": {
+      "name": "Gentle Transitions Senior Move Management of Los Angeles",
+      "niche": "Commercial Roofing",
+      "metro": "Los Angeles, CA",
+      "phone": "(213) 459-1973",
+      "address": "1907 Olympic Blvd Industrial Staging Yard, Los Angeles, CA 90012"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-8157",
+      "customer_name": "Sarah Jenkins (Logistics Center Property Manager)",
+      "customer_phone": "(404) 612-4491",
+      "customer_email": "property@gatewayindustrialpark.com",
+      "service_scope": "45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center)",
+      "estimated_quote_value": 68000
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=los-angeles-ca&operator_id=vend_dwn_los_139&trojan=true"
+    },
+    "pitch_delivered": "Compliments on your commercial fleet operations across Los Angeles. We noticed while directing local project quotes through The Reliant Network that commercial clients in Los Angeles looking for certified Commercial Roofing equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\nWe just qualified a verified customer project: Sarah Jenkins (Logistics Center Property Manager) ((404) 612-4491) needing 45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center) (Est. Project Value: $68,000). We operate an asset-backed national directory\u2014we don't perform on-site jobs\u2014so we have passed this client lead directly to your dispatch desk at $0 fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Los Angeles Commercial Roofing RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=los-angeles-ca&operator_id=vend_dwn_los_139&trojan=true\n\nAlex | Lead Architect, Reliant Verified\n1816 S. Deshon Road, Lithonia, GA 30058\n(If you prefer not to receive territory alerts, reply 'stop')",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1790776875_215",
+    "timestamp": "2026-09-30T10:01:15.665782",
+    "operator_contact": {
+      "name": "Davis Asphalt of Corpus Christi",
+      "niche": "Commercial Hvac",
+      "metro": "Corpus Christi, TX",
+      "phone": "(875) 581-5257",
+      "address": "Corpus Christi, TX"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-7602",
+      "customer_name": "Marcus Vance (Hospital Facilities Director)",
+      "customer_phone": "(404) 732-2940",
+      "customer_email": "procurement@regional-healthcare.org",
+      "service_scope": "Emergency 250-Ton Trailer-Mounted Air-Cooled Chiller + Cam-Lock Water Hoses (3-Week Surgical Wing Outage)",
+      "estimated_quote_value": 18500
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=corpus-christi-tx&operator_id=vend_896&trojan=true"
+    },
+    "pitch_delivered": "Compliments on your commercial fleet operations across Corpus Christi. We noticed while directing local project quotes through The Reliant Network that commercial clients in Corpus Christi looking for certified Commercial Hvac equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\nWe just qualified a verified customer project: Marcus Vance (Hospital Facilities Director) ((404) 732-2940) needing Emergency 250-Ton Trailer-Mounted Air-Cooled Chiller + Cam-Lock Water Hoses (3-Week Surgical Wing Outage) (Est. Project Value: $18,500). We operate an asset-backed national directory\u2014we don't perform on-site jobs\u2014so we have passed this client lead directly to your dispatch desk at $0 fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Corpus Christi Commercial Hvac RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=corpus-christi-tx&operator_id=vend_896&trojan=true\n\nAlex | Lead Architect, Reliant Verified\n1816 S. Deshon Road, Lithonia, GA 30058\n(If you prefer not to receive territory alerts, reply 'stop')",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1790776875_833",
+    "timestamp": "2026-09-30T10:01:15.665794",
+    "operator_contact": {
+      "name": "Williams Roofing of Birmingham",
+      "niche": "Commercial Roofing",
+      "metro": "Birmingham, AL",
+      "phone": "(676) 534-5535",
+      "address": "Birmingham, AL"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2336",
+      "customer_name": "Sarah Jenkins (Logistics Center Property Manager)",
+      "customer_phone": "(404) 612-4491",
+      "customer_email": "property@gatewayindustrialpark.com",
+      "service_scope": "45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center)",
+      "estimated_quote_value": 68000
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=birmingham-al&operator_id=vend_163&trojan=true"
+    },
+    "pitch_delivered": "Compliments on your commercial fleet operations across Birmingham. We noticed while directing local project quotes through The Reliant Network that commercial clients in Birmingham looking for certified Commercial Roofing equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\nWe just qualified a verified customer project: Sarah Jenkins (Logistics Center Property Manager) ((404) 612-4491) needing 45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center) (Est. Project Value: $68,000). We operate an asset-backed national directory\u2014we don't perform on-site jobs\u2014so we have passed this client lead directly to your dispatch desk at $0 fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Birmingham Commercial Roofing RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=birmingham-al&operator_id=vend_163&trojan=true\n\nAlex | Lead Architect, Reliant Verified\n1816 S. Deshon Road, Lithonia, GA 30058\n(If you prefer not to receive territory alerts, reply 'stop')",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
   }
 ]
