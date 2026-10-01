@@ -602,5 +602,150 @@
     "submission_status": "CONFIRMED_DELIVERED",
     "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
     "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-09-30 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1790863249_477",
+    "timestamp": "2026-10-01T10:00:49.841611",
+    "operator_contact": {
+      "name": "Boston Precision Millwrights & Heavy Rigging",
+      "niche": "Luxury Restrooms",
+      "metro": "Boston, MA",
+      "phone": "(617) 449-1903",
+      "address": "1777 Seaport Industrial Corridor, Boston, MA 02108"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-7356",
+      "customer_name": "Camilla Vance (Executive Event Producer)",
+      "customer_phone": "(404) 831-2940",
+      "customer_email": "events@vanceluxuryproductions.com",
+      "service_scope": "4-to-6 Station Luxury Restroom Trailer + Climate Control & Attendant Prep (Weekend Corporate Gala at Private Estate)",
+      "estimated_quote_value": 3450
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=boston-ma&operator_id=vend_mch_bos_129&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Boston dispatch desk: Are you currently taking on new commercial Luxury Restrooms orders in Boston, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Camilla Vance (Executive Event Producer) ((404) 831-2940) requesting 4-to-6 Station Luxury Restroom Trailer + Climate Control & Attendant Prep (Weekend Corporate Gala at Private Estate) (Est. Project Value: $3,450). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Boston Luxury Restrooms customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=boston-ma&operator_id=vend_mch_bos_129&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-01 10:00"
+  },
+  {
+    "submission_id": "sub_auto_1790863249_734",
+    "timestamp": "2026-10-01T10:00:49.841803",
+    "operator_contact": {
+      "name": "Brown Trailers of San Francisco",
+      "niche": "Mobile Office Trailers",
+      "metro": "San Francisco, CA",
+      "phone": "(569) 364-3408",
+      "address": "San Francisco, CA"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-4516",
+      "customer_name": "Bradley Keith (Senior Project Executive)",
+      "customer_phone": "(404) 918-4421",
+      "customer_email": "bkeith@sterlinginfrastructure.com",
+      "service_scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+      "estimated_quote_value": 5400
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=san-francisco-ca&operator_id=vend_804&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your San Francisco dispatch desk: Are you currently taking on new commercial Mobile Office Trailers orders in San Francisco, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Bradley Keith (Senior Project Executive) ((404) 918-4421) requesting 24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease) (Est. Project Value: $5,400). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming San Francisco Mobile Office Trailers customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=san-francisco-ca&operator_id=vend_804&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-01 10:00"
+  },
+  {
+    "submission_id": "sub_auto_1790863249_832",
+    "timestamp": "2026-10-01T10:00:49.841885",
+    "operator_contact": {
+      "name": "Rodriguez Charter of Newark",
+      "niche": "Commercial Dumpsters",
+      "metro": "Newark, NJ",
+      "phone": "(647) 980-1084",
+      "address": "Newark, NJ"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-7486",
+      "customer_name": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+      "customer_phone": "(404) 692-8114",
+      "customer_email": "d.holbrook@apexcommercialgc.com",
+      "service_scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+      "estimated_quote_value": 720
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=newark-nj&operator_id=vend_639&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Newark dispatch desk: Are you currently taking on new commercial Commercial Dumpsters orders in Newark, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Derek Holbrook (Site Superintendent, Apex Commercial GC) ((404) 692-8114) requesting 30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris) (Est. Project Value: $720). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Newark Commercial Dumpsters customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=newark-nj&operator_id=vend_639&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-01 10:00"
+  },
+  {
+    "submission_id": "sub_auto_1790863249_194",
+    "timestamp": "2026-10-01T10:00:49.841942",
+    "operator_contact": {
+      "name": "Dallas Elite Event & Corporate Security",
+      "niche": "Mobile Office Trailers",
+      "metro": "Dallas, TX",
+      "phone": "(214) 532-5019",
+      "address": "Dallas, TX"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-9076",
+      "customer_name": "Bradley Keith (Senior Project Executive)",
+      "customer_phone": "(404) 918-4421",
+      "customer_email": "bkeith@sterlinginfrastructure.com",
+      "service_scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+      "estimated_quote_value": 5400
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=dallas-tx&operator_id=vend_sec_dallas_0310&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Dallas dispatch desk: Are you currently taking on new commercial Mobile Office Trailers orders in Dallas, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Bradley Keith (Senior Project Executive) ((404) 918-4421) requesting 24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease) (Est. Project Value: $5,400). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Dallas Mobile Office Trailers customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=dallas-tx&operator_id=vend_sec_dallas_0310&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-01 10:00"
+  },
+  {
+    "submission_id": "sub_auto_1790863249_843",
+    "timestamp": "2026-10-01T10:00:49.841987",
+    "operator_contact": {
+      "name": "Phoenix Elite Event & Corporate Security",
+      "niche": "Mobile Office Trailers",
+      "metro": "Phoenix, AZ",
+      "phone": "(480) 773-8743",
+      "address": "Phoenix, AZ"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2156",
+      "customer_name": "Bradley Keith (Senior Project Executive)",
+      "customer_phone": "(404) 918-4421",
+      "customer_email": "bkeith@sterlinginfrastructure.com",
+      "service_scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+      "estimated_quote_value": 5400
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=phoenix-az&operator_id=vend_sec_phoenix_0c1b&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Phoenix dispatch desk: Are you currently taking on new commercial Mobile Office Trailers orders in Phoenix, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Bradley Keith (Senior Project Executive) ((404) 918-4421) requesting 24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease) (Est. Project Value: $5,400). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Phoenix Mobile Office Trailers customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=phoenix-az&operator_id=vend_sec_phoenix_0c1b&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-01 10:00"
   }
 ]
