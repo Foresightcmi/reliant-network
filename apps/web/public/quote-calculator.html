@@ -441,6 +441,23 @@
       }
     });
 
+    // Read URL params for SEO Colony Traffic
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('niche')) {
+        const n = urlParams.get('niche');
+        if (document.querySelector(`#nicheSelect option[value="${n}"]`)) {
+          nicheSelect.value = n;
+        }
+      }
+      if (urlParams.has('city') && cityInput) {
+        cityInput.value = urlParams.get('city');
+      }
+      if (urlParams.has('zip') && zipInput) {
+        zipInput.value = urlParams.get('zip');
+      }
+    } catch (e) {}
+
     // Init
     updateNicheUI();
   </script>
