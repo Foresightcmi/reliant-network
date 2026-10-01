@@ -84,11 +84,21 @@ def dispatch_batch():
         v_niche = v.get("niche_id") or v.get("niche", "")
         if v_name.lower() in contacted_names:
             continue
+        if v_niche not in TARGET_NICHES:
+            continue
         if not v.get("subscription_active", False) or v.get("claimed", 0) == 0:
             candidates.append(v)
             
     random.shuffle(candidates)
-    selected_batch = candidates[:5]
+    
+    batch_size = 25
+    if len(sys.argv) > 1:
+        try:
+            batch_size = int(sys.argv[1])
+        except Exception:
+            batch_size = 25
+            
+    selected_batch = candidates[:batch_size]
     
     if not selected_batch:
         print("No uncontacted vendors found in current candidates.")
