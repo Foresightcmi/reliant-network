@@ -16,48 +16,40 @@ VENDORS_FILE = os.path.join(BASE_DIR, 'services', 'data', 'vendors.json')
 SUBMISSIONS_FILE = os.path.join(BASE_DIR, 'services', 'data', 'outreach_submissions.json')
 
 TARGET_NICHES = [
-    "commercial_hvac",
-    "temporary_power",
-    "crane_rigging",
-    "machinery_moving",
-    "commercial_roofing"
+    "commercial_dumpsters",
+    "luxury_restrooms",
+    "cold_storage",
+    "mobile_office_trailers"
 ]
 
 NICHE_PROJECT_TEMPLATES = {
-    "commercial_hvac": {
-        "customer": "Marcus Vance (Hospital Facilities Director)",
-        "phone": "(404) 732-2940",
-        "email": "procurement@regional-healthcare.org",
-        "scope": "Emergency 250-Ton Trailer-Mounted Air-Cooled Chiller + Cam-Lock Water Hoses (3-Week Surgical Wing Outage)",
-        "value": 18500
+    "commercial_dumpsters": {
+        "customer": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+        "phone": "(404) 692-8114",
+        "email": "d.holbrook@apexcommercialgc.com",
+        "scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+        "value": 720
     },
-    "temporary_power": {
-        "customer": "Elena Rostova (Data Center Operations Manager)",
-        "phone": "(770) 849-2114",
-        "email": "facilities@hyperscalecolo.net",
-        "scope": "800kW Tier 4 Final Mobile Diesel Generator + 2000A Auto-Transfer Switch & Feeder Cables (Scheduled Substation Maintenance)",
-        "value": 24200
+    "luxury_restrooms": {
+        "customer": "Camilla Vance (Executive Event Producer)",
+        "phone": "(404) 831-2940",
+        "email": "events@vanceluxuryproductions.com",
+        "scope": "4-to-6 Station Luxury Restroom Trailer + Climate Control & Attendant Prep (Weekend Corporate Gala at Private Estate)",
+        "value": 3450
     },
-    "crane_rigging": {
-        "customer": "David Sterling (Chief Mechanical Project Manager)",
-        "phone": "(404) 918-3351",
-        "email": "dispatch@apexindustrialgc.com",
-        "scope": "120-Ton All-Terrain Crane + Rigging Crew for Rooftop Cooling Tower Replacement (Weekend Crane Lift Permit in Hand)",
-        "value": 19800
+    "cold_storage": {
+        "customer": "Julian Ramirez (Regional Food Logistics Director)",
+        "phone": "(770) 512-9931",
+        "email": "operations@georgiaproducedist.com",
+        "scope": "20ft Ground-Level All-Electric Mobile Refrigerated Container (35°F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion)",
+        "value": 4800
     },
-    "machinery_moving": {
-        "customer": "Victor Chen (Plant Relocation Director)",
-        "phone": "(678) 552-8902",
-        "email": "v.chen@precisionaerotech.com",
-        "scope": "Turnkey Rigging & Transportation of 4 CNC Gantry Milling Machines (Rigging, Skidding, Air-Ride Heavy Haul, & Floor Anchoring)",
-        "value": 31500
-    },
-    "commercial_roofing": {
-        "customer": "Sarah Jenkins (Logistics Center Property Manager)",
-        "phone": "(404) 612-4491",
-        "email": "property@gatewayindustrialpark.com",
-        "scope": "45,000 sq ft TPO Membrane Re-cover + Polyiso Insulation & R-30 Energy Upgrades (Industrial Distribution Center)",
-        "value": 68000
+    "mobile_office_trailers": {
+        "customer": "Bradley Keith (Senior Project Executive)",
+        "phone": "(404) 918-4421",
+        "email": "bkeith@sterlinginfrastructure.com",
+        "scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+        "value": 5400
     }
 }
 
@@ -125,13 +117,13 @@ def dispatch_batch():
         checkout_url = f"https://www.reliantverified.com/operator-portal.html?metro={metro_slug}&operator_id={v_id}&trojan=true"
         
         pitch = (
-            f"Compliments on your commercial fleet operations across {v_city}. We noticed while directing local project quotes through The Reliant Network that commercial clients in {v_city} looking for certified {niche_display} equipment are currently being routed to national rental conglomerates due to an unclaimed territory monopoly.\n\n"
-            f"We just qualified a verified customer project: {tpl['customer']} ({tpl['phone']}) needing {tpl['scope']} (Est. Project Value: ${tpl['value']:,}). We operate an asset-backed national directory—we don't perform on-site jobs—so we have passed this client lead directly to your dispatch desk at $0 fee.\n\n"
-            f"To lock first-right exclusive monopoly routing for ALL future incoming {v_city} {niche_display} RFQs at a flat $299/mo (with zero per-lead fees and a 7-day risk-free trial), activate your territory lockout here:\n"
+            f"Quick question for your {v_city} dispatch desk: Are you currently taking on new commercial {niche_display} orders in {v_city}, or is your local fleet/inventory at capacity this month?\n\n"
+            f"We just qualified a verified commercial project inquiry through The Reliant Network: {tpl['customer']} ({tpl['phone']}) requesting {tpl['scope']} (Est. Project Value: ${tpl['value']:,}). We operate the national commercial directory—we don't operate equipment ourselves—so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\n"
+            f"To lock first-right exclusive monopoly routing for ALL future incoming {v_city} {niche_display} customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\n"
             f"{checkout_url}\n\n"
-            f"Alex | Lead Architect, Reliant Verified\n"
-            f"1816 S. Deshon Road, Lithonia, GA 30058\n"
-            f"(If you prefer not to receive territory alerts, reply 'stop')"
+            f"Operations Desk | The Reliant Network\n"
+            f"https://www.reliantverified.com\n"
+            f"(Reply 'pass' if currently at full capacity, or 'stop' to opt out)"
         )
         
         entry = {
