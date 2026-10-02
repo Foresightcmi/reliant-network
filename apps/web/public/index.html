@@ -3810,12 +3810,36 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      loadVendors();
+    // Zero-Regressive Hydration & Idle Scheduling (Autonomy Partners High-Performance Standard)
+    const deferNonCriticalInit = () => {
       updateCapacityPlanner();
-      initNationwideDepotMap();
-      try { lucide.createIcons(); } catch(e){}
-    });
+      try { if (window.lucide) lucide.createIcons(); } catch(e){}
+
+      const idleRunner = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+      idleRunner(() => {
+        loadVendors();
+
+        // Lazy-load Leaflet map only when depot section approaches viewport
+        const mapEl = document.getElementById('nationwide-depot-map');
+        if (mapEl && 'IntersectionObserver' in window) {
+          const obs = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+              initNationwideDepotMap();
+              obs.disconnect();
+            }
+          }, { rootMargin: '400px' });
+          obs.observe(mapEl);
+        } else {
+          setTimeout(initNationwideDepotMap, 1500);
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', deferNonCriticalInit);
+    } else {
+      deferNonCriticalInit();
+    }
   </script>
 
     <!-- STATE DIRECTORY EXPLORER (ALL 50 US STATES + DC) -->
