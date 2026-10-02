@@ -75,6 +75,148 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Knowledge Graph Entity Grounding & Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Reliant Verified Home",
+        "item": "https://www.reliantverified.com/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Vetted Commercial Equipment & Contractor Sectors",
+    "description": "Standardized B2B commercial equipment rentals and specialized contractor directories verified by Reliant Verified.",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Commercial & Residential Roll-Off Dumpsters",
+        "url": "https://www.reliantverified.com/dumpster-size-calculator.html",
+        "sameAs": "https://www.wikidata.org/wiki/Q81395"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "VIP Luxury Restroom Trailers",
+        "url": "https://www.reliantverified.com/luxury-restroom-calculator.html",
+        "sameAs": "https://www.wikidata.org/wiki/Q505417"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Commercial Mobile Cold Storage & Walk-In Reefers",
+        "url": "https://www.reliantverified.com/cold-storage-calculator.html",
+        "sameAs": "https://www.wikidata.org/wiki/Q11084"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Mobile Heavy Crane Rigging & Lift RFPs",
+        "url": "https://www.reliantverified.com/crane-lift-calculator.html",
+        "sameAs": "https://www.wikidata.org/wiki/Q38740"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Commercial Waste Management & Debris Hauling",
+        "url": "https://www.reliantverified.com/#directory",
+        "sameAs": "https://www.wikidata.org/wiki/Q183060"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Section 179 Equipment Capital Financing",
+        "url": "https://www.reliantverified.com/financing.html",
+        "sameAs": "https://en.wikipedia.org/wiki/Section_179_depreciation_deduction"
+      }
+    ]
+  }
+  </script>
+  <!-- FAQPage Schema for Voice Search, GEO & Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Reliant Verified screen and verify commercial fleets and contractors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reliant Verified enforces a rigorous 3-stage credentialing standard: 1) Active state contractor license verification and good standing with the Secretary of State, 2) Comprehensive General Liability insurance ($1M–$5M per occurrence) with active COI on file, and 3) Physical equipment depot verification ensuring genuine local staging, live maintenance logs, and verifiable on-time dispatch history. Operators who fail quarterly spot audits are removed immediately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What roll-off dumpster size is recommended for commercial or residential projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For residential room cleanouts or asphalt shingle tear-offs up to 25 squares, a 10-yard or 20-yard dumpster (typically accommodating 2 to 3 tons) is standard. For whole-home renovations, retail cleanouts, or light commercial construction, a 30-yard roll-off container (3.5 to 4 tons capacity) is ideal. For major commercial demolitions, multi-floor construction debris, and industrial fit-outs, a 40-yard roll-off container (5 to 6 tons included) provides maximum volume."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What utility connections are needed for luxury restroom trailer delivery?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Luxury restroom trailers require two basic on-site utilities within 50 to 100 feet: 1) One to three dedicated 20-amp, 110-volt electrical circuits (standard 3-prong household outlets or commercial shore power), and 2) A standard garden hose spigot delivering minimum 30–50 PSI water pressure. For remote off-grid locations, onboard whisper-quiet generators and fresh-water holding tanks with integrated pressure pumps can be reserved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can mobile cold storage containers maintain sub-zero freezing temperatures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our commercial mobile refrigerated containers and walk-in cold storage units feature digital temperature control ranging from -10°F (-23°C) for deep frozen meats and pharmaceuticals up to 50°F (10°C) for fresh produce, floral staging, and beverages. Units are equipped with heavy-duty electric Carrier or Thermo King refrigeration units running on 208V/230V or 460V 3-phase power."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does online booking and wholesale dispatch work on Reliant Verified?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Clients enter project specifications into our interactive calculators to review transparent, upfront market rates. Once confirmed, payment is secured via Stripe escrow, and an automated dispatch payload is transmitted directly to the closest vetted local operator. The verified fleet fulfills delivery, staging, and pickup, while the client receives digital tracking and instant receipt documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a municipal permit for dumpster or trailer placement on public streets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If equipment is placed entirely on private property (driveways, parking lots, private jobsite pads), no municipal street permit is required. If placed on a public street, alley, or sidewalk, most municipalities require a Right-of-Way (ROW) or Street Obstruction Permit with reflective safety barricades. Reliant Verified provides direct municipal permit guides across 257 US cities to streamline compliance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do independent contractors claim their directory profile or territory monopoly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Licensed commercial contractors and equipment fleets can click 'Claim Profile' on their listing or visit the Fleet Operator Portal. By submitting business verification credentials, operators can unlock an exclusive city territory monopoly, receiving 100% of unbrokered direct commercial inbound quote requests for their designated metro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the cancellation and tonnage overage policies for equipment rentals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard equipment rentals include generous base weight allowances and rental periods (typically 7–10 days for dumpsters, weekend blocks for restroom trailers, and 30-day billing cycles for cold storage). Excess weight is billed strictly per municipal certified scale tickets at transparent local landfill rates ($65–$95 per ton). Cancellations made at least 48 hours prior to scheduled dispatch are eligible for full refunds."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen selection:bg-amber-500 selection:text-slate-950 antialiased">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
@@ -978,6 +1120,66 @@
         </div>
       </div>
     </div>
+  
+      <!-- STANDALONE SPECIALIZED CALCULATORS DIRECT DIRECTORY -->
+      <div class="mt-12 pt-8 border-t border-slate-200">
+        <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+          <div>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block">Standalone Engineering Tools</span>
+            <h4 class="text-lg font-bold text-slate-900">Direct Equipment Calculators &amp; Sizing Hubs</h4>
+          </div>
+          <a href="/calculators.html" class="text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1 underline underline-offset-4">
+            <span>View All Engineering Tools</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a href="/dumpster-size-calculator.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold mb-3 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </div>
+              <h5 class="font-bold text-sm text-slate-900 group-hover:text-amber-800 transition-colors">Roll-Off Dumpster Sizer</h5>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Calculate exact 10yd, 20yd, 30yd, or 40yd requirements based on square footage, roofing squares, or cleanout debris weight.</p>
+            </div>
+            <span class="text-[11px] font-bold text-amber-700 mt-4 flex items-center gap-1">Launch Calculator &rarr;</span>
+          </a>
+
+          <a href="/luxury-restroom-calculator.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-3 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </div>
+              <h5 class="font-bold text-sm text-slate-900 group-hover:text-emerald-800 transition-colors">VIP Restroom Trailer Planner</h5>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Compute exact stall capacity, shore power requirements, and water volume based on guest count, duration, and alcohol service.</p>
+            </div>
+            <span class="text-[11px] font-bold text-emerald-700 mt-4 flex items-center gap-1">Launch Planner &rarr;</span>
+          </a>
+
+          <a href="/cold-storage-calculator.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold mb-3 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                <i data-lucide="snowflake" class="w-4 h-4"></i>
+              </div>
+              <h5 class="font-bold text-sm text-slate-900 group-hover:text-blue-800 transition-colors">Mobile Cold Storage Sizer</h5>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Determine cubic footage, pallet capacity, and voltage specifications for 20ft and 40ft refrigerated containers (-10°F to 50°F).</p>
+            </div>
+            <span class="text-[11px] font-bold text-blue-700 mt-4 flex items-center gap-1">Launch Estimator &rarr;</span>
+          </a>
+
+          <a href="/crane-lift-calculator.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold mb-3 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                <i data-lucide="compass" class="w-4 h-4"></i>
+              </div>
+              <h5 class="font-bold text-sm text-slate-900 group-hover:text-purple-800 transition-colors">Crane Lift RFP &amp; Radius Tool</h5>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Estimate rigging radius, boom length, and tonnage rating for 40T to 300T mobile all-terrain crane bids with certified operators.</p>
+            </div>
+            <span class="text-[11px] font-bold text-purple-700 mt-4 flex items-center gap-1">Launch Lift Tool &rarr;</span>
+          </a>
+        </div>
+      </div>
+
   </section>
 
   <!-- FOR CONTRACTORS & FLEET OPERATORS BANNER (#for-contractors) -->
@@ -3622,7 +3824,7 @@
       <div class="flex items-center justify-between mb-8 flex-wrap gap-3">
         <div>
           <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block">Nationwide Directory Network</span>
-          <h3 class="text-2xl font-bold text-slate-900 mt-1">Statewide Commercial Fleet &amp; Restroom Networks</h3>
+          <h2 class="text-2xl font-bold text-slate-900 mt-1">Statewide Commercial Fleet &amp; Depot Registry</h2>
           <p class="text-xs text-slate-500 mt-1">Direct access to state-licensed commercial operators and staging depots across all 50 US states and the District of Columbia.</p>
         </div>
         <span class="text-xs text-emerald-700 font-bold bg-emerald-50 border border-emerald-300 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
@@ -4076,6 +4278,297 @@
   </section>
 
   <!-- LEGAL FOOTER -->
+  
+  <!-- NATIONAL SPECIFICATIONS & PRICING BENCHMARK TABLE (GEO CITATION ANCHOR) -->
+  <section id="benchmarks" class="py-14 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Authoritative Industry Standards</span>
+        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">2026 Commercial Equipment Sizing &amp; Pricing Benchmarks</h2>
+        <p class="text-sm text-slate-600 mt-2">Engineering specifications, dimensional thresholds, utility requirements, and verified national median rental rates across primary commercial sectors.</p>
+      </div>
+
+      <div class="overflow-x-auto bg-white border border-slate-200 rounded-2xl shadow-sm mb-12">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 font-bold">Equipment Category</th>
+              <th class="p-3.5 font-bold">Standard Capacity / Model</th>
+              <th class="p-3.5 font-bold">Physical Dimensions (L &times; W &times; H)</th>
+              <th class="p-3.5 font-bold">Utility / Ground Specs</th>
+              <th class="p-3.5 font-bold">National Median Rental Rate</th>
+              <th class="p-3.5 font-bold">Direct Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-sans text-slate-700">
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Roll-Off Dumpster (Compact)</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">10-Yard Bin</span> (2.0 Tons included)</td>
+              <td class="p-3.5 font-mono text-[11px]">12ft &times; 8ft &times; 3.5ft</td>
+              <td class="p-3.5">Standard asphalt/concrete driveway; wooden boards recommended</td>
+              <td class="p-3.5 font-bold text-emerald-700">$395 – $445 / 7 days</td>
+              <td class="p-3.5"><a href="/dumpster-size-calculator.html" class="text-amber-700 font-bold hover:underline">Calculate &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Roll-Off Dumpster (Standard)</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">20-Yard Bin</span> (3.0 Tons included)</td>
+              <td class="p-3.5 font-mono text-[11px]">22ft &times; 8ft &times; 4.5ft</td>
+              <td class="p-3.5">Residential or jobsite clear approach: 60ft linear clearance</td>
+              <td class="p-3.5 font-bold text-emerald-700">$495 – $560 / 10 days</td>
+              <td class="p-3.5"><a href="/dumpster-size-calculator.html" class="text-amber-700 font-bold hover:underline">Calculate &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Roll-Off Dumpster (Heavy Commercial)</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">40-Yard Bin</span> (5.0 Tons included)</td>
+              <td class="p-3.5 font-mono text-[11px]">22ft &times; 8ft &times; 8.0ft</td>
+              <td class="p-3.5">Commercial pad; rear door swing radius clearance required</td>
+              <td class="p-3.5 font-bold text-emerald-700">$695 – $795 / 14 days</td>
+              <td class="p-3.5"><a href="/dumpster-size-calculator.html" class="text-amber-700 font-bold hover:underline">Calculate &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">VIP Luxury Restroom Trailer</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">2-Station Executive</span> (Up to 150 guests)</td>
+              <td class="p-3.5 font-mono text-[11px]">12ft trailer + 4ft tongue &times; 8.5ft</td>
+              <td class="p-3.5">1&times; 110V/20A circuit, 3/4" water hose (30–50 PSI)</td>
+              <td class="p-3.5 font-bold text-emerald-700">$1,350 – $1,650 / weekend</td>
+              <td class="p-3.5"><a href="/luxury-restroom-calculator.html" class="text-amber-700 font-bold hover:underline">Plan Layout &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">VIP Luxury Restroom Trailer</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">4-Station Presidential</span> (Up to 350 guests)</td>
+              <td class="p-3.5 font-mono text-[11px]">18ft trailer + 4ft tongue &times; 8.5ft</td>
+              <td class="p-3.5">2&times; dedicated 110V/20A circuits, 3/4" water connection</td>
+              <td class="p-3.5 font-bold text-emerald-700">$2,100 – $2,600 / weekend</td>
+              <td class="p-3.5"><a href="/luxury-restroom-calculator.html" class="text-amber-700 font-bold hover:underline">Plan Layout &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Mobile Cold Storage / Reefer</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">20ft Walk-In Container</span> (8 Pallets)</td>
+              <td class="p-3.5 font-mono text-[11px]">20ft &times; 8ft &times; 8.5ft (-10°F to 50°F)</td>
+              <td class="p-3.5">208V/230V single-phase or 460V 3-phase 30A electrical</td>
+              <td class="p-3.5 font-bold text-emerald-700">$2,250 – $2,750 / month</td>
+              <td class="p-3.5"><a href="/cold-storage-calculator.html" class="text-amber-700 font-bold hover:underline">Calculate &rarr;</a></td>
+            </tr>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Mobile All-Terrain Crane Rigging</td>
+              <td class="p-3.5"><span class="font-semibold text-amber-800">70-Ton Hydraulic Crane</span> + Operator</td>
+              <td class="p-3.5 font-mono text-[11px]">115ft main boom + 45ft jib</td>
+              <td class="p-3.5">Outrigger pad compaction test; FAA clearance if &gt;150ft</td>
+              <td class="p-3.5 font-bold text-emerald-700">$295 – $375 / hour (4-hr min)</td>
+              <td class="p-3.5"><a href="/crane-lift-calculator.html" class="text-amber-700 font-bold hover:underline">Request RFQ &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B PROCUREMENT & COMPLIANCE FAQ SECTION -->
+  <section id="faq" class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest block mb-1">Frequently Asked Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">Commercial Procurement &amp; Vetting Standards</h2>
+        <p class="text-sm text-slate-600 mt-1">Direct answers to commercial equipment logistics, insurance verification, permit requirements, and billing standards.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden" open>
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>How does Reliant Verified screen and verify commercial fleets and contractors?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Reliant Verified enforces a rigorous 3-stage credentialing standard: 1) Active state contractor license verification and good standing with the Secretary of State, 2) Comprehensive General Liability insurance ($1M–$5M per occurrence) with active Certificates of Insurance (COI) on file, and 3) Physical equipment depot verification ensuring genuine local staging, live maintenance logs, and verifiable on-time dispatch history. Operators who fail quarterly spot audits are removed immediately.
+          </p>
+        </details>
+
+        <!-- Q2 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>What roll-off dumpster size is recommended for commercial or residential projects?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            For residential room cleanouts or asphalt shingle tear-offs up to 25 squares, a 10-yard or 20-yard dumpster (typically accommodating 2 to 3 tons) is standard. For whole-home renovations, retail cleanouts, or light commercial construction, a 30-yard roll-off container (3.5 to 4 tons capacity) is ideal. For major commercial demolitions, multi-floor construction debris, and industrial fit-outs, a 40-yard roll-off container (5 to 6 tons included) provides maximum volume. Use our <a href="/dumpster-size-calculator.html" class="text-amber-700 font-bold underline">Dumpster Sizing Tool</a> to calculate exact cubic yards.
+          </p>
+        </details>
+
+        <!-- Q3 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>What utility connections are needed for luxury restroom trailer delivery?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Luxury restroom trailers require two basic on-site utilities within 50 to 100 feet: 1) One to three dedicated 20-amp, 110-volt electrical circuits (standard 3-prong household outlets or commercial shore power), and 2) A standard garden hose spigot delivering minimum 30–50 PSI water pressure. For remote off-grid locations, onboard whisper-quiet generators and fresh-water holding tanks with integrated pressure pumps can be reserved through our <a href="/luxury-restroom-calculator.html" class="text-amber-700 font-bold underline">VIP Restroom Sizing Planner</a>.
+          </p>
+        </details>
+
+        <!-- Q4 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>Can mobile cold storage containers maintain sub-zero freezing temperatures?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Yes. Our commercial mobile refrigerated containers and walk-in cold storage units feature digital temperature control ranging from -10°F (-23°C) for deep frozen meats and pharmaceuticals up to 50°F (10°C) for fresh produce, floral staging, and beverages. Units are equipped with heavy-duty electric Carrier or Thermo King refrigeration units running on 208V/230V or 460V 3-phase power. Check specs with our <a href="/cold-storage-calculator.html" class="text-amber-700 font-bold underline">Cold Storage Sizing Tool</a>.
+          </p>
+        </details>
+
+        <!-- Q5 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>How does online booking and wholesale dispatch work on Reliant Verified?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Clients enter project specifications into our interactive calculators to review transparent, upfront market rates. Once confirmed, payment is secured via Stripe escrow, and an automated dispatch payload is transmitted directly to the closest vetted local operator. The verified fleet fulfills delivery, staging, and pickup, while the client receives digital tracking and instant receipt documentation.
+          </p>
+        </details>
+
+        <!-- Q6 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>Do I need a municipal permit for dumpster or trailer placement on public streets?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            If equipment is placed entirely on private property (driveways, parking lots, private jobsite pads), no municipal street permit is required. If placed on a public street, alley, or sidewalk, most municipalities require a Right-of-Way (ROW) or Street Obstruction Permit with reflective safety barricades. Reliant Verified maintains detailed municipal permit guides across 257 US cities in our <a href="/permits/atlanta-ga.html" class="text-amber-700 font-bold underline">Municipal Permitting Network</a>.
+          </p>
+        </details>
+
+        <!-- Q7 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>How do independent contractors claim their directory profile or territory monopoly?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Licensed commercial contractors and equipment fleets can click 'Claim Profile' on their listing or visit the <a href="/operator-portal.html" class="text-amber-700 font-bold underline">Fleet Operator Portal</a>. By submitting business verification credentials, operators can unlock an exclusive city territory monopoly, receiving 100% of unbrokered direct commercial inbound quote requests for their designated metro.
+          </p>
+        </details>
+
+        <!-- Q8 -->
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-amber-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base">
+            <span>What are the cancellation and tonnage overage policies for equipment rentals?</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-slate-200 group-open:bg-amber-500 group-open:text-slate-950 flex items-center justify-center text-xs font-mono transition-colors">&darr;</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200/60 pt-3">
+            Standard equipment rentals include generous base weight allowances and rental periods (typically 7–10 days for dumpsters, weekend blocks for restroom trailers, and 30-day billing cycles for cold storage). Excess weight is billed strictly per municipal certified scale tickets at transparent local landfill rates ($65–$95 per ton). Cancellations made at least 48 hours prior to scheduled dispatch are eligible for full refunds under our <a href="/refund-policy.html" class="text-amber-700 font-bold underline">Official Refund Policy</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- PROGRAMMATIC SEO COLONY DIRECTORY & REGIONAL HUBS (CRAWLABILITY ENGINE) -->
+  <section id="regional-hubs" class="py-14 bg-slate-950 text-slate-300 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4 border-b border-slate-800 pb-6">
+        <div>
+          <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block">Topical Authority Architecture</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">National Commercial Equipment Hubs &amp; Permitting Directories</h2>
+          <p class="text-xs text-slate-400 mt-1">Direct access to verified local fleets, pricing indices, municipal obstruction permits, and provider comparisons across key metros.</p>
+        </div>
+        <div class="text-right">
+          <span class="text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-full">
+            850+ Programmatic Hubs Active
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs">
+        <!-- Col 1: Top Metro Commercial Depots -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 flex items-center gap-1.5 border-b border-slate-800 pb-2">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-500"></i>
+            <span>Tier-1 Metro Depots</span>
+          </h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="/metro/atlanta-ga.html" class="hover:text-amber-400 transition-colors">Atlanta, GA Commercial Fleet Depot</a></li>
+            <li><a href="/metro/austin-tx.html" class="hover:text-amber-400 transition-colors">Austin, TX Commercial Fleet Depot</a></li>
+            <li><a href="/metro/chicago-il.html" class="hover:text-amber-400 transition-colors">Chicago, IL Commercial Fleet Depot</a></li>
+            <li><a href="/metro/dallas-tx.html" class="hover:text-amber-400 transition-colors">Dallas-Fort Worth, TX Commercial Depot</a></li>
+            <li><a href="/metro/denver-co.html" class="hover:text-amber-400 transition-colors">Denver, CO Commercial Fleet Depot</a></li>
+            <li><a href="/metro/houston-tx.html" class="hover:text-amber-400 transition-colors">Houston, TX Commercial Fleet Depot</a></li>
+            <li><a href="/metro/los-angeles-ca.html" class="hover:text-amber-400 transition-colors">Los Angeles, CA Commercial Depot</a></li>
+            <li><a href="/metro/miami-fl.html" class="hover:text-amber-400 transition-colors">Miami-Fort Lauderdale, FL Commercial Depot</a></li>
+            <li><a href="/metro/nashville-tn.html" class="hover:text-amber-400 transition-colors">Nashville, TN Commercial Fleet Depot</a></li>
+            <li><a href="/metro/scottsdale-az.html" class="hover:text-amber-400 transition-colors">Phoenix-Scottsdale, AZ Commercial Depot</a></li>
+            <li><a href="/metro/charleston-sc.html" class="hover:text-amber-400 transition-colors">Charleston, SC Commercial Fleet Depot</a></li>
+            <li><a href="/metro/hamptons-ny.html" class="hover:text-amber-400 transition-colors">The Hamptons &amp; NYC Regional Depot</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Regional Pricing & Cost Medians -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 flex items-center gap-1.5 border-b border-slate-800 pb-2">
+            <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Local Pricing Medians (/cost)</span>
+          </h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="/cost/atlanta.html" class="hover:text-amber-400 transition-colors">Atlanta Commercial Equipment Rates</a></li>
+            <li><a href="/cost/austin.html" class="hover:text-amber-400 transition-colors">Austin Commercial Equipment Rates</a></li>
+            <li><a href="/cost/boston.html" class="hover:text-amber-400 transition-colors">Boston Commercial Equipment Rates</a></li>
+            <li><a href="/cost/charlotte.html" class="hover:text-amber-400 transition-colors">Charlotte Commercial Equipment Rates</a></li>
+            <li><a href="/cost/chicago.html" class="hover:text-amber-400 transition-colors">Chicago Commercial Equipment Rates</a></li>
+            <li><a href="/cost/dallas.html" class="hover:text-amber-400 transition-colors">Dallas Commercial Equipment Rates</a></li>
+            <li><a href="/cost/denver.html" class="hover:text-amber-400 transition-colors">Denver Commercial Equipment Rates</a></li>
+            <li><a href="/cost/houston.html" class="hover:text-amber-400 transition-colors">Houston Commercial Equipment Rates</a></li>
+            <li><a href="/cost/los-angeles.html" class="hover:text-amber-400 transition-colors">Los Angeles Commercial Equipment Rates</a></li>
+            <li><a href="/cost/miami.html" class="hover:text-amber-400 transition-colors">Miami Commercial Equipment Rates</a></li>
+            <li><a href="/cost/phoenix.html" class="hover:text-amber-400 transition-colors">Phoenix Commercial Equipment Rates</a></li>
+            <li><a href="/cost/seattle.html" class="hover:text-amber-400 transition-colors">Seattle Commercial Equipment Rates</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Municipal Permitting & Right-of-Way -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 flex items-center gap-1.5 border-b border-slate-800 pb-2">
+            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>Municipal Permits &amp; ROW (/permits)</span>
+          </h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="/permits/atlanta-ga.html" class="hover:text-amber-400 transition-colors">Atlanta Street Obstruction Permits</a></li>
+            <li><a href="/permits/austin-tx.html" class="hover:text-amber-400 transition-colors">Austin Right-of-Way Guidelines</a></li>
+            <li><a href="/permits/chicago-il.html" class="hover:text-amber-400 transition-colors">Chicago Street &amp; Alley Dumpster Permits</a></li>
+            <li><a href="/permits/dallas-tx.html" class="hover:text-amber-400 transition-colors">Dallas Commercial Placement Permits</a></li>
+            <li><a href="/permits/denver-co.html" class="hover:text-amber-400 transition-colors">Denver ROW Dumpster &amp; Trailer Rules</a></li>
+            <li><a href="/permits/houston-tx.html" class="hover:text-amber-400 transition-colors">Houston Commercial Permit Process</a></li>
+            <li><a href="/permits/los-angeles-ca.html" class="hover:text-amber-400 transition-colors">Los Angeles Street Obstruction Permits</a></li>
+            <li><a href="/permits/miami-fl.html" class="hover:text-amber-400 transition-colors">Miami-Dade Equipment Placement Rules</a></li>
+            <li><a href="/permits/nashville-tn.html" class="hover:text-amber-400 transition-colors">Nashville Metro Right-of-Way Permits</a></li>
+            <li><a href="/permits/phoenix-az.html" class="hover:text-amber-400 transition-colors">Phoenix Street Placement Regulations</a></li>
+            <li><a href="/permits/seattle-wa.html" class="hover:text-amber-400 transition-colors">Seattle Street Use &amp; Container Permits</a></li>
+            <li><a href="/permits/tampa-fl.html" class="hover:text-amber-400 transition-colors">Tampa Commercial Obstruction Permits</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Provider Alternatives & Comparisons -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 flex items-center gap-1.5 border-b border-slate-800 pb-2">
+            <i data-lucide="scale" class="w-3.5 h-3.5 text-purple-400"></i>
+            <span>Fleet Comparison Guides (/vs)</span>
+          </h4>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="/vs/united-rentals-alternative.html" class="hover:text-amber-400 transition-colors">United Rentals Alternative &amp; Broker Guide</a></li>
+            <li><a href="/vs/sunbelt-rentals-alternative.html" class="hover:text-amber-400 transition-colors">Sunbelt Rentals Alternative Comparison</a></li>
+            <li><a href="/vs/united-rentals-restroom-trailer-alternative.html" class="hover:text-amber-400 transition-colors">VIP Restroom Trailer Fleet Alternatives</a></li>
+            <li><a href="/vs/maxim-crane-alternative.html" class="hover:text-amber-400 transition-colors">Maxim Crane Alternative &amp; Independent Riggers</a></li>
+            <li><a href="/vs/national-broker-alternative.html" class="hover:text-amber-400 transition-colors">National Broker vs Local Independent Fleets</a></li>
+            <li><a href="/vs/commercial-cold-storage-rental-guide.html" class="hover:text-amber-400 transition-colors">Commercial Cold Storage Procurement Guide</a></li>
+            <li><a href="/vs/a-place-for-mom-alternative.html" class="hover:text-amber-400 transition-colors">Senior Care Independent Placement Guide</a></li>
+            <li><a href="/vs/safe-step-walk-in-tub-alternative.html" class="hover:text-amber-400 transition-colors">Aging-in-Place Contractor Alternatives</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-white border-t border-slate-200 py-10 mt-12 text-center text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p>&copy; 2026 The Reliant Network. All rights reserved.</p>
