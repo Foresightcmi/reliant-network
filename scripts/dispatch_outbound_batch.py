@@ -125,16 +125,34 @@ def dispatch_batch():
         metro_slug = f"{v_city.lower().replace(' ', '-')}-{v_state.lower()}"
         
         checkout_url = f"https://www.reliantverified.com/operator-portal.html?metro={metro_slug}&operator_id={v_id}&trojan=true"
+        vendor_website = v.get("website") or f"https://www.{v_name.lower().replace(' ', '').replace(',', '').replace('.', '')}.com"
+        audit_portal_url = f"https://agency-website-swart-beta.vercel.app/?url={vendor_website}"
         
-        pitch = (
-            f"Quick question for your {v_city} dispatch desk: Are you currently taking on new commercial {niche_display} orders in {v_city}, or is your local fleet/inventory at capacity this month?\n\n"
-            f"We just qualified a verified commercial project inquiry through The Reliant Network: {tpl['customer']} ({tpl['phone']}) requesting {tpl['scope']} (Est. Project Value: ${tpl['value']:,}). We operate the national commercial directory—we don't operate equipment ourselves—so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\n"
-            f"To lock first-right exclusive monopoly routing for ALL future incoming {v_city} {niche_display} customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\n"
-            f"{checkout_url}\n\n"
-            f"Operations Desk | The Reliant Network\n"
-            f"https://www.reliantverified.com\n"
-            f"(Reply 'pass' if currently at full capacity, or 'stop' to opt out)"
-        )
+        # Dual-Hook Selection: Capacity Inquiry vs. Revenue Leak Audit
+        hook_type = random.choice(["capacity", "revenue_leak"])
+        
+        if hook_type == "revenue_leak":
+            pitch = (
+                f"Quick speed alert for {v_name} dispatch in {v_city}:\n\n"
+                f"While verifying commercial {niche_display} fleets for The Reliant Network in {v_city}, Google's Core Web Vitals telemetry flagged your mobile site with a critical loading bottleneck.\n\n"
+                f"Google's official data confirms that 53% of mobile visitors abandon a contractor's website if it takes longer than 3 seconds to load. You are actively leaking high-ticket commercial inquiries to faster local competitors.\n\n"
+                f"You can verify your live Google mobile diagnostic test here:\n"
+                f"{audit_portal_url}\n\n"
+                f"We route all incoming {v_city} commercial project inquiries ({tpl['customer']} requested {tpl['scope']}, est. ${tpl['value']:,}) exclusively to operators whose infrastructure responds in under 1 second. Lock your territory monopoly for $299/mo (includes our sub-1s mobile landing page at zero charge, 7-day trial):\n"
+                f"{checkout_url}\n\n"
+                f"Operations Desk | The Reliant Network\n"
+                f"https://www.reliantverified.com"
+            )
+        else:
+            pitch = (
+                f"Quick question for your {v_city} dispatch desk: Are you currently taking on new commercial {niche_display} orders in {v_city}, or is your local fleet/inventory at capacity this month?\n\n"
+                f"We just qualified a verified commercial project inquiry through The Reliant Network: {tpl['customer']} ({tpl['phone']}) requesting {tpl['scope']} (Est. Project Value: ${tpl['value']:,}). We operate the national commercial directory—we don't operate equipment ourselves—so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\n"
+                f"To lock first-right exclusive monopoly routing for ALL future incoming {v_city} {niche_display} customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\n"
+                f"{checkout_url}\n\n"
+                f"Operations Desk | The Reliant Network\n"
+                f"https://www.reliantverified.com\n"
+                f"(Reply 'pass' if currently at full capacity, or 'stop' to opt out)"
+            )
         
         entry = {
             "submission_id": f"sub_auto_{int(datetime.now().timestamp())}_{random.randint(100, 999)}",
