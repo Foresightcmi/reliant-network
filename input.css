@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Directory Engine Styles */
+body { font-family: 'Plus Jakarta Sans', sans-serif; }
+.font-serif-title { font-family: 'Playfair Display', serif; }
+.gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.custom-depot-map-pin { background: transparent; border: none; }
+.leaflet-popup-content-wrapper { border-radius: 1rem; box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); border: 1px solid #cbd5e1; }
+.leaflet-popup-content { margin: 12px 14px; line-height: 1.4; }
+.depot-filter-btn.active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+
+/* Executive Cluster Badges */
+.custom-cluster-wrapper { background: transparent; border: none; }
+.custom-cluster-badge {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border: 2.5px solid #f59e0b;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35), 0 0 10px rgba(245, 158, 11, 0.35);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.custom-cluster-badge:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.45), 0 0 16px rgba(245, 158, 11, 0.6);
+  border-color: #fbbf24;
+}
+.leaflet-control-zoom { border: none !important; box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important; border-radius: 12px !important; overflow: hidden; }
+.leaflet-control-zoom a { background: #ffffff !important; color: #0f172a !important; font-weight: bold !important; border: 1px solid #e2e8f0 !important; }
+
+@media print {
+  body * { visibility: hidden; }
+  #rfp-blueprint-print-area, #rfp-blueprint-print-area * { visibility: visible; }
+  #rfp-blueprint-print-area { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
+  .no-print { display: none !important; }
+}

@@ -1,8 +1,33 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.reliantverified.com/sitemap.xml
-
 # Generative Engine Optimization (GEO) & Machine-Readable Grounding
-# https://www.reliantverified.com/llms.txt
-# https://www.reliantverified.com/llms-full.txt
+# LLM Context: https://www.reliantverified.com/llms.txt
+# Full Documentation: https://www.reliantverified.com/llms-full.txt
+
+# Agentic Browsing & AI Search Engine Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://www.reliantverified.com/sitemap.xml

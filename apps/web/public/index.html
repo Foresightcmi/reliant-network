@@ -51,60 +51,30 @@
     }
   }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <!-- Production Pre-compiled Minified Stylesheet (Zero runtime CPU parse overhead) -->
+  <link rel="stylesheet" href="/styles.min.css">
+
+  <!-- Generative Engine Optimization (GEO) & Machine-Readable LLM Discovery -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context">
+  <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Documentation">
+
   <!-- 🤖 WebMCP (Web Model Context Protocol) Autonomous Agent Readiness -->
   <link rel="mcp" href="/.well-known/mcp.json">
   <link rel="webmcp" href="/.well-known/webmcp.json">
   <script src="/webmcp.js" defer></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .font-serif-title { font-family: 'Playfair Display', serif; }
-    .gold-text { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .custom-depot-map-pin { background: transparent; border: none; }
-    .leaflet-popup-content-wrapper { border-radius: 1rem; box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); border: 1px solid #cbd5e1; }
-    .leaflet-popup-content { margin: 12px 14px; line-height: 1.4; }
-    .depot-filter-btn.active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-    
-    /* Executive Cluster Badges */
-    .custom-cluster-wrapper { background: transparent; border: none; }
-    .custom-cluster-badge {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      border: 2.5px solid #f59e0b;
-      border-radius: 9999px;
-      color: #ffffff;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.35), 0 0 10px rgba(245, 158, 11, 0.35);
-      backdrop-filter: blur(4px);
-      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-    .custom-cluster-badge:hover {
-      transform: scale(1.15);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.45), 0 0 16px rgba(245, 158, 11, 0.6);
-      border-color: #fbbf24;
-    }
-    .leaflet-control-zoom { border: none !important; box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important; border-radius: 12px !important; overflow: hidden; }
-    .leaflet-control-zoom a { background: #ffffff !important; color: #0f172a !important; font-weight: bold !important; border: 1px solid #e2e8f0 !important; }
 
-    @media print {
-      body * { visibility: hidden; }
-      #rfp-blueprint-print-area, #rfp-blueprint-print-area * { visibility: visible; }
-      #rfp-blueprint-print-area { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
-      .no-print { display: none !important; }
-    }
-  </style>
+  <!-- Non-blocking Leaflet Map Assets & Lucide Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" media="print" onload="this.media='all'" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen selection:bg-amber-500 selection:text-slate-950 antialiased">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
@@ -1171,7 +1141,7 @@
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Active Staging
                 </span>
               </div>
-              <button onclick="closeDepotHud()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors">
+              <button onclick="closeDepotHud()" aria-label="Close Depot Details" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
@@ -1285,7 +1255,7 @@
   <!-- INSTANT QUOTE MODAL -->
   <div id="quote-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeQuoteModal()" aria-label="Close Instant Quote Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="flex items-center gap-3 mb-6">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
@@ -1466,7 +1436,7 @@
   <!-- TURNKEY RFP & SITE FEASIBILITY BLUEPRINT MODAL (Data-as-a-Product Blueprint) -->
   <div id="rfp-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 max-h-[92vh] overflow-y-auto">
-      <button onclick="closeRfpModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 no-print">
+      <button onclick="closeRfpModal()" aria-label="Close RFP Blueprint Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 no-print">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
       
@@ -1595,7 +1565,7 @@
   <!-- EMBED TRUST BADGE MODAL -->
   <div id="badge-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
-      <button onclick="closeBadgeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeBadgeModal()" aria-label="Close Badge Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
           <i data-lucide="badge-check" class="w-5 h-5"></i>
@@ -1620,7 +1590,7 @@
   <!-- OPERATOR MEMBERSHIP & PRICING MODAL (Mr. Web Blueprint) -->
   <div id="pricing-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closePricingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closePricingModal()" aria-label="Close Pricing Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="text-center max-w-2xl mx-auto mb-8">
         <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-2xs">
@@ -1713,7 +1683,7 @@
   <!-- DIRECT OPERATOR INQUIRY MODAL (Mr. Web Blueprint) -->
   <div id="message-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeMessageModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeMessageModal()" aria-label="Close Message Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="flex items-center gap-3 mb-5">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
@@ -1730,28 +1700,28 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="q-name" class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+            <label for="msg-name" class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
             <input type="text" id="msg-name" required placeholder="Elena Rostova" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Email</label>
+            <label for="msg-email" class="block text-xs font-semibold text-slate-700 mb-1">Your Email</label>
             <input type="email" id="msg-email" required placeholder="elena@production.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="q-phone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+            <label for="msg-phone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
             <input type="tel" id="msg-phone" required placeholder="(404) 732-8190" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Target Date</label>
+            <label for="msg-date" class="block text-xs font-semibold text-slate-700 mb-1">Target Date</label>
             <input type="date" id="msg-date" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Message / Equipment Details</label>
+          <label for="msg-text" class="block text-xs font-semibold text-slate-700 mb-1">Your Message / Equipment Details</label>
           <textarea id="msg-text" rows="3" required placeholder="e.g. Inquiring about availability for your 4-station trailer for an outdoor wedding on Oct 24th..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-amber-500"></textarea>
         </div>
 
@@ -1776,7 +1746,7 @@
   <!-- CLIENT VERIFIED REVIEW MODAL (Mr. Web Blueprint) -->
   <div id="review-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeReviewModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeReviewModal()" aria-label="Close Review Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="flex items-center gap-3 mb-5">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
@@ -1843,7 +1813,7 @@
   <!-- CLAIM LISTING MODAL (John Rush Blueprint) -->
   <div id="claim-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeClaimModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeClaimModal()" aria-label="Close Claim Listing Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="flex items-center gap-3 mb-5">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
@@ -1881,7 +1851,7 @@
           <label class="block text-xs font-semibold text-slate-700 mb-1">Select Verification Tier</label>
           <div class="space-y-2">
             <label class="flex items-start gap-3 p-3 bg-amber-50/50 border border-amber-300 rounded-xl cursor-pointer hover:bg-amber-50 transition-colors">
-              <input type="radio" name="claim-tier" value="featured" checked class="mt-1 text-amber-600 focus:ring-amber-500">
+              <input type="radio" name="claim-tier" value="featured" aria-label="Featured Partner Placement ($99/mo)" checked class="mt-1 text-amber-600 focus:ring-amber-500">
               <div>
                 <span class="text-xs font-bold text-slate-900 block flex items-center gap-1.5">
                   <span>Featured Partner Placement ($99/mo)</span>
@@ -1892,7 +1862,7 @@
             </label>
 
             <label class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
-              <input type="radio" name="claim-tier" value="standard" class="mt-1 text-amber-600 focus:ring-amber-500">
+              <input type="radio" name="claim-tier" value="standard" aria-label="Standard Verified Listing (Free)" class="mt-1 text-amber-600 focus:ring-amber-500">
               <div>
                 <span class="text-xs font-bold text-slate-900 block">Standard Verified Listing (Free)</span>
                 <span class="text-[11px] text-slate-600 block mt-0.5">Basic directory profile verified within 24-48 hours via public business registry check.</span>
@@ -1927,7 +1897,7 @@
   <!-- SUBMIT FLEET MODAL (John Rush Blueprint) -->
   <div id="submit-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeSubmitModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <button onclick="closeSubmitModal()" aria-label="Close List Equipment Fleet Modal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-6 h-6"></i></button>
 
       <div class="flex items-center gap-3 mb-5">
         <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
@@ -1995,7 +1965,7 @@
 
         <div>
           <div class="flex items-center justify-between mb-1">
-            <label for="sub-bio" class="block text-xs font-semibold text-slate-700">Company Bio &amp; Fleet Overview</label>
+            <label for="sub-description" class="block text-xs font-semibold text-slate-700">Company Bio &amp; Fleet Overview</label>
             <button type="button" onclick="enhanceListingWithAI()" id="ai-enhance-btn" class="text-[11px] font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-lg flex items-center gap-1 transition-colors shadow-2xs">
               <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i>
               <span>✨ Enhance with AI</span>
@@ -2008,7 +1978,7 @@
           <label class="block text-xs font-semibold text-slate-700 mb-1">Placement Tier</label>
           <div class="space-y-2">
             <label class="flex items-start gap-3 p-3 bg-amber-50/50 border border-amber-300 rounded-xl cursor-pointer hover:bg-amber-50 transition-colors">
-              <input type="radio" name="sub-tier" value="featured" checked class="mt-1 text-amber-600 focus:ring-amber-500">
+              <input type="radio" name="sub-tier" value="featured" aria-label="Featured Partner Membership ($99/mo)" checked class="mt-1 text-amber-600 focus:ring-amber-500">
               <div>
                 <span class="text-xs font-bold text-slate-900 block flex items-center gap-1.5">
                   <span>Featured Partner Membership ($99/mo)</span>
@@ -2019,7 +1989,7 @@
             </label>
 
             <label class="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
-              <input type="radio" name="sub-tier" value="standard" class="mt-1 text-amber-600 focus:ring-amber-500">
+              <input type="radio" name="sub-tier" value="standard" aria-label="Free Standard Directory Listing" class="mt-1 text-amber-600 focus:ring-amber-500">
               <div>
                 <span class="text-xs font-bold text-slate-900 block">Free Standard Directory Listing</span>
                 <span class="text-[11px] text-slate-600 block mt-0.5">Listed in directory after automated verification and background check (5-7 business days).</span>
@@ -2440,11 +2410,11 @@
                 <span>Message</span>
               </button>
 
-              <button onclick="openClaimModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
+              <button onclick="openClaimModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" aria-label="Claim Profile" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
                 <i data-lucide="key" class="w-3.5 h-3.5 text-amber-600"></i>
               </button>
 
-              <button onclick="openBadgeModal('${v.id}')" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
+              <button onclick="openBadgeModal('${v.id}')" aria-label="Get Embeddable Verified Badge" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
                 <i data-lucide="badge-check" class="w-3.5 h-3.5 text-amber-600"></i>
               </button>
             </div>
@@ -2599,7 +2569,11 @@
 
     async function initNationwideDepotMap() {
       const mapEl = document.getElementById('nationwide-depot-map');
-      if (!mapEl || typeof L === 'undefined') return;
+      if (!mapEl) return;
+      if (typeof L === 'undefined' || typeof L.markerClusterGroup === 'undefined') {
+        setTimeout(initNationwideDepotMap, 120);
+        return;
+      }
 
       if (depotMap) {
         depotMap.invalidateSize();
@@ -4122,7 +4096,7 @@
         <a href="/terms.html" class="hover:text-amber-600 transition-colors">Terms of Service</a>
         <a href="/privacy.html" class="hover:text-amber-600 transition-colors">Privacy Policy</a>
         <a href="/refund-policy.html" class="hover:text-amber-600 transition-colors">Refund &amp; Escrow Policy</a>
-        <a href="javascript:void(0)" onclick="openAdminModal()" class="text-slate-400 hover:text-slate-600 transition-colors flex items-center gap-1"><i data-lucide="line-chart" class="w-3.5 h-3.5 inline"></i> Operator Telemetry</a>
+        <button type="button" onclick="openAdminModal()" class="text-slate-400 hover:text-slate-600 transition-colors flex items-center gap-1 bg-transparent border-0 p-0 text-xs cursor-pointer"><i data-lucide="line-chart" class="w-3.5 h-3.5 inline"></i> Operator Telemetry</button>
       </div>
       <p class="mt-2 text-[10px] text-slate-400 max-w-2xl text-center">
         Disclaimer: This platform acts solely as a lead matching technology and brokerage service. We do not own, operate, or maintain any equipment, including but not limited to heavy cranes, cold storage units, or restroom trailers. We are not liable for any damages, injuries, or losses incurred by the independent operators or the end-customers.
