@@ -52156,5 +52156,53 @@
       "cleanliness_score": 99,
       "punctuality_score": 99
     }
+  },
+  {
+    "id": "vendor-1312",
+    "name": "Affordable Roofing Services - Just Enter Your Zip",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@affordableroofingservices-justenteryourzip.com",
+    "phone": "555-968-7093",
+    "rating": 4.9,
+    "reviews_count": 50,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-1313",
+    "name": "Roofers In Atlanta - Roof Repair Contractors Near Me",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@roofersinatlanta-roofrepaircontractorsnearme.com",
+    "phone": "555-777-1926",
+    "rating": 4.5,
+    "reviews_count": 74,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-1314",
+    "name": "10 Best Asphalt Paving Companies in Atlanta",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@10bestasphaltpavingcompaniesinatlanta.com",
+    "phone": "555-676-3734",
+    "rating": 5.0,
+    "reviews_count": 30,
+    "subscription_active": false
+  },
+  {
+    "id": "vendor-1315",
+    "name": "Local Asphalt Companies - Asphalt Companies Near You",
+    "niche": "asphalt paving",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@localasphaltcompanies-asphaltcompaniesnearyou.com",
+    "phone": "555-945-1599",
+    "rating": 4.5,
+    "reviews_count": 59,
+    "subscription_active": false
   }
 ]
