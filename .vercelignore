@@ -25,3 +25,8 @@ payload.*
 test.txt
 *.md
 !README.md
+node_modules/
+package-lock.json
+input.css
+tailwind.config.js
+
