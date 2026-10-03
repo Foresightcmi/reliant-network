@@ -68,12 +68,7 @@
   <link rel="webmcp" href="/.well-known/webmcp.json">
   <script src="/webmcp.js" defer></script>
 
-  <!-- Non-blocking Leaflet Map Assets & Lucide Icons -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" media="print" onload="this.media='all'" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
+  <!-- Lucide Icons (Deferred) -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Knowledge Graph Entity Grounding & Breadcrumbs -->
@@ -2769,11 +2764,55 @@
       }
     }
 
+    function loadLeafletDependencies(callback) {
+      if (typeof L !== 'undefined' && typeof L.markerClusterGroup !== 'undefined') {
+        return callback();
+      }
+      if (window._loadingLeaflet) {
+        const checkInterval = setInterval(() => {
+          if (typeof L !== 'undefined' && typeof L.markerClusterGroup !== 'undefined') {
+            clearInterval(checkInterval);
+            callback();
+          }
+        }, 80);
+        return;
+      }
+      window._loadingLeaflet = true;
+
+      const link1 = document.createElement('link');
+      link1.rel = 'stylesheet';
+      link1.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link1);
+
+      const link2 = document.createElement('link');
+      link2.rel = 'stylesheet';
+      link2.href = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css';
+      document.head.appendChild(link2);
+
+      const link3 = document.createElement('link');
+      link3.rel = 'stylesheet';
+      link3.href = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css';
+      document.head.appendChild(link3);
+
+      const s1 = document.createElement('script');
+      s1.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      s1.onload = () => {
+        const s2 = document.createElement('script');
+        s2.src = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js';
+        s2.onload = () => {
+          window._loadingLeaflet = false;
+          callback();
+        };
+        document.body.appendChild(s2);
+      };
+      document.body.appendChild(s1);
+    }
+
     async function initNationwideDepotMap() {
       const mapEl = document.getElementById('nationwide-depot-map');
       if (!mapEl) return;
       if (typeof L === 'undefined' || typeof L.markerClusterGroup === 'undefined') {
-        setTimeout(initNationwideDepotMap, 120);
+        loadLeafletDependencies(() => initNationwideDepotMap());
         return;
       }
 
@@ -3830,7 +3869,7 @@
           }, { rootMargin: '400px' });
           obs.observe(mapEl);
         } else {
-          setTimeout(initNationwideDepotMap, 1500);
+          window.addEventListener('scroll', () => initNationwideDepotMap(), { once: true, passive: true });
         }
       });
     };
