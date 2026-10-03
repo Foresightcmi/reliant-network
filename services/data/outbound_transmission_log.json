@@ -263,5 +263,155 @@
     "timestamp": "2026-10-03T17:09:46.502643+00:00",
     "status": "SIMULATED_SENT",
     "mode": "simulation"
+  },
+  {
+    "company": "Atlanta Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@atlanta-mega-wa.com",
+    "city": "Atlanta",
+    "subject": "Atlanta commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277002+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Miami Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@miami-mega-watt.com",
+    "city": "Miami",
+    "subject": "Miami commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277078+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Los Angeles Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@los-angeles-meg.com",
+    "city": "Los Angeles",
+    "subject": "Los Angeles commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277113+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Houston Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@houston-mega-wa.com",
+    "city": "Houston",
+    "subject": "Houston commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277185+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Denver Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@denver-mega-wat.com",
+    "city": "Denver",
+    "subject": "Denver commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277213+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "New York Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@new-york-mega-w.com",
+    "city": "New York",
+    "subject": "New York commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277238+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Philadelphia Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@philadelphia-me.com",
+    "city": "Philadelphia",
+    "subject": "Philadelphia commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277271+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Las Vegas Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@las-vegas-mega-.com",
+    "city": "Las Vegas",
+    "subject": "Las Vegas commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277296+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Minneapolis Mega-Watt Emergency Power Fleets",
+    "email": "dispatch@minneapolis-meg.com",
+    "city": "Minneapolis",
+    "subject": "Minneapolis commercial mobile power & generator inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277328+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Dallas Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@dallas-precisio.com",
+    "city": "Dallas",
+    "subject": "Dallas commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277354+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Austin Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@austin-precisio.com",
+    "city": "Austin",
+    "subject": "Austin commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277381+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Chicago Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@chicago-precisi.com",
+    "city": "Chicago",
+    "subject": "Chicago commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277406+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Phoenix Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@phoenix-precisi.com",
+    "city": "Phoenix",
+    "subject": "Phoenix commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277432+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Seattle Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@seattle-precisi.com",
+    "city": "Seattle",
+    "subject": "Seattle commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277458+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
+  },
+  {
+    "company": "Boston Precision Millwrights & Heavy Rigging",
+    "email": "dispatch@boston-precisio.com",
+    "city": "Boston",
+    "subject": "Boston commercial machinery moving inquiry",
+    "campaign": "initial",
+    "timestamp": "2026-10-03T18:37:27.277483+00:00",
+    "status": "SIMULATED_SENT",
+    "mode": "simulation"
   }
 ]
