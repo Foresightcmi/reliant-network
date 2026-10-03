@@ -338,72 +338,72 @@
             <div class="relative h-48 overflow-hidden bg-slate-100">
               <img loading="lazy" src="${v.image_url}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'">
               <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
-                ${v.subscription_active ? '<span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md"><i data-lucide="star" class="w-3 h-3 fill-slate-950"></i> Featured Partner</span>' : ''}
-                <span class="bg-white/95 backdrop-blur text-amber-700 border border-amber-300 font-bold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-                  <i data-lucide="check-circle-2" class="w-3 h-3 text-amber-600"></i> Verified
+                ${v.subscription_active ? '<span class="bg-amber-500 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1 shadow-md"><i data-lucide="star" class="w-3.5 h-3.5 fill-slate-950"></i> Featured Partner</span>' : ''}
+                <span class="bg-white/95 backdrop-blur text-amber-700 border border-amber-300 font-bold text-xs px-3 py-1 rounded-full flex items-center gap-1 shadow-xs">
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600"></i> Verified
                 </span>
               </div>
-              <div class="absolute bottom-3 right-3 bg-white/95 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs font-mono">
+              <div class="absolute bottom-3 right-3 bg-white/95 text-slate-900 font-bold text-sm px-3 py-1 rounded-lg border border-slate-200 shadow-xs font-mono">
                 $${(v.min_price || 0).toLocaleString()} - $${(v.max_price || 0).toLocaleString()}
               </div>
             </div>
 
-            <div class="p-5">
+            <div class="p-5 sm:p-6">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">
+                <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">
                   ${v.distance_miles !== undefined ? `📍 ${v.distance_miles} mi • ` : ''}${v.city}, ${v.state}
                 </span>
-                <div onclick="openReviewModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" class="flex items-center gap-1 text-xs font-bold text-amber-600 cursor-pointer hover:underline" title="Click to Read &amp; Leave Verified Review">
-                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 text-amber-500"></i>
+                <div onclick="openReviewModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" class="flex items-center gap-1 text-sm font-bold text-amber-600 cursor-pointer hover:underline" title="Click to Read &amp; Leave Verified Review">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-500"></i>
                   <span class="text-slate-800">${v.rating || 5} (${v.review_count || 30} reviews)</span>
                 </div>
               </div>
 
-              <h3 class="text-lg font-bold text-slate-900 mt-1 leading-snug">
+              <h3 class="text-xl font-bold text-slate-900 mt-1.5 leading-snug">
                 <a href="/listing/${v.slug || ''}" class="hover:text-amber-600 transition-colors">${v.name}</a>
               </h3>
-              <p class="text-xs text-slate-600 mt-2 line-clamp-2">${v.description || ''}</p>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed line-clamp-2">${v.description || ''}</p>
 
               ${fleetList.length ? `
-                <div class="mt-3 flex flex-wrap gap-1">
-                  ${fleetList.slice(0, 2).map(f => `<span class="bg-amber-50 text-amber-900 border border-amber-200 text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1"><i data-lucide="check" class="w-2.5 h-2.5"></i>${f.split('(')[0].trim()}</span>`).join('')}
-                  ${fleetList.length > 2 ? `<span class="text-[10px] text-amber-700 font-bold px-1 py-0.5">+${fleetList.length - 2} more</span>` : ''}
+                <div class="mt-3 flex flex-wrap gap-1.5">
+                  ${fleetList.slice(0, 2).map(f => `<span class="bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-md flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-amber-700"></i>${f.split('(')[0].trim()}</span>`).join('')}
+                  ${fleetList.length > 2 ? `<span class="text-xs text-amber-700 font-bold px-1.5 py-0.5">+${fleetList.length - 2} more</span>` : ''}
                 </div>
               ` : ''}
 
               <div class="mt-3 flex flex-wrap gap-1.5">
-                ${amenityList.slice(0, 3).map(a => `<span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded-md border border-slate-200">${a}</span>`).join('')}
-                ${amenityList.length > 3 ? `<span class="text-[10px] text-slate-500 font-semibold px-1 py-0.5">+${amenityList.length - 3} more</span>` : ''}
+                ${amenityList.slice(0, 3).map(a => `<span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-md border border-slate-200">${a}</span>`).join('')}
+                ${amenityList.length > 3 ? `<span class="text-xs text-slate-500 font-semibold px-1.5 py-0.5">+${amenityList.length - 3} more</span>` : ''}
               </div>
 
-              <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                <a href="/listing/${v.slug || ''}" class="text-[11px] font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1">
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <a href="/listing/${v.slug || ''}" class="text-sm font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1">
                   <span>View Verified Profile</span> &rarr;
                 </a>
-                <span class="text-emerald-700 font-semibold text-[11px] flex items-center gap-1">
-                  <i data-lucide="shield-check" class="w-3 h-3"></i> $2M+ Insured
+                <span class="text-emerald-700 font-semibold text-xs sm:text-sm flex items-center gap-1">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i> $2M+ Insured
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="p-5 pt-0 border-t border-slate-100 bg-slate-50/40 mt-4 flex items-center justify-between gap-1.5 flex-wrap sm:flex-nowrap">
-            <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1 transition-colors shadow-xs">
-              <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <div class="p-5 pt-0 border-t border-slate-100 bg-slate-50/40 mt-4 flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+            <button onclick="openQuoteModal('${v.city}')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-xs">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
               <span>Request Quote</span>
             </button>
 
-            <button onclick="openMessageModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-800 text-[11px] font-semibold px-2.5 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors flex items-center gap-1" title="Direct Message Operator">
-              <i data-lucide="message-square" class="w-3 h-3 text-amber-600"></i>
+            <button onclick="openMessageModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" class="bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-semibold px-3 py-2.5 rounded-xl border border-slate-200 shadow-xs transition-colors flex items-center gap-1" title="Direct Message Operator">
+              <i data-lucide="message-square" class="w-3.5 h-3.5 text-amber-600"></i>
               <span>Message</span>
             </button>
 
-            <button onclick="openClaimModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" aria-label="Claim Profile" class="bg-white hover:bg-slate-100 text-slate-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
-              <i data-lucide="key" class="w-3.5 h-3.5 text-amber-600"></i>
+            <button onclick="openClaimModal('${v.id}', '${(v.name || '').replace(/'/g, "\\'")}')" aria-label="Claim Profile" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Claim Profile">
+              <i data-lucide="key" class="w-4 h-4 text-amber-600"></i>
             </button>
 
-            <button onclick="openBadgeModal('${v.id}')" aria-label="Get Embeddable Verified Badge" class="bg-white hover:bg-slate-100 text-amber-700 text-[11px] font-semibold px-2 py-2 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
-              <i data-lucide="badge-check" class="w-3.5 h-3.5 text-amber-600"></i>
+            <button onclick="openBadgeModal('${v.id}')" aria-label="Get Embeddable Verified Badge" class="bg-white hover:bg-slate-100 text-amber-700 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-200 shadow-xs transition-colors" title="Get Embeddable Verified Badge">
+              <i data-lucide="badge-check" class="w-4 h-4 text-amber-600"></i>
             </button>
           </div>
         </div>
