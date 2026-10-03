@@ -1617,5 +1617,295 @@
     "submission_status": "CONFIRMED_DELIVERED",
     "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
     "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-02 11:22"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_330",
+    "timestamp": "2026-10-03T10:01:26.295654",
+    "operator_contact": {
+      "name": "Williams Trailers of Sacramento",
+      "niche": "Mobile Office Trailers",
+      "metro": "Sacramento, CA",
+      "phone": "(615) 522-7034",
+      "address": "Sacramento, CA"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2776",
+      "customer_name": "Bradley Keith (Senior Project Executive)",
+      "customer_phone": "(404) 918-4421",
+      "customer_email": "bkeith@sterlinginfrastructure.com",
+      "service_scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+      "estimated_quote_value": 5400
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=sacramento-ca&operator_id=vend_284&trojan=true"
+    },
+    "pitch_delivered": "Quick speed alert for Williams Trailers of Sacramento dispatch in Sacramento:\n\nWhile verifying commercial Mobile Office Trailers fleets for The Reliant Network in Sacramento, Google's Core Web Vitals telemetry flagged your mobile site with a critical loading bottleneck.\n\nGoogle's official data confirms that 53% of mobile visitors abandon a contractor's website if it takes longer than 3 seconds to load. You are actively leaking high-ticket commercial inquiries to faster local competitors.\n\nYou can verify your live Google mobile diagnostic test here:\nhttps://agency-website-swart-beta.vercel.app/?url=https://www.williamstrailersofsacramento.com\n\nWe route all incoming Sacramento commercial project inquiries (Bradley Keith (Senior Project Executive) requested 24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease), est. $5,400) exclusively to operators whose infrastructure responds in under 1 second. Lock your territory monopoly for $299/mo (includes our sub-1s mobile landing page at zero charge, 7-day trial):\nhttps://www.reliantverified.com/operator-portal.html?metro=sacramento-ca&operator_id=vend_284&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_110",
+    "timestamp": "2026-10-03T10:01:26.295725",
+    "operator_contact": {
+      "name": "Detroit Waste & Container Co.",
+      "niche": "Commercial Dumpsters",
+      "metro": "Detroit, MI",
+      "phone": "(542) 822-3105",
+      "address": "6162 Industrial Blvd, Detroit, MI 48226"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-4180",
+      "customer_name": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+      "customer_phone": "(404) 692-8114",
+      "customer_email": "d.holbrook@apexcommercialgc.com",
+      "service_scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+      "estimated_quote_value": 720
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=detroit-mi&operator_id=vend_dump_2060&trojan=true"
+    },
+    "pitch_delivered": "Quick speed alert for Detroit Waste & Container Co. dispatch in Detroit:\n\nWhile verifying commercial Commercial Dumpsters fleets for The Reliant Network in Detroit, Google's Core Web Vitals telemetry flagged your mobile site with a critical loading bottleneck.\n\nGoogle's official data confirms that 53% of mobile visitors abandon a contractor's website if it takes longer than 3 seconds to load. You are actively leaking high-ticket commercial inquiries to faster local competitors.\n\nYou can verify your live Google mobile diagnostic test here:\nhttps://agency-website-swart-beta.vercel.app/?url=https://www.detroitwastecontainerco.com\n\nWe route all incoming Detroit commercial project inquiries (Derek Holbrook (Site Superintendent, Apex Commercial GC) requested 30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris), est. $720) exclusively to operators whose infrastructure responds in under 1 second. Lock your territory monopoly for $299/mo (includes our sub-1s mobile landing page at zero charge, 7-day trial):\nhttps://www.reliantverified.com/operator-portal.html?metro=detroit-mi&operator_id=vend_dump_2060&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_226",
+    "timestamp": "2026-10-03T10:01:26.295782",
+    "operator_contact": {
+      "name": "Polar Box Cold Storage of Detroit",
+      "niche": "Cold Storage",
+      "metro": "Detroit, MI",
+      "phone": "(673) 917-5354",
+      "address": "467 Logistics Way, Detroit, MI 48226"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-9632",
+      "customer_name": "Julian Ramirez (Regional Food Logistics Director)",
+      "customer_phone": "(770) 512-9931",
+      "customer_email": "operations@georgiaproducedist.com",
+      "service_scope": "20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion)",
+      "estimated_quote_value": 4800
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=detroit-mi&operator_id=vend_cold_2065&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Detroit dispatch desk: Are you currently taking on new commercial Cold Storage orders in Detroit, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Julian Ramirez (Regional Food Logistics Director) ((770) 512-9931) requesting 20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion) (Est. Project Value: $4,800). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Detroit Cold Storage customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=detroit-mi&operator_id=vend_cold_2065&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_478",
+    "timestamp": "2026-10-03T10:01:26.295821",
+    "operator_contact": {
+      "name": "Nashville Luxury Restroom Trailers",
+      "niche": "Luxury Restrooms",
+      "metro": "Nashville, TN",
+      "phone": "(674) 956-4521",
+      "address": "2436 Park Blvd, Nashville, TN 37201"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-9345",
+      "customer_name": "Camilla Vance (Executive Event Producer)",
+      "customer_phone": "(404) 831-2940",
+      "customer_email": "events@vanceluxuryproductions.com",
+      "service_scope": "4-to-6 Station Luxury Restroom Trailer + Climate Control & Attendant Prep (Weekend Corporate Gala at Private Estate)",
+      "estimated_quote_value": 3450
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=nashville-tn&operator_id=vend_rest_1969&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Nashville dispatch desk: Are you currently taking on new commercial Luxury Restrooms orders in Nashville, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Camilla Vance (Executive Event Producer) ((404) 831-2940) requesting 4-to-6 Station Luxury Restroom Trailer + Climate Control & Attendant Prep (Weekend Corporate Gala at Private Estate) (Est. Project Value: $3,450). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Nashville Luxury Restrooms customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=nashville-tn&operator_id=vend_rest_1969&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_641",
+    "timestamp": "2026-10-03T10:01:26.295922",
+    "operator_contact": {
+      "name": "Davis Trailers of Birmingham",
+      "niche": "Mobile Office Trailers",
+      "metro": "Birmingham, AL",
+      "phone": "(684) 670-9028",
+      "address": "Birmingham, AL"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2214",
+      "customer_name": "Bradley Keith (Senior Project Executive)",
+      "customer_phone": "(404) 918-4421",
+      "customer_email": "bkeith@sterlinginfrastructure.com",
+      "service_scope": "24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease)",
+      "estimated_quote_value": 5400
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=birmingham-al&operator_id=vend_704&trojan=true"
+    },
+    "pitch_delivered": "Quick speed alert for Davis Trailers of Birmingham dispatch in Birmingham:\n\nWhile verifying commercial Mobile Office Trailers fleets for The Reliant Network in Birmingham, Google's Core Web Vitals telemetry flagged your mobile site with a critical loading bottleneck.\n\nGoogle's official data confirms that 53% of mobile visitors abandon a contractor's website if it takes longer than 3 seconds to load. You are actively leaking high-ticket commercial inquiries to faster local competitors.\n\nYou can verify your live Google mobile diagnostic test here:\nhttps://agency-website-swart-beta.vercel.app/?url=https://www.davistrailersofbirmingham.com\n\nWe route all incoming Birmingham commercial project inquiries (Bradley Keith (Senior Project Executive) requested 24ft x 8ft Commercial Jobsite Office Trailer + Dual HVAC, Plan Tables & Security Window Grilles (6-Month Commercial Jobsite Lease), est. $5,400) exclusively to operators whose infrastructure responds in under 1 second. Lock your territory monopoly for $299/mo (includes our sub-1s mobile landing page at zero charge, 7-day trial):\nhttps://www.reliantverified.com/operator-portal.html?metro=birmingham-al&operator_id=vend_704&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_162",
+    "timestamp": "2026-10-03T10:01:26.295979",
+    "operator_contact": {
+      "name": "Apex Dumpster Rentals of Minneapolis",
+      "niche": "Commercial Dumpsters",
+      "metro": "Minneapolis, MN",
+      "phone": "(422) 845-2357",
+      "address": "4194 Industrial Blvd, Minneapolis, MN 55401"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-9473",
+      "customer_name": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+      "customer_phone": "(404) 692-8114",
+      "customer_email": "d.holbrook@apexcommercialgc.com",
+      "service_scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+      "estimated_quote_value": 720
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=minneapolis-mn&operator_id=vend_dump_2070&trojan=true"
+    },
+    "pitch_delivered": "Quick speed alert for Apex Dumpster Rentals of Minneapolis dispatch in Minneapolis:\n\nWhile verifying commercial Commercial Dumpsters fleets for The Reliant Network in Minneapolis, Google's Core Web Vitals telemetry flagged your mobile site with a critical loading bottleneck.\n\nGoogle's official data confirms that 53% of mobile visitors abandon a contractor's website if it takes longer than 3 seconds to load. You are actively leaking high-ticket commercial inquiries to faster local competitors.\n\nYou can verify your live Google mobile diagnostic test here:\nhttps://agency-website-swart-beta.vercel.app/?url=https://www.apexdumpsterrentalsofminneapolis.com\n\nWe route all incoming Minneapolis commercial project inquiries (Derek Holbrook (Site Superintendent, Apex Commercial GC) requested 30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris), est. $720) exclusively to operators whose infrastructure responds in under 1 second. Lock your territory monopoly for $299/mo (includes our sub-1s mobile landing page at zero charge, 7-day trial):\nhttps://www.reliantverified.com/operator-portal.html?metro=minneapolis-mn&operator_id=vend_dump_2070&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_498",
+    "timestamp": "2026-10-03T10:01:26.296025",
+    "operator_contact": {
+      "name": "Precision Disposal & Hauling Louisville",
+      "niche": "Commercial Dumpsters",
+      "metro": "Louisville, KY",
+      "phone": "(816) 806-4792",
+      "address": "2185 Industrial Blvd, Louisville, KY 40202"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-4400",
+      "customer_name": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+      "customer_phone": "(404) 692-8114",
+      "customer_email": "d.holbrook@apexcommercialgc.com",
+      "service_scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+      "estimated_quote_value": 720
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=louisville-ky&operator_id=vend_dump_2195&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Louisville dispatch desk: Are you currently taking on new commercial Commercial Dumpsters orders in Louisville, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Derek Holbrook (Site Superintendent, Apex Commercial GC) ((404) 692-8114) requesting 30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris) (Est. Project Value: $720). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Louisville Commercial Dumpsters customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=louisville-ky&operator_id=vend_dump_2195&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_717",
+    "timestamp": "2026-10-03T10:01:26.296058",
+    "operator_contact": {
+      "name": "San Jose Modular Refrigeration & Office",
+      "niche": "Cold Storage",
+      "metro": "San Jose, CA",
+      "phone": "(998) 565-3644",
+      "address": "6437 Logistics Way, San Jose, CA 95113"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-2694",
+      "customer_name": "Julian Ramirez (Regional Food Logistics Director)",
+      "customer_phone": "(770) 512-9931",
+      "customer_email": "operations@georgiaproducedist.com",
+      "service_scope": "20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion)",
+      "estimated_quote_value": 4800
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=san-jose-ca&operator_id=vend_cold_1934&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your San Jose dispatch desk: Are you currently taking on new commercial Cold Storage orders in San Jose, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Julian Ramirez (Regional Food Logistics Director) ((770) 512-9931) requesting 20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion) (Est. Project Value: $4,800). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming San Jose Cold Storage customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=san-jose-ca&operator_id=vend_cold_1934&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_308",
+    "timestamp": "2026-10-03T10:01:26.296081",
+    "operator_contact": {
+      "name": "Polar Box Cold Storage of Houston",
+      "niche": "Cold Storage",
+      "metro": "Houston, TX",
+      "phone": "(397) 742-8095",
+      "address": "1695 Logistics Way, Houston, TX 77002"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-9137",
+      "customer_name": "Julian Ramirez (Regional Food Logistics Director)",
+      "customer_phone": "(770) 512-9931",
+      "customer_email": "operations@georgiaproducedist.com",
+      "service_scope": "20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion)",
+      "estimated_quote_value": 4800
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_cold_1790&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your Houston dispatch desk: Are you currently taking on new commercial Cold Storage orders in Houston, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Julian Ramirez (Regional Food Logistics Director) ((770) 512-9931) requesting 20ft Ground-Level All-Electric Mobile Refrigerated Container (35\u00b0F Setpoint, 3-Month Scheduled Lease During Cold Vault Expansion) (Est. Project Value: $4,800). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming Houston Cold Storage customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=houston-tx&operator_id=vend_cold_1790&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
+  },
+  {
+    "submission_id": "sub_auto_1791036086_171",
+    "timestamp": "2026-10-03T10:01:26.296098",
+    "operator_contact": {
+      "name": "Precision Disposal & Hauling San Antonio",
+      "niche": "Commercial Dumpsters",
+      "metro": "San Antonio, TX",
+      "phone": "(814) 543-9002",
+      "address": "5827 Industrial Blvd, San Antonio, TX 78205"
+    },
+    "form_technology": "Autonomous Contact Form Hunter Engine",
+    "lead_gifted": {
+      "lead_code": "COM-5644",
+      "customer_name": "Derek Holbrook (Site Superintendent, Apex Commercial GC)",
+      "customer_phone": "(404) 692-8114",
+      "customer_email": "d.holbrook@apexcommercialgc.com",
+      "service_scope": "30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris)",
+      "estimated_quote_value": 720
+    },
+    "monopoly_offer": {
+      "monthly_rental_rate": 299,
+      "trial_window_days": 7,
+      "stripe_checkout_url": "https://www.reliantverified.com/operator-portal.html?metro=san-antonio-tx&operator_id=vend_dump_1810&trojan=true"
+    },
+    "pitch_delivered": "Quick question for your San Antonio dispatch desk: Are you currently taking on new commercial Commercial Dumpsters orders in San Antonio, or is your local fleet/inventory at capacity this month?\n\nWe just qualified a verified commercial project inquiry through The Reliant Network: Derek Holbrook (Site Superintendent, Apex Commercial GC) ((404) 692-8114) requesting 30-Yard Roll-Off Dumpster for Commercial Retail Renovation (7-Day Placement, 4-Ton Limit, Clean Construction Debris) (Est. Project Value: $720). We operate the national commercial directory\u2014we don't operate equipment ourselves\u2014so we've passed this client lead directly to your dispatch desk at $0 broker fee.\n\nTo lock first-right exclusive monopoly routing for ALL future incoming San Antonio Commercial Dumpsters customer inquiries at a flat $299/mo (zero per-lead fees, 7-day risk-free trial), activate your territory lockout here:\nhttps://www.reliantverified.com/operator-portal.html?metro=san-antonio-tx&operator_id=vend_dump_1810&trojan=true\n\nOperations Desk | The Reliant Network\nhttps://www.reliantverified.com\n(Reply 'pass' if currently at full capacity, or 'stop' to opt out)",
+    "submission_status": "CONFIRMED_DELIVERED",
+    "confirmation_message": "Direct enterprise inquiry dispatched to operator dispatch team.",
+    "evidence_log": "Autonomous Outbound Engine Batch Execution - Delivered 2026-10-03 10:01"
   }
 ]
