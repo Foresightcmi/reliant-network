@@ -8,3 +8,27 @@ html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 .text-sm { font-size: 0.96875rem !important; line-height: 1.5rem !important; }
 .text-base { font-size: 1.0625rem !important; line-height: 1.65rem !important; }
 @media (max-width: 640px) { input, select, textarea { font-size: 16px !important; } }
+
+/* === SOOTHING OFF-WHITE EYE-COMFORT PALETTE === */
+html, body {
+  background-color: #f8f7f4 !important;
+  color: #1e293b;
+}
+
+/* Full-width section stripes softened from glaring pure white to warm off-white */
+section.bg-white,
+header.bg-white,
+header.bg-white\/95,
+footer.bg-white {
+  background-color: #f8f7f4 !important;
+}
+
+section.bg-slate-50,
+footer.bg-slate-50 {
+  background-color: #f1efe9 !important;
+}
+
+/* Modal overlays and backdrops */
+.modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+}
