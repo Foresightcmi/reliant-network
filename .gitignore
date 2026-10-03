@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 apps/web/node_modules/
 __pycache__/
 *.pyc
@@ -6,3 +6,17 @@ __pycache__/
 .DS_Store
 *.log
 .vercel
+
+# Temporary audit & diagnostic scripts
+analyze_*.py
+audit_*.py
+deep_seo_audit.py
+enrich_index_seo.py
+find_*.py
+inspect_*.py
+lint_*.py
+list_*.py
+patch_idle_hydration.py
+strip_cdn_all_pages.py
+test_insertion_points.py
+test_reliant_pagespeed.py
