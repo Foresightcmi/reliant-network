@@ -52204,5 +52204,17 @@
     "rating": 4.5,
     "reviews_count": 59,
     "subscription_active": false
+  },
+  {
+    "id": "vendor-1316",
+    "name": "Commercial Roofers Near Me - Enter Zip Code &amp; Find Pros",
+    "niche": "commercial roofing",
+    "city": "Atlanta",
+    "state": "GA",
+    "email": "owner@commercialroofersnearme-enterzipcode&amp;findpros.com",
+    "phone": "555-961-2426",
+    "rating": 4.5,
+    "reviews_count": 72,
+    "subscription_active": false
   }
 ]
