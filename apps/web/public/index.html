@@ -51,10 +51,14 @@
     }
   }
   </script>
-  <!-- Preconnect & Fonts -->
+  <!-- Preconnect & Fonts (Non-Render-Blocking Asynchronous Load) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  </noscript>
 
   <!-- Production Pre-compiled Minified Stylesheet (Zero runtime CPU parse overhead) -->
   <link rel="stylesheet" href="/styles.min.css">
@@ -3851,11 +3855,10 @@
 
     // Zero-Regressive Hydration & Idle Scheduling (Autonomy Partners High-Performance Standard)
     const deferNonCriticalInit = () => {
-      updateCapacityPlanner();
-      try { if (window.lucide) lucide.createIcons(); } catch(e){}
-
-      const idleRunner = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+      const idleRunner = window.requestIdleCallback || ((cb) => setTimeout(cb, 250));
       idleRunner(() => {
+        try { if (window.lucide) lucide.createIcons(); } catch(e){}
+        updateCapacityPlanner();
         loadVendors();
 
         // Lazy-load Leaflet map only when depot section approaches viewport
