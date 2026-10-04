@@ -2,25 +2,41 @@
     let currentVendors = [];
 
     const NICHE_METADATA = {
+      commercial_dumpsters: {
+        badge: 'Verified Roll-Off Dumpster Fleets &bull; 311 Verified Yards',
+        title: 'Rent Roll-Off Dumpsters with <span class="gold-text italic">Flat-Rate Delivery</span>',
+        desc: 'Compare upfront rates and included tonnage for 10, 20, 30, and 40-yard roll-off containers. Connect with 311 independently verified local haulers with guaranteed 24-hour drop-off.',
+        heading: 'Verified Roll-Off Dumpster Fleets',
+        sub: 'Nationwide Flat-Rate Waste Network',
+        aliases: ['commercial_dumpsters', 'dumpsters', 'roll_off', 'dumpster_rental']
+      },
       luxury_restrooms: {
-        badge: 'Verified VIP Luxury Sanitation Fleets',
+        badge: 'Verified VIP Luxury Sanitation Fleets &bull; 161 Verified Fleets',
         title: 'Rent High-End Restroom Trailers for <span class="gold-text italic">Weddings &amp; VIP Galas</span>',
         desc: 'Don\'t risk your event\'s reputation. Browse our exclusive network of rigorously vetted luxury restroom operators guaranteeing pristine hygiene, climate control, and flawless execution.',
         heading: 'Trusted Sanitation Partners',
         sub: 'Verified VIP Network'
       },
       commercial_cold_storage: {
-        badge: 'Emergency Mobile Cold Storage Network',
+        badge: 'Emergency Mobile Cold Storage Network &bull; 182 Verified Fleets',
         title: 'Rent Commercial Mobile Freezers &amp; <span class="gold-text italic">Refrigeration Pods</span>',
         desc: 'When inventory is on the line, seconds matter. Connect instantly with verified emergency cold storage operators providing rapid deployment of deep-freeze (-20°F) reefers.',
         heading: 'Reliable Cold Storage Operators',
         sub: 'Verified 24/7 Deployment Network'
       },
+      mobile_office_trailers: {
+        badge: 'Verified Jobsite Office Trailers &amp; Conex Storage &bull; 100 Fleets',
+        title: 'Rent Modular Jobsite Field Offices &amp; <span class="gold-text italic">Conex Storage</span>',
+        desc: 'Secure, weatherproof jobsite staging. Browse 100 verified fleets offering 10ft–40ft high-cube storage conexes and climate-controlled mobile office trailers with full electrical fit-outs.',
+        heading: 'Verified Jobsite Office &amp; Storage Fleets',
+        sub: 'Commercial Modular Jobsite Network',
+        aliases: ['mobile_office_trailers', 'office_trailers', 'conex_storage', 'jobsite_trailers']
+      },
       heavy_crane_rigging: {
-        badge: 'Certified Mobile Crane &amp; Industrial Rigging Fleet',
+        badge: 'Certified Mobile Crane &amp; Industrial Rigging Fleet (RFP Desk)',
         title: 'Hire Heavy Mobile Cranes &amp; <span class="gold-text italic">Certified Rigging Crews</span>',
-        desc: 'Safety and compliance are non-negotiable. Access our elite network of NCCCO-certified crane operators delivering absolute precision for critical HVAC and structural lifts.',
-        heading: 'Vetted Hoisting Contractors',
+        desc: 'Safety and compliance are non-negotiable. Broadcast your project to our elite network of NCCCO-certified crane operators delivering absolute precision for critical HVAC and structural lifts.',
+        heading: 'Vetted Hoisting Contractors (RFP Desk)',
         sub: 'Verified Industrial Safety Network'
       },
       senior_care_placement: {
@@ -39,7 +55,7 @@
         aliases: ['aging_in_place', 'staying_in_place']
       },
       temporary_power: {
-        badge: 'Verified Industrial Temporary Power &amp; Mobile Generators',
+        badge: 'Verified Industrial Temporary Power &amp; Mobile Generators (RFP)',
         title: 'Rent High-Capacity Mobile Generators &amp; <span class="gold-text italic">Emergency Power Fleets</span>',
         desc: 'Zero downtime guaranteed. Connect directly with pre-audited industrial temporary power operators providing Tier 4 Final diesel and gas mobile generators (250 kW – 2MW), high-voltage switchgear, and emergency 24/7 refueling.',
         heading: 'Verified Power Generation Fleets',
@@ -47,7 +63,7 @@
         aliases: ['temporary_power', 'power', 'generators']
       },
       machinery_moving: {
-        badge: 'Certified Heavy Machinery Moving &amp; Millwright Rigging Fleets',
+        badge: 'Certified Heavy Machinery Moving &amp; Millwright Rigging Fleets (RFP)',
         title: 'Contract Precision Millwright Rigging &amp; <span class="gold-text italic">Heavy Machine Relocation</span>',
         desc: 'Millwright precision for critical factory assets. Access SC&amp;RA-certified industrial machinery movers equipped with Versa-Lift mobile cranes, 500-ton hydraulic gantries, and air-skate cleanroom equipment.',
         heading: 'Verified Millwright &amp; Rigging Contractors',
@@ -73,6 +89,12 @@
     };
 
     // Support aliases in NICHE_METADATA
+    NICHE_METADATA.commercial_dumpsters = NICHE_METADATA.commercial_dumpsters;
+    NICHE_METADATA.dumpsters = NICHE_METADATA.commercial_dumpsters;
+    NICHE_METADATA.roll_off = NICHE_METADATA.commercial_dumpsters;
+    NICHE_METADATA.mobile_office_trailers = NICHE_METADATA.mobile_office_trailers;
+    NICHE_METADATA.office_trailers = NICHE_METADATA.mobile_office_trailers;
+    NICHE_METADATA.conex = NICHE_METADATA.mobile_office_trailers;
     NICHE_METADATA.cold_storage = NICHE_METADATA.commercial_cold_storage;
     NICHE_METADATA.crane_rigging = NICHE_METADATA.heavy_crane_rigging;
     NICHE_METADATA.senior_care = NICHE_METADATA.senior_care_placement;
@@ -87,10 +109,10 @@
     function switchNiche(nicheId) {
       activeNiche = nicheId || 'all';
       const allNiches = [
-        'all', 'luxury_restrooms', 'commercial_cold_storage', 'heavy_crane_rigging', 
-        'temporary_power', 'machinery_moving', 'aging_in_place', 'senior_care_placement', 
+        'all', 'commercial_dumpsters', 'luxury_restrooms', 'commercial_cold_storage', 'mobile_office_trailers',
+        'heavy_crane_rigging', 'temporary_power', 'machinery_moving', 'aging_in_place', 'senior_care_placement', 
         'senior_downsizing', 'wheelchair_vans', 'cold_storage', 'crane_rigging', 
-        'senior_care', 'staying_in_place', 'power', 'rigging', 'downsizing', 'wav'
+        'senior_care', 'staying_in_place', 'power', 'rigging', 'downsizing', 'wav', 'dumpsters', 'roll_off', 'office_trailers'
       ];
       allNiches.forEach(k => {
         const tab = document.getElementById(`niche-tab-${k}`);
@@ -124,15 +146,15 @@
         if (qNiche) qNiche.value = activeNiche;
       } else {
         const badgeEl = document.getElementById('hero-badge-text');
-        if (badgeEl) badgeEl.textContent = 'Nationwide Independent Verification • $2M+ Liability Insurance Audited';
+        if (badgeEl) badgeEl.innerHTML = '754 Verified Fleets Nationwide &bull; Flat-Rate Delivery &bull; $2M+ Insured';
         const titleEl = document.getElementById('hero-title');
-        if (titleEl) titleEl.innerHTML = 'Find &amp; Hire Vetted Specialty Contractors &amp; <span class="gold-text italic">High-Capacity Equipment</span>';
+        if (titleEl) titleEl.innerHTML = 'Rent Verified Commercial Equipment &amp; <span class="gold-text italic">Flat-Rate Site Services</span>';
         const descEl = document.getElementById('hero-desc');
-        if (descEl) descEl.textContent = 'Connect directly with independently audited specialists across 9 core verticals — from commercial mobile generators and precision millwright rigging to certified 65+ aging-in-place remodeling and wheelchair mobility fleets. Zero broker markups, upfront pricing.';
+        if (descEl) descEl.textContent = 'Guaranteed local dispatch and transparent flat-rate pricing for commercial roll-off dumpsters, luxury restroom trailers, mobile walk-in cold storage, and jobsite office containers. Nationwide independently audited fleets.';
         const headEl = document.getElementById('directory-heading');
-        if (headEl) headEl.textContent = 'All Verified Specialty Contractors';
+        if (headEl) headEl.textContent = 'Verified Commercial Fleets & Yards';
         const subEl = document.getElementById('directory-sub');
-        if (subEl) subEl.textContent = 'Nationwide Verified Directory & Equipment Network';
+        if (subEl) subEl.textContent = 'Nationwide Flat-Rate Equipment Network';
         const qNiche = document.getElementById('q-niche');
         if (qNiche) qNiche.value = 'all';
       }
@@ -165,11 +187,13 @@
 
     function switchToolTab(tab) {
       const panes = {
+        dumpsters: document.getElementById('tool-pane-dumpsters'),
         restrooms: document.getElementById('tool-pane-restrooms'),
         staying: document.getElementById('tool-pane-staying'),
         financing: document.getElementById('tool-pane-financing')
       };
       const buttons = {
+        dumpsters: document.getElementById('tab-btn-dumpsters'),
         restrooms: document.getElementById('tab-btn-restrooms'),
         staying: document.getElementById('tab-btn-staying'),
         financing: document.getElementById('tab-btn-financing')
@@ -189,6 +213,111 @@
         }
       });
       try { lucide.createIcons(); } catch(e){}
+    }
+
+    let currentDumpsterProject = 'cleanout';
+
+    function selectDumpsterProject(type) {
+      currentDumpsterProject = type;
+      const btns = ['cleanout', 'construction', 'roofing', 'heavy'];
+      btns.forEach(b => {
+        const el = document.getElementById(`dump-btn-${b}`);
+        if (el) {
+          if (b === type) {
+            el.className = 'dump-project-btn active p-3 rounded-xl border-2 border-amber-500 bg-amber-50/50 text-center transition-all cursor-pointer';
+            const icon = el.querySelector('i');
+            if (icon) { icon.classList.remove('text-slate-500'); icon.classList.add('text-amber-600'); }
+            const span = el.querySelector('span');
+            if (span) { span.classList.remove('text-slate-700'); span.classList.add('text-slate-900'); }
+          } else {
+            el.className = 'dump-project-btn p-3 rounded-xl border border-slate-200 bg-white text-center hover:border-slate-300 transition-all cursor-pointer';
+            const icon = el.querySelector('i');
+            if (icon) { icon.classList.remove('text-amber-600'); icon.classList.add('text-slate-500'); }
+            const span = el.querySelector('span');
+            if (span) { span.classList.remove('text-slate-900'); span.classList.add('text-slate-700'); }
+          }
+        }
+      });
+      updateDumpsterSizer();
+    }
+
+    function updateDumpsterSizer() {
+      const slider = document.getElementById('dumpster-slider');
+      const vol = parseInt(slider?.value || '6', 10);
+      const display = document.getElementById('dumpster-volume-display');
+      if (display) display.textContent = `${vol} Truckload${vol === 1 ? '' : 's'}`;
+
+      let badge = '20 Yard Container';
+      let title = '20-Yard Commercial Roll-Off';
+      let desc = 'The nation\'s most versatile dumpster size. Ideal for 2-3 room remodels, deck removals up to 400 sq ft, or whole-home estate cleanouts.';
+      let tons = '3.0 Tons Included (6,000 lbs)';
+      let dims = '22ft L x 8ft W x 4.5ft H';
+      let price = '$445 – $585';
+
+      if (currentDumpsterProject === 'heavy') {
+        badge = '10 Yard Heavy Duty (Low-Boy)';
+        title = '10-Yard Concrete / Dirt Low-Boy';
+        desc = 'Specially reinforced container engineered for heavy inert materials (concrete, brick, soil, pavers). Prevents overweight DOT haul penalties.';
+        tons = '5.0 to 10.0 Tons (Heavy Inert)';
+        dims = '16ft L x 8ft W x 2ft H';
+        price = '$495 – $650';
+      } else if (vol <= 4) {
+        badge = '10 Yard Container';
+        title = '10-Yard Compact Roll-Off';
+        desc = 'Fits easily into tight residential driveways. Ideal for garage cleanouts, single bathroom renovations, or minor landscaping debris.';
+        tons = '2.0 Tons Included (4,000 lbs)';
+        dims = '12ft L x 8ft W x 3.5ft H';
+        price = '$345 – $460';
+      } else if (vol <= 8) {
+        badge = '20 Yard Container';
+        title = '20-Yard Commercial Roll-Off';
+        desc = 'The nation\'s most versatile dumpster size. Ideal for 2-3 room remodels, deck removals up to 400 sq ft, or whole-home estate cleanouts.';
+        tons = '3.0 Tons Included (6,000 lbs)';
+        dims = '22ft L x 8ft W x 4.5ft H';
+        price = '$445 – $585';
+      } else if (vol <= 13) {
+        badge = '30 Yard Container';
+        title = '30-Yard High-Volume Roll-Off';
+        desc = 'High-capacity container for major whole-home additions, multi-room commercial renovations, or large retail tenant fit-outs.';
+        tons = '4.0 Tons Included (8,000 lbs)';
+        dims = '22ft L x 8ft W x 6ft H';
+        price = '$540 – $695';
+      } else {
+        badge = '40 Yard Maximum Container';
+        title = '40-Yard Commercial / Industrial Roll-Off';
+        desc = 'Maximum commercial volume. Recommended for entire building demolitions, large industrial cleanouts, and multi-story commercial debris.';
+        tons = '5.0 to 6.0 Tons Included (12,000 lbs)';
+        dims = '22ft L x 8ft W x 8ft H';
+        price = '$650 – $850';
+      }
+
+      const sizeBadgeEl = document.getElementById('dumpster-size-badge');
+      if (sizeBadgeEl) sizeBadgeEl.textContent = badge;
+      const titleEl = document.getElementById('dumpster-rec-title');
+      if (titleEl) titleEl.textContent = title;
+      const descEl = document.getElementById('dumpster-rec-desc');
+      if (descEl) descEl.textContent = desc;
+      const tonsEl = document.getElementById('dumpster-rec-tons');
+      if (tonsEl) tonsEl.textContent = tons;
+      const dimsEl = document.getElementById('dumpster-rec-dims');
+      if (dimsEl) dimsEl.textContent = dims;
+      const priceEl = document.getElementById('dumpster-rec-price');
+      if (priceEl) priceEl.textContent = price;
+    }
+
+    function applyDumpsterSizerToQuote() {
+      openQuoteModal();
+      const nicheSelect = document.getElementById('q-niche');
+      if (nicheSelect) nicheSelect.value = 'commercial_dumpsters';
+
+      const sizeTitle = document.getElementById('dumpster-rec-title')?.textContent || '20-Yard Roll-Off';
+      const tons = document.getElementById('dumpster-rec-tons')?.textContent || '3.0 Tons';
+      const price = document.getElementById('dumpster-rec-price')?.textContent || '$445 – $585';
+
+      const notesEl = document.getElementById('q-notes');
+      if (notesEl) {
+        notesEl.value = `Roll-Off Dumpster Order: ${sizeTitle}. Included Tonnage: ${tons}. Estimated Flat Rate: ${price}. Project: ${currentDumpsterProject}.`;
+      }
     }
 
     function updateAgingInPlaceCalculator() {

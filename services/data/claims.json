@@ -3,6 +3,18 @@
     "vendor_id": "vend_atl_01",
     "email": "dispatch@royalrestrooms.com",
     "amount": 99,
+    "claimed_at": "2026-10-04T02:36:07.901Z"
+  },
+  {
+    "vendor_id": "vend_atl_01",
+    "email": "dispatch@royalrestrooms.com",
+    "amount": 99,
+    "claimed_at": "2026-10-04T02:34:26.406Z"
+  },
+  {
+    "vendor_id": "vend_atl_01",
+    "email": "dispatch@royalrestrooms.com",
+    "amount": 99,
     "claimed_at": "2026-09-27T01:29:45.565Z"
   }
 ]

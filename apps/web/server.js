@@ -2525,7 +2525,7 @@ app.post('/api/operator/leads/unlock', async (req, res) => {
     opWallet.unlocked_leads = opWallet.unlocked_leads || [];
 
     if (opWallet.unlocked_leads.includes(lead_id)) {
-      return res.json({ success: true, message: 'Lead already unlocked.', already_unlocked: true });
+      return res.json({ success: true, lead_id, message: 'Lead already unlocked.', already_unlocked: true });
     }
 
     const leadPrice = 85.00;
